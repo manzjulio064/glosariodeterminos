@@ -1,0 +1,190 @@
+//***En la subconsulta recorre todos los registros de la consulta principal por lo que nuestra 2 con nota de 9.7           **//
+
+create table alumnos(
+  documento char(8),
+  nombre varchar(30),
+  nota decimal(4,2),
+  primary key(documento)
+ );
+
+  insert into alumnos values('30111111','Ana Algarbe',5.1);
+ insert into alumnos values('30222222','Bernardo Bustamante',3.2);
+ insert into alumnos values('30333333','Carolina Conte',4.5);
+ insert into alumnos values('30444444','Diana Dominguez',9.7);
+ insert into alumnos values('30555555','Fabian Fuentes',8.5);
+ insert into alumnos values('30666666','Gaston Gonzalez',9.70);
+
+ select * from alumnos
+
+  select A.*
+  from alumnos A
+  where nota = (select max(nota) from alumnos);
+
+  select titulo,autor, precio
+  from libros
+  WHERE precio = (select max(precio) from libros);
+
+//***********************************SUBCONSULTAS CON IN*************************************//
+
+ drop table if exists editoriales;
+ drop table if exists libros;
+
+ create table editoriales(
+  codigo int auto_increment,
+  nombre varchar(30),
+  primary key (codigo)
+ );
+
+ create table libros (
+  codigo int auto_increment,
+  titulo varchar(40),
+  autor varchar(30),
+  codigoeditorial smallint,
+  primary key(codigo)
+ );
+
+ insert into editoriales(nombre) values('Planeta');
+ insert into editoriales(nombre) values('Emece');
+ insert into editoriales(nombre) values('Paidos');
+ insert into editoriales(nombre) values('Siglo XXI');
+
+ insert into libros(titulo,autor,codigoeditorial) values('Uno','Richard Bach',1);
+ insert into libros(titulo,autor,codigoeditorial) values('Ilusiones','Richard Bach',1);
+ insert into libros(titulo,autor,codigoeditorial) values('Aprenda PHP','Mario Molina',4);
+ insert into libros(titulo,autor,codigoeditorial) values('El aleph','Borges',2);
+ insert into libros(titulo,autor,codigoeditorial) values('Puente al infinito','Richard Bach',2);
+
+ SELECT nombre
+  from editoriales E
+  where E.codigo in (SELECT codigoeditorial from libros WHERE autor='Richard Bach');
+
+ SELECT E.nombre
+  from editoriales E
+  WHERE codigo not in (SELECT codigoeditorial from libros WHERE autor='Richard Bach');
+
+ //***********************SUBCONSULTA PRODUCTOS DE UN PROVEEDOR***************************//
+
+   SELECT P.Nombreproveedor,
+  (select count(*) from FacturaCompras FC WHERE FC.idArticulo = A.idArticulo) as cantidad
+  FROM Proveedores P
+  INNER JOIN Articulos A ON P.IdProveedor = A.Idproveedor;
+
+ //***************************SUBCONSULTA CORRELACIONADA******************************//
+
+drop table if exists facturas;
+drop table if exists detalles;
+
+ create table facturas(
+  numero int not null,
+  fecha date,
+  cliente varchar(30),
+  primary key(numero)
+ );
+
+ create table detalles(
+  numerofactura int not null,
+  numeroitem int not null,
+  articulo varchar(30),
+  precio decimal(5,2),
+  cantidad int,
+  primary key(numerofactura,numeroitem)
+ );
+
+ insert into facturas values(1200,'2018-01-15','Juan Lopez');
+ insert into facturas values(1201,'2018-01-15','Luis Torres');
+ insert into facturas values(1202,'2018-01-15','Ana Garcia');
+ insert into facturas values(1300,'2018-01-20','Juan Lopez');
+
+ insert into detalles values(1200,1,'lapiz',1,100);
+ insert into detalles values(1200,2,'goma',0.5,150);
+ insert into detalles values(1201,1,'regla',1.5,80);
+ insert into detalles values(1201,2,'goma',0.5,200);
+ insert into detalles values(1201,3,'cuaderno',4,90);
+ insert into detalles values(1202,1,'lapiz',1,200);
+ insert into detalles values(1202,2,'escuadra',2,100);
+ insert into detalles values(1300,1,'lapiz',1,300);
+
+ SELECT F.*,
+  (SELECT count(*) FROM detalles D WHERE F.numero = D.numerofactura) cantidad,
+  (SELECT sum(D.precio*cantidad) FROM detalles D WHERE F.numero = D.numerofactura) total
+  from facturas F;
+
+ //**************************SUBCONSULTA CON EXISTS Y NOT EXISTS**************************************//
+
+ drop table if exists facturas;
+ drop table if exists detalles;
+
+ create table facturas(
+  numero int not null,
+  fecha date,
+  cliente varchar(30),
+  primary key(numero)
+ );
+
+ create table detalles(
+  numerofactura int not null,
+  numeroitem int not null,
+  articulo varchar(30),
+  precio decimal(5,2),
+  cantidad int,
+  primary key(numerofactura,numeroitem)
+ );
+
+ insert into facturas values(1200,'2018-01-15','Juan Lopez');
+ insert into facturas values(1201,'2018-01-15','Luis Torres');
+ insert into facturas values(1202,'2018-01-15','Ana Garcia');
+ insert into facturas values(1300,'2018-01-20','Juan Lopez');
+
+ insert into detalles values(1200,1,'lapiz',1,100);
+ insert into detalles values(1200,2,'goma',0.5,150);
+ insert into detalles values(1201,1,'regla',1.5,80);
+ insert into detalles values(1201,2,'goma',0.5,200);
+ insert into detalles values(1201,3,'cuaderno',4,90);
+ insert into detalles values(1202,1,'lapiz',1,200);
+ insert into detalles values(1202,2,'escuadra',2,100);
+ insert into detalles values(1300,1,'lapiz',1,300);
+
+ SELECT cliente,numero
+  from facturas as F
+  WHERE exists
+   (SELECT * from detalles D WHERE F.numero = D.numerofactura and D.articulo='lapiz');
+
+ SELECT cliente,numero
+  from facturas F
+  WHERE not exists
+   (SELECT * from detalles D WHERE F.numero = D.numerofactura and D.articulo='lapiz');
+
+
+//************************************SUBCONSULTA CON EXISTS *********************************/*/
+#bASEDATOS Adventureworks
+#Escribir una consulta que devuelva un producto de un vendedor que se
+#haya recibido el 10-09-2001 y tambien el 13-09-2001.
+#Ademas, mostrar la cantidad de prodcutos del vendedor. --> Subconsulta Escalar y que tambien esta relacionada con la consulta padre
+
+
+SELECT *,
+(SELECT count(*) FROM productvendor PV2 WHERE PV2.VendorID = V.VendorID  ) as VendorQuant,
+FROM productvendor PV
+INNER JOIN vendor V ON PV.VendorID = V.VendorId
+WHERE
+
+	exists (
+		SELECT *
+			FROM productvendor PV2
+			WHERE year(PV2.lastReceiptDate) = 2001
+			and month(PV2.lastReceiptDate) = 09
+            and day(pv2.lastReceiptDate) = 10
+            and PV.ProductID = PV2.ProductID
+    )
+
+	and exists (
+		SELECT *
+			FROM productvendor PV3
+			WHERE year(PV3.lastReceiptDate) = 2001
+			and month(PV3.lastReceiptDate) = 09
+            and day(pv3.lastReceiptDate) = 13
+            and PV.ProductID = PV3.ProductID
+    );
+
+//*****************************************************************************************/*/
+

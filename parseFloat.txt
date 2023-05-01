@@ -1,0 +1,15 @@
+
+// *************Convertir sumar campo de archivo Json que es string numero ("25")****************
+
+let jsonHelper = require("./jsonHelper")
+
+let consultafacturas = {
+  facturas: jsonHelper.leerJson("FACTURAS"),
+  sumar: function () {
+    return this.facturas.reduce((almacen, factura) => almacen += parseFloat(factura.TotalFactura), 0);
+  }
+}
+
+console.table(consultafacturas.sumar());
+
+// ************************************************************************************************

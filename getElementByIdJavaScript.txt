@@ -1,0 +1,14 @@
+//****************************************insertar un h1 en un div con id App*****************************************//
+
+var element = document.createElement("h1"); // Elemento a crear
+var texto = document.createTextNode("Hola!¿Qué tal?"); // texto para el elemento
+element.appendChild(texto); // unir texto al elemento
+
+
+var contenedor = document.getElementById('App'); // obtener elemento donde se insertara
+
+
+contenedor.insertBefore(element, App.firstChild);
+
+
+//********************************************************************************************************************//

@@ -1,0 +1,11 @@
+//********************************innerText pertite texto plano es igual al innerHtml pero html <i> se puede insertar cursiva etc***************************************************//
+
+document.querySelector('div.nombre').innerText ;
+
+document.querySelector('div.nombre').innerText = 'Maria';
+
+
+document.querySelector('div.nombre').innerText += 'Messi';
+
+
+//**************************************************************************************************//

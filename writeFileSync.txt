@@ -1,0 +1,64 @@
+
+let fs = require('fs');
+
+fs.writeFileSync('./prueba.txt', 'Hola Mundo')
+
+
+// ********************Informacion convertida a Json y creacion de archivo json***********************
+
+let fs = require('fs');
+
+let persona = {
+  nombre: "Roberto",
+  Apellido: "Puestas"
+}
+
+let convertirJson = JSON.stringify(persona)
+
+fs.writeFileSync("./prueba.json", convertirJson);
+
+// *****************************Se utiliza 2 archivos para escribir en Json*********************************
+
+// *******primer archivo lecturaEscritura.js***
+
+const fs = require("fs");
+
+const jsonHelper = {
+  leerJson: function (nombreArchivo) {
+    return JSON.parse(
+      fs.readFileSync(__dirname + "/" + nombreArchivo + ".json", "UTF-8")
+    );
+  },
+  escribirJson: function (nombreArchivo, datos) {
+    return fs.writeFileSync(
+      __dirname + "/" + nombreArchivo + ".json",
+      JSON.stringify(datos,null,2)
+    );
+  },
+};
+
+module.exports = jsonHelper;
+
+//******segundo archivo App.js*******
+
+let jsonHelper = require("./lecturaEscritura");  // lecturaEscritura.js
+
+const carrera = {
+  autos: jsonHelper.leerJson("autos"), // lecturaEscritura.js Modulo leerJson y nombre archivo a leer ("autos")
+  buscarPorPatente: function (patente) {
+    return this.autos.find((auto) => auto.patente === patente);
+  },
+  habilitarVehiculo: function (patente) {
+    let auto = this.buscarPorPatente(patente);
+    if (auto) {
+      auto.sancionado = false;
+    }
+    jsonHelper.escribirJson("autos", this.autos); // lecturaEscritura.js Modulo Escribir Json
+    return auto;
+  },
+};
+console.table(carrera.habilitarVehiculo("RGB159"));
+
+
+// ******************************************************************************************
+

@@ -1,0 +1,26 @@
+
+//*****************Crear archivo docker-compose.yml********************//
+
+version: "3.1"
+services:
+  mongo-db:
+    image: mongo
+    container_name: dbMongo
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+
+//******************Correr el docker-compose.yml y inicializar el motor de mongoDB dentro de un contenedor*****************************//
+
+docker-compose up
+
+//**********************Conexion*****************************//
+
+localhost:27017
+usuario: root
+password: root
+
+//****************************************************************//

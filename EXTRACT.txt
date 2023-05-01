@@ -1,0 +1,55 @@
+
+//************Muestra el Numero de mes**********
+
+SELECT EXTRACT(MONTH FROM "2017-06-15");
+
+
+MICROSECOND
+SECOND
+MINUTE
+HOUR
+DAY
+WEEK
+MONTH
+QUARTER
+YEAR
+SECOND_MICROSECOND
+MINUTE_MICROSECOND
+MINUTE_SECOND
+HOUR_MICROSECOND
+HOUR_SECOND
+HOUR_MINUTE
+DAY_MICROSECOND
+DAY_SECOND
+DAY_MINUTE
+DAY_HOUR
+YEAR_MONTH
+
+// ******************MUESTRA EL AÑO**********************
+
+SELECT title, YEAR(release_date)
+FROM movies;
+
+// ***************EXTRACT Extrae de diferentes formas X dia, año etc ***************
+
+SELECT title, EXTRACT(year FROM release_date)
+FROM movies;
+SELECT title, EXTRACT(day FROM release_date)
+FROM movies;
+SELECT title, EXTRACT(month FROM release_date)
+FROM movies;
+
+
+// ***********************************************************
+
+
+SELECT idusuario AS ID,
+nombre As Nombre,
+email AS "E-mail",
+extract(year from fechanacimiento) as "anio nacimiento",
+TIMESTAMPDIFF(YEAR,fechanacimiento,CURDATE()) AS Edad,
+TIMESTAMPDIFF(month,fechanacimiento,CURDATE()) AS Meses,
+TIMESTAMPDIFF(day,fechanacimiento,CURDATE()) AS dias
+FROM usuario;
+
+-- // ******************************************************************************

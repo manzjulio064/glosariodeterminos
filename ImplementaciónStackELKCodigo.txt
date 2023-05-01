@@ -1,0 +1,42 @@
+//*************************LINKs***************************//
+
+https://www.elastic.co/es/downloads/elasticsearch
+https://www.elastic.co/downloads/logstash
+
+//************************IMPUT****************************//
+
+input {
+  file {
+    type => "java"
+    path => "C:/log/dh-spring-elk.log"
+    codec => multiline {
+      pattern => "^%{YEAR}-%{MONTHNUM}-%{MONTHDAY} %{TIME}.*"
+      negate => "true"
+      what => "previous"
+    }
+  }
+}
+//************************FILTER******************************//
+
+filter {
+#si la línea de log tiene la palabra “at” luego de un tab quiere decir que es una excepción.
+  if [message] =~ "\tat" {
+    grok {
+      match => ["message", "^(\tat)"]
+      add_tag => ["stacktrace"]
+    }
+  }
+}
+
+//************************OUTPUT********************************//
+
+output {
+  elasticsearch {
+    hosts => ["localhost:9200"]
+  }
+  stdout {
+    codec => rubydebug
+  }
+}
+//**************************************************************//
+//**************************************************************//

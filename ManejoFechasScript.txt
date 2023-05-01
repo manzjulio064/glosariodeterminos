@@ -1,0 +1,8 @@
+
+//***************Calcula la edad actual ingresado el año****************//
+
+  const today = new Date();
+  const year = today.getFullYear();
+  const calcularEdad = document.createTextNode(year - datosPersona.edad);
+
+//*********************************************************************//

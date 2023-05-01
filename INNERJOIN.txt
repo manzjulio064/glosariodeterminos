@@ -1,0 +1,14 @@
+
+SELECT *
+FROM Proveedores
+INNER JOIN Productos ON Proveedores.IdProveedor = Productos.IdProveedor;
+
+
+//***************************************
+
+SELECT *
+FROM Facturas
+INNER JOIN Productos ON Facturas.IdProducto = Productos.IdProducto
+INNER JOIN Proveedores ON Productos.IdProveedor = Proveedores.IdProveedor;
+
+// ************************************************************************

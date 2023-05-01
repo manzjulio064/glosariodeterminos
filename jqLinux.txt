@@ -1,0 +1,17 @@
+//*********************************El comando jq se debe instalar**************************************//
+
+sudo apt-get install jq
+
+//************************************************************************************//
+jq '.' resultado.json
+
+//**Para poder acceder a una propiedad específica es necesario indicarla luego del punto, con el nombre de la misma.
+ jq '.display_name' resultado.json
+
+ //**En este caso, accederemos a la propiedad display_name del JSON. Si queremos acceder a varias propiedades, las separamos por coma.
+ jq '.display_name,.type' resultado.json
+
+//**En este caso, vemos cómo la sentencia obtiene el JSON con cURL, lo procesa con jq para obtener el
+//**display_name y el type, y finalmente lo guarda en un archivo llamado consultapipe.txt.
+
+curl "https://nominatim.openstreetmap.org/reverse.php?lat=-34.60378&lo n=-58.38161&zoom=18&format=jsonv2" | jq ".display_name,.type" | tee consultapipe.txt

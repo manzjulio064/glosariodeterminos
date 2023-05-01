@@ -1,0 +1,82 @@
+//*****************************************************************************//
+EXIT
+CONTINUE
+
+SQLWarning
+Not Found
+SQLEXCEPTION
+
+//***************************HANDLER MOSTRANDO ERROR GENERAL******************************************//
+
+DECLARE EXIT HANDLER FOR SQLEXCEPTION //SQLEXCEPTION Engloba muchos errores
+BEGIN
+SELECT 'Se ejecuto KO - Error SQL';
+END;
+
+//**************************HANDLER CON UN CODIGO ESPECIFICO Y CONDICION*******************************************//
+
+DECLARE no_existe_tabla CONDITION FOR 1146;
+  DECLARE EXIT HANDLER FOR no_existe_tabla
+  BEGIN
+    SELECT 'Se ejecuto KO - Error SQL';
+  END;
+
+//**************************HANDLER BASICO*******************************************//
+  DECLARE state, errorNumber, message VARCHAR(100);
+  DECLARE EXIT HANDLER FOR SQLEXCEPTION //SQLEXCEPTION Engloba muchos errores
+  BEGIN
+    GET DIAGNOSTICS CONDITION 1
+      state = RETURNED_SQLSTATE,
+      errorNumber = MYSQL_ERRNO,
+      message = MESSAGE_TEXT;
+
+    SELECT state, errorNumber, message;
+  END;
+//*********************************************************************//
+  DECLARE no_existe_tabla CONDITION FOR 1146;
+  DECLARE state, errorNumber, message VARCHAR(100);
+  DECLARE EXIT HANDLER FOR no_existe_tabla
+  BEGIN
+    GET DIAGNOSTICS CONDITION 1
+      state = RETURNED_SQLSTATE,
+      errorNumber = MYSQL_ERRNO,
+      message = MESSAGE_TEXT;
+
+    SELECT state, errorNumber, message;
+  END;
+//*********************************************************************//
+
+  DECLARE no_existe_tabla CONDITION FOR 1146;
+  DECLARE state, errorNumber, message, detalle VARCHAR(100);
+  DECLARE EXIT HANDLER FOR no_existe_tabla
+  BEGIN
+    GET DIAGNOSTICS CONDITION 1
+      state = RETURNED_SQLSTATE,
+      errorNumber = MYSQL_ERRNO,
+      message = MESSAGE_TEXT;
+    IF (errorNumber = 1146)
+      THEN SET detalle = "Tabla no Existe";
+    END IF;
+
+    SELECT state, errorNumber, message, detalle;
+  END;
+
+//*********************************************************************//
+
+  DECLARE state, errorNumber, message, detalle VARCHAR(100);
+  DECLARE EXIT HANDLER FOR SQLEXCEPTION //SQLEXCEPTION Engloba muchos errores
+  BEGIN
+    GET DIAGNOSTICS CONDITION 1
+      state = RETURNED_SQLSTATE,
+      errorNumber = MYSQL_ERRNO,
+      message = MESSAGE_TEXT;
+    IF (errorNumber = 1146)
+      THEN SET detalle = "Tabla no Existe";
+    ELSEIF (errorNumber = 1054)
+      THEN SET detalle = "No existe la columna";
+    END IF;
+
+    SELECT state, errorNumber, message, detalle;
+  END;
+
+//*********************************************************************//

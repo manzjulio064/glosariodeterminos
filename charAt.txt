@@ -1,0 +1,13 @@
+let str = ["hector", "javier"]
+
+function capitalizarPrimeraLetra(str) {
+  let strsA = []
+  for (let i = 0; i < str.length; i++) {
+       let strs = str[i]
+    strsA.push(strs.charAt(0).toUpperCase() + strs.slice(1));
+    // strsA.push(strs.charAt(0).toUpperCase() + strs.slice(1));
+  }
+  return strsA;
+}
+
+// *******************************************************

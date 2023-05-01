@@ -1,0 +1,4 @@
+
+
+// *************En la consola del proyecto Ejecutar el siguiente comando para instalar react router****************//
+npm install react-router-dom  // para los navegadores

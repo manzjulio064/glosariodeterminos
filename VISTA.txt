@@ -1,0 +1,39 @@
+
+//*****************Crear Vista con nombre, apellido y Edad BD adventureworks*******************//
+
+CREATE VIEW vi_employee AS
+SELECT C.`LastName`, C.`FirstName`,  TIMESTAMPDIFF(YEAR, E.`BirthDate`, CURDATE()) Edad
+FROM employee E
+INNER JOIN contact C ON E.`ContactID` = C.`ContactID`;
+
+//**********************************************************************************//
+-- *****************Creacion de una Vista de las tablas clientes y factura DB musimundos*******************
+use musimundos;
+CREATE VIEW viewConsultarFacturas AS
+SELECT
+C.primer_nombre AS NombreCliente,
+C.apellido AS ApellidoCliente,
+C.email AS EmailCliente,
+C.telefono AS TelefonoCliente,
+F.fecha_factura AS FechaFactura,
+F.id AS NoFactura,
+F.total AS TotalFactura
+FROM clientes AS C
+JOIN facturas AS F
+ORDER BY C.primer_nombre;
+
+-- ***********************Consultar y filtrar sobre la Vista creada ************************
+
+SELECT * FROM viewConsultarFacturas;
+-- ***************
+SELECT NombreCliente, SUM(TotalFactura) as TOTAL FROM viewConsultarFacturas
+GROUP BY NombreCliente;
+-- ***************
+SELECT * FROM viewConsultarFacturas
+WHERE NombreCliente = "Puja";
+
+-- // ***********************************Eliminacion Vista*************************************
+
+DROP VIEW viewConsultarFacturas;
+
+-- // ******************************************************************************************

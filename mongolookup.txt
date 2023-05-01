@@ -1,0 +1,55 @@
+
+//************************************Consulta de agregacion de dos tablas********************************** */
+use("db2_c4")
+db.peliculas.aggregate(
+
+  [
+    {
+      $lookup: {
+        from: "actores", //tabla foranea
+        localField: "titulo", //campo local identico
+        foreignField: "filme", //campo foraneo identico
+        as: "Actores",
+      },
+    },
+    {
+      $project: {
+        _id: 0,
+        titulo: 1,
+        avaliacao: 1,
+        genero: 1,
+        Actores: 1,
+      },
+    },
+    {
+      $unwind: {
+        path: "$Actores",
+      },
+    },
+    {
+      $group: {
+        _id: "$titulo",
+        Calificacion: {
+          $addToSet: "$avaliacao",
+        },
+        Genero: {
+          $first: "$genero",
+        },
+        Total: {
+          $sum: 1,
+        },
+        Elenco: {
+          $push: {
+            $concat: [
+              "$Actores.nome",
+              " ",
+              "$Actores.sobrenome",
+            ],
+          },
+        },
+      },
+    },
+  ]
+)
+
+//*******************************************************************************************//

@@ -1,0 +1,26 @@
+
+const array = [1,2,3,4,5];
+
+function prueba(array) {
+
+  let result = 0;
+  let datox = [];
+
+  array.map(dato => {
+
+    if (dato % 2 && dato != 5) {
+      result = result + 3;
+    }else if(dato === 5) {
+      result = result + 5;
+    }else {
+      result = result + 1;
+    }
+
+
+  })
+
+  return result;
+
+}
+
+console.log(prueba(array));

@@ -1,0 +1,39 @@
+Error
+Es una acción humana que produce un resultado incorrecto, una idea equivocada de algo. El error es una equivocación de parte del desarrollador o del analista. Un error puede llevarnos a generar uno o más defectos.
+
+
+
+// ****************Ejemplos de errores pueden ser:*********************//
+
+-- Error en la lógica de la programación
+
+-- Un requerimiento que esté mal especificado
+
+// ****************************Ejemplo Defecto**************************//
+
+
+El defecto se encuentra en algún componente del sistema. Es la imperfección de un componente causado por un error.
+El analista de pruebas es quien debe reportar el defecto ya que es el encargado de ejecutar los casos de prueba y encontrar los mismos.
+
+ ** Ejemplos de defecto pueden ser:
+
+  -- Un módulo de registro de usuarios tiene mala configuración en la función de conexión a base de datos
+
+  -- Una función de login cuenta con las variables de usuario y contraseña declaradas incorrectamente.
+
+
+// **************************************Ejemplo Fallo ************************************************
+Es la manifestación visible de un defecto. Es decir que si un defecto es encontrado durante la ejecución de una aplicación entonces va a producir un fallo.
+
+ ** Ejemplo de Fallo:
+
+      -- Visualización de un mensaje de alerta que no fue definido previamente por el desarrollador.
+
+      -- Un formulario de login que contenga los datos de acceso no te permita ingresar a la aplicación al hacer clic en el botón de ingresar.
+
+// ***************************Relación de estos tres conceptos *********************************************//
+Un error puede generar uno o más defectos y un defecto va a causar un fallo.
+
+Ejemplo de aplicación de los tres conceptos:
+
+Un desarrollador se equivoca al momento de colocar la edad límite para el registro de un usuario dentro de un aplicativo. Al momento de realizar las pruebas del aplicativo, el analista de pruebas de software coloca la edad definida en el requerimiento, lo que genera un defecto en el sistema, provocando a su vez, que se genere un fallo, el cual es un mensaje en pantalla indicando que la edad no es válida.

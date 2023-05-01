@@ -1,0 +1,3 @@
+// Ejemplo replace
+let texto2 = "soy un ser humano";
+console.log(texto2.replace('humano', 'android'));

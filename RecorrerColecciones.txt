@@ -1,0 +1,22 @@
+for(int i = 0; i < nombres.size(); i++) {
+ System.out.println(nombres.get(i));
+}
+
+//******************************************************
+int i = 0;
+while( i < nombres.size())
+{
+ System.out.println(nombres.get(i));
+ i++;
+}
+
+// **********************************************************
+int i = 0;
+boolean encontrado = false;
+while( i < nombres.size() && !encontrado)
+{
+ if(nombres.get(i) == "Carlos")
+ encontrado = true;
+ System.out.println(nombres.get(i));
+ i++;
+}

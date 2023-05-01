@@ -1,0 +1,9 @@
+
+
+sudo apt install netstat-nat
+
+//**Si estás usando CentOS 7, ejecutá:
+sudo yum install net-tools
+
+sudo netstat -plnt
+

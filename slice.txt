@@ -1,0 +1,55 @@
+let miSerie = "Mad Men" ;
+console.log(miSerie.length);
+console.log(miSerie.indexOf('Men'));
+console.log(miSerie.slice(4,7));
+
+// ****************************Pasa el primer caracter a mayuscula****************************//
+let str = {
+  nombre: "carlos"
+}
+
+function capitalizarPrimeraLetra(str) {
+  let strs = str.nombre
+  return strs.charAt(0).toUpperCase() + strs.slice(1);
+}
+
+console.log(capitalizarPrimeraLetra(str));
+
+// ****************Array*****************************
+
+let numeros = [3, 4, 5, 6, 7];
+let subArray = numeros.slice(0, 3); // Solo muestra informacion del cero al dos
+
+console.log(subArray); // [3,4,5]
+
+// **************************************************************
+
+let jsonHelper = require("./lecturaEscritura");
+
+const carrera = {
+  autos: jsonHelper.leerJson("autos"),
+  autosPorTanda: 6,
+  autosHabilitados: function () {
+    let habilitados = this.autos.filter((auto) => auto.sancionado === false);
+    return habilitados;
+  },
+  filtrarPorCilindrada: function (cilindrada) {
+    let habilitados = this.autosHabilitados();
+    return habilitados.filter((auto) => auto.cilindrada <= cilindrada);
+  },
+  generarTanda: function (cilindrada, peso) {
+    let filtroXCilindrada = this.filtrarPorCilindrada(cilindrada);
+    let filtroXPeso = filtroXCilindrada.filter((auto) => auto.peso <= peso);
+    let tandada = filtroXPeso.slice(0, this.autosPorTanda);  // Muestra una tanda de 0 a 6 vehiculos de array
+    return tandada
+  },
+};
+console.table(carrera.generarTanda(2000, 2000));
+
+// *******************************************************************************
+
+
+
+// **********************************************
+
+

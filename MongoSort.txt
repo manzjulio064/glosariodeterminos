@@ -1,0 +1,22 @@
+
+//*************Muestra id y titulo ordenado asendente************** */
+  use("db2_c4")
+  db.peliculas.find({},{titulo: 1}).sort({titulo: 1})
+
+//**************************Buscar y mostrar solo el titulo y ordena asendente********************************* */
+
+use("db2_c4")
+db.peliculas.find(
+  {},
+  {
+    _id:0,
+    titulo: 1
+  }
+).sort({titulo: 1}) //Desendente es -1
+
+//************************************************************************************************
+
+	
+
+
+

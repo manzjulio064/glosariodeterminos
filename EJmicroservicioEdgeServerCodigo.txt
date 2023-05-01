@@ -1,0 +1,191 @@
+
+
+//**************************************apiGatewayApplication*****************************************//
+
+package com.dh.apiGateway;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
+@SpringBootApplication
+@EnableDiscoveryClient
+public class apiGatewayApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(apiGatewayApplication.class, args);
+	}
+
+}
+
+//**************************************FilterCustom********************************************//
+
+package com.dh.apiGateway.filter;
+
+import org.springframework.cloud.gateway.filter.GatewayFilter;
+import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
+import org.springframework.stereotype.Component;
+import reactor.core.publisher.Mono;
+
+import java.util.Calendar;
+
+@Component
+public class FilterCustom extends AbstractGatewayFilterFactory<FilterCustom.Config> {
+
+    public FilterCustom() {
+        super(FilterCustom.Config.class);
+    }
+    @Override
+    public GatewayFilter apply(Config config) {
+        //filtro previo a la invocación del servicio real asociado al gateway
+
+        return (exchange, chain) -> {
+
+            //filtro previo a la invocación del servicio real asociado al gateway
+            System.out.printf("\nPath requested " + exchange.getRequest().getPath());
+
+            return chain.filter(exchange).then(Mono.fromRunnable(() -> {
+                //filtro posterior a la invocación del servicio asociado al gateway
+                System.out.printf("\nTime response " + Calendar.getInstance().getTime());
+            }));
+        };
+    }
+    public static class Config {
+
+    }
+}
+
+//**************************************bootstrap.yml*************************************************//
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8888
+
+//**************************************gateway.yml*************************************************//
+//***Configurar en el servidor Centralizado de configuracion o en el archivo application
+
+server:
+  port: ${PORT:${SERVER_PORT:8080}}
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      default-filters:
+        - name: FilterCustom
+      routes:
+        - id: proveedores #identificador de la ruta
+          uri: lb://microservicioProveedores #URL donde se hará el redirect segun el predicado definido
+          predicates: #Reglas de analisis de request
+            - Path=/proveedores/** #path de url de request a considerar
+        - id: saludar #identificador de la ruta
+          uri: lb://microservicioProveedores #URL donde se hará el redirect segun el predicado definido
+          predicates: #Reglas de analisis de request
+            - Path=/saludar/** #path de url de request a considerar
+        - id: clienteSaludar
+          uri: lb://microservicioCliente
+          predicates:
+            - Path=/clienteSaludar/**
+          filters:
+            - AddRequestHeader=user-request-header, custom-user-request-header
+            - AddResponseHeader=user-respons-header, custom-user-response-header
+
+info:
+  app:
+    name: ${spring.application.name}
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: true
+    serviceURL:
+      defaultZone: http://localhost:8761/eureka
+  management:
+    endpoint:
+      gateway:
+        enabled: true
+    endpoints:
+      web:
+        exposure:
+          include: gateway
+
+
+//**************************************pom.xml*************************************************//
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.8</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.dh</groupId>
+	<artifactId>apigateway</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>apigateway</name>
+	<description>Api Gateway</description>
+	<properties>
+		<java.version>18</java.version>
+		<spring-cloud.version>2021.0.5</spring-cloud.version>
+	</properties>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-gateway</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+
+//****************************************************************************************************//

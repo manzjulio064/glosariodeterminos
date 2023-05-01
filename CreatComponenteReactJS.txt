@@ -1,0 +1,73 @@
+//*********************************index.js********************************************//
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import 'bootstrap/dist/css/bootstrap.css';
+import './global.scss';
+
+import PaginaPrincipal from './pages/PaginaPrincipal';
+
+const contenedor = document.getElementById('app');
+
+ReactDOM.render(<PaginaPrincipal />, contenedor);
+
+
+//*********************************Componente Badge.js********************************************//
+
+import React from 'react';
+import './styles/Badge.css';
+import confLogo from '../images/badge-header.svg';
+
+class Badge extends React.Component {
+  render() {
+    return <div className="Badge">
+      <div className="Badge__header">
+        <img src={confLogo} alt="Logo de la conferencia" />
+      </div>
+
+      <div className="Badge__section-name">
+        <img className="Badge__avatar" src="https://lh3.googleusercontent.com/ogw/ADea4I6E6LOHOVdMVzfCEdyb1shkZ3SR8cXDzhKifZoJVQ=s32-c-mo" alt="Avatar" />
+        <h1>Hector <br/> Moreno </h1>
+      </div>
+
+      <div className="Badge__section-info">
+        <h3>Frontend Enginner</h3>
+        <div>@asparragus</div>
+      </div>
+
+      <div className="Badge__footer">
+        #platziconf
+      </div>
+    </div>
+  }
+}
+export default Badge;
+
+
+// ************************************Estructura del componente 1*************************//
+
+import React from 'react';
+
+class nombreComponente extends React.Component {
+  render() {
+    return <div> <h1>HECTOR JAVIER</h1></div>
+  }
+}
+
+export default NombreComponente;
+
+// ***********************************Estructura del componente 2 function**************************//
+
+import React from 'react';
+
+function Modal() {
+  return (
+    <div> <h1>carlos</h1></div>
+  )
+}
+
+export default Modal;
+
+// ***************************************************************************************//
+

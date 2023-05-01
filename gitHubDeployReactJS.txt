@@ -1,0 +1,37 @@
+// ***********************Pagina Oficial Documentacion****************************************//
+
+https://create-react-app.dev/docs/deployment/
+
+// ************************************Adicionar en archivo package.json**************************************//
+
+"homepage": "https://cytelsystem.github.io/portafolioivonne",
+
+// -- *****En scripts************//
+
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+
+
+// ******************************************Instalar gh-pages************************************************//
+
+npm install --save gh-pages
+
+// ***********Ejecutar npm run build cada vez que se cree o actualice el proyecto con la informacion que se publica en gh-pages *************//
+// -- Se creara una carpeta en el proyecto llamada build la cual contiene la informacion compilada a desplegar en produccion
+
+npm run build
+
+// ******************************************Despliegue en produccion github gh-pages************************************************//
+
+npm run deploy
+
+// ******************************************Tener en cuenta************************************************//
+
+-- Se debe tener en cuenta que el proyecto previamente sebe estar creado en github en su rama master o main
+-- estar comunicado con git remote  y permitir hacer git pull origin master y git push origin master sin problema
+
+
+// ************Cada vez que se hagan cambios o actualizacion se debe ejecutar***********************************//
+
+npm run build
+npm run deploy

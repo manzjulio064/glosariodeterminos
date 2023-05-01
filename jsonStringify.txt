@@ -1,0 +1,16 @@
+let objeto Literal = { nombre: 'América de Cali', pais: 'Colombia' };
+let datosConvertidos = JSON.stringify(objetoLiteral);
+
+console.log(datosConvertidos);
+
+// Se verán en consola los datos en un string de tipo JSON
+// '{ "nombre": "América de Cali", "pais": "Colombia" }
+
+//*******************************************************************
+
+const convertirAJson = {
+    escribirArchivo: function (nombreArchivo, datos)
+    {fs.writeFileSync(`${__dirname}/${nombreArchivo}.json`,JSON.stringify(datos));},
+};
+
+// *************************************************************

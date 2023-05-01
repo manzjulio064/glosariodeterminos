@@ -1,0 +1,29 @@
+  
+// ****************************************************
+let notas = [10, 4, 5, 8, 9, 2, 7];
+  let notasAprobadas = notas.filter(
+    function(numero){
+      return numero >= 7
+    }
+    );
+
+   console.log(notasAprobadas);
+
+// ************************************************
+
+let jsonHelper = require('./lecturaEscritura')
+
+const carrera = {
+  autos: jsonHelper.leerJson("autos"),
+  autosHabilitados: function () {
+    let habilitados = this.autos.filter((auto) => auto.sancionado === false);
+    return habilitados;
+  },
+  buscarPorPatente: function (patente){
+    return this.autos.filter((auto) => auto.patente === patente);
+  }
+};
+console.table(carrera.autosHabilitados());
+console.table(carrera.buscarPorPatente("JQK433"));
+
+// ******************************************************

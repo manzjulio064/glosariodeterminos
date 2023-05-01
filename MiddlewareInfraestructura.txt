@@ -1,0 +1,9 @@
+//********************************DBMS***************************************//
+
+Sistema de administracion de base de datos que permiten crear, recuperar, actualizar y administrar datos
+
+//********************************API*********************************************//
+
+interfaz de programación de aplicaciones que brindan un conjunto de subrutinas funciones y procedimientos para ser utilizados
+
+//************************************************************************************//

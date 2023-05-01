@@ -1,0 +1,6 @@
+
+
+Iterator iterator = nombres.iterator();
+while(iterator.hasNext()){
+ System.out.println(iterator.next());
+}

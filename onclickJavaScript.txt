@@ -1,0 +1,18 @@
+//******************************************************************************************//
+
+  let btnglo = document.querySelector('a'); // Al orpimir un link ancla <a>
+  btnglo.onclick = function() {
+    alert('has oprimido el botom con onclick')
+  }
+
+//************************************Dentro de window.onload *******************************//
+
+window.onload = function() {
+
+  let btnglo = document.querySelector('a');
+  btnglo.onclick = function() {
+    alert('has oprimido el botom con onclick')
+  }
+
+}
+//******************************************************************************************//

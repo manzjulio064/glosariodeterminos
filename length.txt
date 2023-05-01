@@ -1,0 +1,15 @@
+let miSerie = "Mad Men" ;
+console.log(miSerie.length);
+console.log(miSerie.indexOf('Men'));
+console.log(miSerie.slice(4,7));
+
+// *****************************************
+
+function capitalizarPrimeraLetra(str) {
+  let strs = str.nombre
+  return strs.charAt(0).toUpperCase() + strs.slice(1);
+}
+
+console.log(capitalizarPrimeraLetra(str));
+
+// ***************************************

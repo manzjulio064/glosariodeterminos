@@ -1,0 +1,11 @@
+
+//****Extraiga una subcadena de una cadena (comience en la posición 5, extraiga 3 caracteres):***//
+SELECT SUBSTR("SQL Tutorial", 5, 3) AS ExtractString;
+= Tut
+
+//**********************************************************************************//
+
+SELECT SUBSTR(CustomerName, 2, 5) AS ExtractString
+FROM Customers;
+
+//**********************************************************************************//

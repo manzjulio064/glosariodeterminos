@@ -1,0 +1,15 @@
+Los métodos sirven para hacer acciones como una ventana emergente, 
+modificar las propiedades de un objeto, añadir elementos a una lista, 
+quitarlos, transformar un string en un número entero o decimal,… 
+Y lo que voy a decir ahora puede sorprenderos a no ser que ya dominéis de antemano otros lenguajes de programación
+
+//**********************************************
+
+let miPais = {
+  nombre: "Argentina",
+  poblacion: 4009200,
+  capital: "Buenos Aires",
+  decirNacionalidad: function(){   // A la funcion se le llama metodo porque no tiene nombre y el nombre con que se llama es el de la propiedad
+    return "Yo nací en Argentina";
+  }
+};

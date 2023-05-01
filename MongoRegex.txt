@@ -1,0 +1,21 @@
+
+//******para buscar documentos que contengan la palabra "ejemplo" en un campo llamado texto***********//
+db.collection.find({ texto: { $regex: /ejemplo/ } })
+
+//****************************i ignorar mayusculas y minusculas****************************//
+
+db.collection.find({ texto: { $regex: /ejemplo/i } })
+
+//***********************************************************************//
+//**Esta consulta buscará todas las palabras que contengan la letra "s" dentro del campo especificado,
+//**y que además comiencen con la letra "a". El operador $regex se utiliza para indicar que se está 
+//**realizando una búsqueda con expresiones regulares. La expresión regular "^a.s.$" busca palabras 
+//**que comiencen con "a" y contengan la letra "s" en cualquier posición.
+
+db.collection.find({campo: {$regex: /^a.*s.*$/}})
+
+//**************************Termina con la letra s*****************************//
+
+db.miColeccion.find({miCampo: /s$/})
+
+//***********************************************************************//

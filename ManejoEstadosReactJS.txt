@@ -1,0 +1,388 @@
+
+Hasta esta clase todos los componentes han obtenido su información a través de props que vienen desde afuera (otros componentes) pero hay otra manera en la que los componentes pueden producir su propia información y guardarla para ser consumida o pasada a otros componentes a través de sus props. La clave está en que la información del state a otros componentes pasará en una sola dirección y podrá ser consumida pero no modificada.
+
+-- Para guardar la información en el estado se usa una función de la clase component llamada setState a la cual se le debe pasar un objeto con la información que se quiere guardar.
+-- Aunque no se ve, la información está siendo guardada en dos sitios. Cada input guarda su propio valor y al tiempo la está guardando en setState, lo cual no es ideal. Para solucionarlo hay que modificar los inputs de un estado de no controlados a controlados.
+
+
+//*******************Controlar un solo campo al escribir en el formulario********************************//
+
+  handleChange = e => {
+    // console.log({
+    //   name: e.target.name,
+    //   value: e.target.value,
+    //   });
+
+    this.setState({
+      firstName: e.target.value,
+    })
+
+    //**************************Controlar varios campos al mismo tiempo del formulario********************************//
+
+      handleChange = e => {
+    // console.log({
+    //   name: e.target.name,
+    //   value: e.target.value,
+    //   });
+
+    this.setState({
+      [e.target.name]: e.target.value,  // Capturar varios campos
+    })
+
+  }
+
+  //********************************Para que no seguarde copia de la informacion duplicada en el input y setState******************************************//
+  // en cada input le cambiamos de no controlados a controlados adicionando un parametro de la
+
+  values={this.state.firstName}  // para leer
+  values={this.setState.firstName}  // para Escribirlo
+
+  state = {}; // inicializar el campo para que no de error poniendo esta linea preferiblemente al principio del componente //
+
+  //******************************Cuando se oprima el boton enviar imprima todo el estado adicionar console.log(this.state);*************************************************//
+
+    handleSubmit = e => {
+    e.preventDefault();  // para que no se envie el formulario
+    console.log("Form was submitted");
+    console.log(this.state); // Para imprimir todo el estado cuando se envia el formulario
+    }
+
+//***************************************************************Manejo de estadon en function**************************************************//
+
+import React, { Component, useState } from 'react'
+import Button from './Button.js'
+import "./styles/app.css";
+
+function App() {
+  const colors = ["RED","BLUE","YELLOW", "GREEN","ORANGE","MAGENTA","BROWN","LIME"]
+  const [Colores, setColores] = useState(colors)
+
+  function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
+  }
+
+  console.log(shuffle(colors))
+
+  function cambiarColores() {
+    setColores(shuffle(colors))
+  }
+
+  return (
+    <div className="container">
+        <div className="panel">
+          {Colores.map(color =>
+          <div key={color} className={color}>{color}</div>
+          )}
+        </div>
+        <Button fn={cambiarColores} />
+    </div>
+  )
+}
+
+export default App;
+
+//****************************************************Button.js*************************************************************//
+
+import React, { Component } from 'react'
+import "./styles/Random.css"
+
+export default class Button extends Component {
+
+message = () => alert("PASAME UNA FUNCION!")
+
+    render() {
+        return (
+            <button onClick={typeof this.props.fn === "function" ? this.props.fn  : this.message} className="glow-on-hover">Get Random</button>
+        )
+    }
+}
+
+//*****************************************************app.css***************************************************************************//
+
+body {
+  background-color: black;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  padding-top: 20%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.panel {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 150px;
+}
+
+.RED {
+  width: 25%;
+  height: 80px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 80px;
+  background-color: red;
+}
+.BLUE {
+  width: 25%;
+  height: 80px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 80px;
+  background-color: blue;
+}
+
+.YELLOW {
+  width: 25%;
+  height: 80px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 80px;
+  background-color: yellow;
+}
+
+.GREEN {
+  width: 25%;
+  height: 80px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 80px;
+  background-color: green;
+}
+.LIME {
+  width: 25%;
+  height: 80px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 80px;
+  background-color: LIME;
+}
+.ORANGE {
+  width: 25%;
+  height: 80px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 80px;
+  background-color: ORANGE;
+}
+.BROWN {
+  width: 25%;
+  height: 80px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 80px;
+  background-color: BROWN;
+}
+.MAGENTA {
+  width: 25%;
+  height: 80px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 80px;
+  background-color: MAGENTA;
+}
+
+//**************************************************Ramdom.css******************************************************************************//
+
+.glow-on-hover {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: black;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: black
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: grey;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+//**************************************************State en class***************************************************************************//
+
+
+import React from 'react'
+import styles from '../styles/container.module.css'
+
+class Vegeta extends React.Component {
+  imageUp = "https://vegeta-flexiones.netlify.app/static/media/up.fd9f3c14.png";
+  imageDown = "https://vegeta-flexiones.netlify.app/static/media/down.2f147ccd.png";
+
+  constructor() {
+    super();
+
+    this.state = {
+      contador: 1,
+      image: this.imageUp,
+      flexion: 0
+    }
+
+    this.incrementar = this.incrementar.bind(this);
+  }
+
+  incrementar = () =>{
+    this.setState({
+      contador: this.state.contador + 1,
+      image: (this.state.contador % 2 === 0 ? this.imageUp : this.imageDown),
+      flexion: (this.state.contador % 2 === 0 ? this.state.flexion + 1 : this.state.flexion)
+    }
+    )
+  }
+
+  render() {
+    return (
+      <div className={styles.container}>
+        <button onClick={this.incrementar} className={styles.btn}>PushUP</button>
+        <img src={this.state.image} alt="vegeta" />
+        <h2>{this.state.flexion}</h2>
+      </div>
+    )
+  }
+};
+export default Vegeta;
+
+//***************************************************Otro Ejemplo Componente de clase ***************************************************************//
+
+import React from 'react'
+import styles from './styles/container.module.scss'
+
+class Vegeta extends React.Component {
+
+  imageUp = "https://vegeta-flexiones.netlify.app/static/media/up.fd9f3c14.png";
+  imageDown = "https://vegeta-flexiones.netlify.app/static/media/down.2f147ccd.png";
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      contador: 1,
+      image: this.imageUp,
+      flexion: 0
+    }
+
+    this.incrementar = this.incrementar.bind(this);
+
+  }
+
+  incrementar = () => {
+    this.setState(
+      {
+        contador: this.state.contador + 1,
+        image: (this.state.contador % 2 === 0 ? this.imageUp : this.imageDown), // funcion modulo % 2 con if ternario
+        flexion: (this.state.contador % 2 === 0 ? this.state.flexion + 1 : this.state.flexion)
+
+      }
+    )
+  }
+
+  render() {
+    return (
+      <div className={styles.container}>
+        <button onClick={this.incrementar} className={styles.btn}>PushUP</button>
+        <img  src={this.state.image} alt="imagen arriba" />
+        <h2>{this.state.flexion}</h2>
+      </div>
+    )
+  }
+
+};
+export default Vegeta;
+
+
+//******************************************Componente Funcional y  useState*************************************************************************//
+
+import { useState } from 'react'
+import styles from './styles/container.module.scss'
+
+const VegetaF = () => {
+
+  const imageUp = "https://vegeta-flexiones.netlify.app/static/media/up.fd9f3c14.png";
+  const imageDown = "https://vegeta-flexiones.netlify.app/static/media/down.2f147ccd.png";
+
+  const [contador, setContador] = useState(1);
+  const [flexion, setFlexion] = useState(0);
+  const [image, setImage] = useState(imageUp);
+
+
+  const incrementar = () => {
+
+    setContador(contador + 1);
+
+    // setFlexion(contador % 2 === 0 ? flexion + 1 : flexion) // Lo mismo on if ternario
+    // setImage(contador % 2 === 0 ? imageUp : imageDown)  // Lo mismo on if ternario
+
+    if (contador %2 === 0) {
+      setFlexion(flexion + 1)
+      setImage(imageUp)
+    } else {
+      setImage(imageDown)
+    }
+
+
+  }
+
+    return (
+      <div className={styles.container}>
+        <button onClick={incrementar} className={styles.btn}>PushUP</button>
+        <img  src={image} alt="imagen arriba" />
+        <h2>{flexion}</h2>
+      </div>
+    )
+
+
+};
+export default VegetaF;
+
+//*******************************************************************************************************************************************//
+

@@ -1,0 +1,12 @@
+
+Analisar los limites o limderos y se crea un caso despues del limite y antes del limite y otro caso en el medio
+
+en un sistemas que se requiera dias de la semana podemos hacer
+
+limites menor o igual a 0
+	mayor o igual a 8
+		        1 al 7
+
+de lo contrario tendriamos que hacer un caso de prueba por cada dia de la semana
+
+	

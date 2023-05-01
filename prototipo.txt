@@ -1,0 +1,15 @@
+* En la fase de prototipo es válido generar elementos como dibujos, artefactos y
+objetos con la intención de responder preguntas que nos acerquen a la solución
+final, no debe ser una estructura compleja, basta con que sea cualquier cosa con la
+que se pueda interactuar, pero es importante que sea algo con lo que el usuario
+pueda trabajar y experimentar. Este proceso se va refinando mientras el proyecto
+avanza y los prototipos van mostrando más características como funcionales,
+formales y de uso, ¿por qué hacer prototipos?, para inventar y construir pensando
+en resolver el problema; para comunicar, las imágenes explican mejor que las
+palabras; para conversar con el usuario de cómo le parece, que le cambiaría; para
+cometer errores y que no signifique un gran daño; para evaluar las alternativas; para
+controlar el proceso de la ceración de soluciones. ¿cómo hacer prototipos?, se inicia
+construyendo; no dedicarle demasiado tiempo al prototipo; identificar las variables,
+se deben responder preguntas a medida que se desarrollar el objeto; estar atento a
+las respuestas de la interacción del objeto con el usuario; trabajar el prototipo con
+el usuario en la cabeza.

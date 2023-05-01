@@ -1,0 +1,11 @@
+
+//**********************************Update un campo********************************** */
+    use("db2_c4")
+    db.peliculas.updateOne({duracao: 270},{$set: {duracao:275}})
+    db.peliculas.find({duracao:275})
+
+//*******************************Actualizar la pelicula con el id 20******************* */
+use("db2_c4")
+db.peliculas.updateOne({_id: 20},{$set:{genero: 'infantil'}})
+
+//***************************************************************************************//

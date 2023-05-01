@@ -1,0 +1,92 @@
+
+//***************************index.html******************************//
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css" />
+
+  <title>Barra de Progreso</title>
+</head>
+<body>
+  <div id="progreso">
+    <div id="barra">0%</div>
+  </div>
+  <button id="iniciar-carga">Comenzar Carga</button>
+  <script src="script.js"></script>
+</body>
+</html>
+
+//***************************styles.css******************************//
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#progreso {
+  width: 30%;
+  border: 2px solid rgb(27, 27, 27);
+  box-shadow: 3px 3px 5px darkgray;
+}
+
+#barra {
+  width: 0%;
+  height: 30px;
+  background-color: #04aa6d;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
+
+#iniciar-carga {
+  margin-top: 1rem;
+  padding: 0.3rem;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px darkgray;
+  cursor: pointer;
+}
+
+//***************************script.js******************************//
+
+// Simulamos un proceso que demora 5 segundos en completarse
+const tiempoDeCarga = 5000;
+
+function animarBarra() {
+  // Seleccionamos el elemento barra
+  let elem = document.getElementById("barra");
+
+  // Inicializamos el progreso en 0, para asegurarnos
+  // que siempre arranque desde el principio
+  let width = 0;
+
+  // Calculamos el progreso en base al tiempo total de carga,
+  const progresoSobreTiempoTotal = tiempoDeCarga / 100;
+
+  // Creamos un intervalo que se repita en el tiempo que calculamos
+  // para ir incrementando el progreso.
+  let id = setInterval(incrementarProgreso, progresoSobreTiempoTotal);
+
+  function incrementarProgreso() {
+    // Si el progreso esta completo, detenemos el programa
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width++;
+
+      // Modificamos el DOM, para impactar el nuevo progreso.
+      elem.style.width = width + "%";
+      elem.innerHTML = width + "%";
+    }
+  }
+}
+
+document.querySelector("#iniciar-carga").addEventListener("click", animarBarra);
+
+//******************************************************************************//

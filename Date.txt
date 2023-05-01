@@ -1,0 +1,12 @@
+import java.util.Date;
+
+public class Main {
+public static void main(String[] args) {
+Date fecha=new Date();
+System.out.println(fecha.toString());
+
+// ************************************************************//
+
+public static void main(String[] args) {
+Date fecha=new Date(120,11,5);
+System.out.println(fecha.toString());

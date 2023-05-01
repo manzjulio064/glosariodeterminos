@@ -1,0 +1,211 @@
+
+//***********************Esqueleto de la funcion********************//
+
+CREATE FUNCTION ()
+RETURNS int
+BEGIN
+
+    return 0;
+END;
+
+//***********************Crear la funcion y llamarla********************//
+
+delimiter
+CREATE FUNCTION f_mayor(valor1 int, valor2 int)
+RETURNS int
+deterministic
+BEGIN
+  if valor1 > valor2 THEN
+    return valor1;
+  else
+      return valor2;
+  end if;
+END
+delimiter;
+
+
+select f_mayor(5155,212);
+
+//************************Almacenar valores en una variable y consultarlos****************************//
+set @resultado = f_mayor(5155,212);
+select @resultado
+//****************************************Tabla de Pruebas*******************************************//
+create table sitios (
+  url varchar(100),
+  cantpaginas int,
+  estrellas tinyint,
+  primary key(url)
+);
+
+insert into sitios(url, cantpaginas, estrellas) values ('lanaciona.com.ar', 17000000,3);
+insert into sitios(url, cantpaginas, estrellas) values ('clarin.com', 42000000,3);
+insert into sitios(url, cantpaginas, estrellas) values ('infobae', 33000000,5);
+insert into sitios(url, cantpaginas, estrellas) values ('lavoz.com.ar', 25000000,2);
+
+
+//*************************De acuerdo a la cantidad de estrellas que se le envia por parametro devuelve asteriscos**************//
+CREATE FUNCTION f_estrellas(cant tinyint)
+RETURNS varchar(5) // Tipo de dato que retorna
+deterministic // Es deterministic porque se le envia ejemplo: un numero 5 y devuelve 5 asteriscos
+BEGIN
+  declare estrellas varchar(5) default '';
+  declare x int default 0;
+  while x < cant do
+    set estrellas = concat(estrellas, '*');
+    set x = x+1;
+  end while;
+  return estrellas;
+END
+delimiter;
+
+select url,cantpaginas,estrellas,f_estrellas(estrellas) from sitios; //Llamar a la funcion
+
+//***************************Consulta con 2 funciones*******************************//
+
+CREATE FUNCTION f_tipositio(cantidad int)
+RETURNS varchar(20)
+deterministic
+BEGIN
+  CASE
+    WHEN  cantidad < 20000000 THEN
+      return 'trafico bajo';
+    WHEN  cantidad >= 20000000 and cantidad < 40000000 THEN
+      return 'trafico medio';
+    WHEN  cantidad >= 40000000 THEN
+      return 'trafico alto';
+  END CASE;
+END
+delimiter;
+
+select url,f_estrellas(estrellas),cantpaginas,f_tipositio(cantpaginas) from sitios;
+
+//******************************Sitio de mayor trafico**********************************//
+
+delimiter
+CREATE FUNCTION f_mayor_trafico()
+RETURNS varchar(100)
+deterministic
+BEGIN
+  declare vurl varchar(100);
+  select url into vurl from sitios order by cantpaginas desc limit 1;
+  return vurl;
+END
+delimiter;
+
+select f_mayor_trafico();
+
+//*************************Recibe por parametro Milisegundos y retorna HH:MM:SS**************************************//
+
+CREATE FUNCTION f_milisegundos(milisegundos int)
+RETURNS varchar(50)
+deterministic
+BEGIN
+  declare hr int(2) zerofill ;
+  declare min int(2) zerofill ;
+  declare sec int(2) zerofill ;
+  declare seg_ini int;
+  declare milisecond int;
+
+  set seg_ini = floor(milisegundos/1000);
+
+  set hr = floor(seg_ini/3600);
+  set min = floor((seg_ini-(hr*3600))/60);
+  set sec = seg_ini-(hr*3600)-(min*60);
+
+  set milisecond = LEFT((milisegundos/1000 MOD 1) * POW(10, (LENGTH(milisegundos/1000 MOD 1)-2)),2);
+
+
+  RETURN CONCAT(hr,':',min,':',sec);
+
+END
+delimiter;
+
+select f_milisegundos(milisegundos)
+from canciones;
+
+//************************************************************************************//
+
+-- 1. Crear una función que reciba como parámetro el id de un cliente y devuelva la cantidad de
+-- facturas que posee el mismo.
+delimiter;
+CREATE FUNCTION f_cantFacturasCliente(id int)
+RETURNS int
+deterministic
+BEGIN
+
+ declare total int;
+ set total = (select count(F.id) AS Cantidad from clientes C inner join facturas F ON C.id = F.id_cliente where C.id = id);
+
+  RETURN total;
+
+END
+delimiter;
+select primer_nombre,apellido, f_cantFacturasCliente(id)
+from clientes;
+delimiter;
+
+
+--*************************************Calcular Edad con una funcion***********************************--
+DELIMITER $$
+CREATE FUNCTION CalcularEdad(INEntrada date)
+RETURNS TINYINT
+
+DETERMINISTIC            // NOT DETERMINISTIC
+
+BEGIN
+
+DECLARE result TINYINT;
+
+SET result = (SELECT TIMESTAMPDIFF(YEAR, INEntrada, CURDATE()));
+
+    return result;
+END;
+$$
+select udf_Age_Get("1976-03-06");
+
+--************************************************************************************************--
+--función llamada facturas_por_cliente() donde le vamos a pasar
+--como parámetro el id del cliente, las fechas desde y hasta y nos va a devolver la suma total
+--de las facturas por cada uno de ellos.
+
+DELIMITER $$
+CREATE FUNCTION facturas_por_cliente(idCliente int, fechaInicial DATE, FechaFinal DATE)
+RETURNS FLOAT
+DETERMINISTIC
+BEGIN
+
+ DECLARE result FLOAT;
+
+ SET result = (SELECT
+  SUM(F.total) total
+  FROM clientes C
+  INNER JOIN facturas F ON C.id = F.id_cliente
+  WHERE C.id = idCliente AND (F.fecha_factura BETWEEN fechaInicial AND FechaFinal));
+
+    return result;
+END;
+DELIMITER $$
+
+select facturas_por_cliente(2, '2010-11-02','2010-11-10');
+
+--***********Funcion que terna 1 o 0 si existen registros en una tabla************--
+
+DROP FUNCTION IF EXISTS f_PersonaAlerta;
+DELIMITER $$
+CREATE FUNCTION f_PersonaAlerta(Persona_Id INT, Oferta_Id INT)
+RETURNS int
+deterministic
+BEGIN
+    SET @registros = (SELECT COUNT(*) FROM alerta A WHERE A.Persona_Id = Persona_Id AND A.Oferta_Id = Oferta_Id);
+    IF @registros > 0 THEN
+    return 1;
+    ELSE
+    return 0;
+    END IF;
+
+END $$
+DELIMITER ;
+
+SELECT f_PersonaAlerta(19, 2);
+
+//***************************************************************************//

@@ -1,0 +1,73 @@
+
+//*********************instanceof******************************//
+
+    @Override
+    public boolean equals(Object o) {
+
+        if(o == null)
+            return false;
+        if (!(o instanceof Empleado))
+            return false;
+        else {
+            return true;
+
+        }
+    }
+
+
+//*******************getClass*********************************//
+
+
+    @Override
+    public boolean equals(Object o) {
+
+        if(o == null)
+            return false;
+        if (this.getClass()!=o.getClass())
+            return false;
+        else {
+            return true;
+
+        }
+    }
+
+
+//*********************************************Metodo equals comparar empleado por nombre*********************************************
+
+ @Override
+    public boolean equals(Object o) {
+
+        if (o == null) {
+            return false;
+        }else {
+
+            if (o instanceof Empleado) {
+                Empleado otro = (Empleado) o;  //castear  que es desarmar el objeto que llega como tipo objeto y mandarlo a una variable para poderlo utilizar
+                if (this.nombre == otro.nombre){
+                    return true;
+                } else {
+                    return false;
+                }
+            }else{
+                return false;
+            }
+        }
+
+//***********************************Ejecutar el codigo y enviar el empleado2 para compararlo con empleado1*********************************
+
+public class Main {
+    public static void main(String[] args) {
+        Empleado empleado1=new Empleado("Juan","1111");
+        Empleado empleado2=new Empleado("JuanCarlos","1111");
+
+        System.out.println(empleado1.hashCode());
+
+        if (empleado1.equals(empleado2)){            // se utiliza el metodo equals que es sobreescrito y modificado en nuestra clase empleado para comparar
+            System.out.println("Es el mismo");
+        }else{
+            System.out.println("No es el mismo");
+        }
+    }
+}
+
+//********************************************************************************************

@@ -1,0 +1,26 @@
+//*****************************************************************//
+//**Índices únicos - Se crean para valores únicos. Agregamos el
+//**parámetro único al crearlos
+
+db.collection.ensureIndex( { _id : 1}, {"unique":true} )
+
+//*****************************************************************//
+//**Índices dispersos - Incluye todos los documentos.
+//**No es necesario que el campo exista en todos los documentos.
+
+db.collection.ensureIndex( { "campo" : 1 },{"sparse":true} )
+
+//*****************************************************************//
+//**Índices de Texto - Los índices detexto deben ser un string o una
+//**matriz de elementos de string.
+
+db.collection.createIndex({campo:"text"})
+
+//*****************************************************************//
+//**Índice comodín - Usando el especificador comodín ($**), puede crear
+//**múltiples campos de índice de texto. MongoDB indexa todos y cada uno
+//**de los campos que contienen datos de string en todos los documentos
+//**presentes en la colección dada.
+
+db.collection.createIndex( { "$**": "text" } )
+//*****************************************************************//

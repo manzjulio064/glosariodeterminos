@@ -1,0 +1,8 @@
+
+SELECT LEFT(nombre, 3)
+FROM canciones;
+
+// ********************************************
+
+SELECT LEFT(upper(nombre), 3)
+FROM canciones;

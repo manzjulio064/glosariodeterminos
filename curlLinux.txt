@@ -1,0 +1,36 @@
+
+
+curl https://www.digitalhouse.com
+
+curl https://www.digitalhouse.com -o mipagina.html
+
+//***Descarga la ISO de la URL de referencia y la nombrará ubuntu.iso.
+curl https://ubuntu.zero.com.ar/ubuntu-releases/20.04/ubuntu-20.04.2.0 -desktop-amd64.iso -o ubuntu.iso
+
+
+//**El modificador -v nos permite verificar la conectividad hacia un sitio remoto.
+curl https://www.digitalhouse.com -v
+
+//** Esto nos brindará, además del contenido, datos como la IP de destino, protocolos de seguridad y certificados utilizados.
+curl https://www.digitalhouse.com -I
+
+//**Contenido JSON
+curl "https://nominatim.openstreetmap.org/reverse.php?lat=-34.60378&lo n=-58.38161&zoom=18&format=jsonv2" -o resultado.json
+
+
+//**En este caso, vemos cómo la sentencia obtiene el JSON con cURL, lo procesa con jq para obtener el
+//**display_name y el type, y finalmente lo guarda en un archivo llamado consultapipe.txt.
+
+curl "https://nominatim.openstreetmap.org/reverse.php?lat=-34.60378&lo n=-58.38161&zoom=18&format=jsonv2" | jq ".display_name,.type" | tee consultapipe.txt
+
+
+//El Modificador -s Para que no muestre lo que se esta descargando un*********************************************************//
+
+#!/bin/bash
+nombre="Emilio"
+curl -s https://api.genderize.io/?name=$nombre | jq '.gender' | { read -r gen; echo "Gender of $nombre is: $gen"; }
+curl -s https://api.nationalize.io/?name=$nombre | jq '.country[0].country_id' | { read -r cn; echo "Country of $nombre is: $cn"; }
+
+
+//**********************************************************************************************************************************//
+

@@ -1,0 +1,61 @@
+// ************************************index.js***********************************************//
+
+
+import React from 'react';  // crear el elemento
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.css';
+import './global.css';
+
+
+import Badge from './components/Badge'
+
+
+const container = document.getElementById('app');
+
+ReactDOM.render(
+    <Badge
+    nombre="Hector"
+    apellido="Moreno"
+    avatarUrl="https://lh3.googleusercontent.com/ogw/ADea4I6E6LOHOVdMVzfCEdyb1shkZ3SR8cXDzhKifZoJVQ=s32-c-mo"
+    jobTitle="FrontEnd Enginner"
+    twitter="sparragos"
+    />,
+  container
+  );
+
+
+// *************************************componente Badge.js********************************************//
+
+import React from 'react';
+import './styles/Badge.css';
+import confLogo from '../images/badge-header.svg';
+
+class Badge extends React.Component {
+  render() {
+
+    return <div className="Badge">
+      <div className="Badge__header">
+        <img src={confLogo} alt="Logo de la conferencia" />
+      </div>
+
+      <div className="Badge__section-name">
+        <img className="Badge__avatar" src={this.props.avatarUrl} alt="Avatar" />
+        <h1> {this.props.nombre} <br/> {this.props.apellido} </h1>
+      </div>
+
+      <div className="Badge__section-info">
+        <h3>{this.props.jobTitle}</h3>
+        <div>@{this.props.twitter}</div>
+      </div>
+
+      <div className="Badge__footer">
+        #platziconf
+      </div>
+    </div>
+  }
+}
+export default Badge;
+
+
+
+

@@ -1,0 +1,6 @@
+
+*  El mapa de actores refleja de forma gráfica las posibles y existentes
+conexiones entre usuarios que participan en el proceso. Esto facilita la visualización
+del mapa organizacional y su afectación hacia el público, teniendo una imagen más
+clara de las partes de cada proceso ayudará a la definición de la solución final
+

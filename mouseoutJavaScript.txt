@@ -1,0 +1,30 @@
+//****************************************************************************//
+
+let texto = document.querySelector('.text');
+texto.onmouseout = function(){
+ console.log('quitaste el mouse');
+}
+
+//****************************************************************************//
+
+texto.addEventListener('mouseout', function(){
+ console.log('quitaste el mouse');
+});
+
+//****************************************************************************//
+
+window.addEventListener("load", function() {
+
+  let btn = document.querySelectorAll('.btnclass')
+
+  for (let i = 0; i < btn.length; i++) {
+
+    btn[i].addEventListener("mouseout", function() {
+      this.style.color = 'cyan';
+    })
+
+  }
+
+})
+
+//****************************************************************************//

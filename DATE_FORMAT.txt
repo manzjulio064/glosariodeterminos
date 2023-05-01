@@ -1,0 +1,12 @@
+Codigohttps://www.w3schools.com/mysql/func_mysql_date_format.asp
+
+// ********************************
+
+SELECT DATE_FORMAT("2017-06-15", "%Y");
+
+// ********************************
+
+SELECT title, DATE_FORMAT(release_date, "%d/%m/%Y")
+FROM movies;
+
+// **************************************************

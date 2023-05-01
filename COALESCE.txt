@@ -1,0 +1,6 @@
+
+SELECT title AS "Movies Title", COALESCE(Name, "No tiene genero")
+FROM movies AS M
+LEFT JOIN genres AS G ON M.genre_id = G.id;
+
+// *********************************

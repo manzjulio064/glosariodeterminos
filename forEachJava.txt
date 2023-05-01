@@ -1,0 +1,7 @@
+
+
+for(Object nombre: nombres){
+ System.out.println(nombre);
+}
+
+

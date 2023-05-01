@@ -1,0 +1,12 @@
+
+UPDATE nombre_tabla
+SET columna_1 = valor_1, columna_2 = valor_2, ...
+WHERE condición;
+
+****************************************************
+
+UPDATE artistas
+SET nombre = 'Charly Garcia', rating = 1.0
+WHERE id = 1;
+
+*************************************************

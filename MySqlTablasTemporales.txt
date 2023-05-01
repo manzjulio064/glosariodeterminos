@@ -1,0 +1,7 @@
+
+
+CREATE TEMPORARY TABLE NombreTabla
+SELECT * FROM AAA  //consulta que se va a meter en la nueva tabla temporal
+
+select * from NombreTabla; //consultar la nueva tabla temporal
+

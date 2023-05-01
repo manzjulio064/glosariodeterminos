@@ -1,0 +1,8 @@
+
+
+style={{fontSize: `${detalle.tamanoletraH2}`}}
+
+style={{color: `${comunicaciones.color}`}}
+
+style={{fontSize: `${configuracion.navbar.tamanoFontSizeLogo}`, color: `${configuracion.navbar.colorFontSizelogo}`}}
+

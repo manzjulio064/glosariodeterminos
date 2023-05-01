@@ -1,0 +1,7 @@
+// *******************Mustra las dos tables incluyendo las que no tiene genero*************************
+
+SELECT title AS "Movies Title", name AS "Genero Name"
+FROM movies AS M
+LEFT JOIN genres AS G ON M.genre_id = G.id;
+
+// ************************************************************

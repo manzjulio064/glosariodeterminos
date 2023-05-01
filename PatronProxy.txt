@@ -1,0 +1,70 @@
+//**************************************Main.java****************************************************//
+
+package PatronProxy;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        List<String> sitiosBloqueados = new ArrayList<>();
+        sitiosBloqueados.add("www.youtube.com");
+        sitiosBloqueados.add("www.facebook.com");
+        IConexionInternet proxy;
+        proxy = new ProxyInternet(sitiosBloqueados,
+                new InternetService());
+        proxy.conectarCon("www.google.com");
+        proxy.conectarCon("www.youtube.com");
+    }
+}
+
+//*****************************************interface IConexionInternet.java************************************************//
+
+package PatronProxy;
+
+public interface IConexionInternet {
+
+    public void conectarCon(String url);
+
+}
+
+//******************************************InternetService.java*********************************************//
+
+package PatronProxy;
+
+public class InternetService implements IConexionInternet {
+
+    @Override
+    public void conectarCon(String url) {
+        System.out.println("Conectando con "+url);
+    }
+
+}
+
+//*****************************************ProxyInternet.java*******************************************//
+
+package PatronProxy;
+
+import java.util.List;
+
+public class ProxyInternet implements IConexionInternet {
+
+    private InternetService internetService;
+    private List<String> sitiosBloqueados;
+
+    public ProxyInternet(List<String> sitiosBloqueados, InternetService internetService) {
+        this.sitiosBloqueados = sitiosBloqueados;
+        this.internetService = internetService;
+    }
+
+    @Override
+    public void conectarCon(String url) {
+        if(!this.sitiosBloqueados.contains(url))
+            this.internetService.conectarCon(url);
+        else
+            System.out.println("Acceso denegado");
+    }
+
+}
+
+//****************************************************************************************************//

@@ -1,0 +1,50 @@
+
+//************************************index.html******************************************//
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titulo</title>
+</head>
+
+<body>
+    <h1 class="clah1">hector</h1>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
+//***************************************index.js******************************************//
+let titulo = document.querySelector('h1');
+titulo.innerHTML = 'Carlos cifuentes';
+
+//***********************************Reset element****************************************//
+
+  let contenedor = document.querySelector('.main-contenedor')
+  contenedor.innerHTML = "" ;
+
+//******************************************************************************************//
+
+document.querySelector('div.nombre').innerHTML ;
+
+document.querySelector('div.nombre').innerHTML = 'Darío';
+
+document.querySelector('div.nombre').innerHTML += 'Papitas';
+
+//******************************************************************************************//
+
+let app = document.querySelector(".app");
+
+app.innerHTML +=
+  `
+    <div id="container">
+    <h1>prueba hector</h1>
+    <p>texto de prueba template literal</p>
+    </div>
+
+  `
+//******************************************************************************************//

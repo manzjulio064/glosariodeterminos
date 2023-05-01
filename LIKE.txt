@@ -1,0 +1,3 @@
+SELECT * FROM clientes
+ WHERE primer_nombre LIKE "j%a"     /* nombre que empiezan por j y terminan en a */
+;

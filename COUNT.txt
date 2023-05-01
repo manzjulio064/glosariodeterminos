@@ -1,0 +1,25 @@
+
+//**************************************************************************************************//
+SELECT
+U.nombre,
+COUNT(*)
+FROM usuario U
+INNER JOIN playlist PL ON U.`idUsuario` = PL.`Usuario_idUsuario`
+GROUP BY U.nombre;
+
+
+//****Listar todas las playlists que posean menos de 3 videos, mostrando el nombre de usuario y el avatar que poseen.***//
+
+SELECT
+PL.nombre PlayList,
+U.nombre Usuario,
+A.nombre Avatar,
+COUNT(V.`idVideo`) CantidadVideos
+FROM usuario U
+INNER JOIN playlist PL ON U.`idUsuario` = PL.`Usuario_idUsuario`
+INNER JOIN video V ON U.`idUsuario` = V.`Usuario_idUsuario`
+INNER JOIN avatar A ON U.`Avatar_idAvatar` = A.`idAvatar`
+GROUP BY PL.nombre, U.nombre, A.nombre
+HAVING CantidadVideos < 3; //Se utiliza en HAVING en vez del WHERE para poder utilizar el alias
+
+//********************************************************************************************************************//

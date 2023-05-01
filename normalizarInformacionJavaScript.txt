@@ -1,0 +1,69 @@
+//*****************************Normalizar la informacion**********************************//
+function normalizeDemo(text) {
+    text = setTextInLowerCase(text);
+    text = removeEmptySpaces(text);
+    text = setFinalPoint(text);
+    text = SetUpperCaseInFirstLetter(text);
+
+    console.log(text);
+}
+
+function setTextInLowerCase(text) { //Convierte el texto a minuscula
+    return text.toLowerCase();
+}
+
+function removeEmptySpaces(text) { //Quita los espacios en blanco en ambos estremos
+    return text.trim();
+}
+
+function setFinalPoint(text) { //remplaza todos los caracteres que le indiquemos
+    return text.replaceAll('.', '').concat('.');
+}
+
+function SetUpperCaseInFirstLetter(text) { //Cambia la primera letra a mayuscula
+    return text[0].toUpperCase() + text.slice(1);
+}
+
+normalizeDemo('    estO  es uN texto QUE debemos normalizar..    ');
+
+
+//********Para que en determinado campo input no ingresen caracteres especiales********//
+let charactersAllowed = ['a', 'b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' '];
+document.querySelector('#nombre').addEventListener('keypress', function(e) {
+    console.log(e.key);
+    if (!charactersAllowed.includes(e.key.toLowerCase())) {
+        e.preventDefault();
+    }
+})
+//*************Limitar el tamaño de caracteres de un textarea*****************//
+
+function limita(maximoCaracteres) {
+    var elemento = document.getElementById("texto");
+    if(elemento.value.length >= maximoCaracteres ) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+//****************************Validar los check de un formulario y limitarlo*********************************//
+let checkCounter = 0;
+document.getElementsByName('hobbies').forEach(check => {
+    check.addEventListener('click', function(e) {
+
+        if (this.checked) {
+            if (checkCounter >= 4) {
+                e.preventDefault();
+            } else {
+                checkCounter++;
+            }
+        } else {
+            checkCounter--;
+        }
+        console.log('Cantidad de checks tildados: ' + checkCounter);
+    });
+});
+
+//*************************************************************************************//
+
+

@@ -1,0 +1,22 @@
+function Auto(laMarca, elModelo) {
+  this.marca = laMarca;
+  this.modelo = elModelo;
+}
+
+let Miauto = new Auto("fiat", 1995);
+
+// *********************************
+
+function Cursos(cantidadDeAlumnos, docentes, horarios) {
+  this.cantidadDeAlumnos = cantidadDeAlumnos;
+  this.docentes = docentes;
+  this.horarios = horarios;
+}
+
+let cursoDeProgramacion = new Cursos(50, ["Javier", "Gerardo"], "de 19 a 21 Hr.");
+let cursoDeMarketing = new Cursos(40, ["Julio", "Carlos"], "de 21 a 23 Hr.");
+
+console.log(cursoDeProgramacion);
+console.log(cursoDeMarketing);
+
+// ******************************************

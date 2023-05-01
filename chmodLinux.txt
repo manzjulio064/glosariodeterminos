@@ -1,0 +1,4 @@
+chmod 777 archivo.txt   // todos los permisos
+chmod 666 archivo.txt   // Pueden leer y escribir solamente pero no ejecutarlo
+chmod 444 archivo.txt   // Solamente lo pueden leer
+chmod 700 archivo.txt   // Lo puede leer, escribir y modificar solamente el usuario o dueño que creo el archivo

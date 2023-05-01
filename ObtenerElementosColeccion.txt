@@ -1,0 +1,20 @@
+**********En el caso de las List, como ArrayList y LinkedList********
+
+System.out.println(nombres.get(2));
+
+**********En el caso de las Set********
+
+boolean encontrado = false;
+String nombre = null;
+Iterator it = nombres.iterator();
+while(it.hasNext() && !encontrado) {
+ nombre = (String) it.next();
+ if(nombre == "Carlos")
+ encontrado = true;
+}
+System.out.println("Encontramos a " + nombre);
+
+
+************En el caso de las Set Map*********************
+nombres.get(30888999);
+

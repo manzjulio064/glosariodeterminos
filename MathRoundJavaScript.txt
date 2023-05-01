@@ -1,0 +1,10 @@
+
+
+let num = Math.round(20.51); // 20
+let aleatorio = Math.random()*(100-1)+1; // 86.5806550233727
+let redondeoAleatorio = Math.round(aleatorio); // 87
+
+console.log(num);
+console.log(aleatorio);
+console.log(redondeoAleatorio);
+

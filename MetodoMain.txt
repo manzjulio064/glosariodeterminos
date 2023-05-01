@@ -1,0 +1,35 @@
+
+public static void main(String[] args) {
+
+}
+
+
+// *****************Otros metodos *****************************//
+
+    public Vehiculo() {
+        kilometros = 500;
+        velocidad=300;
+    }
+
+    public Vehiculo(String marca, String color, int precio, int kilometros, int velocidad) {
+        this.marca = marca;
+        this.color = color;
+
+    }
+    public void propietario(String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        System.out.println("EL PROPIETARIO ES:" + nombre + " " + apellido);
+    }
+
+    void arrancar() {
+        System.out.println("El carro arranco");
+
+    }
+
+    public int kilometrosRecorridos() {
+        int recorrido= kilometros * velocidad;
+        return recorrido;
+    }
+
+// ***********************************************************************//

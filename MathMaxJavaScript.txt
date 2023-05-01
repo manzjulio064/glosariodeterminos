@@ -1,0 +1,10 @@
+
+
+let numUno = Math.max(10, 20); // 20
+let numDos = Math.max(10, 20, 30.58); // 30.58
+let numTres = Math.max(10, 20, 30.58, 'No'); // NaN
+
+console.log(numUno);
+console.log(numDos);
+console.log(numTres);
+

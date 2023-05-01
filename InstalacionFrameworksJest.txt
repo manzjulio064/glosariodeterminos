@@ -1,0 +1,7 @@
+Herramientas instalacion
+
+https://nodejs.org/en/
+https://code.visualstudio.com/
+
+https://jestjs.io/docs/getting-started
+	npm install --save-dev jest

@@ -1,0 +1,46 @@
+
+let criptos = [
+  {nombre: "Bitcoin", simbolo: "BTC"},
+  {nombre: "Ethereum", simbolo: "ETH"},
+  {nombre: "Cardano", simbolo: "ADA"},
+];
+
+function esBitcoin(criptos) {
+  return criptos.nombre === "Bitcoin";
+}
+
+let a = criptos.find(esBitcoin);
+
+console.log(a);
+// {nombre: 'Bitcoin', simbolo: 'BTC'}
+
+// **************************************************************
+
+let vehiculos = [
+  {
+    Marca: "chevrolet",
+    Cilindraje: "1400",
+    Modelo: 2018
+  },
+  {
+    Marca: "Fiat",
+    Cilindraje: "1300",
+    Modelo: 1995
+  }
+]
+
+let consulta = (vehiculos) => vehiculos.Marca === "chevrolet";
+let a = vehiculos.find(consulta)
+console.log(a)
+
+//**************************************************************************
+
+let personas = [
+  {Nombre:"Carlos",Apellido:"campos",Edad:41, Sexo:"M"},
+  {Nombre:"Angela",Apellido:"Ordoñez",Edad:30, Sexo:"F"},
+  {Nombre:"Consuelo",Apellido:"Araujo",Edad:25, Sexo:"F"}
+]
+
+console.log(personas.find((personas) => personas.Nombre === "Consuelo"));
+
+// *****************************************************************************

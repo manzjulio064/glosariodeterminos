@@ -1,0 +1,10 @@
+
+SELECT PRO.Nombreproveedor, P.NombreProducto,
+sum(FC.Cantidad) AS Cantidad
+FROM productos P
+INNER JOIN facturacompras FC ON FC.IdProducto = p.IdProducto
+INNER JOIN articulos AR ON AR.IdArticulo = FC.IdArticulo
+INNER JOIN proveedores PRO ON PRO.IdProveedor = AR.Idproveedor
+GROUP BY PRO.Nombreproveedor, P.NombreProducto;
+
+-- // ****************************************************************

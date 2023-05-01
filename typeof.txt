@@ -1,0 +1,17 @@
+// ************NUMBER*******************
+
+let dato = 1
+function tipoDeDato(dato) {
+  return typeof dato;
+}
+console.log(tipoDeDato(dato));
+
+// ****************OBJETO******************
+
+let dato = ["hola"]
+function tipoDeDato(dato) {
+  return typeof dato;
+}
+console.log(tipoDeDato(dato));
+
+// *************************************

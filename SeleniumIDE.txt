@@ -1,0 +1,7 @@
+
+//***********Descargar Selenium IDE para Chrome:**************//
+https://www.selenium.dev/selenium-ide
+
+// ********A continuación se adjunta video con los pasos realizados para grabar el caso de prueba de login de Facebook. ***********//
+https://drive.google.com/file/d/1ySkGFuQHKxoS8nExuQU7wkmj0YQvgVk7/view?usp=sharing
+

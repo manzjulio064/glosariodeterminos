@@ -1,0 +1,187 @@
+//***************************/src/main/resources/bootstrap.yml************************************//
+
+spring:
+  application:
+    name: microservicioInicial
+  cloud:
+    config:
+      uri: http://localhost:8888
+  profiles:
+    active: dev
+
+//*********/src/main/java/com/dh/microservicioInicial/controlador/MicroservicioInicialController.java*********//
+
+package com.dh.microservicioInicial.controlador;
+
+import com.dh.microservicioInicial.service.microservicioInicialService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/")
+public class MicroservicioInicialController {
+
+    @Autowired
+    private microservicioInicialService servicedatos;
+
+    @GetMapping
+    public String microservicioFunciona() {
+        return "Este microservicio esta funcionando";
+    }
+
+    @GetMapping("/datos")
+    public String getdatos(@RequestParam String nombre, @RequestParam String apellido) {
+        return servicedatos.getNombres(nombre, apellido);
+    }
+    @GetMapping("/saludar")
+    public String getSaludar() {
+        return "Hola como estas";
+    }
+
+
+}
+//******/src/main/java/com/dh/microservicioInicial/service/microservicioInicialService.java***********//
+
+package com.dh.microservicioInicial.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class microservicioInicialService {
+
+
+    private String nombreApellido;
+    public String getNombres(String nombre, String apellido) {
+
+
+
+        return "Hola Como estas :" + nombre + " " + apellido;
+    }
+}
+//*********/src/main/java/com/dh/microservicioInicial/MicroservicioInicialApplication.java **************//
+
+package com.dh.microservicioInicial;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MicroservicioInicialApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MicroservicioInicialApplication.class, args);
+	}
+
+}
+
+//*****************************pom.xml*****************************************//
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.8</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.dh</groupId>
+	<artifactId>MicroservicioInicial</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>ClimaService</name>
+	<description>MicroservicioInicial</description>
+	<properties>
+		<java.version>18</java.version>
+		<spring-cloud.version>2021.0.5</spring-cloud.version>
+	</properties>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-loadbalancer</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+
+//****************Correr un microservicio o servidor desde una terminal*********************//
+//****Abrir la carpeta donde esta el codigo del microservicio en una terminal
+mvn spring-boot:run
+
+//**********************************POM*******************************//
+
+***Eureka Server****
+SW = spring-boot-starter-web
+ES = >spring-cloud-starter-netflix-eureka-server
+A = spring-boot-starter-actuator //Monitoreo de la salud(heartbeat) /health /info
+CC = spring-cloud-starter-config
+SCB = spring-cloud-starter-bootstrap
+
+***ConfigServer*****
+CS = spring-cloud-config-server
+
+***MicroServicios****
+SW = spring-boot-starter-web
+CC = spring-cloud-starter-config
+SCB = spring-cloud-starter-bootstrap
+SCEC = spring-cloud-starter-netflix-eureka-client
+OF = spring-cloud-starter-openfeign
+SCLB = spring-cloud-starter-loadbalancer  //balanceo microservicio local
+
+spring-cloud-starter
+
+***Gateway****
+SCSG = spring-cloud-starter-gateway
+
+//*************************************************************************************//

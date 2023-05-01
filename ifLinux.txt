@@ -1,0 +1,64 @@
+
+#!/bin/bash
+
+for i in $(cat lista_nombres)
+
+do
+        echo $i
+        if [ $i = "Juan" ]; then
+                echo "Encontre a $i"
+        else
+                let a=$a+1
+        fi
+done
+
+//********************************************************//
+
+
+#!/bin/bash
+
+countA=0
+
+for nombre in $(curl https://raw.githubusercontent.com/olea/lemarios/master/nombres-propios-es.txt | shuf)
+
+do
+        if [[ $nombre == A* ]] && [ $countA -le 4 ]; then
+                curl -s https://api.genderize.io/?name=$nombre | jq '.gender' | { read -r gen; echo "Gender of $nombre is: $gen"; }
+                curl -s https://api.nationalize.io/?name=$nombre | jq '.country[0].country_id' | { read -r cn; echo "Country of $nombre is: $cn"; }
+                echo "Encontre a $nombre"
+                let "countA++"
+        else
+                let a=$a+1
+        fi
+done
+
+//*************************************elif*********************************************************//
+
+
+#!/bin/bash
+
+countA=0
+countL=0
+countOtros=0
+
+
+for nombre in $(curl https://raw.githubusercontent.com/olea/lemarios/master/nombres-propios-es.txt | shuf)
+
+do
+        if [[ $nombre == A* ]] && [ $countA -le 4 ]; then
+                curl -s https://api.genderize.io/?name=$nombre | jq '.gender' | { read -r gen; echo "Gender of $nombre is: $gen"; }
+                curl -s https://api.nationalize.io/?name=$nombre | jq '.country[0].country_id' | { read -r cn; echo "Country of $nombre is: $cn"; }
+                let "countA++"
+        elif [[ $nombre == L* ]] && [ $countL -le 4 ]; then
+                curl -s https://api.genderize.io/?name=$nombre | jq '.gender' | { read -r gen; echo "Gender of $nombre is: $gen"; }
+                curl -s https://api.nationalize.io/?name=$nombre | jq '.country[0].country_id' | { read -r cn; echo "Country of $nombre is: $cn"; }
+                let "countL++"
+        elif [[ $nombre != A* ]] && [[ $nombre != L* ]] && [ $countOtros -le 4 ]; then
+                curl -s https://api.genderize.io/?name=$nombre | jq '.gender' | { read -r gen; echo "Gender of $nombre is: $gen"; }
+                curl -s https://api.nationalize.io/?name=$nombre | jq '.country[0].country_id' | { read -r cn; echo "Country of $nombre is: $cn"; }
+                let "countOtros++"
+
+        fi
+done
+
+//**************************************************************************************************************//

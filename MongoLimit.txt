@@ -1,0 +1,9 @@
+
+
+//**********************************Buscar y eliminar pelicula con el menor avaliacao*********************************** */
+db.peliculas.find({},{avaliacao: 1}).sort({avaliacao: 1}).limit(1) //primera forma
+use("db2_c4")
+db.peliculas.find().sort({avaliacao: 1}).limit(1)
+db.peliculas.deleteOne({_id: 13})
+
+//*************************************************************************************************

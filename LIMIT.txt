@@ -1,0 +1,7 @@
+SELECT * FROM clientes
+LIMIT 5;
+
+
+SELECT * FROM clientes
+WHERE primer_nombre LIKE "%e"
+LIMIT 5;

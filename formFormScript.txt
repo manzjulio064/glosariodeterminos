@@ -1,0 +1,7 @@
+let formulario = document.querySelector("form.reservation")
+
+//**************************************************************//
+
+let formulario = document.forms["reservation"]
+
+//**************************************************************//

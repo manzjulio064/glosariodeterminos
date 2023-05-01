@@ -1,0 +1,43 @@
+//****************************Interface Cuidador.java****************************************//
+ public interface Cuidador{
+
+   public void String custodiar();
+
+ }
+
+//****************************Interface ladrador.java***********************************//
+
+ public interface Ladrador{
+   public void String ladrar();
+ }
+
+//****************************Clase Doberman.java***********************************//
+
+ public class Doberman implements Cuidador, Ladrador{
+
+   public void String custodiar(){
+
+         return “estoy atento custodiando la casa”;
+   }
+
+   public void String ladrar(){
+
+        return “Guau! Guau!”;
+
+   }
+
+
+ }
+//****************************Clase Lobo.java*********************************//
+
+ public class Lobo implements Ladrador{
+
+   public void String ladrar(){
+
+        return “guau! los lobos también ladramos”;
+
+   }
+
+ }
+
+//*********************************************************************************//

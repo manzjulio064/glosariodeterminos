@@ -1,0 +1,5 @@
+
+
+cat >dir1/archivo1.txt
+
+cat dir1/archivo1.txt

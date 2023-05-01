@@ -1,0 +1,45 @@
+
+let prueba = (a, b) => {
+  return a + b
+};
+
+console.log(prueba(2, 3))
+
+// *****************************************
+let prueba = (a, b) => a + b;
+
+console.log(prueba(2, 3))
+
+// *****************************************
+
+let prueba = (a) => {
+  return a * 5
+};
+
+console.log(prueba(2))
+
+// *****************************************
+
+let prueba = a => {
+  return a * 5
+};
+
+console.log(prueba(2))
+
+// ***************************************
+
+let saludar = (nombre, apellido) => "Hola, " + nombre + " " + apellido + "!";
+
+console.log(saludar("javier", "moreno"));
+
+// ****************convierta pulgadas en centímetros******************
+
+let pulgadasCm = (cm) => {
+  return cm / 2.54;
+};
+
+console.log(pulgadasCm(1));
+
+******************************************************
+
+

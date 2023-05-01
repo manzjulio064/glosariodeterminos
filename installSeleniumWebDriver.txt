@@ -1,0 +1,19 @@
+
+//********Instalar Librerias de selenium*************************//
+npm install selenium-webdriver 
+
+// ******************Instalar los binarios de selenium webdriver*********//
+
+Descargar el vinario correspondiente a nuestro navegador chrome de acuerdo a la version del navegador
+
+-- Verificar version del navegador  =  
+
+    	chrome://settings/help
+	https://chromedriver.storage.googleapis.com/index.html
+
+
+
+
+
+	
+

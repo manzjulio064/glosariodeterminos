@@ -1,0 +1,26 @@
+let nombre = {
+  Nombre: 'hector',
+  Apellido: 'Moreno',
+  Cursos: function() {
+    return 'Hola' + ' ' + this.Nombre + ' ' + this.Apellido
+
+  }
+}
+console.log(nombre.Cursos())
+
+// ************Modificar Objeto******************
+
+let prueba = {
+  nombre: "Javier",
+  apellido: "Moreno"
+}
+
+function cambiar(prueba){
+  let info = prueba
+  info.nombre = "carlos"
+  return info;
+}
+
+console.log(cambiar(prueba));
+
+// *****************************************

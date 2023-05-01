@@ -1,0 +1,42 @@
+
+//*******************************************************************************************//
+
+Tip: Esto es lo que realizó nuestro comando:
+● docker container run: Le estamos diciendo al Daemon que ejecute un
+contenedor.
+● -d ó --detach: Ejecuta nuestro container en segundo plano.
+● --name: Le damos un nombre al container, de lo contrario le asignará un
+nombre aleatorio.
+● -p ó --publish: Mapea los puertos del host al puerto del container.
+● davidpigna/spaghettidocker: Es la dirección en la cual se encuentra este
+container en Docker Hub (Registry).
+
+//*******************************************************************************************//
+//**Si es una imagen original como nginx, mysql no hay nececidad de anteponerle el nombre de la persona que la creo
+
+docker container run -d --name spaghettidocker -p 80:80 davidpigna/spaghettidocker
+docker run -d --name proxy -p 80:80 nginx
+docker run -d --name proxy -p 8080:80 nginx
+
+docker run --publish 8080:8080 paqueteria:1.0 //Exponemos del puerto 8080 del contenedor al puerto 8080 del equipo local para comunicarnos con la aplicacion y a lo ultimo colocamos el nombre de la image con su tag paqueteria:1.0
+
+//*******************************Trabajar con un contenedor que esta corriendo*********************//
+
+docker ps             Consultar en nombre de contenedores en ejecuccion ejm: nombre proxy
+docker stop proxy     Detener el contenedores en ejecucion
+docker ps -a          Mirar contenedores detenidos
+docker rm proxy       Eliminar el contenedor primero debe estar detenidos en
+docker exec -it proxy bash   Entrar dentro un contenedor en ejecuccion
+
+//*******************************************************************************************//
+
+-d correr en segundo plano el contenedor
+--hostname Nombre de la maquina o host dentro del contener en linux
+--name Nombre como llamo al contenedor
+-p Puerto (si hay un puerto interno y se publica en el externo primero colocar el puerto externo EJM: 8080)
+-lo ultimo que se coloca es el nombre de la imagen y su tag si tiene separado por dos puntos
+
+docker run -d --hostname my-rabbit --name some-rabbit -p 8080:15672 rabbitmq:3-management
+
+Nota: Se puede correr directamente y docker descarga la imagen EJM: rabbitmq:3-management del docker hub sin nececidad de bajar la imagen primero
+//*******************************************************************************************//

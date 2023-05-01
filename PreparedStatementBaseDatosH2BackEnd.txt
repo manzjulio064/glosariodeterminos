@@ -1,0 +1,197 @@
+//********************************************************************************************//
+
+Update
+Ahora veremos cómo ejecutar un update.
+
+Para ello debemos preparar una query y agregarle el símbolo ? donde vamos a reemplazar el dato. El método executeUpdate() devuelve un entero indicando el número de filas afectadas por la modificación. Por ejemplo:
+
+UPDATE PERSONAS SET NOMBRE=? WHERE APELLIDO=?
+
+
+//********************************Update*******************************************//
+
+String query = ("UPDATE PERSONAS SET NOMBRE=? WHERE APELLIDO=?”);
+try (PreparedStatement pstmt = con.prepareStatement(query)) {
+
+pstmt.setString(1, Mariano");
+pstmt.setString(2, "Martinez");
+pstmt.executeUpdate();
+
+}
+catch (SQLException ex) {
+
+}
+
+//*******************************Insert*****************************************************//
+
+String query = ("INSERT INTO PERSONAS (NOMBRE, APELLIDO) VALUES (?,?));
+try (PreparedStatement pstmt = con.prepareStatement(query)) {
+
+pstmt.setString(1, Mariano");
+pstmt.setString(2, "Martinez");
+pstmt.executeUpdate();
+
+}
+catch (SQLException ex) {
+
+}
+
+//**********************************Delete*********************************************//
+
+String query = ("DELETE FROM PERSONAS WHERE APELLIDO=?);
+try (PreparedStatement pstmt = con.prepareStatement(query)) {
+
+pstmt.setString(1, Mariano");
+pstmt.executeUpdate();
+
+}
+catch (SQLException ex) {
+
+}
+
+//************************************Usuario.java****************************************//
+
+package Usuario;
+
+public class Usuario {
+
+    private String nombre;
+    private Long id;
+    private String email;
+    private double sueldo;
+
+    public Usuario(String nombre, String email, double sueldo) {
+        this.nombre = nombre;
+        this.email = email;
+        this.sueldo = sueldo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public double getSueldo() {
+        return sueldo;
+    }
+
+    public void setSueldo(double sueldo) {
+        this.sueldo = sueldo;
+    }
+
+
+    public double subirSueldo(double precio) {
+        this.sueldo = this.sueldo + precio;
+        return this.sueldo;
+    }
+}
+
+//**************************************Test.java******************************************//
+
+package Usuario;
+
+import org.apache.log4j.Logger;
+import java.sql.*;
+
+public class Test {
+
+    private static Connection getConnection() throws Exception {
+
+        Class.forName("org.h2.Driver").newInstance();
+        return DriverManager.getConnection("jdbc:h2:~/test", "sa","");
+    }
+
+    private static final String SQL_TABLE_CREATE = "DROP TABLE IF EXISTS USUARIO; CREATE TABLE USUARIO"
+        + "("
+        + "ID INT PRIMARY KEY,"
+        + "NOMBRE VARCHAR(100) NOT NULL,"
+        + "EMAIL VARCHAR(100) NOT NULL,"
+        + "SUELDO numeric(15, 2) NOT NULL"
+        + ")";
+
+    private static final String SQL_INSERT = "INSERT INTO USUARIO (ID, NOMBRE, EMAIL, SUELDO) VALUES(?,?,?,?)";
+    private static final String SQL_UPDATE = "UPDATE USUARIO SET SUELDO=? WHERE EMAIL=?";
+
+    public static void main(String[] args) throws Exception {
+
+        Usuario usuario = new Usuario("Hector javier", "hectorjaviermorenoh@gmail.com", 1500000);
+
+        Connection connection = null;
+
+        try {
+            connection = getConnection();
+            Statement statement = connection.createStatement();
+            //*************************************************************************//
+            statement.execute(SQL_TABLE_CREATE);
+
+            //*************************************************************************//
+            PreparedStatement psInsert = connection.prepareStatement(SQL_INSERT);
+            psInsert.setInt(1, 1);
+            psInsert.setString(2, usuario.getNombre());
+            psInsert.setString(3, usuario.getEmail());
+            psInsert.setDouble(4, usuario.getSueldo());
+            psInsert.execute();
+
+            //*************************************************************************//
+            connection.setAutoCommit(false); // para que no haga el commit automaticamente y nosotros lo hacemos con connection.commit();
+            PreparedStatement psUpdate = connection.prepareStatement(SQL_UPDATE);
+            psUpdate.setDouble(1, usuario.subirSueldo(10d));
+            psUpdate.setString(2, usuario.getEmail());
+            psUpdate.execute();
+
+          // int a = 4 / 0; // Error auto generado para que realice un connection.rollback()
+
+            connection.commit();
+            connection.setAutoCommit(true); // activar nuevamente al autoCommit
+
+            String sql = "SELECT * FROM USUARIO";
+            Statement stmt = connection.createStatement();
+            ResultSet rd = stmt.executeQuery(sql);
+
+            while(rd.next()) {
+
+                System.out.println(rd.getInt(1) + rd.getString(2) + rd.getString(3) + rd.getDouble(4));
+
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace(); // imprimir por pantalla la excepcion
+            connection.rollback();
+
+        } finally {
+
+            connection.close();
+
+        }
+
+        //***********************Si falla el rollback se muestra informacion sin la actualizacion*****************//
+
+            Connection connection1  = getConnection();
+            String sql = "SELECT * FROM USUARIO";
+            Statement stmt = connection1.createStatement();
+            ResultSet rd = stmt.executeQuery(sql);
+
+            while(rd.next()) {
+                System.out.println(rd.getInt(1) + rd.getString(2) + rd.getString(3) + rd.getDouble(4));
+            }
+
+        //******************************************************************************************************//
+
+
+    }
+
+}
+
+//********************************************************************************************//

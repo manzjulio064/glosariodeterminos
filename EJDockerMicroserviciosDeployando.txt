@@ -1,0 +1,62 @@
+//*************************Dockerfile***********************************//
+//**Para deployar Eureka Server debemos crear el archivo Dockerfile de igual manera que con el resto de los microservicios, pero cambiamos el puerto para exponer el 8761, en lugar del 8080. Nos quedaría de la siguiente manera:
+
+FROM adoptopenjdk/openjdk11:alpine-jre
+ARG JAR_FILE=spring-boot-web.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","app.jar"]
+EXPOSE 8761
+
+//************************docker-compose.yml********************************//
+//**En el docker-compose.yml agregamos:
+
+eureka-server:
+  build: spring-cloud/eureka-server
+  mem_limit: 512m
+  ports:
+    - "8761:8761"
+
+//************************application.properties********************************//
+//**Cuando ejecutamos los microservicios utilizando Docker, tenemos que modificar la URL de Eureka, ya que no se va a encontrar en la URL que configuramos por default (http://localhost:8761/eureka). Ahora, en lugar de localhost, tendremos que poner eureka-server, ya que es el nombre que utilizamos en el docker-compose.yml. Entonces nos quedaría:
+
+eureka.client.serviceUrl.defaultZone: http://eureka:8761/eureka/
+
+//*****************************docker-compose.yml**************************//
+//**Para estos casos, en donde las propiedades cambian dependiendo del ambiente, es bueno utilizar profiles.
+//**A continuación, podemos ver el docker-compose.yml final con dos microservicios, Eureka Server y MongoDB:
+
+
+version: '2.1'
+
+services:
+  product-service:
+    build: microservices/product-service
+    mem_limit: 512m
+    ports:
+      - "8080:8080"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+  user-service:
+    build: microservices/user-service
+    mem_limit: 512m
+    ports:
+      - "8080:8080"
+  eureka-server:
+    build: spring-cloud/eureka-server
+    mem_limit: 512m
+    ports:
+      - "8761:8761"
+mongodb:
+    image: mongo:4.4.2
+    mem_limit: 512m
+    ports:
+      - "27017:27017"
+    command: mongod
+     healthcheck:
+      test: "mongo --eval 'db.stats().ok'"
+      interval: 5s
+      timeout: 2s
+      retries: 60
+
+//***********************************************************************//

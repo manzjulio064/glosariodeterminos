@@ -1,0 +1,8 @@
+
+DELETE FROM nombre_tabla WHERE condición;
+
+// ******************************************
+
+DELETE FROM artistas WHERE id = 4;
+
+// ****************************************

@@ -1,0 +1,6 @@
+
+let redondeado = Math.round(20.60)
+console.log(redondeado)
+
+
+// ***************************

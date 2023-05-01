@@ -1,0 +1,67 @@
+//****************************Dockerfile**********************************//
+
+FROM ubuntu:16.04
+ENV DEBIAN_FRONTEND noninteractive
+MAINTAINER someuser@somedomain.com
+RUN apt-get update
+RUN apt-get install mysql-server -y
+CMD echo "My first image created."
+
+//*********************************Otro Dockerfile ***************************//
+
+FROM adoptopenjdk/openjdk16  //Imagen de JDK para poder correr la aplicacion de java
+
+ARG JAR_FILE=target/Odontologica-0.0.1-SNAPSHOT.jar
+
+COPY ${JAR_FILE} app.jar  //Copia archivo Odontologica-0.0.1-SNAPSHOT.jar y lo renombra app.jar dentro del contenedor
+
+ENTRYPOINT ["java", "-jar", "app.jar"]  //En el contenedor ejecuta este comando
+
+EXPOSE 8080 // Lo expone en el puerto 8080 cuando este corriendo el contenedor
+
+
+//****************************Ejecutar Dockerfile************************************//
+  //** Una vez que nuestro Dockerfile se ha creado correctamente, debemos ejecutar docker**//
+  //** build para “armar” nuestra imagen localmente, para luego enviarla a Docker Hub. Este**//
+  //** comando debemos ejecutarlo dentro de la carpeta donde se encuentra el Dockerfile.**//
+
+
+docker build ./ -t asadali08527/first-repo
+
+docker build --tag paqueteria:1.0 .  //Crea una imagen nueva con la informacion del Dockerfile llamada paqueteria:1.0
+
+//*********************************Correr una imagen**************************************//
+
+docker run --publish 8080:8080 paqueteria:1.0 //Exponemos del puerto 8080 del contenedor al puerto 8080 del equipo local para comunicarnos con la aplicacion y a lo ultimo colocamos el nombre de la image con su tag paqueteria:1.0
+
+//******************************Consultar Imagenes creadas*********************************//
+//** Podemos verificar que la imagen está creada con la siguiente línea de código:
+
+  docker image ls
+
+//**************************Buscar imagenes dockerHub**********************************//
+
+  docker search mysql
+
+//****************************docker pull*************************************//
+//**Descargar imagenes de dockerHub
+
+  docker pull mysql
+
+//*****************************docker push**************************************//
+//**Una vez que nuestra imagen se ha creado correctamente y se está ejecutando,
+//**podemos enviarla a Docker Hub mediante el comando push.
+
+  docker push asadali08527/first-repo
+
+
+//*******************************Trabajar con un contenedor que esta corriendo*********************//
+
+docker ps             Consultar en nombre de contenedores en ejecuccion ejm: nombre proxy
+docker stop proxy     Detener el contenedores en ejecucion
+docker ps -a          Mirar contenedores detenidos
+docker rm proxy       Eliminar el contenedor primero debe estar detenidos en
+docker exec -it proxy bash   Entrar dentro un contenedor en ejecuccion
+
+//*******************************************************************************************//
+

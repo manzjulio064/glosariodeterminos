@@ -1,0 +1,320 @@
+
+//***************************************FormUpdate.js************************************************//
+
+import React from "react";
+import api from '../api';
+import { useParams } from 'react-router-dom';
+import stylesx from './styles/formUpdate.module.scss';
+import { getNewFileHandle } from '../FuncionesGlobales/FunctionGlobal'
+import { AiOutlineFileAdd, AiFillDelete } from 'react-icons/ai';
+import { CgMathPlus } from "react-icons/cg";
+import { GrUpdate } from "react-icons/gr";
+
+
+
+export default function Prueba(e) {
+
+  let {id} = useParams()
+  return (
+    <Pruebaxxx id={id}/>
+
+  );
+}
+
+class Pruebaxxx extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+
+      input: {
+        nombre: "",
+        archivo: ""
+      },
+
+      loading: true,
+      error: null,
+      data: {
+        id: "",
+        name: "",
+        detalle: "",
+        link: [
+
+       ],
+        linkx: [
+
+       ]
+      }
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+
+  addNewItem = () => {
+    this.setState((prevState, props) => ({
+      data:{
+        ...this.state.data,
+        link: [...prevState.data.link, prevState.input],
+      }
+    }));
+  };
+
+  delete = (itemIndex) => {
+    const filtredData = this.state.data.link.filter((item, index) => index !== itemIndex);
+    this.setState({
+      data: {
+        ...this.state.data,
+        link: filtredData
+      }
+    });
+
+  };
+
+
+
+  onclick = (e) => {
+    console.log("guardado")
+  }
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
+
+  fetchData = async (e) => {
+    this.setState({ loading: true, error: null });
+    api.prueba.read(this.props.id)
+    .then( (data) => this.setState({ data: data }))
+    .finally(() => this.setState({ loading: false }))
+  }
+
+  handleChange = e => {
+    this.setState({
+      data: {
+        ...this.state.data,
+        [e.target.name]: e.target.value,
+      },
+    });
+  };
+
+  handleInputChangeNombre = e => {
+    const stateDataCopy = this.state.data.link.slice();
+    const objectCopy = Object.assign({}, stateDataCopy[e.target.dataset.index]);
+    objectCopy["nombre"] = e.target.value;
+    stateDataCopy[e.target.dataset.index] = objectCopy;
+    this.setState({
+      data: {
+        ...this.state.data,
+        link: stateDataCopy
+      }
+    });
+  };
+  handleInputChangeArchivo = e => {
+    const stateDataCopy = this.state.data.link.slice();
+    const objectCopy = Object.assign({}, stateDataCopy[e.target.dataset.index]);
+    objectCopy["archivo"] = e.target.value;
+    stateDataCopy[e.target.dataset.index] = objectCopy;
+    this.setState({
+      data: {
+        ...this.state.data,
+        link: stateDataCopy
+      }
+    });
+
+
+  };
+
+  handleSubmit = async e => {
+    e.preventDefault();
+    await api.prueba.update(this.props.id, this.state.data);
+  };
+
+
+  render() {
+    if (this.state.loading === true) {
+      return <h5>Cargando productos ...</h5>;
+    }
+
+    return (
+
+      <>
+        <form id="formJson" name="formulario1" onSubmit={this.handleSubmit} className={stylesx.form}>
+
+          <div className={stylesx.formHeader}>
+            <h2>Actualizar información</h2>
+          </div>
+
+          <div className="form-group">
+              <label className={stylesx.label}>Nombre</label>
+              <input
+                id="nombreprincipal"
+                className="form-control"
+                type="text"
+                name="name"
+                onChange={this.handleChange}
+                value={this.state.data.name}
+              />
+          </div>
+          <div className="form-group">
+              <label className={stylesx.label}>Detalle</label>
+              <input
+                id="DetallePrincipal"
+                className="form-control"
+                type="text"
+                name="detalle"
+                onChange={this.handleChange}
+                value={this.state.data.detalle}
+              />
+          </div>
+
+
+          <div className={`${stylesx.containerElements}`}>
+
+              {this.state.data.link.map((d, index) => (
+
+                <div key={index} className={`row ${stylesx.containerLink}`}>
+
+                    <div className={`col-6 ${stylesx.colNombreLink}`}>
+                        <div className="form-group">
+                          <input
+                            data-index={index}
+                            name={d.nombre}
+                            type="text"
+                            className="form-control"
+                            value={this.state.data.link[index]["nombre"]}
+                            onChange={this.handleInputChangeNombre}
+                            placeholder="Nombre Link"
+                          />
+                        </div>
+                    </div>
+                    <div className={`col-5 ${stylesx.colNombreArchivo}`}>
+                        <div className={`form-group ${stylesx.groupx}`}>
+                          <input
+                            id={d.archivo}
+                            data-index={index}
+                            name={d.archivo}
+                            type="text"
+                            className="form-control"
+                            value={this.state.data.link[index]["archivo"]}
+                            onChange={this.handleInputChangeArchivo}
+                            placeholder="Nombre Archivo"
+                          />
+                        </div>
+
+                        <button className="btn" onClick={(e) => {
+                          e.preventDefault();
+                          var valor = document.getElementById(d.archivo).value;
+                          return getNewFileHandle(valor)
+                          }} >
+                          <AiOutlineFileAdd />
+                        </button>
+
+                    </div>
+                    <div className={`col-1 ${stylesx.colDelete}`}>
+                      <button onClick={() => {this.delete(index)}}><AiFillDelete /></button>
+                    </div>
+
+
+                </div>
+              ))}
+            </div>
+
+            <div className={`${stylesx.btnForm}`}>
+              <button onClick={this.addNewItem} className={`btn btn-primary ${stylesx.btnAddNewItem}`}><CgMathPlus /></button>
+              <button onClick={this.onclick} className={`btn btn-primary ${stylesx.btnUpdate}`}><GrUpdate /></button>
+            </div>
+
+
+        </form>
+      </>
+    );
+  }
+}
+
+//**************************************FunctionGlobal.js***************************************************//
+
+
+// Guardar archivos
+  export const getNewFileHandle = (data) => {
+
+    const opts = {
+      excludeAcceptAllOption: true ,
+      suggestedName: data,
+      types: [{
+        description: 'Text file',
+        // accept: {
+        //   'text/plain': ['.txt']
+        // },
+        accept: {
+          'image/*': ['.jpg', '.txt']
+        }
+
+      }],
+    };
+
+    const prueba = window.showSaveFilePicker(opts);
+
+    console.log(prueba)
+    return prueba;
+  }
+
+//***************************************api.js******************************************************//
+
+const BASE_URL = 'http://localhost:3001';
+
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+const randomNumber = (min = 0, max = 1) =>
+  Math.floor(Math.random() * (max - min + 1)) + min;
+const simulateNetworkLatency = (min = 30, max = 1500) =>
+  delay(randomNumber(min, max));
+
+async function callApi(endpoint, options = {}) {
+  await simulateNetworkLatency();
+
+  options.headers = {
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+  };
+
+  const url = BASE_URL + endpoint;
+  const response = await fetch(url, options);
+  const data = await response.json();
+
+  return data;
+}
+
+const Api = {
+  prueba: {
+    list() {
+      return callApi('/results');
+    },
+    read(Id) {
+      return callApi(`/results/${Id}`);
+    },
+    create(datos) {
+      return callApi(`/results`, {
+        method: 'POST',
+        body: JSON.stringify(datos),
+      });
+    },
+    update(Id, updates) {
+      return callApi(`/results/${Id}`, {
+        method: 'PUT',
+        body: JSON.stringify(updates),
+      });
+    },
+    remove(Id) {
+      return callApi(`/results/${Id}`, {
+        method: 'DELETE',
+      });
+    }
+  },
+};
+
+export default Api;
+
+
+
+//*****************************************************************************************************//

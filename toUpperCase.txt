@@ -1,0 +1,62 @@
+
+
+const saludo = 'hola';
+console.log(saludo.toUpperCase());
+
+// ********************************************
+
+
+let str = {
+  nombre: "hector"
+}
+
+function capitalizarPrimeraLetra(str) {
+  let strs = str.nombre
+  return strs.charAt(0).toUpperCase() + strs.slice(1);
+}
+
+console.log(capitalizarPrimeraLetra(str));
+
+// *********************************************
+
+let str = ["hector", "javier"]
+
+function capitalizarPrimeraLetra(str) {
+  let strs = str[1]
+  return strs.charAt(0).toUpperCase() + strs.slice(1);
+}
+
+console.log(capitalizarPrimeraLetra(str));
+
+
+// *****************************************
+
+let str = ["hector", "javier"]
+
+function capitalizarPrimeraLetra(str) {
+  let strsA = []
+  for (let i = 0; i < str.length; i++) {
+       let strs = str[i]
+    strsA.push(strs.charAt(0).toUpperCase() + strs.slice(1));
+  }
+  return strsA;
+}
+
+console.log(capitalizarPrimeraLetra(str));
+
+// ********************************************************************
+
+  corregirNombres: function() {
+    let todosprofesionales = this.profesionales
+    profesionalesCorregidos = []
+
+    todosprofesionales.forEach((profesional) =>{
+    profesional.nombre = profesional.nombre.charAt(0).toUpperCase() + profesional.nombre.slice(1);
+    profesionalesCorregidos.push(profesional);
+    }) // FIN FOREACH
+
+    return profesionalesCorregidos
+  },
+
+// ************************************************************************
+

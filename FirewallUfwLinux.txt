@@ -1,0 +1,6 @@
+ufw --force enable
+
+ufw status
+
+ufw allow 8080/tcp
+ufw allow 3306/tcp

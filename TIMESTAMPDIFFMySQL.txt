@@ -1,0 +1,18 @@
+
+//*********************************Calcular el año************************************//
+SELECT C.`FirstName`, E.`BirthDate`, TIMESTAMPDIFF(YEAR, E.`BirthDate`, CURDATE()) Edad
+from employee E
+INNER JOIN contact C ON E.`ContactID` = C.`ContactID`;
+
+//*****************************************************************************************//
+
+FRAC_SECOND (microsegundos),
+SECOND,
+MINUTE,
+HOUR,
+DAY,
+WEEK,
+MONTH,
+QUARTER, or YEAR.
+
+//******************************************************************************************//

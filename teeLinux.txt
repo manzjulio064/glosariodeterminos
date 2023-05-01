@@ -1,0 +1,4 @@
+
+ls -l | tee listado.txt
+
+ls -l | tee -a listado.txt

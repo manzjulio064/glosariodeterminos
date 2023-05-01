@@ -1,0 +1,31 @@
+//*******************************Comparaciones numéricas (cont.)******************************//
+
+#!/bin/bash
+num=11
+if [ $num -gt 10]; then
+echo "$num is bigger than 10"
+else
+echo "$num is less than 10"
+fi
+
+
+//*****************************Comparaciones de cadenas (cont.)*****************************//
+
+#!/bin/bash
+user="root"
+if [ $user = $USER ]; then
+echo "The user $user&nbsp; is the current logged in user"
+fi
+
+
+//********************************Cálculos matemáticos***************************************//
+
+#!/bin/bash
+var1=$(( 5 + 5 ))
+echo $var1
+var2=$(( $var1 * 2 ))
+echo $var2
+
+
+//***********************************************************************************//
+//***********************************************************************************//

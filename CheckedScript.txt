@@ -1,0 +1,25 @@
+//*********************************Ejemplo 1***************************************//
+
+  if (document.querySelector("#checkSaveComments").checked) {
+    alert("habilitado")
+  } else {
+    alert("Desabilitado")
+  }
+
+//*********************************Ejemplo 2***************************************//
+
+var checkbox = document.getElementById('checkSaveComments');
+checkbox.addEventListener("change", validaCheckbox, false);
+
+function validaCheckbox() {
+  var checked = checkbox.checked;
+  if(checked){
+    alert('Habilitado');
+  } else {
+    alert("Desabilitado");
+  }
+}
+
+//***********************************************************************************//
+//***********************************************************************************//
+//***********************************************************************************//

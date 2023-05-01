@@ -1,0 +1,8 @@
+//*******************src/main/resources/application.properties*****************************//
+
+#mongodb
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017
+spring.data.mongodb.database=Odontologica
+
+//*********************************************************************//

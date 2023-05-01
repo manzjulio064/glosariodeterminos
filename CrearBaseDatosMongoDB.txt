@@ -1,0 +1,17 @@
+//*********************En la consola de mongoSh**********************//
+//**Crea y se pasa a la base de datos pero solamente queda en firme cuando se agregue una collection
+
+use cajero
+
+//************Crear la base de datos cajero y adicionar la collection Proveedores y un documento*******//
+use("cajero")
+db.Proveedores.insertOne(
+  [
+    {
+      nombre: "hector",
+      apellido: "Moreno"
+    }
+  ]
+)
+
+//***********************************************************************************//

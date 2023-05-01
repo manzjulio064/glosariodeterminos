@@ -1,0 +1,235 @@
+//********Unidireccional**************Relación uno a uno Usuario****************************************//
+
+@Entity
+
+@Table(name = “usuarios”)
+
+public class Usuario {
+
+
+@Id
+
+@GeneratedValue(strategy = GenerationType.INDENTITY)
+
+@Column(name = “id”)
+
+private Long id;
+
+
+@OneToOne(cascade = CascadeType.ALL)
+
+@JoinColumn(name = “id_direccion” , referencedColumnName
+= “id”)
+
+private Direccion direccion;
+
+// Add the getters and setters methods
+
+}
+//*****Unidireccional****************Relación uno a uno Direccion******************************************//
+
+@Entity
+
+@Table(name = “direcciones”)
+
+public class Direccion {
+
+
+@Id
+
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+@Column(name = “id”)
+
+private Long id;
+
+
+
+// Add getters and setters
+
+}
+
+//***********Bidireccional************Relación uno a uno Usuario*********************************//
+@Entity
+
+@Table(name = “usuarios”)
+
+public class Usuario {
+
+
+@Id
+
+@GeneratedValue(strategy = GenerationType.INDENTITY)
+
+@Column(name = “id”)
+
+private Long id;
+
+
+@OneToOne(cascade = CascadeType.ALL)
+
+@JoinColumn(name = “id_direccion” , referencedColumnName
+= “id”)
+
+private Direccion direccion;
+
+// Add the getters and setters methods
+
+}
+
+//***********Bidireccional************Relación uno a uno Direccion*****************************//
+@Entity
+
+@Table(name = “direcciones”)
+
+public class Direccion {
+
+
+@Id
+
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+@Column(name = “id”)
+
+private Long id;
+
+
+@OnetoOne(mappedBy = “direccion”)
+
+private Usuario usuario;
+
+
+// Add getters and setters
+
+}
+
+//********Unidireccional*****************Relación muchos a muchos Contacto.java****************************//
+
+@Entity
+
+@Table(name = “contactos”)
+
+public class Contacto {
+
+
+@Id
+
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+@Column(name = “id”)
+
+private Long id;
+
+
+@ManyToMany
+
+@JoinTable(
+
+        name = “likes”,
+
+        joinColumns = @JoinColumn(name = “id_contacto”),
+
+        inverseJoinColumns = @JoinColumn(name = “id_foto”)
+
+)
+
+private Set <Foto> likedFotos;
+
+
+// Add getters and setters
+
+
+}
+
+//********Unidireccional****************Relación muchos a muchos Foto.java*****************************//
+
+@Entity
+
+@Table(name = “fotos”)
+
+public class Foto {
+
+
+@Id
+
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+@Column(name = “id”)
+
+private Long id;
+
+
+
+// All getters and setters
+
+}
+
+//********Bidireccional*****************Relación muchos a muchos Contacto.java****************************//
+@Entity
+
+@Table(name = “contactos”)
+
+public class Contacto {
+
+
+@Id
+
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+@Column(name = “id”)
+
+private Long id;
+
+
+@ManyToMany
+
+@JoinTable(
+
+        name = “likes”,
+
+        joinColumns = @JoinColumn(name = “id_contacto”),
+
+        inverseJoinColumns = @JoinColumn(name = “id_foto”)
+
+)
+
+
+
+@JsonIgnore
+
+private Set <Foto> likedFotos;
+
+
+// Add getters and setters
+
+
+}
+
+//********Bidireccional****************Relación muchos a muchos Foto.java*****************************//
+
+@Entity
+
+@Table(name = “fotos”)
+
+public class Foto {
+
+
+@Id
+
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+@Column(name = “id”)
+
+private Long id;
+
+
+@ManyToMany(mappedBy = “likedCourses”)
+
+)private Set <Contacto> contactos;
+
+
+// All getters and setters
+
+}
+
+//****************************************************************************************************//

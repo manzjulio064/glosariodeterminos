@@ -1,0 +1,73 @@
+tener en cuenta
+import java.lang.*;  implementar compare to
+
+es una clase asbtract
+extends de un padre
+implements un interface
+
+-private   Colocar el private para todo las variables privadas
+-una clase abstract no puede y debe ser instanciada
+-polimorfismo capacidad de un objeto de comportarse como otro
+
+*****Crear diagrama UML******
+Nombre primera letra en mayuscula
+atributos + o - si son pivados en la parte superior : tipodato Ejm -Descripcion:String
+parte inferior el contructor con + de publico  Ejm +Articulo(Descripcion: String, nombre: String, edad: int)
+- abstract en metodos(Responsabilidades) en el diagrama UML se debe indicar si el metodo es asbtract EJM metodos (Comer, trabajar, dormir, bañarse etc)
+- Interfaces <<imprimible>> en el codigo las interfaces no tiene atributos y se relacionan con flecha como la herencia pero puntiada se identifican como con sufijos able/...ible ejm acariciable
+Para indicar que la clase es asbtracta se coloca el nombre en cursiba o <<Animal>>
+en UML las Herencias lleban la flecha de extends con la punta flecha sin relleno a la clase padre
+- Cuando la asociacion es dueño con muchas mascotas la cardinalidad  se le coloca * en mascotas y se representa en dueño mascotas:list<mascota>
+Cuando la clase lleva un ArrayList de debe colocar en el UML -Observadores<Observador>
+
+El centido de las fechas significa que un dueño ———————▷ tiene una mascota 
+
+herencia  ———————▷
+interfaces-------------▷
+				
+asociacion   Estudiante(Tiene) ————————————>(Conoce) asignatura  en un solo sentido tiene, conoce  persona ————————————> direccion  carro tiene pito y en el UML se debe colocar en la clases persona como atributo de tipo direccion para asociarlo con la clase direccion. 
+agregacion   zoologico(esparte de)  ◇————————————> aninal	Tiene, conoce y es parte  selva tiene un conjunto de animales y los animales son parte de la selva  albas clases pueden seguir existiendo separadamente computadora ◇————————————>mouse
+Composicion  Persona	◆————————————> Organo	una persona esta compuesto por organos  una de las clases no tiene sentido por su cuenta  un televisor no tiene sentido sin una pantalla por eso se utiliza el constructor para instanciar la pantalla EJM pantalla = new Pantalla();
+Generalizacion ————
+Especializacion
+Relacion de Uso o dependencia  tocadisco ------------>  disco      usa un  y las otras tiene un
+CARDINALIDAD ————————————*>  SE COLOCA EL ASTERISCO DONDE SON MUCHOS
+
+ 
+
+el metodo compareTo se debe implementar tambien una interface y en UML +compareTo(Objeto o):int  en la interface <<Comparable>> UML +compareTo(Objeto o):int  la interface no se crea porque ya esta en java import java.lang.*;  implements Comparable  EJM interface +compararExamen()void
+
+la relacuion de asociacion en el codigo se implmenta como atributo  auto motor en la clase auto creo un atributo motor de tipo motor pero en uml no se pone como atributo
+
+Creacion de objeto  Alumno alumno = new Alumno(Nombre, apellido);
+
+Tener en cuenta en todo el texto si cumple con las interfaces sufijos able/...ible
+
+mirar si los campos son abstract todo lo mas en las clases abstract    +abstract estaAprobado():boolean
+
+Las Clases abstract en el UML se colocan en nombre en cursiva EJM producto o el nombre y abajo <<abstract>>
+
+no olvidar colocar los campos del padre en el constructor hijo sí heredan
+
+no olvidar los getter y setter
+
+Cuando quiero asociar una clase a otra clase con todos sus atributos y responsabilidades lo puedo hacer llamandola atravez de un atributo de tipo de la clase que estamos llamando EJM En la Clase Dueño (Atributo mascota: de tipo <mascota>)para despues llamarlo mascota.responsabilidad
+Cuando un dueño tiene muchas mascotas se debe colocar la cardinalidad en el UML mascotas: list<mascota>  ————————————*>
+
+# Sirve para atributo o metodo protegido y solamente lo pueden usar las clases hijas
+
+Si se crea una interface en UML colocar encima <<Interface>> y nombre debajo Vendible o terminados able, ible
+
+Public 	= se puede aceder desde cualquier parte
+void	= no devuelve ningun valor
+
+una Funcion es = public int numeroPrimo(int num) {}
+Descripcion de la function anterior
+	public 		= publica
+	int		= devuelve un valor int
+	numeroPrimo	= Nombre de la function
+	(int num)	= Recibe por parametro un dato num de tipo int (enviarle datos a esa function para que los pueda procesar)
+	{}		= donde se procesa la informacion y se retorna algo o se imprime
+
+
+

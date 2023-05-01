@@ -1,0 +1,13 @@
+
+-- // ************************Crear un Indice*************************
+
+create index indexValor
+ON productos(VrUnd)
+
+-- //************************Eliminar un Indice***********************
+
+ALTER table productos
+drop index indexValor
+;
+
+-- //**************************************************************

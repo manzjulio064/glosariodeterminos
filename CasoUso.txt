@@ -1,0 +1,2 @@
+Casos de uso
+Antes de realizar el diseño de los casos de prueba, lo que se debe llevar a cabo es el análisis de los documentos que van a ser la base para la generación de esos casos de prueba. Estos documentos van a asegurar los requisitos del cliente. Generalmente, estos requisitos se encuentran escritos como casos de uso. Un tester debe comprender qué es un caso de uso y cómo diseñar los casos de prueba a partir de estos.

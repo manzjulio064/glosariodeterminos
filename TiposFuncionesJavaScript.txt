@@ -1,0 +1,47 @@
+//*************************************Scope************************************************//
+function funcionDeEjemplo() {
+    const x = "declarada dentro de la función"; // x solo se puede utilizar en funcionDeEjemplo
+    console.log("Funcion interna");
+    console.log(x);
+}
+console.log(x);  // error
+
+//*************************************Arrow functions************************************************//
+let sumar = (a, b) => {
+    let valor = a + b;
+    return valor;
+}
+
+//***************************************Funciones como parámetros*****************************************//
+
+function ejecutor(func) {
+    // código de la función
+    func();
+    // código de la función
+}
+
+function sumar(a, b) {
+    return a + b;
+}
+
+ejecutor(sumar(1, 2));
+
+//***********************************Callbacks*************************************************//
+//**El callback es el nombre que se le suele dar a funciones que son utilizadas como parámetros de otra función. Veamos otros ejemplos:
+
+      miFuncion('este es un parámetro aleatorio', (a, b) => { return a + b; });
+
+//**En este ejemplo nuestro callback es la función (a,b) => { return a + b }. Este mismo ejemplo podría ser escrito, como vimos antes, de la siguiente manera:
+
+// Opcion 1
+miFuncion('este es un parámetro aleatorio', (a, b) => a + b );
+
+// Opcion 2
+miFuncion('este es un parámetro aleatorio', function(a, b){ return a + b; });
+
+// Opcion 3
+miFuncion('este es un parámetro aleatorio', (a, b) => {
+    return a + b;
+});
+
+//*********************************************************************************************//

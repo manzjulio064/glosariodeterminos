@@ -1,0 +1,199 @@
+
+//*************************************************************************************//
+
+Cuando React renderiza los componentes decimos que entran en escena, cuando su estado cambia o recibe unos props diferentes se actualizan y cuando cambiamos de página se dice que se desmontan.
+
+**Montaje:
+  --Representa el momento donde se inserta el código del componente en el DOM.
+  --Se llaman tres métodos: constructor, render, componentDidMount.
+
+**Actualización:
+  --Ocurre cuando los props o el estado del componente cambian.
+  --Se llaman dos métodos: render, componentDidUpdate.
+
+**Desmontaje:
+  --Nos da la oportunidad de hacer limpieza de nuestro componente.
+  --Se llama un método: componentWillUnmount.
+** hook useEffect:
+  --Version mas actual y facil de utilizar
+
+  useEffect(() => {
+
+  },[]);
+
+//******************************Hook {useEffect y useState}********************************//
+
+import {useEffect, useState} from 'react'
+
+const [dato, setDato] = useState();
+
+
+const Prueba = () => {
+
+
+  useEffect(() => {
+    console.log("Se monto el componente")
+    setDato("hola")
+  }, []);
+
+  useEffect(() => {
+    console.log("Se ACTUALIZO el componente con informacion Hola")
+
+  }, [dato]); // [dato] Es el campo que cambio useState() y por eso se ejecuta lo de este useEffect
+
+
+  return (
+    <>
+      <h1>{dato}</h1>
+    </>
+  )
+
+}
+export default Prueba
+
+
+//************************************1 constructor***********************************//
+  constructor(props) {
+    super(props);
+    console.log('1. constructor()');
+
+    this.state = {  // ***En el constructor se recomienda inicializar los estados incluyendo this***
+      data: [
+
+            ],
+    }
+  }
+
+//*********************************2/4 render**********************************//
+  render() {
+    console.log('2. render()');
+    return (
+
+    )
+  }
+//*****************************3 componentDidMount*****************************************//
+
+  componentDidMount() {
+    console.log('3. componentDidMount()');
+  }
+//*******************************setTimeout para llamas la data a los 3000 ms****************************************//
+
+  componentDidMount() {
+    console.log('3. componentDidMount()');
+
+    setTimeout(() => {
+       this.setState({
+                 data:
+                      [
+                      ],
+       })
+    }, 3000)
+
+  }
+//************************************5 componentDidUpdate***********************************//
+// ** Mostramos el componente antes de actualizar con los prevProps, prevState  y despues con this.props, this.state
+  componentDidUpdate(prevProps, prevState) {  // Mostramos en consola el antes y despues de actualizar el componente
+    console.log('5. componentDidUpdate()');
+    console.log({prevProps: prevProps, prevState: prevState}); // valores antes
+    console.log({props: this.props, state: this.state}); // valores actuales
+  }
+//********************************6 componentWillUnmount********************************//
+
+  componentWillUnmount() {
+    console.log('6. componentWillUnmount()'); // se muestra antes del salir del DOM
+  }
+//************************************Limpieza de Memoria al cambiar a otra pagina*********************************//
+// ** Si se cambia de pagina antes de que se ejecute componentDidMount y setTimeout genera Warning en consola por un componente que esta desmontado y se corrige con timeoutId
+// ** this.timeoutId y lo consumimos en componentWillUnmount()
+  componentDidMount() {
+    console.log('3. componentDidMount()');
+
+    this.timeoutId = setTimeout(() => {
+      this.setState({
+        data:
+            [
+
+            ],
+      });
+    }, 3000)
+  }
+
+  componentWillUnmount() {
+    console.log('6. componentWillUnmount()'); // se muestra antes del salir del DOM
+    clearTimeout(this.timeoutId) // al salir verifica si el timeoutId esta pendiente lo cancela
+  }
+
+//******************************Relog {useEffect, useState}********************************//
+
+import {useEffect, useState} from 'react'
+
+
+const Prueba = () => {
+  const [hora, setHora] = useState();
+
+  useEffect(() => {
+    console.log("Se monto el componente")
+      setHora(new Date().toLocaleTimeString())
+  }, []);
+
+  useEffect(() => {
+    console.log("Se ACTUALIZO el componente")
+    setTimeout(() => {
+      setHora(new Date().toLocaleTimeString())
+    }, 1000);
+  }, [hora]);
+
+
+  return (
+    <>
+      <h1>{hora}</h1>
+    </>
+  )
+
+}
+export default Prueba
+
+//*********************************Eliminacion o desmontaje en clase y function******************************//
+
+
+import React, { useEffect } from "react";
+
+const Interval = () => {
+  useEffect(() => {
+    const interval = setInterval( () => console.log("Algo estoy haciendo"), 1000); // Inicializamos el interval al montarse el componente
+    return () => clearInterval(interval); //Eliminamos el interval justo antes de desmontarse el componente
+  }, []);
+
+  return <p>Componente Interval</p>;
+};
+
+export default Interval
+
+//***************de clase***************
+
+
+import React from "react";
+
+class Interval extends React.Component {
+  constructor(props) {
+    super(props);
+    this.interval;
+  }
+
+  componentDidMount() { // Inicializamos el interval al montarse el componente
+    this.interval = setInterval(() => console.log("Algo estoy haciendo"), 1000);
+  }
+
+  componentWillUnmount() { //Eliminamos el interval justo antes de desmontarse el componente
+    clearInterval(this.interval);
+  }
+
+  render() {
+    return <p>Componente Interval</p>;
+  }
+}
+
+export default Interval;
+
+//****************************************************************************************************//
+

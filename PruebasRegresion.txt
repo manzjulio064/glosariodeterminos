@@ -1,0 +1,8 @@
+
+
+Pruebas de regresión son pruebas más completas que las de humo
+se utilizan para validar todo el sistema hasta los detalles 
+mas finos, pantallas a las que el usuario no accede y se 
+ejecutan todos los casos de prueba que se han considerado para el sistema
+y son candidatas a automatizarse porque se ejecutan continuamente en cada actualización o cambio.
+

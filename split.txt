@@ -1,0 +1,3 @@
+// Ejemplo split
+let texto1 = "soy un ser humano"
+console.log(texto1.split(' '))

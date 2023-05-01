@@ -1,0 +1,30 @@
+
+
+sudo vim Dockerfile  // En linux con el editor vim o en cualquier editor de texto se crea el archivo Dockerfile
+
+//*******************************Dockerfile********************************************//
+
+FROM ubuntu:16.04
+ENV DEBIAN_FRONTEND noninteractive
+MAINTAINER someuser@somedomain.com
+RUN apt-get update
+RUN apt-get install mysql-server -y
+CMD echo "My first image created."
+
+//***********************************************************************************************//
+//**Una vez que nuestro Dockerfile se ha creado correctamente, debemos ejecutar docker
+//**build para “armar” nuestra imagen localmente,
+
+docker build --tag Odontologica:1.0 .
+
+docker build ./ -t asadali08527/first-repo
+
+//**********************************verificar las imagenes creadas******************************************//
+
+docker image ls
+
+//*************************************Borrar imagenes del repositorio local*************************************//
+
+docker image rm paqueteria:1.0  // paqueteria es como se llama la imagen y tiene un tag 1.0
+
+//***********************************************************************************************************//

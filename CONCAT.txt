@@ -1,0 +1,10 @@
+
+SELECT CONCAT(first_name, " ", last_name) as NombreCompleto
+FROM ACTORS;
+
+// ********************************************
+
+CONCAT("$ ", FORMAT(precio_unitario, 3)) AS Precio
+FROM canciones;
+
+// ************************************************

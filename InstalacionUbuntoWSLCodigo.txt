@@ -1,0 +1,43 @@
+NOta: Para instalar ubunto y que funciones la red es mejor instalar WSL 1 y despues migrar a WSL 2
+      Tener en cuenta si tiene instalado Docker desktop o maquinas virtuales desistalarlar si esta generando error de internet en ubunto
+
+En el entorno grafico Caracteristicas de windows activar Subsistema de Windows para linux
+
+wsl --set-default-version 1
+
+wsl --install
+
+Tambien se puede instalar una version de ubuntu en particular desde el microsoft Store
+
+wsl -l -v #Para ver si la distribución de Linux está establecida en WSL 1 o WSL 2, use el comando wsl -l -v
+wsl --set-version Ubuntu 2  #Cambiar la version de acuerdo al nombre que muestra EJM Ubuntu-22.04
+
+/etc/resolv.conf debe ir la direccion ip de la interface vEthernet(WSL) en windows para WSL 2
+
+wsl --shutdown Apagar WSL(Vmmem)  Se inicia de nuevo cuando se inicia ubuntu
+
+Dentro de ubunto
+  -  apt-get update
+  -  ufw --force enable   #Opcional  funcionan en WSL 2  firewall
+  -  ufw status
+
+//***************************************Otras configuraciones opcionales*****************************************//
+
+network:
+ version: 2
+ renderer: networkd
+ ethernets:
+   eth0:
+    dhcp4: no
+    dhcp6: no
+    addresses: [192.168.137.5/24]
+    gateway4: 192.168.137.1
+    nameservers:
+       addresses: [192.168.1.1,8.8.8.8]
+
+
+
+ip address add 192.168.137.2/24 brd + dev eth0
+New-NetIPAddress -InterfaceAlias 'vEthernet (WSL)' -IPAddress '192.168.137.1' -PrefixLength 24
+
+//**************************************************************************************************//

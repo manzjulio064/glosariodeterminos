@@ -1,0 +1,65 @@
+//****************************************************************************************//
+
+@Document(collection = “airplanes”)
+public class Aircraft {
+
+private String id;
+
+private String model;
+
+@Field(name=”seats”) private int nbSeats;
+
+}
+
+//****************************************************************************************//
+
+@Document
+public class Aircraft {
+
+@Id private String id;
+
+private String model;
+
+@Transient private int nbSeats;
+
+}
+
+//****************************************************************************************//
+
+@Document
+public class Aircraft {
+
+@Id private String id;
+
+@Indexed(direction = IndexDirection.ASCENDING, unique = false)
+
+private String model;
+
+private int nbSeats;
+}
+
+//****************************************************************************************//
+
+@Document
+public class Manufacturer {
+
+@Id private String id;
+
+private String name;
+
+}
+
+//****************************************************************************************//
+
+@Document
+public class Aircraft {
+
+@Id private String id;
+
+private String model;
+
+@DbRef
+private Manufacturer man;
+}
+
+//****************************************************************************************//

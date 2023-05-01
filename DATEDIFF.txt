@@ -1,0 +1,17 @@
+SELECT DATEDIFF("2017-06-25", "2017-06-15");
+
+
+SELECT DATEDIFF("2017-06-25 09:34:21", "2017-06-15 15:25:35");
+
+// ****************con NOW podemos ver la fecha actual para hacer la diferencia **************
+
+SELECT title, release_date, NOW()
+FROM movies;
+
+// *****************DATEDIFF diferencia entre una fecha anterior y hoy en cantidad de dias*********************
+
+SELECT title, DATEDIFF(NOW(),release_date)  -- Primero el campo de fecha mas reciente para no recibir valor negativo en dias
+FROM movies;
+
+
+// *******************************************************************

@@ -1,0 +1,22 @@
+
+let notas = [10, 4, 5, 8, 9, 2, 7];
+let sumaNotas = notas.reduce(
+
+  function(almacena, numero){
+  return almacena + numero ;
+  }
+);
+
+ console.log(sumaNotas);
+
+// ****************** el metodo pesoPromedio de un objeto literal*************************************
+
+  pesoPromedio: function (cilindrada, peso) {
+    let tandada = this.generarTanda(cilindrada, peso); // informacion reutilidada de otro metodo
+    let sumatandada = tandada.reduce((almacena, array) => almacena + array.peso, 0) // almacena = acumulador, array son elemento que vienen de tandada, 0 = almacen en 0
+    let promedioTandada = sumatandada / tandada.length // dividido por cantidad elementos en tandada
+
+    return `El peso promedio de la tandada de vehiculos es de: ${promedioTandada} kg`
+  }, 
+
+// ***********************************************************************************

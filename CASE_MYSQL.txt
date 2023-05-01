@@ -1,0 +1,18 @@
+
+SELECT title, rating,
+    CASE
+        WHEN rating < 5 THEN "Mala"
+        WHEN rating < 7 THEN "Buena"
+        ELSE "Muy buena"
+    END
+FROM movies;
+
+// ***********************************************
+
+CASE
+WHEN compositor = "" or compositor is null THEN "Sin Datos"
+WHEN compositor NOT LIKE "%,%" THEN compositor
+ELSE LEFT(compositor, LOCATE(",",compositor)-1)
+END AS compositorFinal
+
+// ***********************************************

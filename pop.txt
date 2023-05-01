@@ -1,0 +1,8 @@
+let colores = ['azul', 'Rojo', 'Rosado'];
+colores.pop();
+console.log(colores)
+
+
+let colores1 = ['azul', 'Rojo', 'Rosado'];
+let sacarultimocolorarray = colores1.pop();
+console.log(sacarultimocolorarray);

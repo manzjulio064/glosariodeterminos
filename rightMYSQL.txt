@@ -1,0 +1,4 @@
+
+
+SELECT RIGHT("SQL Tutorial is cool", 4) AS ExtractString;
+= cool

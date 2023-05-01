@@ -1,0 +1,61 @@
+
+let miCallback = () => console.log('Hola mundo!');
+setTimeout(miCallback, 1000);
+
+
+// ***********************************************************
+
+let sumar = (a, b) => a + b;
+let restar = (a, b) => a - b;
+let multiplicar = (a, b) => a * b;
+let dividir = (a, b) => a / b;
+
+
+let calculadora = (a, b, operacion) => operacion(a, b);
+
+console.log(calculadora(5, 2, dividir))
+
+// *************************************************************
+
+function doble(numero){
+  return numero * 2;
+}
+function triple(numero){
+  return numero * 3;
+}
+
+function aplicarCallback(numero, funcion) {
+  return funcion(numero)
+}
+
+console.log(aplicarCallback(2, triple));
+
+// ****************************************************************
+
+let doble = numero => numero * 2;
+let triple = numero => numero *3;
+let cuadruple = numero => numero *4;
+
+let aplicarCallback = (numero, funcion) => funcion(numero);
+
+console.log(aplicarCallback(2, doble));
+
+// ****************************************************************
+
+let array = ["www.google.com","www.yahoo.com"];
+
+function agregarHttp(array) { // callback
+  return "http://"+array
+}
+
+function procesar(array, callback) {
+    let resultado = [];
+    for (let i = 0; i < array.length; i++) {
+      resultado.push(callback(array[i]));
+    }
+    return resultado;
+}
+
+console.log(procesar(array, agregarHttp));
+
+// *************************************************************************

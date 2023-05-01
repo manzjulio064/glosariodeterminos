@@ -1,0 +1,6 @@
+
+//*************Crear collection*********//
+use("cajero")
+db.createCollection("HectorJavierMoreno")
+
+//***************************************//

@@ -1,0 +1,30 @@
+
+//******************************Hook {useEffect y useState}********************************//
+
+import {useEffect, useState} from 'react'
+
+const [dato, setDato] = useState();
+
+
+const Prueba = () => {
+
+
+  useEffect(() => {
+    console.log("Se monto el componente")
+    setDato("hola")
+  }, []);
+
+  useEffect(() => {
+    console.log("Se ACTUALIZO el componente con informacion Hola")
+
+  }, [dato]); // [dato] Es el campo que cambio useState() y por eso se ejecuta lo de este useEffect
+
+
+  return (
+    <>
+      <h1>{dato}</h1>
+    </>
+  )
+
+}
+export default Prueba

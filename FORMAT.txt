@@ -1,0 +1,6 @@
+
+SELECT
+    FORMAT(precio_unitario, 3) AS Precio
+FROM canciones;
+
+// *****************************************

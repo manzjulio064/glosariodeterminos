@@ -1,0 +1,8 @@
+//*************************************************************************************************//
+
+
+let elemento = document.querySelector("#portada");   //Seleccionamos un elemento del HTML
+
+elemento.getAttribute("src");  //Pedimos el valor del atributo  // imagen_portada.jpg 
+
+//*************************************************************************************************//

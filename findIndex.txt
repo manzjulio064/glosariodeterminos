@@ -1,0 +1,17 @@
+
+// ********************Eliminar un miembro de la familia que el id es 3 **************************
+
+let jsonHelper = require("./lecturaEscritura")
+
+const familia = {
+  miembros: jsonHelper.leerJson("personas"),
+  eliminar: function (id) {
+    let index = this.miembros.findIndex((miembro) => miembro.id === id)
+    this.miembros.splice(index,1);
+    jsonHelper.escribirJson("personas", this.miembros);
+    return this.miembros;
+  }
+}
+console.log(familia.eliminar(3))
+
+// **********************************************************************************

@@ -1,0 +1,26 @@
+//**Recordemos que para los casos de radio y checkbox son importantes los campos de
+//**name y de value, ya que con esto van a definir al grupo al que pertenecen y el valor
+//**que se entrega en caso de ser seleccionado respectivamente
+//*******************************************************************************************//
+
+//** input de texto**//
+<input type="text">
+
+//** input que solo admite números**//
+<input type="number">
+
+//** input para campos de email**//
+<input type="email">
+
+//** input de fecha**//
+<input type="date">
+
+//** grupo de opciones de selección única**//
+  <input type="radio" name="miOpcion" value="1">
+  <input type="radio" name="miOpcion" value="2">
+  <input type="radio" name="miOpcion" value="3">
+
+//** grupo de opciones de selección múltiple**//
+  <input type="checkbox" name="miOpcion" value="1">
+  <input type="checkbox" name="miOpcion" value="2">
+  <input type="checkbox" name="miOpcion" value="3">

@@ -1,0 +1,59 @@
+// *****************************class Empleado************************************** //
+
+class Empleado{
+  private String nombre;
+  private String apellido;
+  private float sueldo;
+
+  public Empleado(String nombre, String apellido, float sueldo)throws EmpleadoException{
+    this.nombre=nombre;
+    this.apellido=apellido;
+    this.sueldo=sueldo;
+
+    if (sueldo <=0)
+        throw new EmpleadoException("Sueldo no puede ser menor a cero");
+
+    if (nombre.equals(""))
+          throw new EmpleadoException("Nombre no puede estar vacío");
+
+    if (apellido.equals(""))
+          throw new EmpleadoException("Apellido no puede estar vacío");
+
+  } // Fin constructor
+
+// *****************************class Main************************************** //
+
+  public static void main(String[] args) {
+
+    try {
+
+      Empleado empleado = new Empleado("hector" , "moreno", 1000);
+
+    } catch (EmpleadoException exception) {
+        System.err.println(exception.getMessage());
+    }
+
+  } //Fin main
+
+} // Fin Empleado
+
+// ********************************class EmpleadoException*********************************************** //
+class EmpleadoException extends Exception{
+
+  public EmpleadoException() {
+    super();
+}
+
+public EmpleadoException(String mensajeExcepcion) {
+    super(mensajeExcepcion);
+}
+
+@Override
+public String toString() {
+    return "Se produjo la excepción " + this.getClass().getName() +
+            " cuyo mensaje es: " + this.getMessage();
+}
+} // Fin EmpleadoException
+
+
+// ******************************************************************************* //

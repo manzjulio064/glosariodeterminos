@@ -1,0 +1,41 @@
+//*******************Almacenar datos de un input text y number**********************//
+
+<input type="text" id="nombre" value="OpcionA">
+<input type="number" id="numero" value="OpcionB">
+
+var nombre = document.getElementById("nombre").value;
+console.log(nombre) // OpcionA
+
+var numero = document.getElementById("numero").value;
+console.log(numero) // OpcionB
+
+
+//******************Almacenar el valor de un radio button*******************//
+
+<label for="">¿Acepta términos y condiciones?</label>
+<input type="radio" name="pregunta" value="si"> Si
+<input type="radio" name="pregunta" value="no"> No
+
+//** Elemento: si Seleccionado: true**//
+//** Elemento: no Seleccionado: false**//
+
+  var elementos = document.getElementsByName("pregunta");
+
+  elementos.forEach(function(elemento) {
+  console.log(`Elementos: ${elemento.value}`)
+  console.log(`Seleccionado: ${elemento.checked}`)
+  })
+
+//*****************Almacenar el valor de un checkbox****************//
+
+<input type="checkbox" id="privacidad" value="privacidad">He leído la política de privacidad</input>
+
+var privacidad = document.getElementById("privacidad");
+
+console.log(`Elementos: ${privacidad.value}`)
+console.log(`Seleccionado: ${privacidad.checked}`)
+
+//** Elementos: privacidad**//
+//** Seleccionado: false**//
+
+//*******************************************************************//

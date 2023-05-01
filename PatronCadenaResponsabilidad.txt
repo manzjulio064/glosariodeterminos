@@ -1,0 +1,94 @@
+//**Pasa la responsabilidad a los diferente empleados para que de acurdo al monto a aprobar la resuelva determinado cargo
+
+//********************************Main.java*********************************************//
+
+package CadenaResponsabilidad;
+
+public class Main {
+    public static void main(String[] args) {
+
+        EmpleadoBanco empleado1 = new EjecutivoCuenta();
+        EmpleadoBanco empleado2 = new Gerente();
+        EmpleadoBanco empleado3 = new Director();
+
+        empleado2.setSiguienteEmpleadoBanco(empleado3);
+        empleado1.setSiguienteEmpleadoBanco(empleado2);
+
+        empleado1.procesarSolicitud(300000);
+
+
+
+    }
+}
+
+//*************************************EmpleadoBanco.java***************************************//
+
+package CadenaResponsabilidad;
+
+public  abstract class EmpleadoBanco {
+
+    private EmpleadoBanco siguienteEmpleadoBanco;
+
+    public abstract void procesarSolicitud(Integer monto);
+
+
+    public void setSiguienteEmpleadoBanco(EmpleadoBanco siguienteEmpleadoBanco) {
+        this.siguienteEmpleadoBanco = siguienteEmpleadoBanco;
+    }
+
+    public EmpleadoBanco getSiguienteEmpleadoBanco() {
+        return this.siguienteEmpleadoBanco;
+    }
+
+}
+
+//************************************EjecutivoCuenta.java********************************************//
+
+package CadenaResponsabilidad;
+
+public class EjecutivoCuenta  extends EmpleadoBanco {
+
+    @Override
+    public void procesarSolicitud(Integer monto) {
+
+        if (monto  < 60000)
+            System.out.println("Yo me encargo de gestionarlo. Ejecutivo de cuenta");
+        else if (getSiguienteEmpleadoBanco() != null)
+            getSiguienteEmpleadoBanco().procesarSolicitud(monto);
+    }
+}
+
+//************************************Gerente.java**************************************//
+
+package CadenaResponsabilidad;
+
+public class Gerente  extends EmpleadoBanco {
+
+    @Override
+    public void procesarSolicitud(Integer monto) {
+
+        if (monto >= 60000 && monto <= 200000)
+            System.out.println("Yo me encargo de gestionarlo. Gerente");
+        else if (getSiguienteEmpleadoBanco() != null)
+            getSiguienteEmpleadoBanco().procesarSolicitud(monto);
+    }
+}
+
+//*************************************Director.java*******************************************//
+
+package CadenaResponsabilidad;
+
+public class Director extends EmpleadoBanco {
+
+    @Override
+    public void procesarSolicitud(Integer monto) {
+
+        if (monto > 200000)
+            System.out.println("Yo me encargo de gestionarlo. Director");
+        else if (getSiguienteEmpleadoBanco() != null)
+            getSiguienteEmpleadoBanco().procesarSolicitud(monto);
+
+    }
+}
+
+//********************************************************************************************//

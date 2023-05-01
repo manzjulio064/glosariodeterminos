@@ -1,0 +1,7 @@
+
+find /home/ -name notas.txt
+
+
+find . -name notas.txt  // Para buscar archivos en el directorio actual
+
+/ -type d -name notes.txt // Para buscar directorios:

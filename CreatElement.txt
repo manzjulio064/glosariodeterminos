@@ -1,0 +1,12 @@
+
+
+// ***************************crear un elemento sin utilizar react*******************//
+
+const element = document.createElement('p');
+element.innerHTML = 'hello platzi badges';
+
+const container = document.getElementById('app');
+
+container.appendChild(element);
+
+// ***************************crear un elemento sin utilizar react*******************//

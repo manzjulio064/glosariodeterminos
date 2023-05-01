@@ -1,0 +1,34 @@
+**************************************************************
+Agua a = new Agua();
+Combustible c = new Combustible();
+Balde<Agua> b = new Balde<>();
+b.setContenido(a);
+// NO COMPILA! No puedo poner combustible en un balde de agua!
+//b.setContenido(c);
+// si el balde es de agua, siempre obtendré agua de él
+System.out.println(“Voy a tomar” + b.obtenerContenido());
+
+**************************************************************
+public class Balde {
+private Object contenido;
+public Balde() {
+}
+public llenar(Object contenido) {
+this.contenido = contenido;
+}
+public Object obtenerContenido() {
+return contenido;
+}
+}
+
+
+**********************************************************
+Agua a = new Agua();
+Combustible c = new Combustible();
+Balde b = new Balde ();
+b.setContenido(a);
+b.setContenido(c);
+//dudo que el contenido tenga un sabor agradable…
+System.out.println(“Voy a tomar” + b.obtenerContenido());
+
+

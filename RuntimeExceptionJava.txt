@@ -1,0 +1,29 @@
+
+class Empleado{
+  private String nombre;
+  private String apellido;
+  private float sueldo;
+
+  public Empleado(String nombre, String apellido, float sueldo){
+    this.nombre=nombre;
+    this.apellido=apellido;
+    this.sueldo=sueldo;
+
+    if (sueldo <=0)
+        throw new RuntimeException("Sueldo no puede ser menor a cero");
+
+    if (nombre.equals(""))
+          throw new RuntimeException("Nombre no puede estar vacío");
+
+    if (apellido.equals(""))
+          throw new RuntimeException("Apellido no puede estar vacío");
+
+  } // Fin constructor
+
+  public static void main(String[] args) {
+
+    Empleado empleado = new Empleado("hector" , "moreno", 0);
+
+  } //Fin main
+
+}

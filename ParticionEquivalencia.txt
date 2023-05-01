@@ -1,0 +1,3 @@
+Agrupar considencias para hacer solamente un caso de prueba de acuerdo a la considencia y no tener que hacer muchas
+
+ayuda a cubrir cuantos casos de prueba se nececita para cubrir cierta nececidad

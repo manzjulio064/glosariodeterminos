@@ -1,0 +1,71 @@
+
+//****************************************************************************************************//
+
+-- React dispone de eventos. Cada vez que se recibe información en un input se obtiene un evento onChange y se maneja con un método de la clase this.handleChange
+-- Los elementos button también tienen un evento que es onClick.
+-- Cuando hay un botón dentro de un formulario, este automáticamente será de tipo submit.
+   Si no queremos que pase así hay dos maneras de evitarlo: especificando que su valor es de tipo button o manejándolo desde el formulario cuando ocurre el evento onSubmit.
+
+//***********************************Evento onChange Capturar la informacion del campo input y se muestra en la consola de chrome*******************************************//
+
+// **en un formulario en la etiqueta input colocar onChange={this.handleChange} **//
+<input onChange={this.handleChange} class="form-control" type="text" name="firstName" />
+
+// ** Por fuera del render() colocar la siguiente arrowFunction
+
+  handleChange = e => {
+    console.log({
+      name: e.target.name,
+      value: e.target.value,
+      });
+  }
+
+//***********************************Evento onClick Opcion 1******************************************//
+// **en un formulario en la etiqueta button colocar onClick={this.handleClick} **//
+
+
+<button onClick={this.handleClick} className="btn btn-primary">Save</button>
+
+// ** el button en un formulario es de tipo submit y borra todo en consola al hacer click por lo tanto hay que cambiar el tipo a button
+
+<button type="button" onClick={this.handleClick} className="btn btn-primary">Save</button>
+
+
+  handleClick = e => {
+    console.log("Button was clicked");
+  }
+
+  //***********************************Evento onClick Opcion 2******************************************//
+
+  // ** En la etiqueta form colocar directamente onSubmit={this.handleSubmit} y en el button eliminar type y crear el evento handleSubmit
+
+  handleSubmit = e => {
+    e.preventDefault();  // para que no se envie el formulario
+    console.log("Form was submitted");
+  }
+
+  //********************************Evento con funcion anonima mas de 2 parametros****************************************//
+
+  const Prueba = () => {
+
+  const handleClick = (e, texto) => {
+    console.log(texto)
+    console.log(e)
+
+  }
+
+  return (
+    <>
+    <h1>Hola</h1>
+    <button onClick={(e) => {handleClick(e, "javier")}}>CLICK</button>
+    </>
+  )
+
+}
+
+export default Prueba
+
+  //******************************************************************************************************//
+
+
+  //**Al escribir, por consola de chrome puede ver como se va interactuando

@@ -1,0 +1,65 @@
+//********************************index.html*************************************//
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practicando JSON</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <h1>Practica JSON</h1>
+    <h2>Miembros</h2>
+    <ul id="miembros"></ul>
+    <script src="./js/index.js"></script>
+</body>
+</html>
+
+//*********************************index.js**************************************//
+
+const jsonData = {
+
+  "squadName": "Super hero squad",
+  "homeTown": "Metro City",
+  "formed": 2016,
+  "secretBase": "Super tower",
+  "active": true,
+  "members": [
+
+    {
+        "name": "Molecule Man",
+        "age": 29,
+        "secretIdentity": "Dan Jukes",
+        "powers": ["Radiation resistance", "Turning tiny", "Radiation blast"]
+      },
+      {
+        "name": "Madame Uppercut",
+        "age": 39,
+        "secretIdentity": "Jane Wilson",
+        "powers": ["Million tonne punch", "Damage resistance", "Superhuman reflexes"]
+      },
+      {
+        "name": "Eternal Flame",
+        "age": 1000000,
+        "secretIdentity": "Unknown",
+        "powers": ["Immortality", "Heat Immunity", "Inferno", "Teleportation", "Interdimensional travel"]
+      }
+
+  ]
+}
+
+function recorrerMiembros() {
+  jsonData.members.map(miembros => {
+    let ul = document.getElementById("miembros");
+    // const li = document.createElement("li");
+    // li.appendChild(document.createTextNode(miembros.name));
+    // ul.appendChild(li);
+    ul.innerHTML += "<li>" + miembros.name + "</li>"
+  })
+};
+
+recorrerMiembros()
+
+//**********************************************************************************//

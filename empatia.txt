@@ -1,0 +1,16 @@
+
+* El primer paso de Design Thinking es empatía, es la base del proceso y está
+centrado en las personas y en los usuarios, se procede de la siguiente manera;
+observar, mirar a los usuarios y sus comportamientos en el contexto de sus vidas,
+sin interactuar, así surgen ideas de cómo se puede mejorar la situación;
+Involucrarse, entablar una conversación con las personas directamente
+involucradas, tener una serie de preguntas que nos ayuden a aclarar dudas sobre
+el funcionamiento, su percepción, atención, horarios, expectativas, entre otras; mirar
+y escuchar, esta fase es importante debido a que se puede observar al usuario
+desarrollando sus actividades y mientras lo hace debe relatar sus vivencias, él
+puede caer en la cuenta de lo que le afecta, molesta o las oportunidades de mejora.
+Es el esfuerzo por entender a los usuarios dentro del contexto, las cosas que hacen
+y porqué, sus necesidades físicas y emocionales, como perciben el mundo y que es
+significativo para ellos, son las personas que inspiran y direccionan una idea en
+particular.
+

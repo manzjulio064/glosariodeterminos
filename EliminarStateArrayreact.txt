@@ -1,0 +1,41 @@
+import React, { Component } from "react";
+
+
+export default class Prueba1 extends Component {
+
+    state = {
+      items: [
+        { title: "Carlos" },
+        { title: "Evangelina" },
+        { title: "Claudia" }
+      ]
+    };
+
+
+  delete = itemIndex => {
+    const filtredData = this.state.items.filter((item, index) => index !== itemIndex);
+    this.setState({ items: filtredData });
+  };
+
+
+
+  render() {
+    return (
+      <table style={{ width: "100%", textAlign: "center" }}>
+        <tr>
+          <th>Titulo</th>
+          <th>Acción</th>
+        </tr>
+        {this.state.items.map((item, index) => (
+          <tr key={index}>
+            <td>{item.title}</td>
+            <td>
+              <button onClick={() => this.delete(index)}>Eliminar</button>
+            </td>
+          </tr>
+        ))}
+      </table>
+    );
+  }
+}
+

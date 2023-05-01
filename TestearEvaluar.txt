@@ -1,0 +1,11 @@
+
+* Evaluación, este paso consiste en solicitar feedback y opiniones sobre los
+prototipos que se han creado de los mismos usuarios y colegas: Una buena
+estrategia es hacer los prototipos creyendo que se está haciendo lo correcto, pero
+se debe evaluar pensando que se está equivocado, es la oportunidad para refinar
+las soluciones y poder mejorarlas, ¿por qué se debe evaluar?, para refinar
+prototipos y soluciones, informar los siguientes pasos y en algunos casos volver a
+empezar con el diseño; se aprende más sobre el usuario; en algunos casos se
+identifica que se ha equivocado con la solución y otras a enmarcar bien el problema;
+crea experiencias, además de entregar el prototipo es importante generar el
+contexto para ver realmente el funcionamiento.

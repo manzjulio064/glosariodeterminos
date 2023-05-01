@@ -1,0 +1,6 @@
+
+SELECT
+SUM(F.total) total
+FROM clientes C
+INNER JOIN facturas F ON C.id = F.id_cliente
+WHERE C.id = 2 AND (F.fecha_factura BETWEEN '2010-11-02' AND '2010-11-10');

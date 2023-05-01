@@ -1,0 +1,27 @@
+// *******************Campos Vacios************
+
+SELECT ClienteID, Contacto, Telefono, Fax
+FROM clientes
+WHERE Fax = ""
+;
+
+// *******************campos Null***********************
+
+CREATE VIEW clientesSinFax AS
+select
+  ClienteID,
+  Contacto,
+  fax,
+  CASE
+    WHEN Fax = "" or Fax is null THEN
+    CONCAT("TEL: ",telefono)
+  END AS TelefonoCliente
+from clientes;
+
+// *****************campos con información****************
+SELECT *
+FROM clientesSinFax
+WHERE TelefonoCliente IS NOT NULL;
+
+// *******************************************************
+

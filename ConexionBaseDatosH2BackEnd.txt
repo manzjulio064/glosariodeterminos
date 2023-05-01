@@ -1,0 +1,141 @@
+//***********************************************************************************//
+DROP TABLE IF EXISTS TEST;
+
+CREATE TABLE TEST(ID INT PRIMARY KEY, NAME VARCHAR(255));
+
+//***********************************************************************************//
+
+package ConexionBaseDatos;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class TestLog {
+    public static void main(String[] args) throws Exception {
+
+        //Crear la conexion a la base de datos
+        Class.forName("org.h2.Driver").newInstance(); // instancia del driver
+        //Connection con = DriverManager.getConnection("jdbc:h2:" + "./Database/my", "root", "myPassword"); //objeto conexion
+        Connection con = DriverManager.getConnection ("jdbc:h2:~/test", "sa",""); //objeto conexion
+        Statement stmt = con.createStatement(); // Crear objetos Statement
+
+        //Código para crear una tabla. Elimina la tabla si esta ya existe y la vuelve a crear
+        String createtable = "DROP TABLE IF EXISTS TEST; CREATE TABLE TEST(ID INT PRIMARY KEY, NAME VARCHAR(255))";
+        stmt.execute(createtable); //Ejecutar SQL
+
+        //Insertar datos a la tabla creada previamente
+        String insertarFila1 = "INSERT INTO TEST VALUES(1, 'hector')";
+        String insertarFila2 = "INSERT INTO TEST VALUES(2, 'javier')";
+        stmt.execute(insertarFila1); //Ejecutar SQL
+        stmt.execute(insertarFila2); //Ejecutar SQL
+
+
+        //Codigo para consultar todos los registros de la tabla TEST
+        String sql = "select * from TEST";
+        ResultSet resultado = stmt.executeQuery(sql); // nos devuelve un objeto de tipo ResultSet
+
+        //Código para recorrer el resultado de la consulta
+        while(resultado.next()) {
+            System.out.println(resultado.getInt(1) + resultado.getString(2));
+        }
+
+
+    }
+}
+
+//********************************Otra opcion***********************************//
+
+package Figuras;
+
+import org.apache.log4j.Logger;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Main extends Throwable {
+        private static final Logger logger = Logger.getLogger(Main.class);
+
+    public static void main(String[] args) throws Exception {
+
+        String URL = "jdbc:h2:~/prueba";
+        String USER = "sa";
+        String PASS = "";
+
+        Statement stmt = null;
+        Connection con = null;
+        ResultSet resultado;
+
+        //Crear la conexion a la base de datos
+        try {
+        Class.forName("org.h2.Driver").newInstance(); // instancia del driver
+
+        }catch (ClassNotFoundException e) {
+            logger.error("Error: El driver no funciona");
+            e.printStackTrace(); // metodo para manejar y detallar mas las excepcion como numero line y nombre clase donde ocurrio
+            System.exit(1);
+        }finally {
+            logger.info("Driver Funcionando");
+        }
+
+
+        try {
+            con = DriverManager.getConnection (URL, USER,PASS); //objeto conexion
+            stmt = con.createStatement(); // Crear objetos Statement
+
+        } catch (SQLException e) {
+            logger.error("No se puede establecer la conexion");
+            e.printStackTrace(); // metodo para manejar y detallar mas las excepcion como numero line y nombre clase donde ocurrio
+            System.exit(1);
+        } finally {
+            logger.info("conexion establecida OK");
+        }
+
+            //Sentencia SQL
+            String sentenciaSQL = "DROP TABLE IF EXISTS test;\n" +
+                    "CREATE TABLE test(ID INT PRIMARY KEY, NOMBRE VARCHAR(255));\n" +
+                    "INSERT INTO test VALUES(1, 'Hector');\n" +
+                    "INSERT INTO test VALUES(2, 'Javier');";
+
+        try {
+            stmt.execute(sentenciaSQL); //Ejecutar  sentencia SQL
+        } catch (SQLException e) {
+            logger.error("Sentencia SQL presento error");
+            e.printStackTrace(); // metodo para manejar y detallar mas las excepcion como numero line y nombre clase donde ocurrio
+            System.exit(1);
+        }finally {
+            logger.info("Sentencia SQL corrio correctamente");
+        }
+
+        // consultar datos
+        String sentenciaSqlConsulta = "select * from test";
+        try {
+            resultado = stmt.executeQuery(sentenciaSqlConsulta);
+
+            String imprimirLn = "Contenido de tabla:\nID\tNombre\n";
+
+            //Código para recorrer el resultado de la consulta
+            while(resultado.next()) {
+                imprimirLn += resultado.getInt("ID") + "\t" + // almacenar en una varible la informacion recorrida  \n salto de linea  \t tabulacion
+                        resultado.getString("NOMBRE") + "\n";
+            }
+            logger.info(imprimirLn);
+        } catch (Exception e) {
+            logger.error("Error en la consulta");
+            e.printStackTrace();
+        } finally {
+            con.close();
+            logger.info("Conexion a DB finalizada");
+        }
+
+    }
+
+}
+
+//***********************************************************************************//
+
+

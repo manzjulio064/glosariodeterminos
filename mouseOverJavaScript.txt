@@ -1,0 +1,29 @@
+//*************************************************************************************//
+
+let texto = document.querySelector('.text');
+texto.onmouseover = function(){
+ console.log('pasaste el mouse');
+}
+
+//*************************************************************************************//
+
+texto.addEventListener('mouseover', function(){
+ console.log('pasaste el mouse');
+});
+
+//*************************************************************************************//
+
+window.addEventListener("load", function() {
+
+  let btn = document.querySelectorAll('.btnclass')
+
+  for (let i = 0; i < btn.length; i++) {
+
+    btn[i].addEventListener("mouseover", function() {
+      this.style.color = 'cyan';
+    })
+
+  }
+
+})
+//*************************************************************************************//

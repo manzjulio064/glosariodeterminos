@@ -1,0 +1,33 @@
+try {
+
+.....
+
+       conexion.setAutoCommit(false);
+
+       s.executeUpdate("INSERT INTO RESERVAS(pasajero, origen, destino)       VALUES('Felipe', 'Alicante', 'Madrid')");
+
+       s.executeUpdate("INSERT INTO RESERVAS(pasajero, origen, destino) VALUES ('Felipe', 'Madrid', 'Dubai')");
+
+       s.executeUpdate("INSERT INTO RESERVAS(pasajero, origen, destino) VALUES('Felipe', 'Dubai', 'Sydney')");
+
+       conexion.commit();
+
+.....
+
+   } catch(SQLException e) {
+
+       if(conexion!=null){
+
+           try {
+
+               conexion.rollback();
+
+           }catch (SQLException ex) {
+
+               System.out.println(ex.toString());
+
+           }
+
+       }
+
+   }

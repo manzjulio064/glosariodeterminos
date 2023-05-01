@@ -1,0 +1,41 @@
+//******************************Clase Taza***********************************//
+
+ public class Taza {
+   private String tipoLiquido;
+   private double porcentaje;
+   public Taza(String tipoLiquido, double porcentaje) {
+       this.tipoLiquido = tipoLiquido;
+       this.porcentaje = porcentaje;
+   }
+   public String getTipoLiquido() {
+       return tipoLiquido;
+   }
+   public void setTipoLiquido(String tipoLiquido)
+       this.tipoLiquido = tipoLiquido;
+   }
+   public double getPorcentaje() {
+       return porcentaje;
+   }
+   public void setPorcentaje(double porcentaje) {
+       this.porcentaje = porcentaje;
+   }
+ }
+
+//******************************Clase TazaTest*******************************//
+
+ import static org.junit.jupiter.api.Assertions.*;
+ class TazaTest {
+    @Test
+    void getTipoLiquido() {
+       Taza taza = new Taza("Jugo de Naranja", 70.5);
+       assertEquals("Jugo de Naranja", taza.getTipoLiquido());
+    }
+    @Test
+    void getPorcentaje() {
+       Taza taza = new Taza("Jugo de Naranja", 70.5);
+       assertEquals(70.5, taza.getPorcentaje());
+    }
+ }
+
+
+//***************************************************************************//

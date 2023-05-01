@@ -1,0 +1,20 @@
+
+SELECT
+    LOCATE(",", compositor)  // Localiza lqa posición de la "," y devuelve el numero(index)
+from canciones;
+
+
+// ******************Extrae los caracteres antes de la coma*******************
+
+SELECT
+    LEFT(compositor, LOCATE(",", compositor) -1)
+from canciones;
+
+
+// ******************Extrae los caracteres despues de la coma*******************
+
+SELECT
+    RIGHT(compositor, LOCATE(",", compositor) +1)
+from canciones;
+
+// ************************************************

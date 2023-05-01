@@ -1,0 +1,43 @@
+
+//**************************************Basico******************************************//
+
+window.addEventListener("load", function() {
+
+  let btnglo = document.querySelector('a');
+
+  btnglo.addEventListener('click', function() {
+    alert('has oprimido el botom')
+  })
+
+})
+
+
+//********************************************************************************************//
+
+    let hipervinculo = document.querySelector('a');
+
+    hipervinculo.addEventListener('click', function(event){
+      console.log('hiciste click');
+      event.preventDefault(); // Nos permite evitar que se ejecute el evento predeterminado —o nativo— del elemento al que se lo estemos aplicando.
+    });
+
+//*********************************recibir un parametro o el evento e (event)***************************************//
+
+window.addEventListener("load", function() {
+
+  let btnglo = document.querySelector('a');
+
+  btnglo.addEventListener("click", function(e) {
+    console.log(e); // Verlo en consola el evento click es necesario el preventDefault
+
+    e.preventDefault();
+
+  })
+
+})
+//********************************************************************************************//
+
+cambiarTema.addEventListener("click", alternarColorTema);
+
+
+//********************************************************************************************//

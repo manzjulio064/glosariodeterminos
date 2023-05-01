@@ -1,0 +1,18 @@
+Borra los registros de la tabla y inicializa ID
+
+
+TRUNCATE TABLE Categories;
+
+
+-- // **********************************************
+
+TRUNCATE TABLE evaluacion.empleados;
+
+//*******************Truncar un numero************************//
+
+SELECT TRUNCATE(135.375, 2); //Solo 2 decimales
+= 135.37
+//***************************************************//
+SELECT TRUNCATE(135.375, 1); //Solo 1 decimal
+= 135.3
+//***************************************************//

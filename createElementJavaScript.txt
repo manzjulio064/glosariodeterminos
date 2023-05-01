@@ -1,0 +1,124 @@
+//***********************************index.html************************************************//
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+<body>
+
+
+  <div id="App">
+
+  </div>
+
+
+  <script src="./index.js"></script>
+</body>
+</html>
+
+//*****************************************index.js*****************************************//
+
+var element = document.createElement("h1"); // Elemento a crear
+var texto = document.createTextNode("Hola!¿Qué tal?"); // texto para el elemento
+element.appendChild(texto); // unir texto al elemento
+
+
+var contenedor = document.getElementById('App'); // obtener elemento donde se insertara
+
+
+contenedor.insertBefore(element, App.firstChild);
+
+//**************************************Otra Forma de Crear elementos*********************************************//
+
+function pintarTarjetas(listado) {
+
+
+    listado.forEach(element => {
+
+        let contenedor = document.querySelector('.contenedor')
+
+        var div = document.createElement("div"); // Elemento a crear
+        div.setAttribute("class", "item");
+
+        var imagen = document.createElement("img");
+        imagen.setAttribute("src", element.imgUrl);
+
+        var h2 = document.createElement("h2"); // Elemento a crear
+        h2.textContent = element.title
+
+
+        var pdescripcion = document.createElement("p"); // Elemento a crear
+        pdescripcion.textContent = element.description
+
+
+
+        contenedor.appendChild(div)
+        div.appendChild(imagen)
+        div.appendChild(h2)
+        div.appendChild(pdescripcion)
+
+    });
+
+
+}
+
+pintarTarjetas(listadoFelinos);
+
+
+//************************************Crear elementos sin duplicar las tarjetas**********************************//
+
+function recorrerListadoYRenderizarTarjetas() {
+
+  const contTarjetas = document.getElementById('fila');
+
+  contTarjetas.innerHTML = "" ;
+
+  listado.map(materias => {
+
+    const caja = document.createElement('div');
+    caja.setAttribute("class", "caja");
+
+    const imagen = document.createElement("img");
+    imagen.setAttribute("src", materias.imgUrl);
+    imagen.setAttribute("alt", ("Logo de " + materias.lenguajes));
+
+    const lenguajes = document.createElement('p');
+    const lenguajePTittle = document.createElement('span');
+    const lenguajePTexto = document.createElement('span');
+    lenguajes.setAttribute("class", "lenguajes");
+    lenguajePTittle.appendChild(document.createTextNode('Lenguajes:' + " "));
+    lenguajePTexto.appendChild(document.createTextNode(materias.lenguajes));
+
+
+    const bimestre = document.createElement('p');
+    const bimestrePTittle = document.createElement('span');
+    const bimestrePTexto = document.createElement('span');
+    bimestre.setAttribute("class", "bimestre");
+    bimestrePTittle.appendChild(document.createTextNode('Bimestre:' + " "));
+    bimestrePTexto.appendChild(document.createTextNode(materias.bimestre));
+
+    contTarjetas.appendChild(caja)
+    caja.appendChild(imagen)
+
+    caja.appendChild(lenguajes)
+    lenguajes.appendChild(lenguajePTittle)
+    lenguajes.appendChild(lenguajePTexto)
+
+    caja.appendChild(bimestre)
+    bimestre.appendChild(bimestrePTittle)
+    bimestre.appendChild(bimestrePTexto)
+
+
+  })
+
+}
+
+
+//**********************************************************************************************//
+
+

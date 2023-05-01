@@ -1,0 +1,71 @@
+
+let marcas = ["samsung", "xiaomi", "apple"];
+marcas.sort();
+console.log(marcas);
+// [ 'apple', 'samsung', 'xiaomi' ]
+
+// **************************************************
+
+let marcas2 = ["samsung", "Xiaomi", "apple", "3M"];
+marcas2.sort();
+console.log(marcas2);
+["3M", "Xiaomi", "apple", "samsung"];
+
+// **************************************************
+
+let numeros = [5, 6, 8, 2, 4, 1];
+numeros.sort();
+console.log(numeros);
+
+// ******************************No ordena los numeros bien*******************************
+
+let numeros = [10, 3, 4, 52, 6, 7];
+numeros.sort();         // observamos que 9 es mayor que 10 porque “9” > “1”
+console.log(numeros);
+
+// ***********************Ordena los numeros de forma correcta**************************
+
+let numeros = [10, 3, 4, 52, 6, 7];
+
+function compare(a, b) {
+  return a - b;
+}
+
+numeros.sort(compare);
+
+console.log(numeros);
+// [4, 7, 8, 9, 10, 52]
+
+// *****************************************************
+
+let numeros = [25,32,2,8,1,56,23,7,5,10]
+let ordenado = (a,b) => a-b
+numeros.sort(ordenado);
+console.log(numeros)
+
+// ******************************************************
+
+let jsonHelper = require("./lecturaEscritura");
+
+const carrera = {
+  autos: jsonHelper.leerJson("autos"),
+  ordenarPorVelocidad: function () {
+  return this.autos.sort((a, b) => a.cilindrada - b.cilindrada)
+  },
+};
+console.table(carrera.ordenarPorVelocidad());
+
+// ******************************Ordenar Podio***************************
+
+  listarPodio: function (arrayAutos) {
+    let podio = arrayAutos.sort((a, b)=> b.puntaje - a.puntaje)
+    let primerPuesto = podio[0]
+    let segundoPuesto = podio[1]
+    let tercerPuesto = podio[2]
+    console.table(`Primer Puesto: ${primerPuesto.piloto} con un puntaje de: ${primerPuesto.puntaje}`);
+    console.table(`Segundo Puesto: ${segundoPuesto.piloto} con un puntaje de: ${segundoPuesto.puntaje}`);
+    console.table(`Tercer Puesto: ${tercerPuesto.piloto} con un puntaje de: ${tercerPuesto.puntaje}`);
+  },
+
+// *********************************************************************
+

@@ -1,0 +1,21 @@
+//*************************************************************************************************//
+let edad = parseInt(prompt("Ingrese su edad"));
+
+if(edad>18){
+  console.log("Es mayor de edad");
+}else if (isNaN(edad)) {
+  console.log("es NaN")
+}else {
+  console.log("Es menor de edad");
+}
+
+//*******************************************Con una function*****************************************//
+function laEdadEs(edad) {
+  if (isNaN(edad)) {
+    return 'No es un numero valido';
+  }
+  return edad + 5; // retorna edad mas 5
+}
+
+console.log(laEdadEs('100F'));  // se le envia datos que no son numeros
+console.log(laEdadEs(18));

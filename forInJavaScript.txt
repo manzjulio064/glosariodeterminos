@@ -1,0 +1,16 @@
+
+
+let personajes = {
+  nombre: "calors",
+  Apellido: "Monroy",
+  Edad: 25
+}
+
+
+for(let caracteristicas in personajes){
+
+  console.table(caracteristicas); // muestra el nombre de las caracteristicas
+
+  console.table(personajes[caracteristicas]); // muestra el contenido de las caracteristicas
+
+}

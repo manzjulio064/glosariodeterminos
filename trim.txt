@@ -1,0 +1,3 @@
+// Ejemplo trim
+let texto = "          soy un ser humano       "
+console.log(texto.trim())

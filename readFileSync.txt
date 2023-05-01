@@ -1,0 +1,16 @@
+
+let contenido = fs.readFileSync("./prueba.txt", {encoding: 'utf-8'});
+
+console.log(contenido)
+
+// ************************leer archivo Json**************************
+
+let fs = require('fs');
+
+let archivo = fs.readFileSync(`${__dirname}/prueba.json`, "utf-8");
+
+let archivoconvertido = JSON.parse(archivo);
+
+console.log(archivoconvertido);
+
+// ******************************************************************

@@ -1,0 +1,26 @@
+
+
+//*************************Configurar archivo application.properties********************************//
+
+spring.h2.console.enabled=true
+spring.sql.init.platform=h2
+spring.datasource.url=jdbc:h2:men:navin
+
+//**********************************Dependencia Pom.xml*****************************//
+
+<dependencies>
+   <dependency>
+      <groupid>org.springframework.boot</groupid>
+      <artifactid>spring-boot-starter-data-jpa</artifactid>
+   </dependency>
+   <dependency>
+       <groupid>com.h2database</groupid>
+       <artifactid>h2</artifactid>
+       <scope>runtime</scope>
+   </dependency>
+</dependencies>
+
+
+//*******************************************************************************//
+//*******************************************************************************//
+//*******************************************************************************//

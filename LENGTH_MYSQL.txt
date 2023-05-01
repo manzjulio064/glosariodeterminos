@@ -1,0 +1,37 @@
+SELECT LENGTH(title)
+FROM movies;
+
+// ***************************
+
+SELECT title
+FROM movies
+WHERE LENGTH(title) > 10
+FROM movies;
+
+// *************************
+
+-- Generar un reporte de todos los videos y sus etiquetas, pero solo de aquellos cuyos
+-- nombres de la etiqueta contengan menos de 10 caracteres, ordenado
+-- ascendentemente por la cantidad de caracteres que posea la etiqueta.
+
+SELECT
+V.titulo,
+V.descripcion,
+V.tamanio,
+V.nombreArchivo,
+V.duracion,
+V.imagen,
+V.cantidadReproducciones,
+V.cantidadLikes,
+V.cantidadDisLikes,
+V.privado,
+V.fechaPublicacion,
+E.nombre Etiqueta,
+LENGTH(E.nombre) EtiquetaCaracteres
+FROM video V
+INNER JOIN video_etiqueta VE ON V.`idVideo` = VE.`Video_idVideo`
+INNER JOIN etiqueta E ON VE.`Etiqueta_idEtiqueta` = E.`idEtiqueta`
+WHERE LENGTH(E.nombre) < 10
+ORDER BY EtiquetaCaracteres ASC;
+
+//*****************************************************************************************//

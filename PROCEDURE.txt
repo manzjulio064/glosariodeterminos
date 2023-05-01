@@ -1,0 +1,84 @@
+
+//*********************************Eliminar Procedimiento************************************************//
+
+DROP PROCEDURE IF EXISTS insertarProveedores;
+
+//****************************************************************************************************************//
+DELIMITER $$
+CREATE PROCEDURE sp_nombre_procedimiento()
+BEGIN
+ -- Bloque de instrucciones SQL;
+END $$
+
+//**********************Estructura Basica y como llamarlo(Ejecutarlo) mandando un dato de entrada para filtrar********//
+DELIMITER $$
+CREATE PROCEDURE SP_contactos(in filtro VARCHAR(30))
+BEGIN
+  select *
+  from clientes
+  WHERE primer_nombre = filtro;
+END $$
+DELIMITER;
+
+call SP_contactos("Eduardo");
+
+-- // **********************Crear un procedimiento que al ejecutarlo con CALL ingrese nuevos usuarios tabla clientes*********************************************************
+
+DROP PROCEDURE IF EXISTS sp_Insert
+DELIMITER $$
+CREATE PROCEDURE sp_Insert
+(in id tinyint, in nom VARCHAR(50), in ape VARCHAR(50), in emp VARCHAR(50), in dir VARCHAR(50), in ciu VARCHAR(50), in est VARCHAR(50), in pai VARCHAR(50), in cod VARCHAR(50), in tel VARCHAR(50), in fax1 VARCHAR(50), in ema VARCHAR(50), in rep tinyint)
+
+BEGIN
+INSERT INTO clientes
+(id, primer_nombre, apellido, empresa, direccion, ciudad, estado_o_provincia, pais, codigo_postal, telefono, fax, email, id_representante)
+VALUES
+(id, nom, ape, emp, dir, ciu, est, pai, cod, tel, fax1, ema, rep);
+END $$
+
+-- // ***Llamar o ejecutar un procedimiento almacenado******************************
+
+CALL sp_Insert(60, "Car", "Rodr", "Cytel", "Av Comu", "Bogota", "Cmarca", "Colombia", 0000, 12024, 512025, "carolr@gmail.com", 3);
+
+CALL sp_Insert(61, "oscar", "benjumea", "claro", "Av nqs", "tunja", "byca", "Colombia", 0000, 1651, 6516, "carlosben@gmail.com", 3);
+
+
+-- // **************************************Eliminar un procedimiento*************************************************************
+
+DROP PROCEDURE IF EXISTS sp_Insert
+
+-- // *************************************Asignación de valores a variables************************************************************
+DELIMITER $$
+CREATE PROCEDURE sp_nombre_procedimiento()
+BEGIN
+ DECLARE salario FLOAT DEFAULT 1000.00;
+ SET salario = 25700.50;
+END $$
+
+-- // ****Mostrar todos los datos de cliente y un campo adicional con el valor de todas sus facturas utilizando una funcion para sumarlas*************
+
+DELIMITER $$
+CREATE PROCEDURE facturacion_cliente(IN fechaInicial DATE, IN fechaFinal DATE)
+BEGIN
+  SELECT *,
+  COALESCE(facturas_por_cliente(C.id, fechaInicial, fechaFinal),'sin datos') totalFacturas
+  FROM clientes C;
+END$$
+DELIMITER;
+
+CALL facturacion_cliente('2010-02-01', '2010-02-11');
+
+-- // ******************************************Calcular el impuesto de un valor*************************************
+
+DELIMITER $$
+CREATE PROCEDURE llamadocalcular_impuesto(INOUT valor FLOAT, IN impuesto FLOAT)
+BEGIN
+ SET valor = valor * (impuesto / 100) + valor;
+END$$
+DELIMITER;
+
+SET @valor = 5000;
+call llamadocalcular_impuesto(@valor, 21);
+SELECT @valor;
+
+-- // **************************************************************************************************

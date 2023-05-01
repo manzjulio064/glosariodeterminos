@@ -1,0 +1,21 @@
+
+- docker-compose up Ejecutar docker-compose para crear un contenedor de mysql
+- Crear una imagen apartir del contenedor creado utilizando el CONTAINER ID copiarlo completo en eol DOCKER DESKTOP
+
+- Crear un repositorio en dockerHub
+- Crear una imagen con docker commit poniendo el CONTAINER ID y el nombre de la imagen como se creo el repositorio en dockerhub
+- docker commit 59f641c4989a3774d3104d87b34bb5e78e29a3fef38c9494a629c10652226ad9 hectorjm/basedatos:latest
+
+- docker push hectorjm/basedatos:latest  // Subir la imagen a dockerhub
+- docker container run -d --name basedatos -p 3306:3306 hectorjm/basedatos:latest  // descargar y correr la imagen de dockerhub
+
+
+
+docker pull hectorjm/basedatos // descargar la imagen solamente
+docker exec -it basedatos bash // correr la imagen descargada
+
+
+
+docker image tag bd41a79f0ba3 hectorjm/basedatos:latest    //Cambiar y crear una imagen para poderla subir dockerhub
+
+

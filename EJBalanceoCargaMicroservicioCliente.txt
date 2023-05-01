@@ -1,0 +1,214 @@
+//***Permite la comunicacion entre microservicio en este caso entre el microservicioCliente con el microservicioProveedores.
+//*** contemplando un balanceador de carga y cambiado el algoritmo de round-robin a random
+
+//*********************************MicroservicioClientesApplication*******************************//
+
+package com.dh.microservicioClientes;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+
+@SpringBootApplication
+@EnableFeignClients
+@EnableDiscoveryClient
+public class MicroservicioClientesApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MicroservicioClientesApplication.class, args);
+	}
+}
+
+//**********************************MicroservicioClientesController******************************//
+
+package com.dh.microservicioClientes.controlador;
+
+import com.dh.microservicioClientes.client.ISubscriptionClient;
+import com.dh.microservicioClientes.service.microservicioClientesService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+@RestController
+@RequestMapping("/")
+public class MicroservicioClientesController {
+    @Autowired
+    private microservicioClientesService servicedatos;
+    @Autowired
+    private ISubscriptionClient proveedores;
+
+    @GetMapping
+    public String microservicioFunciona() {
+        return "Microservicio de proveedores";
+    }
+    @GetMapping("/datos")
+    public String getdatos(@RequestParam String nombre, @RequestParam String apellido) {
+        return servicedatos.getNombres(nombre, apellido);
+    }
+    @GetMapping("/saludar")
+    public String getSaludar() {
+        return "Hola como estas";
+    }
+
+    @GetMapping("/proveedores")
+    public ResponseEntity<String> find() {
+
+        return ResponseEntity.ok(proveedores.find());
+    }
+}
+
+//**********************************microservicioClientesService*********************************//
+package com.dh.microservicioClientes.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class microservicioClientesService {
+
+    private String nombreApellido;
+    public String getNombres(String nombre, String apellido) {
+
+        return "Hola Como estas :" + nombre + " " + apellido;
+    }
+}
+
+//***********************************bootstrap.yml*****************************************//
+
+spring:
+  application:
+    name: microservicioClientes //Nombre del microservicio
+  cloud:
+    config:
+      uri: http://localhost:5000  //URL servidor de configuracion el cual puede ser tambien puerto 8888
+  profiles:
+    active: dev //cuando el archivo de configuracion termina en dev (microservicioClientes-dev)
+
+//***************************Interface ISubscriptionClient**********************************//
+//****Permite establecer la conexion a el microservicioProveedores en el endpoint /proveedores
+//****y obtener la informacion entre microservicios.
+
+package com.dh.microservicioClientes.client;
+
+import com.dh.microservicioClientes.configuration.CustomLoadBalancerConfiguration;
+import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
+import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientConfiguration;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@FeignClient("microservicioProveedores")
+@LoadBalancerClient(name = "microservicioProveedores", configuration = CustomLoadBalancerConfiguration.class )
+public interface ISubscriptionClient {
+    @GetMapping("/proveedores") //EndPoint en el controller de proveedores al cual nos comunicamos
+    String find();
+}
+
+//******************************CustomLoadBalancerConfiguration********************************//
+//****Clase opcional de configuracion de algoritmo Random o cualquier otro algoritmo que se quiera usar
+//**** descargado de https://docs.spring.io/spring-cloud-commons/docs/4.0.1/reference/html/#spring-cloud-loadbalancer
+//**** y se llama en la interface ISubscriptionClient @LoadBalancerClient(name = "microservicioProveedores", configuration = CustomLoadBalancerConfiguration.class )
+
+package com.dh.microservicioClientes.configuration;
+
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.loadbalancer.core.RandomLoadBalancer;
+import org.springframework.cloud.loadbalancer.core.ReactorLoadBalancer;
+import org.springframework.cloud.loadbalancer.core.ServiceInstanceListSupplier;
+import org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
+@Configuration
+public class CustomLoadBalancerConfiguration {
+    @Bean
+    ReactorLoadBalancer<ServiceInstance> randomLoadBalancer(Environment environment,
+                                                            LoadBalancerClientFactory loadBalancerClientFactory) {
+        String name = environment.getProperty(LoadBalancerClientFactory.PROPERTY_NAME);
+        return new RandomLoadBalancer(loadBalancerClientFactory
+                .getLazyProvider(name, ServiceInstanceListSupplier.class),
+                name);
+    }
+}
+
+//*************************************pom.xml******************************************//
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.8</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.dh</groupId>
+	<artifactId>MicroservicioClientes</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>MicroservicioClientes</name>
+	<description>MicroservicioClientes</description>
+	<properties>
+		<java.version>18</java.version>
+		<spring-cloud.version>2021.0.5</spring-cloud.version>
+	</properties>
+
+
+	<dependencies>
+				<dependency>
+        			<groupId>org.springframework.boot</groupId>
+        			<artifactId>spring-boot-starter-web</artifactId>
+        		</dependency>
+        		<dependency>
+        			<groupId>org.springframework.cloud</groupId>
+        			<artifactId>spring-cloud-starter-config</artifactId>
+        		</dependency>
+        		<dependency>
+        			<groupId>org.springframework.cloud</groupId>
+        			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+        		</dependency>
+        		<dependency>
+        			<groupId>org.springframework.cloud</groupId>
+        			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        		</dependency>
+        		<dependency>
+        			<groupId>org.springframework.cloud</groupId>
+        			<artifactId>spring-cloud-starter-openfeign</artifactId>
+        		</dependency>
+        		<dependency>
+        			<groupId>org.springframework.cloud</groupId>
+        			<artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        		</dependency>
+        		<dependency>
+        			<groupId>org.springframework.boot</groupId>
+        			<artifactId>spring-boot-starter-test</artifactId>
+        			<scope>test</scope>
+        		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+
+//********************************************************************************************//

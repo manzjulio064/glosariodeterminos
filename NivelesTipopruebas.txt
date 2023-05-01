@@ -1,0 +1,10 @@
+
+
+***Prueba funcional********************
+QUE	Observa el comportamiento del software, se valida que cosas hace el sistema (las cosas que un sistema permite hacer al usuario)
+	Le permite subir foto al usuario, 
+***pruebas no funcionales**************
+COMO	Como de bien se comporta el sistema
+	Se hacen validadando desde las caracteristicas del sistema (Performance, encriptacion, rapides ) 	
+	como funciona de bien el sistema tras bambalinas que tan bien deja cargar al usuario, si lo demora
+	

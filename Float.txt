@@ -1,0 +1,15 @@
+
+En este caso definimos y creamos un Integer, dándole un valor inicial 2.5f, la f quiere decir
+float, si no lo ponemos se asume que es algo de tipo Double.
+
+Float coeficiente=2.5f;
+
+// ***************************************************//
+En la segunda forma hacemos algo similar, pero la parte de la izquierda es la definición y la
+parte de la derecha la creación con un valor inicial 0.5. 
+
+Float num= new Float(0.5);
+
+
+// ***************************************************//
+

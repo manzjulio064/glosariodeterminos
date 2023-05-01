@@ -1,0 +1,13 @@
+
+// ***************CREACION DE LA BASE DE DATOS ****************
+CREATE DATABASE Cajero;
+
+// ***************ALTERNATIVA CREACION DE LA BASE DE DATOS ****************
+
+CREATE SCHEMA `Cajero` ;
+
+// ************Ejecutar Use Despues de crear la base de datos para ubicarnos en dicha base de datos****
+
+use Cajero;
+
+// *************************************************************************************

@@ -1,0 +1,5 @@
+
+SELECT factura.id AS nro_factura, apellido, nombre, fecha
+FROM cliente
+LEFT JOIN factura ON cliente.id = factura.cliente_id
+WHERE factura.id IS NULL;

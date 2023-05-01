@@ -1,0 +1,55 @@
+
+
+package excepciones;
+import java.util.*;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    int num1,num2, division;
+    System.out.println("Primer número, debe ser un valor entero ");
+    num1=scanner.nextInt();
+    System.out.println(" Divisor, un valor entero ");
+    num2=scanner.nextInt();
+
+    try {
+      division= num1/num2;
+      System.out.println(division);
+
+    } catch (ArithmeticException excepcion) {
+      System.err.println("Se intento dividir por cero");
+    }
+   }
+}
+
+
+// ***********************************Validando otros posibles errores al ingresar datos********************************//
+
+package excepciones;
+import java.util.*;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    int num1,num2, division;
+    
+    try {
+      System.out.println("Primer número, debe ser un valor entero ");
+      num1 = scanner.nextInt();
+      System.out.println(" Divisor, un valor entero ");
+      num2 = scanner.nextInt();
+      division = num1 / num2;
+      System.out.println(division);
+
+    }
+    catch (InputMismatchException exception) {
+      System.err.println("Se ingresó un tipo de dato incorrecto");
+    }
+    catch (ArithmeticException excepcion) {
+      System.err.println("Se intento dividir por cero");
+    }
+   }
+}
+
+//********************************************************************************************************************************//
+

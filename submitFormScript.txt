@@ -1,0 +1,46 @@
+//***************************index.html********************************//
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>formulario</title>
+</head>
+<body>
+
+  <form action="" class="reservation">
+    <label>nombre<input type="text" class="nombre" name="nombre" id="nombre" autocomplete="off"></label>
+    <label>Apellido<input type="text" class="apellido" name="apellido" id="apellido" autocomplete="off"></label>
+
+    <p>
+      <select name="people" id="people" class="people">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+    </p>
+
+    <p><button type="submit">Enviar formulario</button></p>
+
+  </form>
+<script src="script.js"></script>
+</body>
+</html>
+
+//*****************************script.js*********************************//
+
+window.addEventListener("load", function() {
+  let form = document.querySelector("form.reservation");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault(); // cancela el reenvio hasta que lo validemos el formulario
+    console.log(1);
+  })
+});
+
+//**********************************************************************//

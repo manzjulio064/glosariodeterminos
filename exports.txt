@@ -1,0 +1,10 @@
+
+
+let persona = {
+  nombre: "javier",
+  apellido: "moreno"
+}
+
+module.exports = persona;
+
+// ****************************************

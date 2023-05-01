@@ -1,0 +1,7 @@
+** https://www.freecodecamp.org/espanol/news/gitignore-explicado-que-es-y-como-agregar-a-tu-repositorio/
+
+***¿Cómo evitar el rastreo de archivos a los que previamente les has hecho "commit" desde el nuevo Gitignore?
+***Para evitar el rastreo de un solo archivo, es decir, detener el rastreo del archivo, pero no borrarlo del sistema, utiliza:
+
+git rm --cached nombre-del-archivo
+

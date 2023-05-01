@@ -1,0 +1,8 @@
+let colores8 = ["azul", "Rojo", "Rosado"];
+let devuelvebuelano = colores8.includes("Rosado");
+console.log(devuelvebuelano);
+
+
+let colores9 = ["azul", "Rojo", "Rosado"];
+let devuelvebuelano1 = colores9.includes("Rosado1");
+console.log(devuelvebuelano1);

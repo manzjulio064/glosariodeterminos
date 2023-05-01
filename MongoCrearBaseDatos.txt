@@ -1,0 +1,36 @@
+//***********************Crear una base de datos*******************************//
+
+use cajero;
+
+//*******Otra forma de crear la base de datos con la coleccion y un registro*************//
+//**Base de datos cajero
+//**coleccion proveedores
+//**Registro clave valor dentro de corchetes {}
+
+use('cajero');
+db.proveedores.insertOne(
+  {
+    nombreEmpresa: "Cytelsystem",
+    contacto: {
+      nombreContacto: "Carlos",
+      apellidoContacto: "contreras"
+    }
+  }
+);
+
+//*****Otra forma******
+
+db('cajero').collection('proveedores').insertOne(
+  {
+    nombreEmpresa: "Cytelsystem",
+    contacto: {
+      nombreContacto: "Carlos",
+      apellidoContacto: "contreras"
+    }
+  }
+);
+
+
+
+//**********************************************************************//
+//**********************************************************************//

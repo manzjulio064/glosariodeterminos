@@ -1,0 +1,39 @@
+//************************************onkeydown*********************************************//
+
+let miInput = document.querySelector('#miInput');
+  miInput.onkeydown = function(event){
+  alert("Se presionó la tecla: "+ event.key);
+}
+
+//*************************************onkeyup**********************************************//
+
+let miInput = document.querySelector('#miInput');
+  miInput.onkeyup = function(event){
+  alert("Se soltó la tecla: "+ event.key);
+}
+
+//*************************************onkeypress***********************************************//
+
+let miInput = document.querySelector('#miInput');
+  miInput.onkeypress = function(event){
+  alert("Se presionó la tecla: "+ event.key);
+}
+
+//*********************************************************************************************//
+
+window.addEventListener("keypress", function(e) {
+
+    function eliminarclass() {
+      const sobreMi = document.getElementById('sobre-mi');
+      sobreMi.classList.remove('oculto'); //Elimina la clase del elemento 'sobre-mi'
+    }
+
+    if (e.key == "F") {
+      eliminarclass()
+    }else if (e.key == "f") {
+      eliminarclass()
+    }
+
+  })
+
+//*********************************************************************************************//

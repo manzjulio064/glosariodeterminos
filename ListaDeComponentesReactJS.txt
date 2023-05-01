@@ -1,0 +1,77 @@
+//*******************************index*******************************//
+
+import React from 'react';  // crear el elemento
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.css';
+import './global.css';
+
+
+// import BadgeNew from './pages/BadgeNew'
+import Lista from './pages/Lista'
+
+
+const container = document.getElementById('app');
+
+ReactDOM.render(<Lista />, container);
+
+//****************************Lista************************************//
+
+import React from 'react';
+import SubLista from '../components/SubLista';
+class Lista extends React.Component {
+
+  state = {
+    data: [
+            {
+              id: 5086,
+              nombre: 'hector',
+              apellido: 'moreno',
+            },
+            {
+              id: 5087,
+              nombre: 'javier',
+              apellido: 'moreno',
+            },
+            {
+              id: 5088,
+              nombre: 'hector julio',
+              apellido: 'moreno',
+            }
+          ],
+  }
+
+  render() {
+    return (
+      <SubLista datos={this.state.data}/>
+    )
+  }
+}
+export default Lista;
+
+//****************************SubLista************************************//
+
+import React from 'react';
+
+class SubLista extends React.Component {
+  render() {
+    return (
+      <div>
+        <ul className="list-unstyled">
+
+          {this.props.datos.map((datos) =>{
+            return (
+              <li key={datos.id}>
+                <p>{datos.nombre}</p>
+                <p>{datos.apellido}</p>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    )
+  }
+}
+
+export default SubLista;
+
+//*******************************************************************//

@@ -1,0 +1,6 @@
+//**********************************For Of funciona con Array**********************************************//
+
+var artistas = ['Juana Molina','Luis Alberto Spinetta','Gustavo Ceratti']; // Recorre Array
+for (var artista of artistas) {
+ console.log(artista);
+};

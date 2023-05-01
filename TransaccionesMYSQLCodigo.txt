@@ -1,0 +1,129 @@
+//*******************************************************************************//
+
+DELIMITER $$
+CREATE PROCEDURE SP_de_template_check()
+BEGIN
+    DECLARE state, message VARCHAR(255);
+    DECLARE errorNumber INT;
+
+
+    DECLARE finished INT DEFAULT 0;
+    DECLARE cur1 CURSOR FOR SELECT * FROM vi_employee ;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET finished = 1;
+
+    START TRANSACTION;
+    BEGIN -- Sin este BEGIN, no funciona. Acordarse del END antes de cerrar el END del SP
+        -- Si existe algun error
+        DECLARE EXIT HANDLER FOR SQLEXCEPTION
+        BEGIN
+            -- Guardamos informacion del error, SIN el SET al momento de asignarle valores a las variables
+            GET DIAGNOSTICS CONDITION 1
+                state = RETURNED_SQLSTATE,
+                errorNumber    = MYSQL_ERRNO,
+                message    = MESSAGE_TEXT;
+
+            -- Cancelamos la transaccion
+            ROLLBACK;
+
+            -- El SP devuelve la info del error o NULL en esas variables si no hubo errores
+            SELECT state, errorNumber, message;
+        END;
+
+
+    		OPEN cur1;
+					recorre: LOOP
+							FETCH cur1 INTO nombre, apellido, edad; -- Variables
+
+							IF finished = 1 THEN
+									LEAVE recorre;
+							END IF;
+
+							-- Logica
+					END LOOP;
+    		CLOSE cur1;
+
+    		COMMIT;
+
+    END;
+END $$
+
+//*****************************Function para la TRANSACTION posterior********************************//
+//******Crear una función que valide si para una persona se alertó sobre una oferta.************//
+
+DELIMITER $$
+CREATE Function personAlert(Persona_Id INT, Oferta_Id INT)
+
+  RETURNS INT
+  deterministic
+  BEGIN
+
+    SET @registros = (SELECT id FROM alerta A WHERE A.Persona_Id = Persona_Id AND A.Oferta_Id = Oferta_Id);
+    IF @registros > 0 THEN
+    return @registros;
+    ELSE
+    return 0;
+    END IF;
+
+  END
+DELIMITER ;
+
+//***************************************Template TRANSACTION db dhremotework********************************************//
+
+DELIMITER $$
+CREATE PROCEDURE SP_Parcial(IN cantidad_de_skills INT)
+BEGIN
+
+    DECLARE curPersonaId INT;
+    DECLARE curOfertaId INT;
+    DECLARE state, message VARCHAR(255);
+    DECLARE errorNumber INT;
+    DECLARE resultado INT;
+
+    DECLARE finished INT DEFAULT 0;
+    DECLARE cur1 CURSOR FOR SELECT Persona_id, Oferta_id FROM vi_skillspersonaoferta WHERE cantidadSkills > cantidad_de_skills;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET finished = 1;
+
+    START TRANSACTION;
+    BEGIN -- Sin este BEGIN, no funciona. Acordarse del END antes de cerrar el END del SP
+        -- Si existe algun error
+        DECLARE EXIT HANDLER FOR SQLEXCEPTION
+        BEGIN
+            -- Guardamos informacion del error, SIN el SET al momento de asignarle valores a las variables
+            GET DIAGNOSTICS CONDITION 1
+                state = RETURNED_SQLSTATE,
+                errorNumber    = MYSQL_ERRNO,
+                message    = MESSAGE_TEXT;
+
+            -- Cancelamos la transaccion
+            ROLLBACK;
+
+            -- El SP devuelve la info del error o NULL en esas variables si no hubo errores
+            SELECT state, errorNumber, message;
+        END;
+
+    OPEN cur1;
+
+    recorre: LOOP
+        FETCH cur1 INTO curPersonaId, curOfertaId; -- Variables
+
+        IF finished = 1 THEN
+            LEAVE recorre;
+        END IF;
+
+        SET resultado = personAlert(curPersonaId, curOfertaId);
+
+        IF resultado = 0 THEN
+          INSERT INTO alerta (Persona_id, Oferta_id, FechaCreacion) VALUES (curPersonaId, curOfertaId, NOW());
+        END IF;
+
+    END LOOP;
+    CLOSE cur1;
+
+    COMMIT;
+
+    END;
+END $$
+
+CALL SP_Parcial(8);
+
+//*****************************************************************************************************//

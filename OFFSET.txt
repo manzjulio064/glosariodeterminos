@@ -1,0 +1,4 @@
+SELECT * FROM clientes
+WHERE ID >=1 AND ID <=50
+LIMIT 10
+OFFSET 10;

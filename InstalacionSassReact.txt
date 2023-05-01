@@ -1,0 +1,7 @@
+// *****************************En la consola del proyecto**********************************//
+npm i sass
+// *****************************Utilizar sass*******************************//
+// En la carpeta de styles crear archivos con extension .scss en vez de css
+y en el import de cada archivo llamarlo Ejm: import './styles/Navbar.scss';
+
+// *****************************************************************************//

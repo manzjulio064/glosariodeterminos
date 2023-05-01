@@ -1,0 +1,19 @@
+
+//**listar todos los servicios en Linux.
+sudo systemctl list-unit-files --type service --all
+
+//**Servicios activos
+sudo systemctl | grep running
+
+//**Iniciar un servicios en Linux
+sudo systemctl start [nombre_servicio]
+
+//**Detener un servicio en Linux
+sudo systemctl stop [nombre_servicio]
+
+**//verificar el estado de un servicio
+sudo systemctl status [nombre_servicio]
+
+//**Habilitar o desabilitar un servicio en Linux
+sudo systemctl enable [nombre_servicio]
+sudo systemctl disable [nombre_servicio]

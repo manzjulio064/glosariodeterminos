@@ -1,0 +1,52 @@
+for (let i = 0; i <= 5; i++ ) {
+  console.log('hola ' + i)
+}
+
+
+
+function noParesDeContarImparesHasta(numero) {
+  let cuenta = 0;
+  for (let i = 1; i <= numero; i++) {
+    if (i % 2 == 1) {
+        cuenta++;
+      }
+  }
+  return cuenta;
+
+}
+
+noParesDeContarImparesHasta(7);
+
+
+function sumaDeLosParesDel0Al(x) {
+  let suma = 0;
+  let cuenta = 0;
+
+  for (let i = 1; i <= x; i++) {
+    if (i %  2 == 1) {
+       // suma += i;
+       suma += i;
+      console.log(i)
+      cuenta++;
+    }
+  }
+  return cuenta;
+}
+
+console.log(sumaDeLosParesDel0Al(10));
+
+
+//*************************************Suma los numeros de un array y el resultado con el otro ***************************************//
+
+let numeros = [1, 2, 4, 8]
+
+let resultado = 0;
+
+for (let i = 0; i < numeros.length; i++) {
+  resultado += numeros[i];
+
+  console.log(resultado);
+
+}
+
+//************************************************************************************************************************************//

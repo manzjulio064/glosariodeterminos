@@ -1,0 +1,366 @@
+//**********************************pom.xml***************************************//
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.4</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.dh</groupId>
+    <artifactId>user-service</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>user-service</name>
+    <description>user-service</description>
+    <properties>
+        <java.version>11</java.version>
+        <spring-cloud.version>2021.0.1</spring-cloud.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+//****************************src/main/resources/application.properties*********************************//
+server.port=8084
+spring.application.name=user-service
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
+
+management.endpoints.web.exposure.include=circuitbreakers,circuitbreakerevents,health,info,ratelimiters,metrics
+management.health.circuitbreakers.enabled= true
+management.endpoint.health.show-details=always
+
+
+resilience4j.circuitbreaker.instances.subscription.allowHealthIndicatorToFail = false
+resilience4j.circuitbreaker.instances.subscription.registerHealthIndicator= true
+resilience4j.circuitbreaker.instances.subscription.slidingWindowType=COUNT_BASED
+resilience4j.circuitbreaker.instances.subscription.slidingWindowSize = 5
+resilience4j.circuitbreaker.instances.subscription.failureRateThreshold= 50
+resilience4j.circuitbreaker.instances.subscription.waitDurationInOpenState = 15000
+resilience4j.circuitbreaker.instances.subscription.permittedNumberOfCallsInHalfOpenState = 3
+resilience4j.circuitbreaker.instances.subscription.automaticTransitionFromOpenToHalfOpenEnabled = true
+
+
+resilience4j.retry.instances.subscription.maxAttempts = 3
+resilience4j.retry.instances.subscription.waitDuration = 1000
+resilience4j.retry.instances.subscription.retryExceptions[0]=feign.FeignException$InternalServerError
+
+
+//*****************src/main/java/com.dh.userservice/controller/UserRestController*********************************//
+package com.dh.userservice.controller;
+
+import com.dh.userservice.model.User;
+import com.dh.userservice.service.UserService;
+
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/users")
+public class UserRestController {
+
+    private UserService userService;
+
+    public UserRestController(UserService userService) {
+        this.userService = userService;
+    }
+    @GetMapping("/find/{id}")
+    public User findById(@PathVariable Integer id){
+        return userService.findById(id);
+    }
+
+
+
+//    public UserRestController(UserService userService) {
+//        this.userService = userService;
+//    }
+//    @GetMapping("/find/{id}")
+//    public User findById(@PathVariable Integer id, @RequestHeader(name = "authorization") String token){
+//        System.out.println("User token "+token);
+//        return userService.findById(id);
+//    }
+}
+
+
+//*****************src/main/java/com.dh.userservice/model/SubscriptionDTO*********************************//
+
+package com.dh.userservice.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.Date;
+
+@JsonIgnoreProperties
+public class SubscriptionDTO {
+
+    private Integer id;
+    private Date startDate;
+    private Date endDate;
+    private Integer userId;
+
+    public SubscriptionDTO(Integer id, Date startDate, Date endDate, Integer userId) {
+        this.id = id;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.userId = userId;
+    }
+
+    public SubscriptionDTO() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+}
+
+
+//*****************src/main/java/com.dh.userservice/model/User*********************************//
+
+package com.dh.userservice.model;
+
+public class User {
+
+    private Integer id;
+    private String name;
+    private String lastName;
+    private String email;
+    private SubscriptionDTO subscription;
+
+    public User(Integer id, String name, String lastName, String email) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+    }
+    public User(Integer id, String name, String lastName, String email,SubscriptionDTO subscription) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.subscription = subscription;
+    }
+    public SubscriptionDTO getSubscriptionDTO() {
+        return subscription;
+    }
+
+    public void setSubscription(SubscriptionDTO subscription) {
+        this.subscription = subscription;
+    }
+
+    public User() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+}
+
+//******Interface**src/main/java/com.dh.userservice/repository/FeignSubscriptionRepository*********************************//
+
+package com.dh.userservice.repository;
+
+import com.dh.userservice.model.SubscriptionDTO;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@FeignClient(name= "subscription-service")
+public interface FeignSubscriptionRepository {
+
+    @RequestMapping(method = RequestMethod.GET,value = "/subscription/find")
+    ResponseEntity<SubscriptionDTO> findByUserId(@RequestParam Integer userId, @RequestParam Boolean throwError);
+}
+
+//*****************src/main/java/com.dh.userservice/repository/SubscriptionRepository*********************************//
+
+package com.dh.userservice.repository;
+
+import com.dh.userservice.model.SubscriptionDTO;
+
+import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
+
+import java.util.Date;
+
+
+@Repository
+public class SubscriptionRepository {
+    private FeignSubscriptionRepository feignSubscriptionRepository;
+    public SubscriptionRepository(FeignSubscriptionRepository feignSubscriptionRepository) {
+        this.feignSubscriptionRepository = feignSubscriptionRepository;
+    }
+    @CircuitBreaker(name="subscription",fallbackMethod = "subsciptionFallbackMethod")
+    @Retry(name = "subscription")
+    public SubscriptionDTO findByUserId(Integer userId, Boolean throwError){
+        System.out.println("Ejecutando...");
+        ResponseEntity<SubscriptionDTO> response = feignSubscriptionRepository.findByUserId(userId,throwError);
+        return response.getBody();
+    }
+
+    private SubscriptionDTO subsciptionFallbackMethod(CallNotPermittedException exception){
+        return  new SubscriptionDTO(999,new Date(),new Date(),9999);
+    }
+}
+
+//*****************src/main/java/com.dh.userservice/service/UserService*********************************//
+package com.dh.userservice.service;
+
+import com.dh.userservice.model.SubscriptionDTO;
+import com.dh.userservice.model.User;
+import com.dh.userservice.repository.SubscriptionRepository;
+import org.springframework.stereotype.Service;
+
+
+import java.util.List;
+import java.util.Objects;
+
+@Service
+public class UserService {
+    private final List<User> userRepository;
+    private SubscriptionRepository subscriptionRepository;
+
+    public UserService(SubscriptionRepository subscriptionRepository) {
+        this.subscriptionRepository = subscriptionRepository;
+        this.userRepository = List.of(new User(1, "Tomas", "Pereyra", "tomas.pereyra@digitalhouse.com"));
+    }
+
+    public User findById(Integer id){
+        User user = userRepository.stream().filter(_user -> Objects.equals(_user.getId(), id)).findFirst().orElse(null);
+        SubscriptionDTO subscriptionDTO = subscriptionRepository.findByUserId(id,false);
+        if (user != null)
+            user.setSubscription(subscriptionDTO);
+
+        return user;
+    }
+
+
+}
+
+//*****************src/main/java/com.dh.userservice/UserServiceApplication*********************************//
+
+package com.dh.userservice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+
+@SpringBootApplication
+@EnableFeignClients
+public class UserServiceApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(UserServiceApplication.class, args);
+    }
+
+}
+
+
+//*************************************************************************************//

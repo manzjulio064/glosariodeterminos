@@ -1,0 +1,19 @@
+//******************************************************************************//
+//**Para poder crear la cookie con Spring Security solo debemos indicar en el método configure lo siguiente:
+
+.rememberMe().key("uniqueAndSecret")
+
+//******************************************************************************//
+//**Además debemos borrar la cookie JSESSIONID cuando cerremos sesión:
+
+logout().deleteCookies("JSESSIONID")
+
+//******************************************************************************//
+//**En nuestro formulario deberíamos agregar un checkbox:
+
+<div class="form-check" id="rememberme-group">
+	<input type="checkbox" class="form-check-input" name="my-remember-me" id="remember-me">
+	<label class="form-check-label" for="remember-me" style="color:white;">Recordarme</label>
+</div>
+
+//******************************************************************************//

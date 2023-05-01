@@ -1,0 +1,13 @@
+* Define, es este momento de la metodología se debe dar claridad y enfoque a la
+información recopilada, identificar los conceptos a mejorar. Determinar el desafío
+del proyecto basado en lo aprendido del usuario y su contexto. Se recomienda
+transformarse en un experto del problema, experimentar una empatía por los
+usuarios, esta fase es sobre tener una coherencia de la información obtenida. Esta
+fase es crucial para el proceso ya que la meta es crear una declaración del problema
+viable y significativo y que será guía para enfocarse de la mejor manera a un usuario
+en particular. 
+
+Se debe cumplir con ciertos criterios para que se logren los objetivos;
+enmarcar un problema con un enfoque directo; que sea inspirador para el equipo;
+que genere criterios para evaluar ideas y contrarrestarlas; que capture las mentes y
+corazones de las personas que se han estudiado; que ayude a resolver el problema.

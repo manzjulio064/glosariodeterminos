@@ -1,0 +1,10 @@
+
+** Niveles de pruebas****
+-Componente
+	Probar o analizar una funcionalidad y validar un requerimiento del sistema (Desarrollador)
+-Integracion (AQ)
+	Se prueba la integracion con otros componentes que este relacionados entre Sí y encontrar defectos 
+-sistema (AQ)
+	Se realizan pruebas de principio a fin de un sistema de forma completa (full)
+-aceptacion (Analista de negocios, Cliente, usuario beta)
+	

@@ -1,0 +1,29 @@
+
+
+public class Main {
+    public static void main(String[] args) {
+        Empleado nuevoEmpleado=new Empleado("Juan","1111");
+        System.out.println(nuevoEmpleado.toString());
+    }
+
+}
+
+class Empleado {
+
+    private String nombre;
+    private String legajo;
+    protected double sueldo;
+    protected double descuentos;
+
+    public Empleado(String nombre, String legajo) {
+        this.nombre = nombre;
+        this.legajo = legajo;
+    }
+
+    @Override
+    public String toString(){
+        return "Nombre: " + nombre + "\n" + "Legajo: " + legajo;
+    }
+}
+
+//***********************************************************************

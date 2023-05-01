@@ -1,0 +1,23 @@
+
+// ************************************Creacion de carpetas************************************//
+
+// -- En src crear la carpeta components que es donde viviran nuestros componentes //
+
+// -- dentro de la carpeta components crear otra carpeta llamada styles que es donde ponemos todos los estilos de nuestros componentes // ****************
+
+// -- Se crea un archivo con el nombre del mismo componente
+// -- Dentro del componente se importa el archivo de stilos  Ejm: import './styles/componente.css';
+// -- Crear una carpeta pages dentro de src para almacenar nuestras paginas en dicha carpeta //
+// -- Crear una carpeta style dentro de la carpeta pages y crear los archivos de stylos de cada pagina //
+
+
+mkdir ./src/components
+mkdir ./src/components/styles
+mkdir ./src/pages
+touch ./src/components/App.js
+touch ./src/components/styles/app.scss
+mkdir ./src/images
+mkdir ./src/pages/styles
+touch ./src/global.scss
+
+

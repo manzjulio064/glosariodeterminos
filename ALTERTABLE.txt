@@ -1,0 +1,35 @@
+-- //**********Modifica el campo Pais_idPais que esta NN (No Null) dejandolo en null******************
+ALTER TABLE usuario
+CHANGE COLUMN `Pais_idPais` `Pais_idPais` INT NULL;
+
+-- // ********************************Renombrar Tabla***********************************
+
+ALTER TABLE `dhtube`.`usuario` 
+RENAME TO  `dhtube`.`usuario1` ;
+
+-- //*******************************Adicionar un campo Nuevo**********************************
+
+ALTER TABLE usuario
+ADD COLUMN `CEDULA` VARCHAR(45) NOT NULL DEFAULT 'CC7908';
+
+-- // **********************************************************
+ALTER TABLE alumnos.alumnos
+ADD COLUMN `IdMateria` INT NULL AFTER `IdAlumno`;
+
+-- //***********************Borrar un Campo************************************************
+
+ALTER TABLE `usuario` 
+DROP COLUMN `CEDULA`;
+
+-- //************************Adicionar Llave Foranea*********************************
+
+ALTER TABLE `alumnos`.`alumnos`
+ADD CONSTRAINT `Alumnos-materias`
+  FOREIGN KEY (`IdMateria`)
+  REFERENCES `alumnos`.`materias` (`IdMateria`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+-- // ****************************************************************
+
+

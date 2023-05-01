@@ -1,0 +1,22 @@
+
+sudo su root
+apt-get update -y
+apt-get upgrade -y
+apt-get install apache2 -y
+
+git clone https://github.com/davidroco99/clase25.git
+sudo chmod 777 -R clase25/
+cp -rf clase25/* /var/www/html/
+
+
+apt-get install software-properties-common
+add-apt-repository universe
+apt-get update -y
+
+apt-get install certbot python3-certbot-apache
+
+sudo ufw status
+sudo ufw allow 'Apache Full'
+
+certbot --apache
+

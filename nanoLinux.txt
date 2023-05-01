@@ -1,0 +1,2 @@
+
+nano dir1/archivo1.txt

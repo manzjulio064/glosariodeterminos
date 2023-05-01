@@ -1,0 +1,118 @@
+
+
+import React from 'react';  // crear el elemento
+import ReactDOM from 'react-dom';
+
+const element = <h1>prueba de crear element con react</h1>;
+
+const container = document.getElementById('app');
+
+ReactDOM.render(element, container);
+
+// ***************************otra forma de crear el elemento********************//
+
+import React from 'react';  // crear el elemento
+import ReactDOM from 'react-dom';
+
+const element = React.createElement('p', {}, 'hola soy los shildren');
+
+const container = document.getElementById('app');
+
+ReactDOM.render(element, container);
+
+// ****************Elementos con propiedades como ancla**************************//
+
+import React from 'react';  // crear el elemento
+import ReactDOM from 'react-dom';
+
+const element = React.createElement('a', {href: 'https://platzi.com'}, 'ir a platzi');
+
+const container = document.getElementById('app');
+
+ReactDOM.render(element, container);
+
+// ****************Elementos utilizando variables**************************//
+
+import React from 'react';  // crear el elemento
+import ReactDOM from 'react-dom';
+
+const name = "JAVIER";
+const element = React.createElement('h1', {}, `hola soy ${name}`);
+
+const container = document.getElementById('app');
+
+ReactDOM.render(element, container);
+
+// ****************Elementos jsx**************************//
+
+import React from 'react';  // crear el elemento
+import ReactDOM from 'react-dom';
+
+const name = 'oscar';
+
+const jsx = <h1>hola soy, {name}</h1>;
+
+const container = document.getElementById('app');
+
+ReactDOM.render(jsx, container);
+
+// ****************Elementos jsx con expresiones **************************//
+
+import React from 'react';  // crear el elemento
+import ReactDOM from 'react-dom';
+
+const jsx = <h1>hola soy, {2+2}</h1>;
+
+const container = document.getElementById('app');
+
+ReactDOM.render(jsx, container);
+
+// ****************Elementos jsx llamando una funcion **************************//
+
+import React from 'react';  // crear el elemento
+import ReactDOM from 'react-dom';
+
+const sum = () => 3+3;
+const jsx = <h1>hola soy, {sum()}</h1>;
+
+const container = document.getElementById('app');
+
+ReactDOM.render(jsx, container);
+
+// ****************Elementos jsx utilizando contenedor **************************//
+
+import React from 'react';  // crear el elemento
+import ReactDOM from 'react-dom';
+
+const jsx =
+          <div>
+            <h1>hola, soy richard </h1>
+            <p>soy ingeniero frontend</p>
+          </div>
+
+const container = document.getElementById('app');
+
+ReactDOM.render(jsx, container);
+
+//************************Otra forma de hacerlo para versiones 17 en adelante de react cambia a ReactDOM.createRoot*****************************//
+
+  // const App = React.createElement('h1', null, 'Hola Mundo!');
+
+  const App = React.createElement("div",null, [
+
+      React.createElement("h1", {key: 1}, "Con lo visto hasta ahora"),
+      React.createElement("h2", {key: 2}, "Replica este HTML"),
+      React.createElement("h3", {key: 3}, "Usando"),
+      React.createElement("h4", {key: 4}, "React.js"),
+      React.createElement("footer", {key: 5}, "Suerte!")
+
+  ]
+  );
+
+
+  const contenedor = document.getElementById('root');
+
+  const root = ReactDOM.createRoot(contenedor);
+  root.render(App);
+
+//***********************************************************************//

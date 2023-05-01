@@ -1,0 +1,57 @@
+
+let notas = [10, 4, 5, 8, 9, 2, 7];
+let valorIndice = notas.forEach(
+    function (valor, indice) {
+    // console.log(indice);
+    // console.log(valor);
+    // console.log(`${indice} ${valor}`);
+     console.log("El indice" + " " + indice + " " + "tiene el valor" + " " + valor)
+    }
+);
+
+console.log(valorIndice);
+
+// *******************************************************
+
+let listaDeSuperMercado = ["panela", "cafe", "atun"]
+
+let lista = listaDeSuperMercado.forEach(
+  function(valor, indice) {
+    console.log(valor);
+  }
+)
+
+// *********************************************************
+
+let jsonHelper = require('./lecturaEscritura')
+
+const carrera = {
+  autos: jsonHelper.leerJson("autos"),
+  listarAutos: function(arrayAutos){
+    arrayAutos.forEach((auto)=>{
+      let estado = auto.sancionado ? "sancionado" : "habilitado";
+      console.log(
+        `Piloto: ${auto.piloto}, patente: ${auto.patente}, velocidad: ${auto.velocidad}, peso en kg: ${auto.peso}, estado: ${estado}.`
+      );
+    })
+  }
+};
+
+console.log(carrera.listarAutos(carrera.autos))
+
+// ********************************Corregir nombre Primera letra mayuscula*****************************
+
+  corregirNombres: function() {
+    let todosprofesionales = this.profesionales
+    profesionalesCorregidos = []
+
+    todosprofesionales.forEach((profesional) =>{
+    profesional.nombre = profesional.nombre.charAt(0).toUpperCase() + profesional.nombre.slice(1);
+    profesionalesCorregidos.push(profesional);
+    }) // FIN FOREACH
+
+    return profesionalesCorregidos
+  },
+
+// ****************************************************************************************************
+

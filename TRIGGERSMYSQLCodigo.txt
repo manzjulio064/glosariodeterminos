@@ -1,0 +1,68 @@
+NEW
+OLD // sE UTILIZA CON EL UPDATE
+
+AFTER
+BEFORE
+
+//*******************************************************************************//
+
+use Cajero;
+DROP TRIGGER trgInsertProveedoresHistory;
+DROP TRIGGER trgUpdateProveedoresHistory;
+DROP TABLE ProveedorHistory;
+
+//*******************************************************************************//
+
+CREATE TABLE ProveedorHistory(
+  id INt AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  idProveedor INT,
+  NombreProveedor varchar(50),
+  Nit INT,
+  Tipo VARCHAR(50),
+  CreatedDate datetime,
+  ModifiedDAte datetime,
+  CreatedUser varchar(20),
+  ModifiedUser varchar(20)
+);
+
+select * from ProveedorHistory;
+
+//******************************************************************************//
+
+DELIMITER $$
+CREATE TRIGGER trgInsertProveedoresHistory
+AFTER INSERT  #Update #Delete
+ON Proveedores FOR each row
+BEGIN
+
+SET @Tipo = "INSERT";
+insert into ProveedorHistory(idProveedor, NombreProveedor, Nit, Tipo, CreatedDate, ModifiedDAte, CreatedUser, ModifiedUser)
+values (New.idProveedor, New.NombreProveedor, New.Nit, @Tipo, NOW(), NOW(), CURRENT_USER(), CURRENT_USER() );
+
+END; $$
+//******************************************************************************//
+
+select * from `Proveedores`;
+
+insert into Proveedores (idProveedor, nombreProveedor, Nit) values (9, "Ramiro", 6695223);
+
+
+//******************************************************************************//
+
+DELIMITER $$
+CREATE TRIGGER trgUpdateProveedoresHistory
+AFTER  UPDATE #Delete #INSERT
+ON Proveedores FOR each row
+BEGIN
+SET @Tipo = "UPDATE";
+insert into ProveedorHistory(idProveedor, NombreProveedor, Nit, Tipo, CreatedDate, ModifiedDAte, CreatedUser, ModifiedUser)
+values (New.idProveedor, New.NombreProveedor, New.Nit, @Tipo, NOW(), NOW(), CURRENT_USER(), CURRENT_USER() );
+
+END; $$
+
+//******************************************************************************//
+UPDATE Proveedores
+SET Nit = 999999
+WHERE `IdProveedor` = 9;
+
+//******************************************************************************//

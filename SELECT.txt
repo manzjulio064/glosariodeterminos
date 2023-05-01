@@ -1,0 +1,17 @@
+SELECT * FROM clientes;
+
+SELECT primer_nombre, apellido FROM clientes;
+
+-- // ********************************************************
+
+SELECT *
+FROM Proveedores AS p
+INNER JOIN articulos AS a ON p.Idproveedor = a.Idproveedor
+INNER JOIN facturacompras AS fc ON a.Idarticulo = fc.Idarticulo
+INNER JOIN productos AS pr ON pr.Idproducto = fc.Idproducto
+INNER JOIN grupoproductos AS g ON pr.Idgproducto = g.Idgproducto
+INNER JOIN detalle AS d ON fc.serie = d.serie
+INNER JOIN facturas AS f ON d.Idfactura = f.Idfactura
+;
+
+-- // ********************************************************************

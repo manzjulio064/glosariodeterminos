@@ -1,0 +1,19 @@
+//*********************************Documentacion, link y ultima dependency*********************************//
+   https://springdoc.org/#getting-started
+
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-ui</artifactId>
+      <version>1.6.9</version>
+   </dependency>
+//************************************Link documentacion de la API**************************************//
+
+  http://localhost:8080/swagger-ui/index.html
+
+//***********************************Anotaciones******************************************//
+
+  @NotNull // Se le coloca ensima de un campo y en la documentacion muestra un asterisco de requerido
+  @Operation(summary = "Registrar un nuevo Domicilio") // En el controller encima de @PostMapping("/crear")
+  @Size(min = 1, max = 20) // Colocar puede ser en un campo nombre la cantidad de caracteres requeridos
+
+//*************************************************************************************************//

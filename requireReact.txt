@@ -1,0 +1,11 @@
+
+
+<a href={require(`../Ejemplos/${detalle.ejemplo1}`)} target="_blank">Ejemplo1</a>
+
+<div className="card-imagen" style={{backgroundImage: `url(${require(`../images/${detalle.imagen}`)})`}}></div>
+<div className="card-imagen" style={{backgroundImage: `url(${(`${configuracion.img.linkImg}${detalle.imagen}`)})`}}></div> //imagen externa url desde json
+
+<img src={require(`../images/${Placetime.PlaceTime.url}`)} alt="" />
+
+src={(`${configuracion.img.linkImg}${detalle.imagen}`)} //imagen externa ruta desde un json
+

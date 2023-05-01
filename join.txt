@@ -1,0 +1,7 @@
+let colores6 = ['azul', 'Rojo', 'Rosado'];
+let unificarelementosarray = colores6.join()
+console.log(unificarelementosarray);
+
+let colores7 = ['azul', 'Rojo', 'Rosado'];
+let unificarelementosarray1 = colores7.join("-")
+console.log(unificarelementosarray1);

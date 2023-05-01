@@ -1,0 +1,40 @@
+
+//**************************************************************** */
+use("HectorJavierMoreno")
+db.HectorJavierMoreno.insertMany(
+  [
+
+    {
+        "_id": 1,
+        "nombre": "Hector Javier",
+        "apellido": "Moreno",
+        "edad": 47
+    },
+    {
+        "_id": 2,
+        "nombre": "oscar julio",
+        "apellido": "Bautista",
+        "edad": 50
+    },
+    {
+        "_id": 3,
+        "nombre": "carlos alberto",
+        "apellido": "contreras",
+        "edad": 35
+    },
+    {
+        "_id": 4,
+        "nombre": "ivonne astrid",
+        "apellido": "perez",
+        "edad": 40
+    },
+    {
+        "_id": 5,
+        "nombre": "diana patricia",
+        "apellido": "hernandez",
+        "edad": 51
+    }
+  ]
+)
+
+//************************************************ */

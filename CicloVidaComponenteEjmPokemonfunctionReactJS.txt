@@ -1,0 +1,296 @@
+
+//*******************************App.js*********************************************//
+
+import './App.css';
+import Container from './components/Container';
+import ContainerFuncional from './components/ContainerFuncional';
+
+function App() {
+
+  return (
+      <ContainerFuncional title="Tengo que atraparlos!"/>
+      // <Container title="Tengo que atraparlos!"/>
+  );
+}
+
+export default App;
+
+//******************************ContainerFuncional.js*******************************************//
+
+import { useEffect, useState } from "react";
+import { getPokemonesByType, getRandomPokemon } from "../data/pokemones";
+import styles from '../styles/container.module.css'
+import Pokemon from "./Pokemon";
+
+const pokemonPortada = getRandomPokemon();
+
+const ContainerFuncional = ({title} ) => {
+  const [portada, setPortada] = useState(pokemonPortada.avatar)
+  const [name, setName] = useState(pokemonPortada.name)
+  const [pokemones, setPokemones] = useState([])
+  const [type, setType] = useState('rock')
+
+  useEffect( () =>{
+    setPokemones(getPokemonesByType(type))
+  }, [type])
+
+
+  // useEffect cumple la funcion de componentDidMount() componentDidUpdate(prevProps, prevState)
+  // Primer argumento recibe una function tipo flecha
+  // array [] vacio o lo que quiero evaluar para cambiar Ejm rock. se actualiza siempre que cambia el type componentDidUpdate
+
+
+  const getData = () => {
+    setPokemones(getPokemonesByType(type))
+  }
+
+  const cambiarTipo = () =>{
+    setType("fire")
+  }
+
+
+  const cambiarPortada = (name, image) => {
+    setPortada(image)
+    setName(name)
+  }
+
+
+  return (
+    <>
+      <h2 className={styles.title}>{title}</h2>
+      <img className={styles.portada} src={portada} alt="imagen principal" />
+      <h4 className={styles.subtitle}>
+        Un <span className={styles.wild}>{name}</span> salvaje a aparecido
+      </h4>
+      <button onClick={cambiarTipo}>Cambio</button>
+      <div className={styles.container}>
+        {pokemones.map((pokemon) => <Pokemon key={(pokemon.id)} name={pokemon.name} avatar={pokemon.avatar} type={pokemon.type} actualizar={cambiarPortada} />)}
+      </div>
+    </>
+
+  )
+}
+
+export default ContainerFuncional;
+
+//******************************Pokemon.js***************************************//
+
+import React from 'react'
+import styles from '../styles/pokemon.module.css'
+
+
+export default class Pokemon extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount(){
+    //console.log("se monto")
+  }
+
+  componentDidUpdate(){
+
+  }
+
+  componentWillUnmount(){
+    console.log("se desmonto")
+  }
+
+  render() {
+    const { name, avatar, type, actualizar } = this.props
+
+    return (
+      <div className={`${styles.card} ${styles[type]}`}>
+        <figure>
+          <img src={avatar} className={styles.card__image} alt={name} />
+        </figure>
+        <h4 className={styles.title}>{name}</h4>
+        <button onClick={() => actualizar(name, avatar)} className={styles.btn}> Yo te elijo!!</button>
+      </div>
+    )
+  }
+
+}
+
+//******************************pokemones.js************************************************//
+export const pokemonData = [
+  {
+    id: 1,
+    name: "Charizard",
+    avatar: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7516c620-2142-4a03-af50-68f521e244b2/de9yum5-0a121869-6437-4a9f-8192-a1fce18ecd5f.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzc1MTZjNjIwLTIxNDItNGEwMy1hZjUwLTY4ZjUyMWUyNDRiMlwvZGU5eXVtNS0wYTEyMTg2OS02NDM3LTRhOWYtODE5Mi1hMWZjZTE4ZWNkNWYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.h6o1s1ChQPQ0wZ2EMW4xXdwPaE_cdGPYNWJB1phB3ic",
+    type: "fire"
+  }, {
+    id: 2,
+    name: "Charmander",
+    avatar: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png",
+    type: "fire"
+  }, {
+    id: 3,
+    name: "Charmeleon",
+    avatar: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b6ac8137-f70f-4d5b-9509-14d1eff4a8ec/ddtfory-9ab9704c-8495-46f5-b829-e8b2cad960ac.png/v1/fill/w_400,h_534,strp/charmeleon_by_wargreymonzero_ddtfory-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2I2YWM4MTM3LWY3MGYtNGQ1Yi05NTA5LTE0ZDFlZmY0YThlY1wvZGR0Zm9yeS05YWI5NzA0Yy04NDk1LTQ2ZjUtYjgyOS1lOGIyY2FkOTYwYWMucG5nIiwiaGVpZ2h0IjoiPD01MzQiLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLndhdGVybWFyayJdLCJ3bWsiOnsicGF0aCI6Ilwvd21cL2I2YWM4MTM3LWY3MGYtNGQ1Yi05NTA5LTE0ZDFlZmY0YThlY1wvd2FyZ3JleW1vbnplcm8tNC5wbmciLCJvcGFjaXR5Ijo5NSwicHJvcG9ydGlvbnMiOjAuNDUsImdyYXZpdHkiOiJjZW50ZXIifX0.sdJZcfs9Xf7u5AHkYPNM132afVcWNYrf9ojMao1gbHA",
+    type: "fire"
+  }, {
+    id: 4,
+    name: "Arcanine",
+    avatar: "https://shop7.webmodule.prestashop.net/pokedoge/11494-large_default/arcanine.jpg",
+    type: "fire"
+  }, {
+    id: 5,
+    name: "Growlithe",
+    avatar: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/058.png",
+    type: "fire"
+  },
+  {
+    id: 6,
+    name: "Blastoise",
+    avatar: "https://i.pinimg.com/originals/a8/69/91/a869915fdb507d7de8f23739aa989535.jpg",
+    type: "water"
+  }, {
+    id: 7,
+    name: "Squirtle",
+    avatar: "https://i.pinimg.com/originals/b2/01/18/b201181cd337130bbec6d9f9f00a2932.png",
+    type: "water"
+  }, {
+    id: 8,
+    name: "Lapras",
+    avatar: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/131.png",
+    type: "water"
+  }, {
+    id: 9,
+    name: "Cloyster",
+    avatar: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/091.png",
+    type: "water"
+  }, {
+    id: 10,
+    name: "Slowbro",
+    avatar: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/080_f3.png",
+    type: "water"
+  }, {
+    id: 11,
+    name: "Kingdraw",
+    avatar: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/230.png",
+    type: "water"
+  },
+  {
+    id: 12,
+    name: "Geodude",
+    avatar: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/074_f2.png",
+    type: "rock"
+  }, {
+    id: 13,
+    name: "Rhyhorn",
+    avatar: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/111.png",
+    type: "rock"
+  }, {
+    id: 14,
+    name: "Lycanroc",
+    avatar: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/745.png",
+    type: "rock"
+  }, {
+    id: 15,
+    name: "Rolycoly",
+    avatar: "https://images.wikidexcdn.net/mwuploads/wikidex/thumb/0/08/latest/20190708232850/Rolycoly.png/1200px-Rolycoly.png",
+    type: "rock"
+  }
+];
+export const getPokemones = () => pokemonData
+
+export const getRandomPokemon = () => {
+    const id = Math.floor(Math.random() * 16)+1;
+    const pokemon = pokemonData.find((item) => item.id === id)
+    return pokemon
+
+}
+
+export const getPokemonesByType = (type) => {
+  console.log("se llamo al metodo")
+  return pokemonData.filter( (item ) => item.type === type)
+
+}
+
+//******************************container.module.css**********************************************//
+
+button {
+  display: block;
+  margin: 0.4rem auto;
+  padding: 0.5rem;
+}
+.title, .wild{
+  color: #ffcc01;
+  text-align: center;
+  text-shadow: 4px 4px #3265af;
+}
+.title{
+  font-size: 3rem;
+}
+.subtitle{
+  color: #eee;
+  font-size: 1.5rem;
+  text-align: center;
+  text-shadow: 4px 4px #000;
+}
+.container {
+  background: transparent url("/public/images/bg-content.png") left top;
+  background-size: 100% 1px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 600px;
+  padding: 1rem;
+}
+.portada {
+  display: block;
+  margin: 0 auto;
+  max-width: 200px;
+}
+
+//******************************pokemon.module.css*************************************//
+
+.card {
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.375);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 300px;
+  text-align: center;
+  border-radius: 10%;
+  max-height: 400px;
+}
+
+.card__image{
+  object-fit: cover;
+  max-height: 200px;
+}
+.water {
+  background-color: lightblue;
+}
+
+.fire {
+  color: white;
+  background-color: crimson;
+}
+.rock {
+  background-color: lightgray;
+}
+.title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.btn {
+  border: none;
+  background-color: crimson;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  max-width: 150px;
+  margin: 10px auto;
+}
+.btn:hover {
+  background-color: rgba(220, 20, 60, 0.452);
+}
+
+//***************************************************************************************//
+//***************************************************************************************//

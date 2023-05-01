@@ -1,0 +1,29 @@
+//********************Consultar todos los documentos***********************//
+
+use("cajero")
+db.cajero.find()
+
+//********************Muestra id y titulo***********************//
+//Las primeras llaves {nombre: "Hector"} dentro del find se coloca el campo por el cual se quiere filtrar si es el caso
+//Las segundas llaves {},{titulo: 1} se colocan condiciones, en este Ejm se le esta diciendo con el uno que solo muestre este campo  y el id con el numero 0 se apaga en campo
+
+  use("db2_c4")
+  db.peliculas.find({},{titulo: 1})
+
+  //****************************************Filtrar por Genero*********************************** */
+  use("db2_c4")
+  db.peliculasActores.find({Genero: 'Animação'}) //Filtrar por Genero
+  //*************************************Filtrar total < 2************************************** */
+  use("db2_c4")
+  db.peliculasActores.find({Total: {$lt: 2}}) //Total menor a 2
+
+  //**************************Buscar y mostrar solo el titulo y ordena asendente********************************* */
+  use("db2_c4")
+  db.peliculas.find(
+    {},
+    {
+      _id:0,
+      titulo: 1
+    }
+    ).sort({titulo: 1}) //Desendente es -1
+//***********************************************************************************************//

@@ -1,0 +1,8 @@
+SELECT primer_nombre AS Nombre FROM clientes    /*Alias para una Columna*/
+WHERE ID >=1 AND ID <=50
+LIMIT 10;
+
+
+SELECT * FROM clientes AS CLI      /*Alias para la tabla*/
+WHERE ID >=1 AND ID <=50
+LIMIT 10;

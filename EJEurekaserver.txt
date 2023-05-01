@@ -1,0 +1,87 @@
+//*********************************Link WEB INFo********************************//
+//***** https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator.endpoints.exposing
+
+//************************Spring Boot Actuator*****************************//
+
+Por defecto, solo el endpoint /health está habilitado para consumirlo, para habilitar el resto tenemos que configurar la siguiente propiedad en application.properties:
+
+management.endpoints.web.exposure.include=serviceregistry,health,info
+
+Por ejemplo, con esta configuración estamos habilitando los endpoints /serviceregistry, /health e /info. En caso de querer habilitar todos, ingresamos:
+
+management.endpoints.web.exposure.include=*
+
+Si querés conocer más sobre los endpoints que ofrece Actuator, te recomendamos ingresar en el siguiente link.
+
+Por otro lado, Eureka server utiliza los endpoints /health e /info para obtener información sobre los microservicios. Por defecto, si realizamos una solicitud HTTP mediante el método GET al endpoint /health, nos responderá:
+
+{
+
+"status" : "UP"
+
+}
+
+En el caso de /info, podemos personalizar la respuesta configurando ciertas propiedades, por ejemplo:
+
+info.app.name=mi-servicio
+info.app.description=Servicio probando Eureka
+info.app.version=1.0.0
+
+La respuesta será:
+
+{
+"app" : {
+"version" : "1.0.0",
+"description" : "Servicio probando Eureka",
+"name" : "mi-servicio"
+}
+}
+
+Dependiendo de la versión de Actuator, es posible que el endpoint /info no esté habilitado por defecto para leer las variables cargadas desde el archivo application.properties. Para habilitarlo debemos agregar lo siguiente en dicho archivo:
+
+management.info.env.enabled = true
+
+¿Cómo agregamos actuator a nuestro proyecto?
+Para hacerlo debemos utilizar Maven:
+
+
+
+<dependency>
+    <groupid>org.springframework.boot</groupid>
+    <artifactid>spring-boot-starter-actuator</artifactid>
+</dependency>
+
+//***************************application.yml EurekaServer*********************************//
+
+
+spring:
+  application:
+    name: eureka-server
+
+server:
+  port: 8761
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+
+//**********************application.yml EurekaCliente Microservicio******************************//
+
+
+server:
+  port: 8083
+
+spring:
+  application:
+    name: clima-service
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-register: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+//*********************************************************************************************//

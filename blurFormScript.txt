@@ -1,0 +1,31 @@
+//*************************index.html*****************************//
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>formulario</title>
+</head>
+<body>
+
+  <form action="">
+    <label>nombre<input type="text" class="nombre" name="nombre" id="nombre" autocomplete="off"></label>
+    <label>Apellido<input type="text" class="apellido" name="apellido" id="apellido" autocomplete="off"></label>
+
+  </form>
+<script src="script.js"></script>
+</body>
+</html>
+//***************************script.js*******************************//
+
+window.addEventListener("load", function() {
+  let campoNombre = document.querySelector('.nombre');
+
+  campoNombre.addEventListener("blur", function() {
+    console.log(1);
+  })
+});
+
+//********************************************************************//

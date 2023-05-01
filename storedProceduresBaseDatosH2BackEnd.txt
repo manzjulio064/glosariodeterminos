@@ -1,0 +1,132 @@
+//***********************************Aplicacion**************************************//
+
+public static void main(String[] args) {
+
+        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+
+        int id = -1;
+
+        Connection cn = null;
+
+
+
+        try {
+
+            // Carga el driver
+
+            Connection cn = DriverManager.getConnection("jdbc:h2:" + "./Database/my", "root", "myPassword");
+
+
+
+            // Llamada al procedimiento almacenado
+
+            CallableStatement cst = cn.prepareCall("{call ObtenerDatosAlumno (?,?,?,?)}");
+
+
+
+            do {
+
+                System.out.println("\nIntroduce el ID del alumno:");
+
+                try {
+
+                    id = Integer.parseInt(entrada.readLine());
+
+                } catch (IOException ex) {
+
+                    System.out.println("Error...");
+
+                }
+
+
+
+                // Parametro 1 del procedimiento almacenado
+
+                cst.setInt(1, id);
+
+
+
+                // Definimos los tipos de los parametros de salida del procedimiento almacenado
+
+                cst.registerOutParameter(2, java.sql.Types.VARCHAR);
+
+                cst.registerOutParameter(3, java.sql.Types.VARCHAR);
+
+                cst.registerOutParameter(4, java.sql.Types.VARCHAR);
+
+
+
+                // Ejecuta el procedimiento almacenado
+
+                cst.execute();
+
+
+
+                // Se obtienen la salida del procedimineto almacenado
+
+                String nombre = cst.getString(2);
+
+                String sexo = cst.getString(3);
+
+                String curso = cst.getString(4);
+
+                System.out.println("Nombre: " + nombre);
+
+                System.out.println("Sexo: " + sexo);
+
+                System.out.println("Curso: " + curso);
+
+            } while (id > 0);
+
+
+
+        } catch (SQLException ex) {
+
+            System.out.println("Error: " + ex.getMessage());
+
+        } finally {
+
+            try {
+
+                cn.close();
+
+            } catch (SQLException ex) {
+
+                System.out.println("Error: " + ex.getMessage());
+
+            }
+
+        }
+
+    }
+//***********************************Stored procedure*****************************************//
+
+ CREATE OR REPLACE PROCEDURE ObtenerDatosAlumno(p_id alumnos.id%TYPE,
+
+       p_nombre OUT alumnos.nombre%TYPE, p_sexo OUT alumnos.sexo%TYPE,
+
+       p_curso OUT alumnos.curso%TYPE) AS
+
+BEGIN
+
+     SELECT nombre,
+
+            CASE sexo
+
+                 WHEN 'H' THEN 'HOMBRE'
+
+                 ELSE 'MUJER'
+
+            END,
+
+            curso
+
+            INTO p_nombre, p_sexo, p_curso
+
+            FROM alumnos WHERE id=p_id;
+
+END;
+
+
+//******************************************************************************************//
+//******************************************************************************************//

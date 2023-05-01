@@ -1,0 +1,42 @@
+
+//**************************************************************//
+
+const suma = (a, b) => {
+  return c = a + b
+}
+
+let arreglo = [ 4, 2]
+
+// console.log(suma.apply(null, arreglo)) // forma larga
+
+console.log(suma(...arreglo))
+
+//**************************************************************//
+
+// const dias1 = ["Lunes", "Martes", "Miercoles"]
+// const dias2 = ["Jueves", "Viernes"]
+// console.log(dias1.concat(dias2)) // forma larga
+
+const dias1 = ["Lunes", "Martes", "Miercoles"]
+const dias2 = [...dias1, "Jueves", "Viernes"]
+
+console.log(dias2)
+
+//**********************Objetos*****************************//
+
+const objeto1 = {
+  modelo: "Iphone 13 PRO MAX"
+}
+
+const objeto2 = {
+  marca: "Apple"
+}
+
+const objeto3 = {
+  ...objeto1,
+  ...objeto2
+}
+
+console.log(objeto3)
+
+//**************************************************************//

@@ -1,0 +1,47 @@
+
+//******************************************************** */
+// En MongoDB, $eq es un operador de comparación que se utiliza para comparar dos valores y devolver verdadero si ambos valores son iguales.
+// ¿Qué operador se utiliza para listar los documentos que contienen un valor igual al especificado?
+db.usuarios.find({ edad: { $eq: 25 } })
+
+//**********************$lt en mongo**Menor que********************* */
+// Se utiliza para filtrar resultados en función de un campo que es inferior a un valor especificado.
+db.collection.find({ age: { $lt: 30 } })
+
+//****************$in buscar en arreglos*********************************** */
+// En MongoDB, "in" es un operador que se utiliza para buscar documentos cuyo valor de un campo especificado coincide con uno de los valores de un arreglo especificado.
+db.usuarios.find({ nombre: { $in: ["Alice", "Bob", "Charlie"] } })
+
+//*************************$ne**************************** */
+// Seleccione todos los documentos de la inventorycolección donde quantity no es igual a 20
+db.inventory.find( { quantity: { $ne: 20 } } )
+
+//**********************$nin****************************** */
+// MongoDB, el operador "$not" se utiliza para invertir el valor de una expresión booleana. Se puede usar en combinación con otros operadores de comparación, como "$eq", "$ne", "$lt", "$lte", "$gt" y "$gte".
+// En MongoDB, la operación "$not" se utiliza dentro de una consulta (query) para seleccionar documentos que no cumplan con ciertas condiciones. La sintaxis general de la operación "$not" es la siguiente:
+// ¿Qué operador se utiliza para enumerar los documentos que no coinciden con ninguno de los valores especificados en una matriz?
+db.collection.find({ edad: { $not: { $eq: 30 } } })
+
+//********************************$nor***************** */
+// ¿Qué operador se utiliza para devolver los documentos que no coinciden con las cláusulas de consulta y lógica?
+
+//******************************************************** */
+
+//**********************$gte mayor o igual que************************************** */
+db.mycol.find({_id: {$gte : 88}},{titulo: 1, _id: 0});.
+//*************************************************************** */
+
+//**************DELETE - Excluyendo los documentos*************** */
+
+db.mycol.deleteMany({ _id : {$gte : 87 }})
+
+//*******************$nin************ */
+// buscar documentos que no contengan uno o más valores especificados en un campo determinado.
+
+
+db.mycol.find( { titulo: { $nin: [ "MongoDB", "MySQL" ] } } )
+
+//*********************$lte Buscar valor menor o igual*********** */
+db.mycol.deleteMany({ _id : {$lte : 87 }});
+
+//*************************************************************************************//

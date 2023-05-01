@@ -1,0 +1,20 @@
+
+location
+location.reload() // recargar el navegador
+location.href // Muestra la Url donde estamos completa
+
+location.search
+let query = new URLSearchParams(location.search);
+query.has('search_query'); // true
+query.get('search_query'); // true
+
+
+//***********************************************************************************//
+
+let query = new URLSearchParams(location.search);
+if(query.has('search_query')){
+ let search = query.get('search_query');
+ console.log(search)
+};
+
+//***********************************************************************************//

@@ -1,0 +1,100 @@
+//******************************docker-compose.yml mongo y un jar*****************************//
+
+version: '1.29.2' //Version de docker-compose
+services:
+  mongo-db:
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: adminpass
+      MONGO_INITDB_DATABASE: paqueteria
+
+#    volumes:
+#      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+
+  paqueteria:
+    build:
+      context: .
+    ports:
+      - 8080:8080
+    environment:
+      MONGO_HOST: mongo-db
+      MONGO_PORT: 27017
+      MONGO_DB: paqueteria
+      MONGO_USER: admin
+      MONGO_PASS: adminpass
+
+
+//******************************aplication.properties intellij***************************//
+
+spring.data.mongodb.host=${MONGO_HOST:localhost}
+spring.data.mongodb.port=${MONGO_PORT:27017}
+spring.data.mongodb.database=${MONGO_DB:paquetes}
+
+
+//******************************Correr el docker-compose********************************//
+docker-compose up
+docker-compose up --build //Compose utilizando Dokerfile
+
+//******************************Docker-compose mysql********************************//
+
+version: "3.1"
+services:
+  db:
+    image: mysql:5.7
+    container_name: OdontologicaDB
+    restart: always
+    environment:
+      MYSQL_DATABASE: Odontologica
+      MYSQL_USER: hectorjm
+      MYSQL_PASSWORD: odon
+      MYSQL_ROOT_PASSWORD: odon
+    ports:
+      - 3306:3306
+    volumes:
+      - my-db:/var/lib/mysql
+volumes:
+  my-db:
+
+//*********************************Aplicacion de Java y Mysql*************************************//
+
+version: "3.1"
+services:
+  springboot-app:
+    container_name: OdontologicaApp
+    image: springbooot-app
+    build: .
+    ports:
+      - 8080:8080
+    environment:
+      MYSQL_HOST: mysqldb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    networks:
+      - springmysql-net
+    depends_on:
+      - mysqldb
+  mysqldb:
+    image: mysql:5.7
+    container_name: OdontologicaDB
+    restart: always
+    networks:
+      - springmysql-net
+    environment:
+      MYSQL_DATABASE: Odontologica
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: sa
+      MYSQL_PASSWORD: 1234
+    ports:
+      - 3306:3306
+    volumes:
+      - my-db:/var/lib/mysql
+volumes:
+  my-db:
+
+networks:
+  springmysql-net:
+
+//******************************************************************************************//

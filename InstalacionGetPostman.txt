@@ -1,0 +1,12 @@
+
+URL:  https://www.postman.com/
+
+https://www.postman.com/downloads/
+
+
+https://jsonplaceholder.typicode.com/users
+https://pokeapi.co/api/v2/ability
+
+https://docs.thedogapi.com/api-reference/breeds/breeds-list
+
+

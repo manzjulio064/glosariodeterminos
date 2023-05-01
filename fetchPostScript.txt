@@ -1,0 +1,55 @@
+//**************************************index.html******************************************************//
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pruebas Api</title>
+</head>
+<body>
+  <h1>Envio informacion Api POST</h1>
+  <ul class="ulClass"></ul>
+  <script src="script.js"></script>
+</body>
+</html>
+
+//*****************************************script.js***************************************************//
+
+window.onload = function() {
+
+    let data = {
+      image_id: "asf2",
+      sub_id: "my-user-1234",
+      value: 1
+    }
+
+    let settings = {
+      "method": "POST",
+      "headers": {
+        "content-type": "application/json",
+        "x-api-key": "89d0ffa5-5d01-42d0-b830-ab273474edad"
+      },
+      "body": JSON.stringify(data)
+    }
+
+    Url = "https://api.thecatapi.com/v1/votes"
+    fetch(Url, settings)
+
+    .then(function(respuesta){
+      return respuesta.json()
+
+    })
+
+    .then(function(informacion){
+      console.log(informacion);
+
+    })
+    .catch(function(e){
+      console.log("Error! " + e)
+     })
+
+}
+
+//******************************************************************************************************//

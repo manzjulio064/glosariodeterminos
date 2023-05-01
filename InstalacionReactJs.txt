@@ -1,0 +1,47 @@
+
+//*******************React Developer Tools******************//
+//**Para Chrome:
+https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=es
+https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
+
+//**Para Firefox:
+https://addons.mozilla.org/en-US/firefox/addon/react-devtools/
+
+//**Para Edge:
+https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil
+
+
+//*****************Introduciendo las nuevas React DevTools*********************//
+
+https://es.reactjs.org/blog/2019/08/15/new-react-devtools.html#how-do-i-get-the-new-devtools
+
+
+
+//*************************prettier***********************************//
+
+https://prettier.io/docs/en/editors.html
+
+//*************************Git facebook***********************************//
+https://github.com/facebook/create-react-app
+//*************************Desistalar versiones anteriores y global***********************************//
+npm uninstall -g create-react-app
+//*************************Instalar NPX***********************************//
+npm install -g npx
+
+//*************************Instalar un proyecto nuevo llamadado hello-react siempre utilizando la ultima version***********************************//
+npx create-react-app hello-react
+
+//*************************Inicializar proyecto***********************************//
+cd hello-react  // Ubicarse en la carpeta del proyecto
+
+npm run start
+
+//*************************Clonar un proyecto***********************************//
+
+git clone https://github.com/Sparragus/platzi-badges.git
+cd platzi-badges
+npm install
+npm run start
+
+//******************************************************************************//
+

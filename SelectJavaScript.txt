@@ -1,0 +1,10 @@
+//**Al igual que en el caso de los radio y checkbox, acá también es importante el atributo
+//**value para definir dar valor a nuestra opción.
+//***************************************************************************************************//
+
+
+<select>
+  <option value="opcion1"> nombre de la opción 0</option>
+  <option value="opcion1"> nombre de la opción 1</option>
+  <option value="opcion1"> nombre de la opción 2</option>
+</select>

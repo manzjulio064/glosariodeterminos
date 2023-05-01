@@ -1,0 +1,30 @@
+// ***Nuevo/Iniciada*****//
+ - Se recopila la información y se registra el defecto.
+
+// ***Asignado*****//
+ - Si es un defecto válido y debe solucionarse se asigna al equipo de desarrollo, sino se puede rechazar o diferir (bug triage).
+    ** Duplicado: Si el defecto se repite o existe otro
+       con una misma causa raíz.
+    ** Devuelto o rechazado: Se solicita más información o el receptor rechaza el defecto.
+    ** Diferido: el defecto
+       no es prioritario y se solucionará en una próxima versión.
+
+// ***En progreso*****//
+ - Se analiza y trabaja en la solución
+
+// ***Corregido*****//
+ -- Se realizan los cambios de código para solucionar el defecto.
+
+// ***En espera de verificación*****//
+ -- En espera de que sea asignado a un probador. El desarrollador está a la expectativa del resultado de la verificación.
+
+// ***En verificación*****//
+ --  El probador ejecuta una prueba de confirmación.
+  ** Reabierto: debe contener la siguiente descripción “La prueba de confirmación indica que el defecto no se ha solucionado.”
+
+// ***Verificado*****//
+ -- Se obtiene el resultado esperado en la prueba de confirmación.
+
+// ***Cerrado*****//
+-- El defecto fue corregido y se encuentra disponible para el usuario final.
+

@@ -1,0 +1,10 @@
+console.log(parseFloat(22.34));
+console.log(parseFloat(22.3456284));
+
+
+let b = parseFloat(prompt("Ingrese edad"));  // con decimales
+
+let f = parseInt(22.55);  // sin decimales
+
+console.log(b);
+console.log(f);

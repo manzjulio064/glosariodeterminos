@@ -1,0 +1,13 @@
+DATE_SUB = Disminuir la cantidad de tiempo de una fecha
+DATE_ADD = Adicionar la cantidad de tiempo a una fecha
+
+
+-- //***********************Mostrar el ultimo MES en registros*************************
+
+WHERE R.fecha >= DATE_SUB(curdate(), INTERVAL '1' MONTH)
+
+--// *************************************************************************************
+
+SELECT * FROM Alumnos WHERE YEAR(Fecha_Nacimiento) = 2000
+
+-- // ************************************************************************************

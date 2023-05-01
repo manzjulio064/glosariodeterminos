@@ -1,0 +1,7 @@
+// ************** Convierte bites a Kbytes**********************
+
+SELECT ROUND(bytes / 1000) AS Kbytes
+FROM canciones;
+
+// *******************************
+

@@ -1,0 +1,34 @@
+
+function pintarTarjetas(listado) {
+
+
+    listado.forEach(element => {
+
+        let contenedor = document.querySelector('.contenedor')
+
+        var div = document.createElement("div"); // Elemento a crear
+        div.setAttribute("class", "item");
+
+        var imagen = document.createElement("img");
+        imagen.setAttribute("src", element.imgUrl);
+
+        var h2 = document.createElement("h2"); // Elemento a crear
+        h2.textContent = element.title
+
+
+        var pdescripcion = document.createElement("p"); // Elemento a crear
+        pdescripcion.textContent = element.description
+
+
+
+        contenedor.appendChild(div)
+        div.appendChild(imagen)
+        div.appendChild(h2)
+        div.appendChild(pdescripcion)
+
+    });
+
+
+}
+
+pintarTarjetas(listadoFelinos);

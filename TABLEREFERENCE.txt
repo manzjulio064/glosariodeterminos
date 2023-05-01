@@ -1,0 +1,11 @@
+SELECT NombreProveedor, NombreProducto
+FROM Proveedores, Productos
+WHERE Productos.IdProveedor = Proveedores.IdProveedor;
+
+// ************************************************
+SELECT Proveedores.NombreProveedor, Productos.NombreProducto
+FROM Proveedores, Productos
+WHERE Productos.IdProveedor = Proveedores.IdProveedor
+;
+
+//****************************************************

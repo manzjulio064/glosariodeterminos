@@ -1,0 +1,76 @@
+- Levantar el estado es una técnica de React que pone el estado en una localización donde se le pueda pasar como props a los componentes. Lo ideal es poner el estado en el lugar más cercano a todos los componentes que quieren compartir esa información.
+
+- Algo interesante que le da el nombre a React es su parte de “reactivo” ya que cada vez que hay un cambio en el estado o en los props que recibe un componente se vuelve a renderizar todo el componente y todos sus descendientes.
+
+//***********************************************************************************************************//
+// Para utilizar la informacion se debe colocar en una pagina o componente principal para poderla utilizar en los subcomponentes
+//
+
+    state = { form: {  // inicializarlo en la pagina pricipal y borrarlo del subcomponente e inicializar cada uno de los campos del formulario
+      firstName: '',
+      lastName: '',
+      email: '',
+      jobTitle: '',
+      twitter: '',
+    } };
+
+    //*****************
+    handleChange = e => {   //** Opcion 1 va remplazando los valores y solo muestra uno
+      this.setState({
+        form:{
+        [e.target.name]: e.target.value,
+        }
+      })
+    }
+    //*****************
+    handleChange = e => {  //** Opcion 2 Muestra todos los campos y va almacenando la informacion
+      const nextForm = this.state.form
+      nextForm[e.target.name] = e.target.value;
+
+      this.setState({
+        form: nextForm,
+      })
+    }
+    //*****************Mejor opción*****
+    handleChange = e => {  //** Opcion 3 va almacenando la informacion de todos los campos y nos la muestra
+      this.setState({
+        form: {
+          ...this.state.form,
+          [e.target.name]: e.target.value,
+        },
+      });
+    }
+    //*****************
+
+// y pasarlo como props <BadgeForm onChange={this.handleChange} formValues={this.state.form}/>  //  donde se llama al subcomponente
+
+-- y se quita el handleChange del subcomponente
+
+
+-- cambiar en el input del subcomponente en onChange={this.handleChange} por onChange={this.props.onChange}
+
+-- para probarlo en chrome ya no elegimos el form sino la pagina principal
+
+//*********En el input del subFormulario en values cambiar por values={this.props.formValues.firstName}********************************************//
+  <input
+    onChange={this.props.onChange}
+    class="form-control" type="text"
+    name="firstName"
+    values={this.props.formValues.firstName}
+  />
+
+//**************************************Utilizar en loca campos del formulario este disponible la informacion********************************************//
+
+<div className="col-6">
+  <Badge
+      firstName={this.state.form.firstName}
+      lastName={this.state.form.lastName}
+      twitter={this.state.form.twitter}
+      jobTitle={this.state.form.jobTitle}
+      email={this.state.form.email}
+      avatarUrl="https://www.gravatar.com/avatar/21594ed15d68ace3965642162f8d2e84?d=identicon"
+  />
+</div>
+
+//***********************************************************************************************************//
+

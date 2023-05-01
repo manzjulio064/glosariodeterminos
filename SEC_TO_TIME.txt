@@ -1,0 +1,5 @@
+
+SELECT SEC_TO_TIME(round(milisegundos / 1000)) as minutos
+FROM canciones;
+
+// *********************************************************

@@ -1,0 +1,10 @@
+
+
+SELECT MOD(5, 2);
+= 1
+
+SELECT MOD(17, 3);
+= 2
+
+SELECT 18 MOD 4;
+= 2

@@ -1,0 +1,8 @@
+
+
+let randomSimple = Math.random(); // 0.049253517516472556
+let randomEscalado = Math.random()*(100-1)+1; //86.5806550233727
+parseInt(randomEscalado); // 86
+
+console.log(randomSimple);
+console.log(randomEscalado);

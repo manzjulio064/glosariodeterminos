@@ -1,0 +1,22 @@
+let vuelta = 1
+do {
+  console.log("dando la vuelta" + vuelta);
+  vuelta++;
+} while (vuelta <= 10)
+
+
+
+function encontreUn5(numeros) {
+ let i = 0
+  do {
+    console.log(i);
+    if (i != 5) {
+    } else {
+      console.log("Se encontró un 5!");
+      return;
+    }
+    i++;
+  } while (i <= numeros.length);
+}
+
+encontreUn5(numeros);

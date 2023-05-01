@@ -1,0 +1,115 @@
+//*********************************api.js***********************************//
+
+import axios from "axios";
+
+const baseUrl = "https://rickandmortyapi.com/api/"
+
+export const api = async(page = null) => {
+  const endpoint = `${baseUrl}character/${page ? `?page=${page}` : ''}`;
+  const response = await axios.get(endpoint)
+  return response.data.results
+}
+
+export const consultarPorId = async(id)  => {
+  const endpoint = `${baseUrl}character/${id}`;
+  return await axios.get(endpoint);
+
+}
+
+//********************************CharacterList.js**************************************//
+
+import { useEffect, useState } from 'react';
+import { api } from '../services/api';
+
+import styles from '../styles/container.module.css'
+import Character from './Character';
+
+const CharacterList = () => {
+  const [loading, setLoading] = useState(true)
+  const [personajes, setPersonajes] = useState([])
+  const [page, setPage] = useState(1)
+
+  useEffect(() => {
+    api(page).then((data) => {
+      setPersonajes(data)
+      setLoading(false)
+    })
+  }, [page])
+
+
+  const handleNext = () => {
+    setPage(page + 1)
+  }
+
+  const handlePrev = () => {
+    if (page > 1) {
+      setPage(page - 1)
+    }
+  }
+
+  if (loading) {
+    return (
+      <h3>Obteniendo personajes....</h3>
+    )
+  }
+
+  return (
+    <>
+      <div className={styles.buttonbar}>
+        {page > 1 && <button onClick={handlePrev}>Prev</button>}
+        <button onClick={handleNext}>Next</button>
+      </div>
+      <div className={styles.container}>
+        {personajes.map((personaje) =>
+          <Character key={personaje.id} id={personaje.id} name={personaje.name} image={personaje.image} />
+        )
+        }
+      </div>
+    </>
+  )
+}
+
+export default CharacterList;
+
+//*********************************Consultar por ID***********************************//
+
+import { useEffect } from "react"
+import { useState } from "react"
+import { useParams } from "react-router-dom";
+import { consultarPorId } from "../services/api";
+
+const CharacterDetail = ( ) => {
+  const [character, setCharacter] = useState({})
+  const {id} = useParams();
+
+  useEffect(() => {
+      consultarPorId(id).then( (response) => {
+        console.log(response.data)
+        setCharacter(response.data)
+      })
+  },[id]);
+
+  return (
+      <h2 style={{color: 'white'}}>{character.name}</h2>
+  )
+}
+export default CharacterDetail;
+
+//**********************************Character.js**************************************//
+
+import { Link } from 'react-router-dom';
+import styles from '../styles/character.module.css'
+
+const Character = ( { name, image, id}) =>{
+
+  return (
+      <div className={styles.character}>
+          <img src={image} alt={name} />
+          <h3>{name}</h3>
+          <Link className={styles.link} to={`character/${id}`}>Detalle</Link>
+      </div>
+  )
+}
+export default Character;
+
+//***********************************************************************************//

@@ -1,0 +1,32 @@
+public class Main {
+    public static void main(String[] args) {
+        Empleado nuevoEmpleado=new Empleado("Juan","1111");
+
+        System.out.println(nuevoEmpleado.hashCode());
+
+    }
+
+}
+
+class Empleado {
+
+    private String nombre;
+    private String legajo;
+    protected double sueldo;
+    protected double descuentos;
+
+    public Empleado(String nombre, String legajo) {
+        this.nombre = nombre;
+        this.legajo = legajo;
+    }
+
+    @Override
+    public int hashCode(){
+        int hash=31;
+        hash= hash* nombre.hashCode();
+        hash= hash* legajo.hashCode();
+        return hash;}
+}
+
+
+//***************************************************************

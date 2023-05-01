@@ -1,0 +1,122 @@
+//*************************************************************************//
+
+event.preventDefault();
+let campoNombre = document.querySelector("input.nombre");
+if(campoNombre.value == ""){
+ alert("El campo nombre no debe estar vacío");
+}
+
+//*************************************************************************//
+
+let errores = [];
+let campoNombre = document.querySelector("input.nombre");
+if(campoNombre.value == ""){
+ errores.push("El campo nombre está vacío");
+}
+if(errores.length > 0){
+ event.preventDefault();
+}
+
+//******************************html************************************//
+<section class="errores">
+ <ul>
+ ...
+ </ul>
+</section>
+
+//*****************************js***********************************//
+
+if(errores.length > 0){
+  event.preventDefault();
+  let ulErrores = document.querySelector(".errores ul");
+
+  errores.forEach(error => {
+  ulErrores.innerHTML += `<li>${error}</li>`
+  });
+
+}
+
+//*************************************************************************//
+//***************************Ejemplo 2 indexhtml***********************************//
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>formulario</title>
+</head>
+<body>
+
+  <div class="errores">
+    <ul></ul>
+  </div>
+
+  <form action="" class="reservation">
+    <label>nombre<input type="text" class="nombre" name="nombre" id="nombre" autocomplete="off"></label>
+    <label>Apellido<input type="text" class="apellido" name="apellido" id="apellido" autocomplete="off"></label>
+    <p>
+      <select class="people" name="people" id="people" >
+        <option value="1">1 Persona</option>
+        <option value="2">2 Persona</option>
+        <option value="3">3 Persona</option>
+      </select>
+    </p>
+    <p><input class="fecha" type="datetime-local" placeholder="Fecha" name="date"></p>
+    <p><input class="message" type="text" placeholder="Mensaje quereimientos" name="Message"></p>
+    <p><button type="submit">Enviar formulario</button></p>
+
+  </form>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+//*******************************Ejemplo2 Script.js******************************//
+
+window.addEventListener("load", function() {
+  let formulario = document.querySelector("form.reservation");
+
+  formulario.addEventListener("submit", function(e) {
+    let errores = []; // Array de errores
+
+    let campoNombre = document.querySelector("input.nombre");
+    let campoApellido = document.querySelector("input.apellido");
+    let campoFecha = document.querySelector("input.fecha");
+    let campoMessage = document.querySelector("input.message");
+
+    if (campoNombre.value == "") {
+      errores.push("El campo nombre esta vacio");
+    } else if (campoNombre.value.length < 3) {
+      errores.push("Campo nombre debe tener almenos 3 caracteres");
+    }
+
+    if (campoApellido.value == "") {
+      errores.push("El campo apellido esta vacio");
+    } else if (campoApellido.value.length < 3) {
+      errores.push("El campo apellido debe tener mas de 3 caracteres")
+    }
+
+    if (campoFecha.value == "") {
+      errores.push("El campo fecha esta vacio");
+    }
+
+    if (campoMessage.value == "") {
+      errores.push("El campo mensaje esta vacio");
+    }
+
+    if (errores.length > 0){
+      e.preventDefault(); // si hay errores no se envia el formulario
+      let ulErrores = document.querySelector("div.errores ul");
+      for (let i = 0; i < errores.length; i++) {
+        ulErrores.innerHTML += "<li>" + errores[i] + "</li>"
+      }
+    }
+  });
+
+});
+
+//**************************************************************************************//

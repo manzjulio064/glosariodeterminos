@@ -1,0 +1,3 @@
+let colores4 = ['azul', 'Rojo', 'Rosado'];
+let ubicacionElementoArray = colores4.indexOf("Rosado");
+console.log(ubicacionElementoArray);

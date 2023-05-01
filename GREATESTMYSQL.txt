@@ -1,0 +1,7 @@
+
+
+SELECT GREATEST(3, 12, 34, 8, 25);
+= 34
+
+SELECT GREATEST("w3Schools.com", "microsoft.com", "apple.com");
+= w3Schools.com

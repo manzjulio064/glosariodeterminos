@@ -1,0 +1,29 @@
+let colores = ['azul', 'Rojo', 'Rosado'];
+colores.push('verde', 'Naranja');
+
+console.log(colores)
+
+// ****************************Adicionar un auto nuevo a un archivo Json******************************
+
+let jsonHelper = require("./escribirLeerJson")
+
+const concesionaria = {
+  autos: jsonHelper.leerArchivo("AUTOS"),
+  agregarAuto: function (marca,modelo,anio,precio,patente) {
+    let addAuto = {
+      "marca": marca,
+      "modelo": modelo,
+      "anio": anio,
+      "precio": precio,
+      "patente": patente,
+      "vendido": false
+    }
+      this.autos.push(addAuto);
+    jsonHelper.escribirArchivo("AUTOS", this.autos)
+
+  }
+};
+
+console.table(concesionaria.agregarAuto("Chevrolet", "Sail", 2018, 33000000, "EJM723"));
+
+// ******************************************************************************************

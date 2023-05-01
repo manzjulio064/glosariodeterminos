@@ -1,0 +1,56 @@
+//***********************************index.html********************************************//
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>manejo de errores</title>
+</head>
+<body>
+  <h1>Manejo de errores</h1>
+  <div>
+    <h3>if(x == "") throw "Contenido vacio";</h3>
+    <h3>if(isNaN(x)) throw "No es un numero";</h3>
+    <h3>x = Number(x);</h3>
+    <h3>if(x > 10) throw "Numero demasiado alto";</h3>
+    <h3>if(x < 5) throw "Numero demasiado bajo";</h3>
+  </div>
+  <div id="intro"></div>
+  <form action="">
+    <input type="text" id="demo">
+    <button type="submit">ejecutar</button>
+  </form>
+  <script src="script.js"></script>
+</body>
+</html>
+
+//***********************************script.js**********************************************//
+
+document.querySelector("form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  myFunction()
+})
+
+  function myFunction() {
+    let message, x;
+    message = document.getElementById("intro");
+    message.innerHTML = "";
+    x = document.getElementById("demo").value;
+    try { //Ejecutamos un try con condicionales arrojando(throw) un mensaje:
+      if(x == "") throw "Contenido vacio";
+      if(isNaN(x)) throw "No es un numero";
+      x = Number(x);
+      if(x > 10) throw "Numero demasiado alto";
+      if(x < 5) throw "Numero demasiado bajo";
+    }
+    catch(err) { //Ejecutamos un catch para manejar el error mostrandolo en el navegador
+      message.innerHTML = "Error: " + err + ".";
+    }
+    finally { //Ejecutamos la accion que termina con la funcion para devolver el valor requerido
+    document.getElementById("demo").value = "";
+    }
+  }
+
+//*******************************************************************************************//

@@ -1,0 +1,8 @@
+
+
+SELECT LEAST(3, 12, 34, 8, 25);
+= 3
+
+SELECT LEAST("w3Schools.com", "microsoft.com", "apple.com");
+= apple.com
+

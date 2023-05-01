@@ -1,0 +1,65 @@
+
+List nombres = new ArrayList();
+nombres.add("Juan");
+nombres.add("Mario");
+nombres.add("Carlos");
+nombres.add("Marcelo");
+nombres.add("Marcelo");
+
+*************************************
+
+Set nombres = new HashSet();
+nombres.add("Juan");
+nombres.add("Mario");
+nombres.add("Carlos");
+nombres.add("Marcelo");
+nombres.add("Marcelo");
+
+***********************************
+
+Set nombres = new
+LinkedHashSet();
+nombres.add("Juan");
+nombres.add("Mario");
+nombres.add("Carlos");
+nombres.add("Marcelo");
+nombres.add("Marcelo");
+
+******************************
+
+Set nombres = new TreeSet();
+nombres.add("Juan");
+nombres.add("Mario");
+nombres.add("Carlos");
+nombres.add("Marcelo");
+nombres.add("Marcelo");
+
+*********************************
+Map nombres = new HashMap();
+nombres.put(29888999,"Juan");
+nombres.put(30888999,"Mario");
+nombres.put(27888999,"Carlos");
+nombres.put(40888999,"Marcelo");
+nombres.put(50888999,"Marcelo");
+
+******************************
+Map nombres = new LinkedHashMap();
+nombres.put(29888999,"Juan");
+nombres.put(30888999,"Mario");
+nombres.put(27888999,"Carlos");
+nombres.put(40888999,"Marcelo");
+nombres.put(50888999,"Marcelo");
+
+************************************
+Map nombres = new TreeMap();
+nombres.put(29888999,"Juan");
+nombres.put(30888999,"Mario");
+nombres.put(27888999,"Carlos");
+nombres.put(40888999,"Marcelo");
+nombres.put(50888999,"Marcelo");
+
+*************************************
+
+
+
+

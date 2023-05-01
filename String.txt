@@ -1,0 +1,13 @@
+
+String nombre=”Juan”;
+int cantidad;
+char inicial;
+cantidad= nombre.length();
+nombre=nombre.toUpperCase();
+if (nombre.equals(“JUAN”))
+{
+ System.out.println(“Se pasó a mayúscula”);
+}
+inicial = nombre.charAt(0);
+
+// ***************************************************//

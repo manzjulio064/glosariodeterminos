@@ -1,0 +1,85 @@
+//******************************************************************//
+
+npm install --save styled-components
+
+//*************************App.js********************************//
+
+import React from 'react';
+import data from '../data/data';
+import styled from 'styled-components';
+
+
+function App() {
+
+  const H1Saludo = styled.h1`
+  color: red;
+  text-align: center;
+  `
+
+
+  return (
+    <div>
+      {data.map((data, index) =>
+        <H1Saludo key={index}>{data}</H1Saludo>)}
+    </div>
+
+  )
+}
+
+export default App;
+
+//****************************data.js*******************************//
+
+const palabras = ["HOLA", "HOLA", "MUNDO"];
+export default palabras;
+
+//******************************Pokedex.js******************************//
+
+
+import React, { Component } from 'react'
+import {pokeContainer, pokeList, pokeOption} from "./styles/style"
+export default class Pokedex extends Component {
+
+    render() {
+        const {updateParent} = this.props
+        return (
+            <div style={pokeContainer}>
+                <h3>POKEDEX</h3>
+                <div style={pokeList}>
+                    {this.props.pokemons.map(pokemon => (
+                    <p onClick={() => updateParent({pokemon: [pokemon.name, pokemon.id, pokemon.type]})} style={pokeOption}>{pokemon.name}</p>
+                    ))}
+                </div>
+            </div>
+        )
+    }
+}
+
+//*****************************style.js*****************************//
+export const pokeContainer = {
+  width: "50%",
+  background: "red",
+  textAlign: "center",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center"
+}
+
+export const pokeList = {
+  border:"3px solid black",
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "space-around",
+  width: "500px"
+}
+
+export const pokeOption = {
+  margin:"10px",
+  padding:"5px",
+  cursor:"pointer",
+  border:"2px solid yellow",
+  backgroundColor:"black",
+  color:"white"
+}
+
+//*********************************************************************//

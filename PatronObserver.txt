@@ -1,0 +1,140 @@
+
+// **********************************Interface Observador************************************//
+
+package Cantante;
+
+public interface Observador {
+  void actualizar(String notifi);
+}
+
+
+
+// **********************************Interface Observable************************************//
+
+package Cantante;
+
+public interface Observable {
+  void agregar(Observador recibirInformacion);
+  void quitar(Observador recibirInformacion);
+  void notificar(String msg);
+}
+
+
+// **********************************Clase Cantante****************************************//
+
+package Cantante;
+
+import java.util.*;
+
+public class Cantante implements Observable{
+
+  private boolean enVlive;
+  private List<Observador> observadores;
+
+  public Cantante() {
+    this.observadores = new ArrayList<>();
+  }
+
+  @Override
+  public void agregar(Observador recibirInformacion) {
+    observadores.add(recibirInformacion);
+  }
+
+  @Override
+  public void quitar(Observador recibirInformacion) {
+    observadores.remove(recibirInformacion);
+  }
+
+  @Override
+  public void notificar(String msg) {
+    for(Observador i : observadores)
+    i.actualizar(msg);
+  }
+
+  public void transmitir(){
+    this.enVlive = true;
+    notificar("Estoy transmitiendo en vivo en www.freref.com");
+
+  }
+  public void finalizartransmision(){
+    this.enVlive = false;
+    notificar("la transmision finalizo gracias a los participantes");
+  }
+
+}
+
+
+
+// **********************************Clase Fan****************************************//
+
+package Cantante;
+
+public class Fan implements Observador{
+
+  private String nombre;
+  private String apellido;
+  private int nivelFan;
+
+  public Fan(String nombre, String apellido, int nivelFan) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.nivelFan = nivelFan;
+  }
+
+  @Override
+  public void actualizar(String notifi) {
+    System.out.println(getNombre() + " " + getApellido() + " " + "mensaje del cantante" + notifi);
+  }
+
+  public String getApellido() {
+    return apellido;
+  }
+
+  public void setApellido(String apellido) {
+    this.apellido = apellido;
+  }
+
+  public String getNombre() {
+    return nombre;
+  }
+
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
+
+  public int getNivelFan() {
+    return nivelFan;
+  }
+
+  public void setNivelFan(int nivelFan) {
+    this.nivelFan = nivelFan;
+  }
+
+}
+
+
+// **********************************Clase Main****************************************//
+
+package Cantante;
+
+public class Main {
+  public static void main(String[] args) {
+    Cantante cantante1 = new Cantante();
+    Fan fa1 = new Fan("Carlos", "Campos", 3);
+    Fan fa2 = new Fan("Oscar", "Orjuela", 2);
+    Fan fa3 = new Fan("Ivone", "Perez", 5);
+
+    cantante1.agregar(fa1);
+    cantante1.agregar(fa2);
+    cantante1.agregar(fa3);
+
+    cantante1.transmitir();
+
+  }
+
+}
+
+// ********************************************************************************************//
+
+
+

@@ -1,0 +1,111 @@
+//****Nota:**************************
+//**El nombre de las variables en el cursor deben de ser diferentes a los nombres de las columnas de la tabla de importacion de la información
+
+use adventureworks;
+
+//***********************************Crear Vista vi_employee para llamar la informacion*****************************************//
+
+CREATE VIEW vi_employee AS
+SELECT C.`LastName`, C.`FirstName`,  TIMESTAMPDIFF(YEAR, E.`BirthDate`, CURDATE()) Edad
+FROM employee E
+INNER JOIN contact C ON E.`ContactID` = C.`ContactID`;
+
+//************************************Tabla donde se inserta la informacion*****************************************//
+CREATE TABLE Employee_Age(
+    Id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    FirstName VARCHAR(255),
+    LastName VARCHAR(255),
+    Age tinyint
+);
+
+//**************************************SP Procedimiento del cursor que inserta la informacion***************************************//
+use adventureworks;
+
+DELIMITER $$
+CREATE PROCEDURE usp_Employee_Age_Insertar(pi_FirstName varchar(50), pi_LastName VARCHAR(50), IN pi_edad tinyint)
+BEGIN
+
+INSERT INTO Employee_Age(FirstName, LastName, Age) VALUES (pi_FirstName, pi_LastName, pi_edad);
+
+END;
+$$
+
+-- //***************************************Cursor*************************************//
+
+DROP PROCEDURE IF EXISTS usp_Employee_Age_Insertar_Bulk_Cursor; //Borra el cursor si exist
+DELIMITER $$
+CREATE PROCEDURE usp_Employee_Age_Insertar_Bulk_Cursor(IN pi_edad tinyint)
+
+BEGIN
+  DECLARE curNombre VARCHAR(50);
+  DECLARE curApellido VARCHAR(50);
+  DECLARE curEdad TINYINT;
+  DECLARE finished INT DEFAULT 0;
+
+  DECLARE cur1 CURSOR FOR SELECT * FROM vi_employee WHERE `Edad` = pi_edad;
+
+  DECLARE CONTINUE HANDLER FOR NOT FOUND SET finished = 1;
+
+  OPEN cur1;
+
+  recorre: LOOP
+    FETCH cur1 INTO curNombre, curApellido, curEdad;
+
+    IF finished = 1 THEN
+      LEAVE recorre;
+    END IF;
+
+    CALL usp_Employee_Age_Insertar(curNombre, curApellido, curEdad);
+
+  END LOOP recorre;
+  CLOSE cur1;
+
+END $$
+
+DELIMITER;
+
+//****************************************************************************************************//
+
+CALL usp_employee_Age_Insertar_Bulk_Cursor(50);
+
+SELECT * FROM Employee_Age;
+
+
+//***********************************Cursor Recorre una vista **********************************************//
+
+DROP PROCEDURE IF EXISTS sp_Alerta_Insertar; //Borra el cursor si exist
+DELIMITER $$
+CREATE PROCEDURE sp_Alerta_Insertar(IN cantidad_de_skills INT)
+
+BEGIN
+  DECLARE curPersonaId INT;
+  DECLARE curOfertaId INT;
+  DECLARE finished INT DEFAULT 0;
+
+  DECLARE cur1 CURSOR FOR SELECT Persona_id, Oferta_id FROM vi_skillspersonaoferta WHERE cantidadSkills > cantidad_de_skills;
+
+  DECLARE CONTINUE HANDLER FOR NOT FOUND SET finished = 1;
+
+  OPEN cur1;
+
+  recorre: LOOP
+    FETCH cur1 INTO curPersonaId, curOfertaId;
+
+    IF finished = 1 THEN
+      LEAVE recorre;
+    END IF;
+
+
+    INSERT INTO alerta (Persona_id, Oferta_id, FechaCreacion) VALUES (curPersonaId, curOfertaId, NOW());
+
+  END LOOP recorre;
+  CLOSE cur1;
+
+END $$
+
+DELIMITER;
+
+
+CALL sp_Alerta_Insertar(5);
+
+//****************************************************************************************************//

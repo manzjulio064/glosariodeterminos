@@ -1,0 +1,149 @@
+//********************************MicroservicioProveedoresController*********************************//
+
+package com.dh.microservicioProveedores.controlador;
+
+import com.dh.microservicioProveedores.service.microservicioProveedoresService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+@RestController
+@RequestMapping("/")
+public class MicroservicioProveedoresController {
+
+    @Value("${idRandom}")
+    private String port;
+
+    @Autowired
+    private microservicioProveedoresService servicedatos;
+
+    @GetMapping
+    public String microservicioFunciona() {
+        return "Microservicio de proveedores";
+    }
+
+    @GetMapping("/datos")
+    public String getdatos(@RequestParam String nombre, @RequestParam String apellido) {
+        return servicedatos.getNombres(nombre, apellido);
+    }
+    @GetMapping("/saludar")
+    public String getSaludar() {
+        return "Hola como estas";
+    }
+
+    @GetMapping("/proveedores")
+    public ResponseEntity<String> find() {
+        return ResponseEntity.ok(port);
+    }
+
+}
+
+//******************************MicroservicioProveedoresApplication***********************************//
+
+package com.dh.microservicioProveedores;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MicroservicioProveedoresApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MicroservicioProveedoresApplication.class, args);
+	}
+
+}
+
+//**********************************bootstrap.yml**********************************//
+
+spring:
+  application:
+    name: microservicioProveedores
+  cloud:
+    config:
+      uri: http://localhost:5000
+  profiles:
+    active: dev
+
+//**************************************pom.xml************************************//
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.8</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.dh</groupId>
+	<artifactId>MicroservicioProveedores</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>MicroservicioProveedores</name>
+	<description>MicroservicioProveedores</description>
+	<properties>
+		<java.version>18</java.version>
+		<spring-cloud.version>2021.0.5</spring-cloud.version>
+	</properties>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-loadbalancer</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+
+//**************************************************************************************//

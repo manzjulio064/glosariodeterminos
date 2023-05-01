@@ -1,0 +1,3 @@
+
+las pruebas de humo se implementan primero para evaluar las funciones básicas o esenciales y las más usadas por el usuario del sistema se ejecutan cuando se impacten cambios en un 
+sistema para darme cuenta rápido de cómo está el estado del mismo.

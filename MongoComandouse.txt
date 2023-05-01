@@ -1,0 +1,8 @@
+//**En consola ****//
+
+use cajero
+//*********Dentro de un template********//
+
+use("cajero")
+
+//*****************************************//

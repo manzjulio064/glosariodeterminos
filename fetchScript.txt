@@ -1,0 +1,83 @@
+
+//**************************************Link********************************************//
+https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch
+https://lenguajejs.com/javascript/peticiones-http/fetch/
+https://apis.datos.gob.ar/georef/api/provincias   //** consultar api
+
+//**************************************Estructura Basica********************************************//
+
+const url = "https://dog.ceo/api/breed/hound/images";
+
+fetch(url)
+  .then(respuesta => {
+    return respuesta.json()
+
+  })
+  .then(datos => {
+
+    console.log(datos)
+
+  })
+
+
+//**************************************index.html********************************************//
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pruebas Api</title>
+</head>
+<body>
+  <h1>Api Nombres</h1>
+  <ul class="ulClass"></ul>
+  <script src="script.js"></script>
+</body>
+</html>
+
+//**************************************script.js*******************************************//
+
+window.onload = function() {
+    let nombre = prompt("Ingrese el nombre a consultar");
+
+    Url = `https://api.genderize.io/?name=${nombre}`
+    fetch(Url)
+
+    .then(function(respuesta){
+      console.log(respuesta)
+      return respuesta.json()
+
+    })
+
+    .then(function(informacion){
+      console.log(informacion);
+
+      let ul = document.querySelector(".ulClass")
+      let li = document.createElement("li")
+      li.appendChild(document.createTextNode("Nombre: " + informacion.name))
+      ul.appendChild(li)
+
+
+      let liGender = document.createElement("li")
+      liGender.appendChild(document.createTextNode("Genero: " + informacion.gender))
+      ul.appendChild(liGender)
+
+      let liProbability = document.createElement("li")
+      liProbability.appendChild(document.createTextNode("Probabilidad: " + informacion.probability))
+      ul.appendChild(liProbability)
+
+      let liCount = document.createElement("li")
+      liCount.appendChild(document.createTextNode("Probabilidad: " + informacion.count))
+      ul.appendChild(liCount)
+
+    })
+
+    .catch(function(error){
+      console.error(error)
+     })
+
+}
+
+//*******************************************************************************************//

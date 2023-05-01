@@ -1,0 +1,12 @@
+
+**********En el caso de las List*************
+nombres.remove("Carlos");
+nombres.remove(2);
+
+**********En el caso de las set*************
+nombres.remove("Carlos");
+
+
+**********En el caso de las Map*************
+
+nombres.remove(27888999);

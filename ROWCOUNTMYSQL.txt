@@ -1,0 +1,5 @@
+
+use adventureworks;
+
+UPDATE address SET modifieldDate = now();
+SELECT ROW_COUNT();

@@ -1,0 +1,222 @@
+
+
+//*****************************metodos***************************//
+
+localStorage.clear();
+localStorage.setItem('key', 'value');
+localStorage.getItem('key')
+localStorage.removeItem('key');
+
+sessionStorage.clear();
+sessionStorage.setItem('key', 'value');
+sessionStorage.getItem('key')
+sessionStorage.removeItem('key');
+
+//***************************Guardar informacion localStorage***********************************//
+
+localStorage.setItem('prueba', 'hola');
+
+//****************************Consumir la informacion localStorage*****************************//
+
+const prueba = localStorage.getItem('prueba');
+
+//*****************************index.html***************************//
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>formulario</title>
+</head>
+<body>
+  <div class="bienvenida"></div>
+
+<script src="storage.js"></script>
+</body>
+</html>
+//****************************storage.js*********************************//
+
+window.addEventListener("load", function() {
+
+  if (localStorage.getItem("nombreUsuario") == null) {
+    let nombre = prompt("Ingrese su nombre de pila");
+    document.querySelector(".bienvenida").innerHTML = "hola" + nombre;
+    localStorage.setItem("nombreUsuario", nombre)
+
+  } else {
+    let nombre = localStorage.getItem("nombreUsuario");
+    document.querySelector(".bienvenida").innerHTML = "hola" + nombre;
+  }
+
+  console.log(localStorage);
+
+})
+
+//***************************Otro ejemplo 2********************************//
+
+document.querySelector('form').addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  let comentario = document.querySelector('#comentario').value;
+
+  addHistory(comentario);
+  adicionarcomentarioDiv()
+
+});
+
+const key = 'elementoComentario';
+
+function addHistory(comentario) {
+
+  let historialComentarios = [];
+  if (sessionStorage.getItem(key) != null) {
+    historialComentarios = JSON.parse(sessionStorage.getItem(key));
+  }
+
+  historialComentarios.push(comentario);
+
+  let json = JSON.stringify(historialComentarios);
+  sessionStorage.setItem(key, json);
+
+}
+
+function adicionarcomentarioDiv() {
+  let historialComentarios = [];
+
+  if (sessionStorage.getItem(key) != null) {
+    historialComentarios = JSON.parse(sessionStorage.getItem(key));
+  }
+
+  document.querySelector(".comentarios").innerHTML = "" ;
+
+  historialComentarios.forEach(comentario => {
+    let contenedor = document.querySelector(".comentarios")
+
+    let p = document.createElement("p");
+    var texto = document.createTextNode(comentario);
+    p.appendChild(texto);
+
+    contenedor.appendChild(p);
+  })
+}
+
+//*****************************************************************//
+//***************************Ejemplo 3*****************************//
+//*****************************************************************//
+
+
+//********************Capturar evento sumit********************* */
+
+document.querySelector("form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  let comentario = document.querySelector("#comentario").value;
+  addComent(comentario)
+})
+
+//***************************Chequeo*************************** */
+const keySaveCommentsInSession = 'chequeado';
+var checkbox = document.getElementById('checkSaveComments');
+sessionStorage.removeItem(keySaveCommentsInSession); //Elimina keySaveCommentsInSession porque cuando se actualiza persiste
+checkbox.addEventListener("change", validaCheckbox, false);
+
+function validaCheckbox() {
+  sessionStorage.setItem(keySaveCommentsInSession, false);
+
+  if(checkbox.checked){
+    sessionStorage.setItem(keySaveCommentsInSession, true);
+  } else {
+    sessionStorage.setItem(keySaveCommentsInSession, false);
+  }
+}
+//*************************Guardar informacion del input******************************* */
+
+let comments = [];
+let commentsSaved = [];
+
+const key = 'comentariosStorage';
+
+function addComent(comentario) {
+  if ((sessionStorage.getItem(keySaveCommentsInSession) == 'true')) {
+    commentsSaved.push(comentario);
+    sessionStorage.setItem(key, JSON.stringify(commentsSaved));
+    sessionStoras()
+
+  } else {
+    comments.push(comentario);
+    sessionLocal()
+  }
+}
+
+//****************************Borrar Elementos creados******************************* */
+function deleteComment(index) {
+  comments.splice(index, 1);
+}
+
+function deleteCommentInSession(index) {
+  commentsSaved.splice(index, 1);
+  sessionStorage.setItem(key, JSON.stringify(commentsSaved));
+}
+
+//***** Traer la informacionde sesscionStorage y si no hay informacion resetear los array**//
+function loadCommentsFromSession() {
+  let array = JSON.parse(sessionStorage.getItem(key));
+  console.log(array);
+  if (array != null) {
+      commentsSaved = array;
+      sessionStoras()
+  } else {
+      comments = [];
+  }
+}
+loadCommentsFromSession();
+
+//**************************Props enviados a informacion en pantalla******************************** */
+function sessionLocal(){
+  let data = comments
+  let elemento = ".comentarios"
+  let ejecutar = 1
+  mostrarInformacion(data, elemento, ejecutar)
+}
+function sessionStoras(){
+  let data = commentsSaved
+  let elemento = "#commentsInSession"
+  let ejecutar = 2
+  mostrarInformacion(data, elemento, ejecutar)
+}
+
+//******************************Crea los elementos y muestra la informacion en pantalla************************************* */
+
+function mostrarInformacion(data, elemento, ejecutar) {
+
+  let div = document.querySelector(elemento);
+  div.innerHTML = '';
+
+  data.forEach((comment, index) => {
+      let container = document.createElement('div');
+      let p = document.createElement('p');
+      p.innerText = comment;
+
+      let button = document.createElement('button');
+      button.textContent = 'Borrar';
+      button.addEventListener('click', (e) => {
+
+          if (ejecutar == 1) {
+            deleteComment(index);
+            sessionLocal()
+          } else if (ejecutar == 2) {
+            deleteCommentInSession(index);
+            sessionStoras()
+          }
+
+      });
+
+      container.appendChild(p);
+      container.appendChild(button);
+      div.appendChild(container);
+  });
+}
+
+
+//***********************************************************************//

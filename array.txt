@@ -1,0 +1,47 @@
+let nombres = ["Nacho", "Dario", "Javier"];
+let edades = [34, 28, 37, 40, 43];
+let valoresDeVerdad = [true, false, false];
+let variados = ["Nacho", 34, true, false, edades]
+
+console.log(nombres)
+console.log(variados[4][1])
+
+
+/* ***************************************************** */
+
+let peliculas = ["toy story", "finding Nemo", "kung-fu panda", "wally", "fortnite"]
+let pelisAnimadas = ["toy story A", "finding Nemo A", "kung-fu panda A", "wally A", "fortnite A"]
+
+
+function convertir(array1, array2){
+  array1[0] = array1[0].toUpperCase();
+  array1[1] = array1[1].toUpperCase();
+  array1[2] = array1[2].toUpperCase();
+  array1[3] = array1[3].toUpperCase();
+  array1[4] = array1[4].toUpperCase();
+
+  array1.push(array2.pop().toUpperCase());
+  array1.push(array2.pop().toUpperCase());
+  array1.push(array2.pop().toUpperCase());
+  array1.push(array2.pop().toUpperCase());
+  array1.push(array2.pop().toUpperCase());
+  return array1
+}
+
+console.log(convertir(peliculas, pelisAnimadas));
+
+/* ******************MODIFICAR UN ARRAY************************ */
+
+let prueba = ["Javier","Moreno"]
+
+function cambiar(prueba){
+  let info = prueba
+  info[0] = "ivonne"
+  info[1] = "Perez"
+  return info;
+}
+
+console.log(cambiar(prueba));
+
+/* ************************************************************************ */
+

@@ -1,0 +1,4 @@
+
+
+SELECT LOWER("SQL Tutorial is FUN!") AS LowercaseText;
+= sql tutorial is fun!

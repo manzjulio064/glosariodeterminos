@@ -1,0 +1,53 @@
+// ********************Libreria****************************//
+import java.util.Scanner;
+
+// ********************Metodos****************************//
+
+.nextLine()  //***Para texto string***//
+.nextFloat() //***Tipo Float numero con decimales***//
+.nextInt()   //***Tipo numero entero int***//
+
+// ******************************************************//
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner;
+        scanner = new Scanner(System.in);
+        int num1;
+        int num2;
+        int suma;
+
+        System.out.println("ingrese un numero1");
+        num1 = scanner.nextInt();
+        System.out.println("este fue el numero que se ingreso" + num1);
+
+    }
+
+}
+
+// *****************************************************************//
+Scanner scanner;
+scanner = new Scanner(System.in);
+int num1;
+int num2;
+float coeficiente;
+String nombre;
+char inicial;
+
+
+// ************************************************************//
+Scanner scanner;
+scanner = new Scanner(System.in);
+
+int num1;
+int num2;
+float coeficiente;
+System.out.println(“Ingrese primer valor”);
+num1= scanner.nextInt();
+System.out.println(“Ingrese segundo valor”);
+num2= scanner.nextInt();
+System.out.println(“Ingrese el coeficiente”);
+coeficiente= scanner.nextFloat();
+
+

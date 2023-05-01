@@ -1,0 +1,1 @@
+¿Cuál Es El Ciclo De Vida De Las Pruebas De Software? ... Un ciclo de vida es la secuencia de cambios que atraviesa una entidad de una forma a otra. Estas actividades incluyen verificar el software desarrollado para ver si cumple con los requisitos específicos.

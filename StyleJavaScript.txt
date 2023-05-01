@@ -1,0 +1,25 @@
+//*************************************Nota:****************************************//
+
+//** Cuando trabajamos con javaScript los estilos que se componen de dos palabras se le quita el Gislason**//
+//** Ejm: background-color  se deja  backgroundColor colocando la segunda palabra con la primera letra mayuscula//**
+//** texAlign **//
+//** fontSize **//
+//** FlexDirection **//
+
+//************************************************************************************************//
+let titulo = document.querySelector('.title');
+titulo.style.color = 'cyan';
+titulo.style.textAlign = 'center';
+titulo.style.fontSize = '12px';
+titulo.style.backgroundColor = '#dddddd';
+
+
+//************************************************************************************************//
+    let contenedor = document.querySelector('.contenedor');
+    
+    contenedor.style.backgroundColor = 'cyan';
+    contenedor.style.display = 'flex';
+    contenedor.style.flexDirection = 'column';
+    contenedor.style.justifyContent = 'center';
+    contenedor.style.alignItems = 'center';
+//************************************************************************************************//

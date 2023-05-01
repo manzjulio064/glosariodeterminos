@@ -1,0 +1,254 @@
+// *******************************************************************************//
+
+https://www.npmjs.com/package/json-server
+
+npm i json-server
+
+//******package.json******//
+  "scripts": {
+    "start": "npm-run-all -p client server",
+    "client": "react-scripts start",
+    "server": "json-server --port 3001 --watch src/data/English.json"
+
+  },
+
+// *****************************Crear el proyecto server en react**************************************//
+
+npx create-react-app serv3001
+cd serv3001
+mkdir server
+crear un archivo api.js dentro de la carpeta src
+
+**** Instalar los siguientes paquetes
+npm install faker json-server npm-run-all --save-dev
+
+Finalmente entramos en el archivo ‘package.json’ y reescribimos los ‘scripts’ para que quede de la siguiente forma:
+    "scripts": {
+      "start": "npm-run-all -p client server",
+      "client": "react-scripts start",
+      "server": "json-server --port 3001 --watch server/db.json",
+      "seed": "node server/seed.js",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject"
+    },
+
+npm run start // Levantamos el proyecto
+
+crear un archivo seed.js dentro de la carpeta server
+crear un archivo db.json dentro de la carpeta server
+
+http://localhost:3001/badges  // podemos consultar la informacion del archivo server/db.json
+
+// ******************************seed.js*************************************//
+
+const fs = require('fs');
+const path = require('path');
+const faker = require('faker');
+const md5 = require('md5');
+
+function createBadges(limit = 5) {
+  const result = [];
+
+  for (let i = 0; i < limit; i++) {
+    const firstName = faker.name.firstName();
+    const lastName = faker.name.lastName();
+    const email = faker.internet.email();
+
+    result.push({
+      id: faker.random.uuid(),
+      firstName,
+      lastName,
+      email,
+      jobTitle: faker.name.jobTitle(),
+      twitter: `${firstName}${lastName}${faker.address.zipCode()}`,
+      avatarUrl: `https://www.gravatar.com/avatar/${md5(email)}?d=identicon`,
+    });
+  }
+
+  return result;
+}
+
+function main() {
+  const data = {
+    badges: createBadges(),
+  };
+
+  fs.writeFileSync(
+    path.resolve(__dirname, 'db.json'),
+    JSON.stringify(data, null, 4)
+  );
+}
+
+main();
+
+// *******************************db.json****************************************//
+
+{
+  "badges": [
+    {
+      "id": "250fe715-88d4-4c18-95e7-62a6a097803a",
+      "firstName": "Zoie",
+      "lastName": "Grant",
+      "email": "Efrain_Gaylord6@yahoo.com",
+      "jobTitle": "Corporate Branding Representative",
+      "twitter": "ZoieGrant05512-2019",
+      "avatarUrl": "https://www.gravatar.com/avatar/0fc6d5ee2ee176d4581acf6a7e5644cc?d=identicon"
+    },
+    {
+      "id": "22330587-c700-4d00-911d-91de63db1f42",
+      "firstName": "Dustin",
+      "lastName": "Stehr",
+      "email": "Lue.Funk@hotmail.com",
+      "jobTitle": "Legacy Infrastructure Consultant",
+      "twitter": "DustinStehr77585-9157",
+      "avatarUrl": "https://www.gravatar.com/avatar/272e74beaee600c8ab957ddee8444495?d=identicon"
+    },
+    {
+      "id": "f1183526-aff1-46da-8bfb-976563c6f696",
+      "firstName": "Karlee",
+      "lastName": "Satterfield",
+      "email": "Christian31@gmail.com",
+      "jobTitle": "Chief Accounts Agent",
+      "twitter": "KarleeSatterfield32692-9732",
+      "avatarUrl": "https://www.gravatar.com/avatar/c2d679f9b44e1869548ab95aac18b7c9?d=identicon"
+    },
+    {
+      "id": "49026077-38f1-42e4-9f00-e230e04effa9",
+      "firstName": "Ernie",
+      "lastName": "Schmidt",
+      "email": "Shemar63@yahoo.com",
+      "jobTitle": "Dynamic Accounts Coordinator",
+      "twitter": "ErnieSchmidt56445-6854",
+      "avatarUrl": "https://www.gravatar.com/avatar/6a7e6f60ad63c102322894ab94a26f2f?d=identicon"
+    },
+    {
+      "id": "a6aeca9b-a7c1-45d2-b970-0121c682402a",
+      "firstName": "Kelly",
+      "lastName": "Corkery",
+      "email": "Van_Schimmel@yahoo.com",
+      "jobTitle": "Dynamic Tactics Liaison",
+      "twitter": "KellyCorkery06275-3676",
+      "avatarUrl": "https://www.gravatar.com/avatar/00e35de53a06a655fe5b6ac8b96bdb84?d=identicon"
+    },
+    {
+      "firstName": "Hector Javier",
+      "lastName": "Moreno 2",
+      "email": "hectorjaviermorenoh@gmail.com",
+      "jobTitle": "inginer of system",
+      "twitter": "cytelsystem",
+      "avatarUrl": "https://s.gravatar.com/avatar/cd6438d76a31e244282a168d71d460a2?d=identicon",
+      "id": "A8bHFhf"
+    }
+  ]
+}
+
+// ********************************api.js***************************************//
+
+const BASE_URL = 'http://localhost:3001';
+
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+const randomNumber = (min = 0, max = 1) =>
+  Math.floor(Math.random() * (max - min + 1)) + min;
+const simulateNetworkLatency = (min = 30, max = 1500) =>
+  delay(randomNumber(min, max));
+
+async function callApi(endpoint, options = {}) {
+  await simulateNetworkLatency();
+
+  options.headers = {
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+  };
+
+  const url = BASE_URL + endpoint;
+  const response = await fetch(url, options);
+  const data = await response.json();
+
+  return data;
+}
+
+const api = {
+  badges: {
+    list() {
+      return callApi('/badges');
+    },
+    create(badge) {
+      return callApi(`/badges`, {
+        method: 'POST',
+        body: JSON.stringify(badge),
+      });
+    },
+    read(badgeId) {
+      return callApi(`/badges/${badgeId}`);
+    },
+    update(badgeId, updates) {
+      return callApi(`/badges/${badgeId}`, {
+        method: 'PUT',
+        body: JSON.stringify(updates),
+      });
+    },
+    // Lo hubiera llamado `delete`, pero `delete` es un keyword en JavaScript asi que no es buena idea :P
+    remove(badgeId) {
+      return callApi(`/badges/${badgeId}`, {
+        method: 'DELETE',
+      });
+    },
+  },
+};
+
+export default api;
+
+// ***************************package.json*******************************************//
+
+{
+  "name": "serv3001",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.0",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "npm-run-all -p client server",
+    "client": "react-scripts start",
+    "server": "json-server --port 3001 --watch server/db.json",
+    "seed": "node server/seed.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "faker": "^6.6.6",
+    "json-server": "^0.17.0",
+    "npm-run-all": "^4.1.5"
+  }
+}
+
+// *******************************************************************************//
+// *******************************************************************************//
+// *******************************************************************************//

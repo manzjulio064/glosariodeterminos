@@ -1,0 +1,4 @@
+
+
+SELECT UPPER("SQL Tutorial is FUN!") AS UppercaseText;
+= SQL TUTORIAL IS FUN!

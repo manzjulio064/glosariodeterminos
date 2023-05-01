@@ -1,0 +1,12 @@
+//***En este caso, vemos cómo la sentencia obtiene el JSON
+//***con cURL, lo procesa con jq para obtener el
+//***display_name y el type, y finalmente lo guarda en un
+//***archivo llamado consultapipe.txt.
+
+curl "https://nominatim.openstreetmap.org/reverse.php?lat=-34.60378&lo n=-58.38161&zoom=18&format=jsonv2" | jq ".display_name,.type" | tee consultapipe.txt
+
+
+//**Para ello, primero colocamos nuestra sentencia inicial, sabiendo que tipo de salida
+//**puede tener, separamos con el pipeline y colocamos la segunda sentencia.
+
+ip address | grep “192.168”

@@ -1,0 +1,16 @@
+SELECT primer_nombre, apellido FROM clientes
+ORDER BY primer_nombre ASC
+;
+
+-- // **********************************************************
+
+SELECT * FROM clientes
+ORDER BY primer_nombre DESC
+;
+
+-- // **********************************************************
+
+SELECT * FROM nombre_tabla
+ORDER BY campo_ordenacion1 DESC, campo_ordenacion2 DESC;
+
+-- // **********************************************************

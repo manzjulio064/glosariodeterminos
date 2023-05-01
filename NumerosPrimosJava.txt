@@ -1,0 +1,65 @@
+//*******************************Main.java*****************************************//
+
+package NumerosPrimos;
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+
+    ClaseNumeroPrimo verificarSiEsPrimo = new ClaseNumeroPrimo(); // Instanciar ClaseNumeroPrimo (Comunicarnos con la clase)
+
+    Scanner scanner = new Scanner(System.in); // Ingresar datos por teclado
+    System.out.println("Cuantos numeros primos quiere que le muestre"); // Mensaje en pantalla
+
+    int dato = scanner.nextInt(); // Escucha datos enteros y almacena la informacion en la variable datos
+
+    boolean seguirBuscando = true;
+    int iterador = 2; // Numero  desde donde parte para verificar si es numero primo
+    int contador = 0; // cuantos numeros primos acomulo
+
+      System.out.println("Los numeros primos son:");
+
+    while (seguirBuscando) {
+     boolean esPrimo = verificarSiEsPrimo.fsEsNumeroPrimo(iterador); // proceso el iterador para saber si es primo
+
+      if (esPrimo) {
+        System.out.print(iterador + ", "); // Muestra el numero por consola
+        contador++; // incrementa el contador de con los numeros encontrados
+      }
+
+      if (contador == dato) {
+        seguirBuscando = false;  // Al llegar al numero proporcionado por el usuario se termina el ciclo
+      }
+
+      iterador++; // incrementa el iterador hasta llegar al numero ingresado por el usuario
+
+    }
+
+  }
+
+}
+
+//*********************************NumerosPrimos.java*************************************//
+package NumerosPrimos;
+
+public class ClaseNumeroPrimo {
+
+  public boolean fsEsNumeroPrimo(int num) { // en num recibe el numero que se procesara desde donde lo esta instanciando
+
+    boolean primo = true;
+
+      for (int i = 2; i < num; i++) {
+
+        if (num % i == 0) { // numeros que al dividirlos el resultado de cero
+          primo = false;
+        }
+
+      }
+
+    return primo; // Retorna un boolean si se cumple la condición
+
+  }
+
+}
+
+//************************************************************************************//

@@ -1,0 +1,5 @@
+
+//********Muestra los documentos dentro de la collection apartir del 3********//
+use("HectorJavierMoreno")
+db.HectorJavierMoreno.find().skip(3)
+//***************************************************************************//

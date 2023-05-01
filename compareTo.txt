@@ -1,0 +1,21 @@
+String myStr1 = "Hello";
+String myStr2 = "Hello";
+System.out.println(myStr1.compareTo(myStr2));
+
+// *********************************************************//
+
+        Integer valor1=30;
+        Integer valor2=20;
+        int comparar;
+
+        if (valor1.equals(valor2))
+            System.out.println("son iguales");
+        else
+        { comparar=valor1.compareTo(valor2);
+            if (comparar>0)
+                System.out.println("valor1 es mayor que valor2");
+            else
+                System.out.println("valor2 es mayor que valor1");
+        }
+
+// **************************************************************************//

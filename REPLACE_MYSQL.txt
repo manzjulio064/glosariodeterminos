@@ -1,0 +1,4 @@
+SELECT REPLACE(title, "Harry", "Juanito")
+FROM movies;
+
+// ********************************************

@@ -1,0 +1,3 @@
+let colores2 = ['azul', 'Rojo', 'Rosado'];
+let sacaelprimercolorarray = colores2.shift();
+console.log(sacaelprimercolorarray);

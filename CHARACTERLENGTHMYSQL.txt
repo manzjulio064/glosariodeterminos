@@ -1,0 +1,7 @@
+
+
+SELECT CHARACTER_LENGTH(123) AS NumeroCaracteres;
+= 3
+
+SELECT CHARACTER_LENGTH("SQL Tutorial") AS LengthOfString;
+= 12

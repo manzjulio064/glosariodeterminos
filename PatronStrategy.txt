@@ -1,0 +1,189 @@
+
+
+//*********************************interface InterfasEstrategiaMovimiento******************************************//
+package Ajedres;
+
+public interface InterfasEstrategiaMovimiento {
+  public void mover();
+}
+
+
+
+//**********************************class MoverCaballo************************************//
+
+package Ajedres;
+
+public class MoverCaballo implements InterfasEstrategiaMovimiento {
+
+  @Override
+  public void mover() {
+    System.out.println("Movimiento del caballo");
+  }
+
+}
+//*********************************class MoverPeon**********************************//
+
+package Ajedres;
+
+public class MoverPeon implements InterfasEstrategiaMovimiento{
+
+  @Override
+  public void mover() {
+    System.out.println("Movimiento del peon");
+  }
+
+}
+
+//**********************************class Pieza*************************************//
+
+package Ajedres;
+
+public class Pieza {
+  private String nombre;
+  private InterfasEstrategiaMovimiento EstrategiaMover;
+
+  public Pieza(String nombre) {
+    this.nombre = nombre;
+
+    if (nombre.equals("Peon"))
+      EstrategiaMover = new MoverPeon();
+    if (nombre.equals("Caballo"))
+    EstrategiaMover = new MoverCaballo();
+  }
+
+  public void mover(){
+    EstrategiaMover.mover();
+  }
+
+}
+
+//*************************************class Main***************************************//
+
+package Ajedres;
+
+public class Main {
+  public static void main(String[] args) {
+    Pieza pieza1 = new Pieza("Peon");
+    pieza1.mover();
+    Pieza pieza2 = new Pieza("Caballo");
+    pieza2.mover();
+
+  }
+
+}
+
+//***************************************************************************************//
+//**********************************Otro codigoTienda************************************//
+//***************************************************************************************//
+
+
+
+//***********************************interface StrategyPago**********************************//
+
+package Tienda;
+public interface StrategyPago {
+    void pago();
+}
+
+//***************************************class Bitcoin***********************************//
+
+package Tienda;
+public class Bitcoin implements StrategyPago {
+    private String billetera;
+
+    public Bitcoin(String billetera) {
+        this.billetera = billetera;
+    }
+
+    public void pago() {
+        System.out.println("pagado con bitcoin");
+        System.out.println(billetera);;
+    }
+}
+//****************************************class Paypal************************************//
+
+package Tienda;
+public class Paypal implements StrategyPago {
+    private String email;
+    private String clave;
+
+    public Paypal(String email, String clave) {
+        this.email = email;
+        this.clave = clave;
+    }
+
+
+    public void pago() {
+        System.out.println("pagado con paypal");
+        System.out.println(email);
+        System.out.println(clave);
+    }
+}
+
+
+//****************************************Class Tarjeta*********************************//
+
+package Tienda;
+public class Tarjeta implements StrategyPago {
+    private String titular;
+    private String numero;
+    private String verificador;
+    private String vence;
+
+    public Tarjeta(String titular, String numero, String verificador, String vence) {
+        this.titular = titular;
+        this.numero = numero;
+        this.verificador = verificador;
+        this.vence = vence;
+    }
+
+    public void pago() {
+        System.out.println("pagado con tarjeta");
+        System.out.println(titular);
+        System.out.println(numero);
+        System.out.println(verificador);
+        System.out.println(vence);
+    }
+
+}
+
+//**************************************class Tienda***********************************//
+
+package Tienda;
+public class Tienda {
+    private StrategyPago formaPago;
+
+    public void pago() {
+        formaPago.pago();
+    }
+
+    public void setPago(StrategyPago nuevoPago) {
+        formaPago = nuevoPago;
+    }
+}
+
+//**************************************class Main************************************//
+
+package Tienda;
+public class Main {
+
+    public static void main(String[] args) {
+        Tienda exito = new Tienda();
+
+        exito.setPago(new Tarjeta("Luis Lopez", "223455423323443","123", "02/29"));
+        exito.pago();
+
+        exito.setPago(new Bitcoin("ADSDW#FSDS02/29"));
+        exito.pago();
+
+        exito.setPago(new Paypal("leandro@fuice.com", "miClaveSecreta"));
+        exito.pago();
+
+    }
+}
+
+//**********************************************************************************//
+
+
+
+

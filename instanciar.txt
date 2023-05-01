@@ -1,0 +1,4 @@
+Crear un nuevo objeto enviandole los parametros a la funcion molde
+
+let cursoDeProgramacion = new Cursos(50, ["Javier", "Gerardo"], "de 19 a 21 Hr.");
+let cursoDeMarketing = new Cursos(40, ["Julio", "Carlos"], "de 21 a 23 Hr.");

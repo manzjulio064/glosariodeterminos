@@ -1,0 +1,6 @@
+
+1 Paython es gratuito
+2 Lenguaje Multiparadigma / flexible y facil de aprender de forma Independiente
+3 Funciona en los diferentes sistemas operativos con el interprete correspondiente
+4 Lenguaje interpretado
+

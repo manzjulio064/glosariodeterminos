@@ -1,0 +1,3 @@
+let colores3 = ['azul', 'Rojo', 'Rosado'];
+colores3.unshift("amarillo", "Violeta");
+console.log(colores3);

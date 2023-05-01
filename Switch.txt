@@ -1,0 +1,8 @@
+switch (expresión) {
+case valorA:
+// código a ejecutar si la expresión es igual a valorA
+break;
+case valorB:
+// código a ejecutar si la expresión es igual a valorB
+break;
+}

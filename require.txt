@@ -1,0 +1,24 @@
+
+// ********************Leer un modulo******************
+
+let persona = require('./b')
+
+console.log(persona)
+
+// *******************Leer dentro de un archivo*******************
+
+let fs = require('fs');
+
+let datos = fs.readFileSync(__dirname + '/prueba.txt', 'utf-8')
+
+console.log(datos)
+
+// ********************Libreria de fechas***************************
+// ****Instalar con  npm install moment
+
+let moment = require('moment');
+console.log(moment().format('MMM Do YYYY'))
+console.log(moment)
+
+
+// ********************Libreria de fechas***************************
