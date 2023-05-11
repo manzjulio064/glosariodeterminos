@@ -9,8 +9,8 @@ wsl --install
 
 Tambien se puede instalar una version de ubuntu en particular desde el microsoft Store
 
-wsl -l -v #Para ver si la distribución de Linux está establecida en WSL 1 o WSL 2, use el comando wsl -l -v
-wsl --set-version Ubuntu 2  #Cambiar la version de acuerdo al nombre que muestra EJM Ubuntu-22.04
+wsl -l -v  #Para ver si la distribución de Linux está establecida en WSL 1 o WSL 2, use el comando wsl -l -v
+wsl --set-version Ubuntu 2   #Cambiar la version de acuerdo al nombre que muestra EJM Ubuntu-22.04
 
 /etc/resolv.conf debe ir la direccion ip de la interface vEthernet(WSL) en windows para WSL 2
 
@@ -20,6 +20,8 @@ Dentro de ubunto
   -  apt-get update
   -  ufw --force enable   #Opcional  funcionan en WSL 2  firewall
   -  ufw status
+
+Tener en cuenta que WSL 2 es bloqueado por el firewall del antivirus y el wsl 1 no tiene problema 
 
 //***************************************Otras configuraciones opcionales*****************************************//
 
