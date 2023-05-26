@@ -1,5 +1,8 @@
 
 //*************Anotaciones*************************//
+
+@Test //La anotación @Test se utiliza para marcar un método como un caso de prueba dentro de una clase de pruebas.
+
 @BeforeClass //Se ejecuta solo una vez u especificamente antes de que se ejecute cualquier otra cosa Ejm: Abrir base de datos
 @AfterClass // Se ejecutan despues de que las pruebas hayan terminado Ejm: cerrar la base de datos
 @Before //Se ejecuta para realizar tareas antes de que se ejecute cada prueba Ejm: ejecutar un codico en comun antes de ejecutar cada prueba
@@ -24,4 +27,8 @@
 @BeforeMethod // El método anotado se ejecutará antes de cada método de prueba.
 @AfterMethod // El método anotado se ejecutará después de cada método de prueba.
 @Test // El método anotado forma parte de un caso de prueba.
+
+//******Desde nuestro framework de trabajo que consta de Java + Maven + Selenium podemos utilizar la librería juniper de JUnit, la siguiente annotation nos permite agrupar los test: ****///
+@Tag // @Tag("smoke") Esta annotation deberá agregarse previo al método que corresponde a cada test para que el mismo quede ligado a esa annotation. Por ejemplo:
+
 
