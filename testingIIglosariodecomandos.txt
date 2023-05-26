@@ -1,0 +1,27 @@
+
+//*************Anotaciones*************************//
+@BeforeClass //Se ejecuta solo una vez u especificamente antes de que se ejecute cualquier otra cosa Ejm: Abrir base de datos
+@AfterClass // Se ejecutan despues de que las pruebas hayan terminado Ejm: cerrar la base de datos
+@Before //Se ejecuta para realizar tareas antes de que se ejecute cada prueba Ejm: ejecutar un codico en comun antes de ejecutar cada prueba
+	- @Before se ejecuta antes de cada prueba individual dentro del archivo de prueba.
+@After // Se ejecuta para realizar tareas despues de la ejecucion de cada prueba EJM Limpiar listas despues de la ejecucion de cada prueba
+@Test // Se utiliza para identificar el caso de prueba real. Esto es necesario porque JUnit permite agrupar varias pruebas en una sola clase de prueba.
+ - Atributos // @Test(timeout=5000) // se ha establecido con el atributo timeout (en milisegundos) que indica a Selenium que establezca el tiempo de espera en 5 segundos.
+@RepeatedTest //(@RepeatedTest(5) Se ejecuta 5 veses) Es una anotación que se utiliza para repetir la ejecución de un método de prueba varias veces. Esta anotación es útil cuando se desea ejecutar el mismo caso de prueba múltiples veces con diferentes datos de prueba o condiciones.
+
+***TestNG** //Las anotaciones en TestNG son líneas de código que pueden controlar cómo se ejecutará el método que tienen debajo
+
+@Test(priority = 0) // Indica la prioridad de que test se ejecuta primero @Test(priority = 1)
+@BeforeSuite // El método anotado se ejecutará antes de que se ejecuten todas las pruebas de este conjunto
+@AfterSuite // El método anotado se ejecutará después de que se ejecuten todas las pruebas de este conjunto.
+@BeforeTest // El método anotado se ejecutará antes de que se ejecute cualquier método de prueba perteneciente a las clases dentro de la etiqueta.
+	- @BeforeTest se ejecuta una vez antes de todas las pruebas en un archivo de prueba específico.
+@AfterTest // El método anotado se ejecutará después de la ejecución de todos los métodos de prueba pertenecientes a las clases dentro de la etiqueta.
+@BeforeGroups // La lista de grupos que este método de configuración ejecutará antes. Se garantiza que este método se ejecute justo antes de que se invoque el primer método de prueba que pertenezca a cualquiera de estos grupos.
+@AfterGroups // La lista de grupos después de los cuales se ejecutará este método de configuración. Se garantiza que este método se ejecute justo después de que se invoque el último método de prueba que pertenezca a cualquiera de estos grupos.
+@BeforeClass // El método anotado se ejecutará antes de que se invoque el primer método de prueba de la clase actual.
+@AfterClass // El método anotado se ejecutará después de que se ejecuten todos los métodos de prueba de la clase actual.
+@BeforeMethod // El método anotado se ejecutará antes de cada método de prueba.
+@AfterMethod // El método anotado se ejecutará después de cada método de prueba.
+@Test // El método anotado forma parte de un caso de prueba.
+
