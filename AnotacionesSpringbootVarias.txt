@@ -1,0 +1,6 @@
+
+
+@ConfigurationProperties(prefix = "nombregrupo") // se utiliza para enlazar propiedades de configuración con un objeto en Spring que se encuentr en el yml o applicationPropierties
+
+@Value("${dh.keycloak.realm}") // Se utiliza para inyectar valores específicos de propiedades de configuración en el yml o applicationPropierties
+private String realm; // variable donde se inyecta
