@@ -4,3 +4,5 @@
 
 @Value("${dh.keycloak.realm}") // Se utiliza para inyectar valores específicos de propiedades de configuración en el yml o applicationPropierties
 private String realm; // variable donde se inyecta
+
+@AllArgsConstructor //es una anotación específica de Lombok, Este constructor se utiliza para inicializar todos los campos de la clase de una vez, evitando la necesidad de escribir manualmente un constructor con todos los parámetros.
