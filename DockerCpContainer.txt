@@ -1,0 +1,2 @@
+
+sudo docker cp index.html apache-2:/opt/bitnami/apache/htdocs/index.html
