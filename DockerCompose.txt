@@ -38,6 +38,13 @@ spring.data.mongodb.database=${MONGO_DB:paquetes}
 docker-compose up
 docker-compose up --build //Compose utilizando Dokerfile
 
+docker-compose up -d //libera la terminal
+
+docker-compose down //termina los comtenedores
+
+docker-compose -d -f //indicarle el archivo.yml
+
+
 //******************************Docker-compose mysql********************************//
 
 version: "3.1"
@@ -79,7 +86,7 @@ services:
   mysqldb:
     image: mysql:5.7
     container_name: OdontologicaDB
-    restart: always
+    restart: always //Reinicie la aplicacion si se detiene
     networks:
       - springmysql-net
     environment:
@@ -97,4 +104,13 @@ volumes:
 networks:
   springmysql-net:
 
+
+//****************************************Otros comandos para cada servicio***********************************//
+restart: always //Reinicie la aplicacion si se detiene
+
+exponse:
+   -3306 //indica el puerto abierto internamente pero no lo expone al publico externo
 //******************************************************************************************//
+
+minikiu
+
