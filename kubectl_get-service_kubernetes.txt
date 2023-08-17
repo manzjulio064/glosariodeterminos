@@ -1,0 +1,7 @@
+//**************************************************//
+//**Lista los servicios del namespace app
+kubectl get services -n app
+
+//**Eliminar un servicio:
+kubectl delete service <service-name>
+//**************************************************//
