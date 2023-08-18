@@ -1,0 +1,54 @@
+//******************************hoy-master-deployment.yaml*********************************//
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: bulletin-deployment # Nombre del deployment
+spec:
+ replicas: 2 # Cantidad de Pods que se van a ejecutar
+ selector: # Se especifica a qué pod se va a relacionar este deployment
+   matchLabels:
+     app: bulletinboard # Tiene que ser el mismo label que se especifica para el pod en la sección de labels
+ template:
+   metadata:
+     labels:
+       app: bulletinboard # Nombre del pod que se va a desplegar
+   spec:
+     containers:
+     - name: bulletinboard # Nombre del contenedor
+       image: demonccc/bulletin-board-app # Imagen de Docker a utilizar hectorjm/infraestructura
+       ports:
+       - containerPort: 8080 # Puerto donde escucha el contenedor
+
+//********************************hoy-master-srv.yaml*******************************//
+
+apiVersion: v1
+kind: Service
+metadata:
+ name: srv-bulletinboard # Nombre del servicio
+spec:
+ type: NodePort # Expone el servicio en cada nodo del clúster
+ selector:
+   app: bulletinboard # El nombre de los pods a agrupar
+ ports:
+   - protocol: TCP
+     port: 80 # Puerto del servicio
+     targetPort: 8080 # Puerto del pod
+     nodePort: 30000 # Puerto en el que se expondrá el servicio en cada nodo. Este parámetro se utiliza cuando el servicio es del tipo NodePort. Es un valor entre 30000-32767
+
+//******************************Comandos para el despliegue*****************************//
+
+kubectl create namespace board
+kubectl apply -f hoy-master-deployment.yaml -n board
+kubectl apply -f hoy-master-svc.yaml -n board
+
+kubectl port-forward --address 0.0.0.0 deployment/bulletin-deployment -n board 8080:8080
+
+//***************************Comandos de kubectl********************************//
+
+kubectl get deployment -n board
+kubectl get pods -n board
+kubectl get all -n board
+kubectl delete namespace board
+
+//***************************************************************************//
