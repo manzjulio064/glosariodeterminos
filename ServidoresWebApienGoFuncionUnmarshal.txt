@@ -1,0 +1,29 @@
+//********************************************************************//
+//**En este ejemplo, la representación JSON {"Name":"Alice","Age":30}
+//**se convierte de vuelta en una estructura Person utilizando json.Unmarshal(). Luego, podemos trabajar con los datos en forma de un objeto Go.
+
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+)
+
+type Person struct {
+	Name string
+	Age  int
+}
+
+func main() {
+	jsonData := []byte(`{"Name":"Alice","Age":30}`)
+	var person Person
+	err := json.Unmarshal(jsonData, &person)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	fmt.Println(person)
+}
+
+//********************************************************************//

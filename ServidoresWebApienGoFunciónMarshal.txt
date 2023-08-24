@@ -1,0 +1,28 @@
+//**********************************************************************//
+//**En este ejemplo, la estructura Person se convierte en una representación
+//**JSON utilizando json.Marshal(). La salida sería algo como: {"Name":"Alice","Age":30}.
+
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+)
+
+type Person struct {
+	Name  string
+	Age   int
+}
+
+func main() {
+	person := Person{Name: "Alice", Age: 30}
+	jsonData, err := json.Marshal(person)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	fmt.Println(string(jsonData))
+}
+
+//**********************************************************************//
