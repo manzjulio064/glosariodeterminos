@@ -1,0 +1,13 @@
+//****************verificar en que espacio de nombres estoy************************//
+
+kubectl config view --minify | grep namespace:
+
+//*************************Consultar todos lo nameSpaces********************************//
+
+kubectl get namespaces
+
+//*************************Cambiar de namespace******************************//
+
+kubectl config set-context --current --namespace=mesa4
+
+//**********************************************************************************//
