@@ -1,0 +1,3 @@
+nameSpace = board
+
+kubectl delete namespace board

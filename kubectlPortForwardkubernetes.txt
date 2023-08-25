@@ -1,0 +1,9 @@
+
+Artefacto     = svc/nginx
+Namespace     = mesa4
+PuertoExterno = 30000
+PuertoInterno = 80
+
+kubectl port-forward svc/nginx -n mesa4 30000:80
+
+kubectl port-forward --address 0.0.0.0 deployment/bulletin-deployment -n board 8080:8080

@@ -1,0 +1,4 @@
+NameSpace = board
+Artefacto = pods
+
+kubectl get pods -n board
