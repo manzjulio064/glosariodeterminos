@@ -1,18 +1,84 @@
 //***************************************************************************//
 
 package main
+
 import "github.com/gin-gonic/gin"
+
 func main() {
- // Crea un router con gin
- router := gin.Default()
- // Captura la solicitud GET “/hello-world”
- router.GET("/hello-world", func(c *gin.Context) {
- c.JSON(200, gin.H{
- "message": "Hello World!",
- })
- })
- // Corremos nuestro servidor sobre el puerto 8080
- router.Run()
+	// Crea un router con gin
+	router := gin.Default()
+	// Captura la solicitud GET “/hello-world”
+	router.GET("/hello-world", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "Hello World!",
+		})
+	})
+	// Corremos nuestro servidor sobre el puerto 8080
+	router.Run()
 }
 
+//********Buscar los productos de productos.json y mostrarlos en una peticion get en el localhost:8080******************************//
+
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"os"
+	"github.com/gin-gonic/gin"
+)
+
+var producto []Producto //Aqui estan los productos a mostrar
+
+type Producto struct {
+	Id              int     `json:"Id"`
+	Nombre          string  `json:"Nombre"`
+	Precio          float64 `json:"Precio"`
+	Stock           int     `json:"Stock"`
+	Codigo          string  `json:"Codigo"`
+	Publicado       bool    `json:"Publicado"`
+	FechaDeCreacion string  `json:"FechaDeCreacion"`
+}
+
+func main() {
+	router := gin.Default()
+	router.GET("/productos", todosLosProductos)
+
+	router.Run(":8080")
+
+}
+
+func readFile(name string) {
+	file, err1 := os.ReadFile(name)
+	if err1 != nil {
+		fmt.Println("Error al leer el archivo")
+		return
+	}
+
+	err2 := json.Unmarshal(file, &producto)
+	if err2 != nil {
+		fmt.Println("Error:", err2)
+		return
+	}
+
+}
+
+func todosLosProductos(c *gin.Context) {
+	readFile("./productos.json")
+	c.JSON(http.StatusOK, producto)
+}
+
+//***************************Productos.json*****************************//
+
+{
+  [
+      {"Id": 1, "Nombre": "televisor", "Precio": 19.99, "Stock": 50, "Codigo": "P001", "Publicado": true, "FechaDeCreacion": "2023-08-24"},
+      {"Id": 2, "Nombre": "computador", "Precio": 29.99, "Stock": 30, "Codigo": "P002", "Publicado": false, "FechaDeCreacion": "2023-08-24"},
+      {"Id": 3, "Nombre": "lavadora", "Precio": 9.99, "Stock": 100, "Codigo": "P003", "Publicado": true, "FechaDeCreacion": "2023-08-24"},
+      {"Id": 4, "Nombre": "plancha", "Precio": 49.99, "Stock": 20, "Codigo": "P004", "Publicado": true, "FechaDeCreacion": "2023-08-24"},
+      {"Id": 5, "Nombre": "la esposa", "Precio": 14.95, "Stock": 75, "Codigo": "P005", "Publicado": false, "FechaDeCreacion": "2023-08-24"},
+      {"Id": 6, "Nombre": "Producto 6", "Precio": 39.99, "Stock": 10, "Codigo": "P006", "Publicado": true, "FechaDeCreacion": "2023-08-24"}
+  ]
+}
 //***************************************************************************//
