@@ -1,0 +1,1 @@
+Un pod es la unidad más pequeña desplegable en Kubernetes y representa uno o más contenedores que se ejecutan juntos en un mismo nodo. Los contenedores en un pod comparten el mismo espacio de red y almacenamiento local, lo que facilita la comunicación entre ellos. Los pods son escalables y pueden replicarse para garantizar la alta disponibilidad de las aplicaciones.

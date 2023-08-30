@@ -1,0 +1,2 @@
+
+Un cluster de Kubernetes es el conjunto de recursos informáticos (servidores físicos o máquinas virtuales) y componentes de software que trabajan juntos para gestionar las aplicaciones en contenedores. Un cluster está compuesto por varios nodos que se combinan para formar un entorno de ejecución para las aplicaciones. El cluster incluye componentes como el "control plane" (plano de control) y el "kubelet" (agente que se ejecuta en cada nodo).
