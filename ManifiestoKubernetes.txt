@@ -1,0 +1,68 @@
+
+//***************************Manifiesto basico********************************//
+apiVersion: v1 # La versión de la API de Kubernetes que estamos utilizando para crear este objeto.
+kind: Pod  # Estamos creando un objeto de tipo Pod. Otros tipos son Deployment, Service, ConfigMap, Secret, Namespace, Ingress, PersistentVolumeClaim, PersistentVolume, Job (En mayuscula la primera letra)
+metadata: # Metadatos asociados al objeto, incluyendo su nombre.
+  name: mi-pod  # Nombre del pod
+spec: # Aquí se describe el estado deseado del objeto.
+  containers: #  Lista de contenedores en el pod.
+    - name: mi-contenedor  # Nombre del contenedor dentro del pod
+      image: nginx:latest  # Imagen del contenedor (en este caso, NGINX)
+      ports: # Puertos expuestos por el contenedor.
+        - containerPort: 80  # Puerto expuesto por el contenedor
+
+//******************************************************************************//
+
+Para crear un cluster en Kubernetes es buena practica empezar a nombrar los archivos
+con un numero inicial para que cuando se ejecuten todos los archivos los cree en orden
+por ejemplo primero debe crearse un namespace.
+
+namespace # Espacio virtual dentro de un clúster de Kubernetes.
+deployment #  ejecuta y escala una aplicación en contenedores. Define cuántos contenedores idénticos deben estar activos, cómo actualizarlos y manejar automáticamente los fallos para mantener la aplicación en funcionamiento.
+service # Proporciona una manera consistente y confiable de exponer y acceder a los recursos de una aplicación que se ejecuta en un clúster. En esencia, un Service actúa como un punto de acceso de red a los Pods (instancias individuales de una aplicación) que forman parte de un conjunto replicado.
+
+//**************************01-namespace.yaml*************************************//
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: hello-namespace
+
+//***************************02-deployment.yaml***********************************//
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: hello-deployment
+ namespace: hello-namespace
+spec:
+ selector:
+   matchLabels:
+     app: hello
+ replicas: 3
+ template:
+   metadata:
+     labels:
+       app: hello
+   spec:
+     containers:
+     - name: hello
+       image: "us-docker.pkg.dev/google-samples/containers/gke/hello-app:2.0"
+
+//**************************03-service.yaml*************************************//
+
+apiVersion: v1
+kind: Service
+metadata:
+ name: hello-service
+ namespace: hello-namespace
+spec:
+ type: ClusterIP
+ selector:
+   app: hello
+ ports:
+ - protocol: TCP
+   port: 80
+   targetPort: 8080
+
+//******************************************************************************//
