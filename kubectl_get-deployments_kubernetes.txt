@@ -1,0 +1,6 @@
+
+kubectl get deployments -n
+
+kubectl get deployments -n app
+
+kubectl get deployments -n hello-namespace

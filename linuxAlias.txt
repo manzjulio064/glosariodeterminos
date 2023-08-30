@@ -1,0 +1,21 @@
+//******************************************************************//
+//**En la terminal o prompt que estamos ubicados se abre el ~/.bashrc que corresponde al usuario en particular
+//**Por cada usuario se configuran los alias
+
+nano ~/.bashrc
+
+//*********************Modificar archivos****************************//
+
+//**Dentro del archivo bashrc se crear el alias
+
+alias agu="apt-get update"
+
+//***********************Aplicar cambios***********************//
+
+source ~/.bashrc
+
+//************************ejecutar el alias*************************//
+
+agu
+
+//******************************************************************//
