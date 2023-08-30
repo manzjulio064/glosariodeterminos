@@ -1,0 +1,18 @@
+
+//**Eliminar por ejemplo un servicio creado con el manifiesto 03-service.yaml
+
+//*********************Eliminar con un manifiesto el servicio****************************************//
+
+kubectl delete -f 03-service.yaml -n hello-namespace
+
+//******************************Eliminar con varios manifiestos***************************************//
+
+kubectl delete -f 01-namespace.yaml  02-deployment.yaml  03-service.yaml -n hello-namespace
+
+//**********************************Borra todo del namespace*****************************************//
+
+kubectl delete -f . -n hello-namespace
+
+//*************************************************************************************************//
+
+

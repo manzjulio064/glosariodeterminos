@@ -1,6 +1,9 @@
 
 
 kubectl create namespace board //Crear un namespace board
+
 kubectl apply -f hoy-master-deployment.yaml -n board //Despliega un archivo .yml en el namespace board
+
 kubectl apply -f hoy-master-svc.yaml -n board //Despliega un archivo .yml en el namespace board
+
 kubectl apply -f . -n board //Despliega todos los archivos .yml en el namespace board

@@ -1,0 +1,5 @@
+//**hello-service = nombre del servicio
+
+kubectl delete service/hello-service
+
+kubectl delete service/app
