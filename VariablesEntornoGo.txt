@@ -1,0 +1,42 @@
+//*********************Instalacion*******************//
+//**Para instalar el pkg godotenv, desde la consola de comandos, ejecutamos la siguiente instrucción:
+
+go get -u github.com/joho/godotenv
+
+//***************************************************//
+//**Tendremos que crear el archivo .env junto al main del proyecto y agregar variables.
+MY_USER=nombre_de_usuario
+MY_PASS=abcd1234
+
+//******************Codigo Ejemplo*******************//
+
+package main
+import (
+    "log"
+    "os"
+    "github.com/joho/godotenv"
+)
+
+func main() {
+    err := godotenv.Load()
+    if err != nil {
+        log.Fatal("Error al intentar cargar archivo .env")
+    }
+    usuario := os.Getenv("MY_USER")
+    password := os.Getenv("MY_PASS")
+
+    println("Usuario sacado de variables de Entorno: ", usuario)
+    println("Password sacado de variables de Entorno: ",
+password)
+}
+//******************Recordatorio****************//
+//**Antes de correr nuestro proyecto, tenemos que sumarle go mod init:
+
+go mod init Variables-de-entorno
+
+//***************************************************//
+//**Y también go mod tidy para asegurar que nuestro fichero go.mod refleje las dependencias de todas las posibles combinaciones de sistema operativo, arquitectura y build tags.
+
+go mod init Variables-de-entorno
+
+//***************************************************//
