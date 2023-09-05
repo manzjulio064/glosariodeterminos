@@ -1,0 +1,19 @@
+//**********************Comandos Basicos****************************//
+
+helm init # deja que helm configure ambos archivos de datos locales e instale su componente de servidor.
+helm search # buscar charts disponibles (usamos helm search <repo-name>/ para buscar solo un repositorio en
+particular).
+helm install <chart-name> # instalar un chart (usamos values para especificar un archivo de valores personalizado).
+helm inspect values<chart-name> # obtenemos el archivo de valores base de un chart para personalizarlo.
+helm list # lista de charts instalados ('releases').
+helm delete # eliminamos una versión (usamos --purge para eliminarla por completo).
+
+//*****************Crear un repositorio de charts******************//
+
+helm package <chart-directory> # empaqueta un chart en el directorio actual.
+helm repo index. # (re)construye el archivo index del directorio actual.
+helm repo add <repo-name> <repo-addr> # agrega un repositorio no oficial.
+
+Nota: es posible instalar un chart local sin pasar por un repositorio, lo cual es muy útil para el desarrollo, solo usamos: helminstall <chart-directory>
+
+//*****************************************************************//
