@@ -1,4 +1,4 @@
-//*********************************************************//
+//*****************************context No 1************************************//
 
 package main
 
@@ -21,4 +21,51 @@ func addValue(ctx context.Context) context.Context {
 	return context.WithValue(ctx, "CTD", "GO")
 }
 
-//*********************************************************//
+
+//******************************Context No 2********************************//
+Se translado un user entre capas de main.go que lo recibe hasta el archivo producto.go
+
+//**********************Funciones en main.go*******************//
+//**Crear en contexto user
+func addToContext(ctx context.Context, user string) context.Context {
+	nuevoContexto := context.WithValue(ctx, "user", user)
+	return nuevoContexto
+}
+
+
+router.GET("/productos/search", func(ctx *gin.Context) {
+		precioQuery := ctx.Query("priceGt")
+		user := ctx.Query("user") // Recibir un user por query parameter
+
+		if precioQuery != "" {
+			precio, err := strconv.ParseFloat(precioQuery, 64)
+			if err != nil {
+				ctx.JSON(400, gin.H{
+					"mensaje": "Precio invalido",
+				})
+				return
+			}
+			data := storage.GetProductosMayorPrecio(precio)
+			ctx.JSON(200, gin.H{
+				"data": data,
+			})
+
+			return
+		}
+		nuevoContexto := addToContext(ctx, user) //Adicionar el usuario recibido utilizando addToContext()
+		ctx.JSON(200, gin.H{
+			"data": storage.GetAll(nuevoContexto), //Enviar la informacion a la funcion storage.GetAll
+		})
+	})
+
+//*************************************package de producto.main*******************************************//
+
+	func (s *Storage) GetAll(ctx context.Context) []Producto { //recibimos por parameter ctx el user
+	user, ok := ctx.Value("user").(string) // lo convertimos a string
+	if ok && user != "" {
+		fmt.Println("Valor de contexto en el paquete producto", user) //lo validamos y lo mostramos en pantalla
+	}
+	return s.Productos
+}
+
+//*****************************************************************************************************//

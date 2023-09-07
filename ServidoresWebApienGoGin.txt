@@ -1,3 +1,81 @@
+//****************************Codigo basico 1 ********************************//
+
+package main
+
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
+
+const (
+	port = ":8080"
+)
+type Persona struct{
+	Nombre string `json:"Nombre"`
+	Apellido string `json:"Apellido"`
+	Edad string `json:"Edad"`
+}
+
+func main(){
+	router := gin.Default()
+
+	router.GET("/", func(ctx *gin.Context) {
+		ctx.JSON(http.StatusOK, gin.H{
+			"mensaje": "Pon",
+		})
+	})
+
+	router.GET("/persona",  personaje)
+
+	router.Run(port)
+
+}
+
+func personaje(ctx *gin.Context){
+
+	persona := Persona{
+		Nombre: "Hector",
+		Apellido: "moreno",
+		Edad: "47",
+	}
+
+	ctx.JSON(http.StatusOK, gin.H{
+		"data": persona,
+	})
+
+}
+
+//****************************Codigo basico 2********************************//
+
+package main
+
+import (
+	"github.com/gin-gonic/gin"
+)
+
+const (
+	puerto = ":8080"
+)
+
+func main() {
+
+	router := gin.Default()
+
+	router.GET("/ping", func(ctx *gin.Context) {
+		ctx.JSON(http.StatusOK, gin.H{
+			"mensaje": "pong",
+		})
+	})
+
+	router.GET("/productos", metodo())
+	router.DELETE("/productos/:id", metodo())
+
+	router.Run(puerto)
+
+
+}
+
 //***************************************************************************//
 
 package main
