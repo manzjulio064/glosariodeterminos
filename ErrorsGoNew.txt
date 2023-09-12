@@ -1,0 +1,15 @@
+
+//*************************************************************//
+
+import (
+	"errors"
+)
+
+var (
+	ErrEmptyList = errors.New("la lista de productos esta vacia")
+)
+
+	if len(r.db) < 1 {
+		return []Producto{}, ErrEmptyList
+	}
+//*************************************************************//

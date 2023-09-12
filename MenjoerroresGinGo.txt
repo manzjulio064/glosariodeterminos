@@ -1,0 +1,19 @@
+
+
+ctx.JSON(http.StatusInternalServerError, gin.H{
+  "Mensaje": "Intercal Server Error",
+})
+
+
+ctx.JSON(http.StatusOK, gin.H{
+  "data" : productos,
+})
+
+ctx.JSON(http.StatusBadRequest, gin.H{
+				"Mensaje": "id invalido",
+})
+
+ctx.JSON(http.StatusNoContent, gin.H{
+  "Mensaje": "Producto Eliminado",
+})
+
