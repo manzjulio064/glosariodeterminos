@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué es el proceso de build y qué incluimos en él?</title>
+
+    <style>
+
+      .contenedor {
+        margin-left: 10em;
+        margin-right: 10em;
+      }
+      /* Estilo para los puntos de la lista */
+      ul {
+          list-style-type: none;
+          padding-left: 20px;
+      }
+
+      li {
+            font-size: 1em;
+        }
+
+      li::before {
+          content: "•";
+          color: red;
+          display: inline-block;
+          width: 1em;
+          /* margin-left: -1em; */
+          font-size: 2em;
+      }
+  </style>
+
+</head>
+<body>
+  <div class="contenedor">
+
+    <h1>El proceso de build</h1>
+    <p>El pipeline es un componente fundamental en el desarrollo de software automatizado. Si bien el término se ha utilizado para describir muchos aspectos diferentes de la informática, en la industria de DevOps usamos pipelines para ilustrar las amplias aplicaciones de comportamientos y procesos involucrados en integración continua.</p>
+    <p>Pensemos entonces en los pipelines y sus procesos. Podemos reconocer distintas etapas que conforman un pipeline. Vamos a dedicarnos a una de ellas: el proceso de build o construcción de una aplicación. Es decir, la transformación del código fuente en una aplicación funcional para ser ejecutada por usuarios.</p>
+    <p>Comencemos el recorrido por este proceso. Veremos cómo se organiza, la manera en que se compone, y cómo se integra con Jenkins como herramienta de integración continua.</p>
+
+    <div style="padding:59.76% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/873099105?h=c6d6d9d9e6&amp;badge=0&amp;autopause=0&amp;quality_selector=1&amp;progress_bar=1&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="VideoInfraIIProcesoBuildjenkinis"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+
+    <h2>¡Hola mundo!</h2>
+    <p>¡Pasamos a la acción! Siguiendo este paso a paso, vamos a crear un “¡Hola mundo!” en Java. ¿Cómo? Utilizamos Maven para crear nuestro proyecto y compilar nuestra aplicación. Creamos después un dockerfile para dockerizar la aplicación y que el archivo hard sea creado dentro de nuestro contenedor. ¡Empecemos!</p>
+    <div style="padding:59.76% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/873101277?h=f7b6f2001e&amp;badge=0&amp;autopause=0&amp;quality_selector=1&amp;progress_bar=1&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 10/10/2023, 16:12:41"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+    <h2>¿Hacemos un proceso de build?</h2>
+    <p>Para realizar este ejercicio necesitamos contar con dos requisitos previos: Jenkins instalado y el código fuente de una aplicación Java. ¿Ya tenés todo listo? Vamos a usar Jenkins para la creación y ejecución del proceso de build de la aplicación.</p>
+    <iframe src="https://benjumeacarlos981.github.io/glosariodeterminos/PPTEjercitacionbuildContinuousIntegrationInfraIIpipeline.pdf" id="BasiBlockIframe756a6e59-d57b-4516-8325-5ef2f56a52c7" class="basic-block-content__content" width="100%" height="538vh" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="" title="BlockIframe"></iframe>
+
+  </div>
+</body>
+</html>
