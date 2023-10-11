@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El proceso de release</title>
+
+    <style>
+
+      .contenedor {
+        margin-left: 10em;
+        margin-right: 10em;
+      }
+      /* Estilo para los puntos de la lista */
+      ul {
+          list-style-type: none;
+          padding-left: 20px;
+      }
+
+      li {
+            font-size: 1em;
+        }
+
+      li::before {
+          content: "•";
+          color: red;
+          display: inline-block;
+          width: 1em;
+          /* margin-left: -1em; */
+          font-size: 2em;
+      }
+  </style>
+
+</head>
+<body>
+  <div class="contenedor">
+    <h1>El Despliegue Continuo (CD)</h1>
+    <p>En el <strong>Módulo III</strong> iniciamos nuestro recorrido en el mundo de los <stromg>pipelines</stromg> y aprendimos qué es la <strong>Integración Continua (CI)</strong> y las etapas que involucra. Pero el desarrollo de un producto o artefacto no termina allí, sino que ¡recién inicia!</p>
+
+    <p>En esta clase verás cómo tu producto, recién salido de la fábrica, queda disponible para su consumo. Pero lograrlo no es tan sencillo, ¡involucra varias etapas que te permitirán comprobar la calidad del desarrollo y asegurar su correcta entrega! El <strong>Despliegue Continuo (CD)</strong> es ese segmento del pipeline que se encarga de llevar un producto ya construido a un ambiente productivo: ahí donde se utilizará.</p>
+    <br>
+    <p>¡Vamos a darle una vuelta de rosca más a los pipelines encadenando cada vez más procesos para construir productos sólidos y robustos!</p>
+<br>
+<div style="padding:59.76% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/873412205?h=d6d01533e8&amp;badge=0&amp;autopause=0&amp;quality_selector=1&amp;progress_bar=1&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 11/10/2023, 11:58:53"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+   <br>
+
+    <h2>¡Construimos un circuito de CD!</h2>
+    <p>En esta práctica vas a construir un flujo de Despliegue Continuo con herramientas del mundo real. Si bien puede resultarte algo complejo, una vez que logres configurar y poner a punto el pipeline ¡es de gran ventaja!</p>
+    <p>Imaginemos tener que hacerlo de manera manual... Podría ser divertido la primera vez, pero este proceso puede suceder cientos de veces al mes en una empresa y más aún si está automatizado en un pipeline. ¡He ahí el plus de esta ejercitación!</p>
+    <p>Para llevar adelante esta práctica y sumergirnos en el proceso de CD, vas a utilizar dos herramientas muy conocidas:</p>
+    <ul>
+      <li><strong>Jenkins</strong> te ayudará a controlar todo el proceso.</li>
+      <li><strong>Nexus 3</strong> te permitirá conservar un catálogo de las compilaciones que hagas y poder utilizarlas más adelante.</li>
+    </ul>
+
+    <br>
+    <p>¡A jugar!</p>
+
+        <iframe src="https://benjumeacarlos981.github.io/glosariodeterminos/InfraIIEjercitacionCircuitodeCDpipelineProcesorelease.pdf" id="BasiBlockIframe756a6e59-d57b-4516-8325-5ef2f56a52c7" class="basic-block-content__content" width="100%" height="800vh" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="" title="BlockIframe"></iframe>
+<br>
+<br>
+<br>
+<br>
+  </div>
+</body>
+</html>
