@@ -2,13 +2,13 @@ version: "3.1"
 services:
   db:
     image: mysql:8.0.32
-    container_name: basesdatosII
+    container_name: mysql
     restart: always
     environment:
-      MYSQL_DATABASE: dbespecializacion
-      MYSQL_USER: camada4
-      MYSQL_PASSWORD: camada4
-      MYSQL_ROOT_PASSWORD: camada4
+      MYSQL_DATABASE: db
+      MYSQL_USER: intadmin
+      MYSQL_PASSWORD: 5086
+      MYSQL_ROOT_PASSWORD: root
     ports:
       - 3306:3306
     volumes:

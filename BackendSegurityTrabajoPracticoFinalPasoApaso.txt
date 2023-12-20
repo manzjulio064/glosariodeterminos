@@ -1,0 +1,80 @@
+Tener instalado docker
+
+instalar keycloak
+docker run -p 8082:8080 -d --name keycloak -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:21.0.1 start-dev
+iniciar el contenedor de keycloak si no esta iniciado docker start keycloak Verificar con localhost:8082 (Se demora un rato)
+usuario keycloak admin y password admin
+
+Instalar mysql con docker-compose up
+//*******************docker-compose.yml********************//
+version: "3.1"
+services:
+  db:
+    image: mysql:8.0.32
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: db
+      MYSQL_USER: intadmin
+      MYSQL_PASSWORD: 5086
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
+    volumes:
+      - my-db:/var/lib/mysql
+volumes:
+  my-db:
+
+//*******************descargar el proyecto*******************//
+
+
+git clone https://github.com/cytelsystem/backEndSegurity.git
+
+//****Se cambia a la rama feign-Final-sql*****//
+git checkout feign-Final-sql
+
+//*****************levantar los microservicios******************//
+
+1. ms-discovery con mvn spring-boot:run
+2. runner con mvn spring-boot:run
+3. ms-gateway con mvn spring-boot:run
+4. users-service con mvn spring-boot:run
+5. ms-bills con mvn spring-boot:run
+
+//*****************Postman******************//
+
+Authorization
+ - OAuth 2.0
+
+"Header Prefix" Bearer
+
+**Configure New Token**
+ - Token Name = msbills
+ - Grant type = Authorization Code
+ - Callback URL = http://localhost:9090/*
+ - Auth URL = http://localhost:8082/realms/dh/protocol/openid-connect/auth
+ - Access Token URL = http://localhost:8082/realms/dh/protocol/openid-connect/token
+ - Client ID = api-gateway-client
+ - Client Secret = toDBMTqzwxJsCd14cYL883YphnTcdgcb
+ - Scope = openid
+ - Client Authentication = Send as Basic Auth header
+ - **Auth Request**
+	****key*****	      ***value****
+	redirect_url	http://localhost:9090/*
+
+
+****en el Body raw y json**
+URL = post http://localhost:9090/bills/crear
+
+ ***El customerBill es el id del usuario creado en keycloak****
+
+  {
+    "customerBill": "07ff58dd-bb25-4192-9721-cb0000d4e94e",
+    "productBill": "cargadorddd5",
+    "totalPrice": 1520000
+  }
+
+
+//****************************************************************************//
+
+
