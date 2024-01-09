@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitorear aplicaciones con CloudWatch</title>
+
+    <style>
+
+      .contenedor {
+        margin-left: 10em;
+        margin-right: 10em;
+      }
+      /* Estilo para los puntos de la lista */
+      ul {
+          list-style-type: none;
+          padding-left: 20px;
+      }
+
+      li {
+            font-size: 1em;
+        }
+
+      li::before {
+          content: "•";
+          color: red;
+          display: inline-block;
+          width: 1em;
+          /* margin-left: -1em; */
+          font-size: 2em;
+      }
+  </style>
+
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Monitorear aplicaciones con CloudWatch</h1>
+    <p>Ya vimos cómo usar CloudWatch para monitorear infraestructura. Exploramos el entorno de trabajo y algunas de sus métricas: CPU, memoria, espacio de almacenamiento utilizado y tráfico de red. Pero cuando nos proponemos monitorear una aplicación, estas métricas no nos resultan muy útiles.</p>
+    <p>¡CloudWatch tiene mucho para ofrecernos! Vamos a utilizar la misma herramienta para hacer el monitoreo de una aplicación web. ¡Subite a este paso a paso para hacer el despliegue de una aplicación demo utilizando Elastic Beanstalk!</p>
+
+    <div style="padding:59.4% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/900982334?h=0f864ea006&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="InfraIIC22AMonitoreoaplicacionesUtilizarCloudWatch"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+    <h2>¡A practicar!</h2>
+    <p>¿Monitoreo e integraciones? En la siguiente ejercitación vamos a descubrir que incorporar al monitoreo otras herramientas nos dará mayor valor agregado y más productividad. ¡Y nos va a permitir recibir notificaciones en tiempo real!</p>
+
+    <p>Para poder hacerlo, vamos a encadenar CloudWatch, Parameter Store, Lambda y Slack para ser notificados en tiempo real mediante un pop-up en un canal de Slack cuando el estado de una instancia EC2 cambie a un valor definido como crítico.</p>
+    <p>¿Cómo lo haremos? ¡Seguí este paso a paso y olvidate de las notificaciones a través del correo electrónico!</p>
+  </div>
+</body>
+</html>
