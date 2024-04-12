@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encapsulamiento (publico / privado)</title>
+
+    <style>
+
+      .contenedor {
+        margin-left: 10em;
+        margin-right: 10em;
+      }
+      /* Estilo para los puntos de la lista */
+      ul {
+          list-style-type: none;
+          padding-left: 20px;
+      }
+
+      li {
+            font-size: 1em;
+        }
+
+      li::before {
+          content: "•";
+          color: red;
+          display: inline-block;
+          width: 1em;
+          /* margin-left: -1em; */
+          font-size: 2em;
+      }
+      .block-box {
+          display: flex;
+          max-width: 100%;
+          flex-direction: column;
+          border-radius: .5rem;
+          --tw-bg-opacity: 1;
+          background-color: rgb(227 227 227 / var(--tw-bg-opacity));
+      }
+
+      .text-block__content {
+          padding: .75rem 1rem;
+          --tw-text-opacity: 1;
+          color: rgb(0 0 0 / var(--tw-text-opacity));
+      }
+
+            .block-box__title {
+          padding: 1.5rem .75rem 1rem;
+      }
+
+      .block-box__title {
+          padding: 1.5rem .75rem 1rem;
+      }
+
+      .block-box__title {
+          font-family: Montserrat, sans-serif;
+          font-size: 1.5rem;
+          line-height: 2rem;
+          font-weight: 600;
+          --tw-text-opacity: 1;
+          color: rgb(0 0 0 / var(--tw-text-opacity));
+      }
+  </style>
+
+</head>
+<body>
+  <div class="contenedor">
+    <br>
+    <br>
+
+    <div class="block-box"><div><h2 class="block-box__title">No todo el mundo no tiene que saber cómo hago yo las cosas</h2><div class="text-block__content"><div>
+      <p>
+          Los objetos son clave para comprender la tecnología orientada a objetos. Tenemos que conocer sus atributos, pero ¿debo cambiarlos?. Claro, como aprendimos desde niños, para usar lo de otro debo pedirlo a su dueño. Por eso, es muy importante que en el caso de programación de objetos, cada uno “<span>oculte</span>” su manera de guardar sus atributos y los “<span>exponga</span>” mediante acciones que cualquiera puede invocar.
+      </p>
+      <p>
+          Mi manera de recordar mi edad es desconocida para cualquiera, pero cuando me pregunten la edad, van a recibir la información de cuántos años tengo. Y ustedes lo deben hacer de formas diferentes, ¿recuerdan la fecha de nacimiento, cuántos cumplieron o cuántos años más que sus hermanos tienen? Esto se llama <span><u>encapsulamiento</u></span> y vamos a estudiarlo a continuación.
+      </p>
+    </div></div></div></div>
+
+    <br>
+    <br>
+    <br>
+
+    <div class="block-box"><div><h2 class="block-box__title">¿Qué es encapsular?</h2>
+
+      <iframe src="https://manzjulio064.github.io/glosariodeterminos/POPQueEsEncapsularJava.pdf" id="BasiBlockIframe756a6e59-d57b-4516-8325-5ef2f56a52c7" class="basic-block-content__content" width="100%" height="800vh" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="" title="BlockIframe"></iframe>
+
+    </div></div>
+
+    <br>
+    <br>
+    <br>
+
+
+  </div>
+</body>
+</html>

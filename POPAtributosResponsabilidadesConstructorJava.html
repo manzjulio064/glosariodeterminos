@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atributos, responsabilidades y constructor</title>
+
+    <style>
+
+      .contenedor {
+        margin-left: 10em;
+        margin-right: 10em;
+      }
+      /* Estilo para los puntos de la lista */
+      ul {
+          list-style-type: none;
+          padding-left: 20px;
+      }
+
+      li {
+            font-size: 1em;
+        }
+
+      li::before {
+          content: "•";
+          color: red;
+          display: inline-block;
+          width: 1em;
+          /* margin-left: -1em; */
+          font-size: 2em;
+      }
+      .block-box {
+          display: flex;
+          max-width: 100%;
+          flex-direction: column;
+          border-radius: .5rem;
+          --tw-bg-opacity: 1;
+          background-color: rgb(227 227 227 / var(--tw-bg-opacity));
+      }
+
+      .text-block__content {
+          padding: .75rem 1rem;
+          --tw-text-opacity: 1;
+          color: rgb(0 0 0 / var(--tw-text-opacity));
+      }
+
+            .block-box__title {
+          padding: 1.5rem .75rem 1rem;
+      }
+
+      .block-box__title {
+          padding: 1.5rem .75rem 1rem;
+      }
+
+      .block-box__title {
+          font-family: Montserrat, sans-serif;
+          font-size: 1.5rem;
+          line-height: 2rem;
+          font-weight: 600;
+          --tw-text-opacity: 1;
+          color: rgb(0 0 0 / var(--tw-text-opacity));
+      }
+
+
+  </style>
+
+</head>
+<body>
+  <div class="contenedor">
+
+    <br>
+    <br>
+    <br>
+
+    <div class="block-box"><div><h2 class="block-box__title">Ahora a ver si podemos hacerlo nosotros</h2><div class="text-block__content"><div>
+      <p>
+          Nuestros objetos tienen que ser identificados y diseñados para poder usarlos en nuestros programas. ¿Qué tal si vemos como?
+      </p>
+    </div></div></div></div>
+
+    <br>
+    <br>
+    <br>
+
+    <div style="padding:62.5% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/933839441?h=8bd4675260&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="POPQuesonLosAtributosResponsabilidadesJavaVideo"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+    <br>
+    <br>
+    <br>
+
+    <div class="block-box"><div><h2 class="block-box__title">Reflexión acerca de los objetos</h2><div class="text-block__content"><div>
+      <p>
+          Objetos, Objetos, Objetos...¡En todos lados hay objetos! <br>
+          Pero no nos importan todos los objetos… ¿o si? <br>
+          Bueno, podés mostrar tu habilidad con objetos en el próximo ejercicio, no te olvides de tener en cuenta que cada objeto puede servir para muchas cosas, y solamente nos importa una de ellas.
+      </p>
+    </div></div></div></div>
+
+    <br>
+    <br>
+    <br>
+
+    <div class="block-box"><div><h2 class="block-box__title">Como encontrar atributos y metodos en los objetos</h2><iframe src="https://drive.google.com/file/d/18chR-LRTKEXKO5McQdeESrtzSpo0UKAW/preview?usp=sharing" allowfullscreen="" title="BlockIframe" class="pdf-block__content"></iframe></div></div>
+
+    <br>
+
+    <iframe src="https://manzjulio064.github.io/glosariodeterminos/POPDescubriendoObjetosJava.pdf" id="BasiBlockIframe756a6e59-d57b-4516-8325-5ef2f56a52c7" class="basic-block-content__content" width="100%" height="800vh" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="" title="BlockIframe"></iframe>
+
+    <br>
+    <br>
+    <br>
+
+    <div class="block-box"><div><h2 class="block-box__title">Atributos y comportamientos</h2><div class="text-block__content"><div>
+      <p>
+          Entonces, ¿qué son los atributos y las responsabilidades de un objeto?
+          Los atributos de un objeto son las características y propiedades distintivas que permiten darle significado. Continuando con el ejemplo visto anteriormente en el video:
+      </p>
+      <ul>
+          <li>Clase: Veterinaria</li>
+          <li>Objeto: Veterinario</li>
+          <li>Atributo: nombre, apellido, matrícula</li>
+      </ul>
+      <p>
+          Mientras que las responsabilidades o comportamientos son la manera en que actúa o reacciona un objeto —es decir, es lo que representa la actividad visible y comprobable exteriormente—, en la programación orientada a objetos vamos a llamar al comportamiento de los objetos:  “<span>métodos</span>’’, los cuales nos van a permitir establecer cómo van a responder los objetos cuando interactuemos con ellos. ¡Atención! Los atributos y comportamientos van a depender del contexto del objeto, tal como hemos visto en el video en el caso de la silla.
+      </p>
+      <p>
+          Cada método especifica la operación o comportamiento que a su vez puede acceder a la estructura interna del objeto, como así también interactuar con otros objetos. Por lo general, los encontramos como verbos indicando las acciones que puede realizar el objeto.
+      </p>
+      <ul>
+          <li>Clase: Veterinaria</li>
+          <li>Objeto: Veterinario</li>
+          <li>Atributo: nombre, apellido, matrícula.</li>
+          <li>Responsabilidades/comportamiento: recibirMascota, curar, HacerDiagnostico.</li>
+      </ul>
+      <h3>Constructor de un objeto</h3>
+      <p>
+          Ya tenemos claramente definidas las partes de nuestro objeto, ya podemos dejar lista nuestra definición (la <span>clase Veterinario</span>). <br>
+          A partir de esa clase, podemos crear los objetos. Cada objeto tendrá sus valores propios de cada atributo y será capaz de hacer cada una de sus responsabilidades. <br>
+          Para poder crear estos objetos utilizaremos el <span>Constructor</span> que será quien, a partir de la clase, genera un nuevo objeto.
+          Al objeto Veterinario vamos a darle un método constructor:
+      </p>
+      <img alt="Escritura Objeto" src="https://manzjulio064.github.io/glosariodeterminos/POPobjetoJava.jpg">
+      </div></div></div></div>
+
+      <br>
+      <br>
+
+      <div class="block-box"><div><h2 class="block-box__title">Ejemplos de atributos y comportamientos</h2>
+
+        <iframe src="https://manzjulio064.github.io/glosariodeterminos/EjemplosObjetoySusAtributosYmetodosJava.pdf" id="BasiBlockIframe756a6e59-d57b-4516-8325-5ef2f56a52c7" class="basic-block-content__content" width="100%" height="800vh" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="" title="BlockIframe"></iframe>
+
+      </div></div>
+
+      <br>
+      <br>
+
+
+
+
+  </div>
+</body>
+</html>
