@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase en vivo</title>
+
+    <style>
+
+      .contenedor {
+        margin-left: 10em;
+        margin-right: 10em;
+      }
+      /* Estilo para los puntos de la lista */
+      ul {
+          list-style-type: none;
+          padding-left: 20px;
+      }
+
+      li {
+            font-size: 1em;
+        }
+
+      li::before {
+          content: "•";
+          color: red;
+          display: inline-block;
+          width: 1em;
+          /* margin-left: -1em; */
+          font-size: 2em;
+      }
+      .block-box {
+          display: flex;
+          max-width: 100%;
+          flex-direction: column;
+          border-radius: .5rem;
+          --tw-bg-opacity: 1;
+          background-color: rgb(227 227 227 / var(--tw-bg-opacity));
+      }
+      .block-box__title {
+          padding: 1.5rem .75rem 1rem;
+      }
+      .block-box__title {
+          font-family: Montserrat, sans-serif;
+          font-size: 1.5rem;
+          line-height: 2rem;
+          font-weight: 600;
+          --tw-text-opacity: 1;
+          color: rgb(0 0 0 / var(--tw-text-opacity));
+      }
+      .pdf-block__content {
+          aspect-ratio: 16 / 9;
+          width: 100%;
+      }
+      .pdf-block__content, .slide-block__content {
+          overflow: hidden;
+          border-bottom-right-radius: .5rem;
+          border-bottom-left-radius: .5rem;
+      }
+      audio, canvas, embed, iframe, img, object, svg, video {
+            display: block;
+            /* vertical-align: middle; */
+        }
+  </style>
+
+</head>
+<body>
+  <div class="contenedor">
+    <br>
+    <br>
+    <br>
+
+    <div class="block-box"><div><h2 class="block-box__title">Ejercicio 1 </h2><iframe src="https://manzjulio064.github.io/glosariodeterminos/POPCasodeestudioClase4BancoDigital.pdf" allowfullscreen="" title="BlockIframe" class="pdf-block__content"></iframe></div></div>
+
+    <div class="block-box"><div><h2 class="block-box__title">Ejercicio 2 </h2><iframe src="https://manzjulio064.github.io/glosariodeterminos/POPDiagramaUMLBancoDigitalJava.pdf" allowfullscreen="" title="BlockIframe" class="pdf-block__content"></iframe></div></div>
+    <br>
+    <br>
+    <br>
+  </div>
+</body>
+</html>
