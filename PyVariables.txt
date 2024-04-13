@@ -1,0 +1,13 @@
+numero = 3
+print(numero)
+
+numero1 = 5
+numero2 = 6
+ en consola puedo directamente consultar la variable sin print
+
+ numero1  Enter
+
+ numero1 + numero2 Enter me da 11
+
+
+Nota: El identificadoe de mi variable no puede comenzar con un número y debe estar en minúsculas. Las palabras dentro del mismo se separan con guión bajo _
