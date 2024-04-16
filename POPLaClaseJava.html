@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La clase</title>
+
+    <style>
+
+      .contenedor {
+        margin-left: 10em;
+        margin-right: 10em;
+      }
+      /* Estilo para los puntos de la lista */
+      ul {
+          list-style-type: none;
+          padding-left: 20px;
+      }
+
+      li {
+            font-size: 1em;
+        }
+
+      li::before {
+          content: "•";
+          color: red;
+          display: inline-block;
+          width: 1em;
+          /* margin-left: -1em; */
+          font-size: 2em;
+      }
+      .block-box {
+          display: flex;
+          max-width: 100%;
+          flex-direction: column;
+          border-radius: .5rem;
+          --tw-bg-opacity: 1;
+          background-color: rgb(227 227 227 / var(--tw-bg-opacity));
+      }
+      .block-box__title {
+          padding: 1.5rem .75rem 1rem;
+      }
+      .block-box__title {
+          font-family: Montserrat, sans-serif;
+          font-size: 1.5rem;
+          line-height: 2rem;
+          font-weight: 600;
+          --tw-text-opacity: 1;
+          color: rgb(0 0 0 / var(--tw-text-opacity));
+      }
+      .text-block__content {
+          padding: .75rem 1rem;
+          --tw-text-opacity: 1;
+          color: rgb(0 0 0 / var(--tw-text-opacity));
+      }
+      .module__header {
+          margin-bottom: 1.5rem;
+          display: flex;
+          flex: 1 1 0%;
+          align-items: center;
+          justify-content: space-between;
+      }
+      .pdf-block__content, .slide-block__content {
+          overflow: hidden;
+          border-bottom-right-radius: .5rem;
+          border-bottom-left-radius: .5rem;
+      }
+      .pdf-block__content, .slide-block__content {
+          overflow: hidden;
+          border-bottom-right-radius: .5rem;
+          border-bottom-left-radius: .5rem;
+      }
+      .slide-block__content {
+          aspect-ratio: 3 / 2;
+          width: 100%;
+      }
+      audio, canvas, embed, iframe, img, object, svg, video {
+          display: block;
+          vertical-align: middle;
+      }
+
+
+
+
+  </style>
+
+</head>
+<body>
+  <div class="contenedor">
+    <br>
+    <br>
+    <div class="block-box"><div><h2 class="block-box__title">Las clases también tienen sus variables y métodos propios</h2><div class="text-block__content">  <div>
+          <p>
+            Ya podemos implementar nuestras clases y, a partir de ello, crear objetos o instancias de las mismas. Todos los objetos que creamos tienen los mismos atributos, pero cada uno tiene su propio estado, los atributos tienen distintos valores para cada objeto. Ahora veremos que hay una forma de tener un único valor para todos los objetos.
+          </p>
+      </div></div></div>
+    </div>
+
+
+    <br>
+    <iframe src="https://manzjulio064.github.io/glosariodeterminos/POPLaclaseTerminadaJava.pdf" allowfullscreen="" title="BlockIframe" class="slide-block__content">
+    </iframe>
+    <br>
+    <br>
+    <iframe src="https://manzjulio064.github.io/glosariodeterminos/POPEjercicioClienteLaClasesJava.jpg" allowfullscreen="" title="BlockIframe" class="slide-block__content">
+    </iframe>
+
+  </div>
+</body>
+</html>
