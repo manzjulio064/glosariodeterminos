@@ -1,0 +1,45 @@
+//****Se puede asignar el tipo de dato a la variable desde el principio
+//**Nota: estas >>> pertenecen al prompt de la terminal de python
+
+>>> nombre = str
+>>> nombre
+<class 'str'>
+>>> nombre = int
+>>> nombre
+<class 'int'>
+
+//********************************************//
+>>> total = 0
+>>> total
+0
+>>> total = total + 2
+>>> total
+2
+>>> total = total + 3
+>>> total
+5
+
+>>> numero1 = input("Ingrese un numero ")
+Ingrese un numero 4
+>>> numero1
+'4'
+>>> numero1 = int(numero1)
+>>> numero1
+4
+
+>>> str(numero1)
+'4'
+
+>>> numero1 = int(numero1)
+>>> numero1
+4
+>>> numero1 = 4.5
+>>> numero1
+4.5
+>>> numero2 = int()
+>>> numero2
+0
+>>> numero2 = 5
+>>> numero2
+5
+
