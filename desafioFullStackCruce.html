@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Ajustado a la Pantalla</title>
+<style>
+    .video-container {
+        position: relative;
+        width: 100%;
+        height: 100vh; /* El video ocupará el 100% de la altura de la pantalla */
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+</head>
+<body>
+
+<div class="video-container">
+    <iframe src="https://player.vimeo.com/video/938329463?h=ac0cecebbf&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="desafíoFullStackCruce"></iframe>
+</div>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+</body>
+</html>
