@@ -1,0 +1,26 @@
+
+def conversor(tipo, valor_dolar):
+    pesos = float(input("Cuantos pesos" + tipo + "tienes?: "))
+    dolares = pesos / valor_dolar
+    dolares = round(dolares, 2) # redondear decimales
+    return dolares
+
+menu = """
+Bienvenidos al conversor de modenas
+
+1 - Pesos Colombianos
+2 - Pesos Argentinos
+3 - Pesos Mexicanos
+
+Elige una opción: """
+
+opcion = int(input(menu))
+
+if opcion == 1:
+    print(conversor("Colombianos", 3875))
+elif opcion == 2:
+    print(conversor("Argentinos", 65))
+elif opcion == 3:
+    print(conversor("Mexicanos", 24))
+else:
+    print("No existe la opcion")
