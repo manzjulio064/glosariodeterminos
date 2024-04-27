@@ -1,0 +1,291 @@
+{
+  "editor.tokenColorCustomizations": {
+    "comments":"#FF9900",  // RESALTA LA SINTAXIS  HECTOR
+    "textMateRules": [
+      {
+        "scope": "punctuation.definition.template-expression",
+        "settings": {
+          "foreground": "#622bfa",
+        }
+      },
+      {
+        "scope": "meta.template.expression",
+        "settings": {
+          "foreground": "#dcdcdc",
+        }
+      }
+    ]
+  },
+
+
+  "browser-preview.startUrl": "http://localhost:3000",
+  "codesnap.boxShadow": "rgba(0, 0, 0, 0) 0px 0px 50px",
+  "codesnap.transparentBackground": true,
+  "codesnap.containerPadding": "0",
+  "codesnap.target": "container",
+  "explorer.autoReveal": false,
+  "terminal.integrated.fontSize": 12,
+  "editor.fontSize": 20,
+  "editor.tabSize": 2,
+  "editor.acceptSuggestionOnEnter": "on",
+  // quita todos los tooltips molestos
+  // "editor.hover.enabled": false,
+  "html.hover.documentation": false,
+  "html.hover.references": false,
+  // "css.hover.references": false,
+  "css.hover.documentation": false,
+  // ----------
+  // "git.enabled": false,
+  "screencastMode.onlyKeyboardShortcuts": true,
+  "editor.renderWhitespace": "all",
+  "editor.semanticHighlighting.enabled": false,
+  "workbench.tips.enabled": false,
+  // "workbench.statusBar.feedback.visible": false,
+  "emmet.triggerExpansionOnTab": true,
+  "explorer.openEditors.visible": 0,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx"
+},
+
+
+
+
+  "workbench.colorCustomizations": {
+
+
+
+
+
+
+    "descriptionForeground": "#2be605",
+    "editor.foreground": "#eef0f3", // COLOR LETRA VARIABLES HECTOR
+    "editor.background": "#0b1011",
+    "editor.selectionBackground": "#6708e4",
+
+
+    "[Seti Monokai]": {
+      "statusBar.background": "#0b1011",
+      "sideBar.background": "#0b1011",
+      // "sideBar.background": "#1b1f1f",
+      "titleBar.activeBackground": "#1b1f1f",
+      "tab.inactiveBackground": "#1b1f1f",
+      "editorGroupHeader.tabsBackground": "#1b1f1f",
+      "activityBar.background": "#0c1011"
+    }
+
+
+  },
+  // "customizeUI.activityBar": "bottom",
+  "customizeUI.titleBar": "inline",
+  "customizeUI.fontSizeMap": {
+    "13px": "11px"
+  },
+  "files.associations": {
+    "*.js": "javascriptreact",
+    "*.scss": "css",
+    "*.tf": "terraform"
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/.next": true
+  },
+  "explorer.confirmDelete": false,
+  "files.trimTrailingWhitespace": true,
+  "workbench.settings.editor": "ui",  //HECTOR
+  "sync.gist": "f726eaf0d4d67e0763b797a0dae23906",
+  "files.exclude": {
+    "node_modules": false,
+    ".next": false,
+    ".idea": false,
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "editor.minimap.enabled": false,
+  "liveServer.settings.donotVerifyTags": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "window.titleBarStyle": "native",
+  // "editor.formatOnSave": true,  // Hector
+  "liveServer.settings.donotShowInfoMsg": true,
+  "gitlens.advanced.messages": {
+    "suppressGitDisabledWarning": true
+  },
+  "explorer.confirmDragAndDrop": false,
+  "tabnine.experimentalAutoImports": true,
+  // "editor.autoClosingBrackets": "beforeWhitespace",
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": false,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": false
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.autoSave": "afterDelay",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "database-client.highlightSQLBlock": true,
+  "prettier.bracketSpacing": false,
+  "[json]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "terminalMacros.commands": [
+
+
+    {
+      "command": "echo Hello world"
+    },
+    {
+      "command": "{recent}",
+      "group": "General",
+      "name": "Last Command",
+      "save": true,
+      "show": true,
+      "stop": false,
+      "logout": false,
+      "clear": true,
+      "execute": true,
+      "focus": false
+    },
+    {
+      "group": "General",
+      "name": "Run File",
+      "command": "./{file}"
+    },
+    {
+      "group": "General",
+      "name": "Paste",
+      "command": "{paste}"
+    }
+  ],
+  "[markdown]": {
+
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
+
+
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 1000,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+"java.home": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.3.7-hotspot",
+"java.help.firstView": "gettingStarted",
+"githubIssues.queries": [
+  {
+    "label": "My Issues",
+    "query": "default"
+  },
+  {
+    "label": "Created Issues",
+    "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
+  },
+  {
+    "label": "Recent Issues",
+    "query": "state:open repo:${owner}/${repository} sort:updated-desc"
+  }
+],
+"git.autofetch": true,
+"editor.mouseWheelZoom": true,
+"terminal.external.windowsExec": "",
+"editor.multiCursorModifier": "ctrlCmd",
+"[python]": {
+  "editor.formatOnType": true
+},
+"editor.largeFileOptimizations": false,
+"database-client.showTrigger": true,
+"database-client.showUser": true,
+"database-client.showEvent": true,
+"database-client.saveConnectionExpandedState": true,
+"conf.mongo.dbs": [
+  {
+    "name": "Mongo",
+    "srv": "mongodb://root:root@localhost:27017"
+  }
+],
+"mongoShell.path": "C:\\Program Files\\MongoDB\\Server\\4.2\\bin\\mongosh.exe",
+"mongoShell.port": "27017",
+"mongoShell.host": "localhost",
+"mongoShell.verbose": null,
+"mongoShell.username": "root",
+"mongoShell.quiet": null,
+"mdb.confirmRunAll": false,
+"mongodbLanguageServer.trace.server": {
+
+},
+"mdb.showMongoDBPlaygrounds": false,
+"mdb.useDefaultTemplateForPlayground": false,
+"workbench.startupEditor": "none",
+
+"go.lintTool":"golangci-lint",
+  "go.lintFlags": [
+    "--fast"
+  ],
+  "go.toolsManagement.autoUpdate": true,
+  "security.allowedUNCHosts": [
+    "wsl.localhost"
+  ],
+  "[yaml]": {
+
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "redhat.telemetry.enabled": true,
+  "vs-kubernetes": {
+    "vscode-kubernetes.kubectl-path.windows": "C:\\Users\\cytel\\.vs-kubernetes\\tools\\kubectl\\kubectl.exe",
+    "vscode-kubernetes.helm-path.windows": "C:\\Users\\cytel\\.vs-kubernetes\\tools\\helm\\windows-amd64\\helm.exe",
+    "vscode-kubernetes.minikube-path.windows": "C:\\Users\\cytel\\.vs-kubernetes\\tools\\minikube\\windows-amd64\\minikube.exe"
+  },
+  "liveServer.settings.AdvanceCustomBrowserCmdLine": "",
+  "window.zoomLevel": 1,
+  "terminal.integrated.automationProfile.osx": {
+
+  },
+  "terminal.integrated.profiles.linux": {
+
+    "bash": {
+      "path": "bash",
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh"
+    },
+    "fish": {
+      "path": "fish"
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    },
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    }
+  },
+  "terminal.integrated.profiles.windows": {
+    "Cmder": {
+        "path": "${env:windir}\\System32\\cmd.exe",
+        "args": ["/K", "C:\\Program Files\\cmder\\vendor\\bin\\vscode_init.cmd"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+
+
+
+}
+
