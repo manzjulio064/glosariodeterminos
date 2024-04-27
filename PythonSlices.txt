@@ -1,0 +1,18 @@
+//** El cero es el inicio y el 2 es el caracter hasta donde quiero cortar
+
+nombre = "hector"
+
+nombre[0:2]
+'he'
+nombre[0:3]
+'hec'
+nombre[3:]
+'tor'
+nombre[0:4]
+'hect'
+nombre[0:4:2] //La tercera opción especifica el paso o el intervalo entre los elementos seleccionados.
+'hc'
+nombre[0::2]
+'hco'
+nombre[::-1] //** Devuelve el nombre al réves
+'rotceh'
