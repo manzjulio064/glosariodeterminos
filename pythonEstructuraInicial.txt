@@ -1,0 +1,9 @@
+# // Dejar 2 espacios vertical entre codigos
+# // Dejar 4 espacios despues de 2 puntos
+
+def main():
+    pass
+
+
+if __name__ == "__main__":
+    main()
