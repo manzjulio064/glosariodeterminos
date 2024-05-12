@@ -29,6 +29,16 @@
           /* margin-left: -1em; */
           font-size: 2em;
       }
+      iframe {
+        width: 100%;
+        max-width: 100%;
+        height: 80vh;
+        border: 1px solid #ccc; /* Añade un borde para mayor claridad */
+      }
+      .xx {
+      width: 65%;
+      }
+
   </style>
 
 </head>
@@ -56,8 +66,12 @@
     <br>
     <p>¡A jugar!</p>
 
-        <iframe src="https://manzjulio064.github.io/glosariodeterminos/InfraIIEjercitacionCircuitodeCDpipelineProcesorelease.pdf" id="BasiBlockIframe756a6e59-d57b-4516-8325-5ef2f56a52c7" class="basic-block-content__content" width="100%" height="800vh" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="" title="BlockIframe"></iframe>
-<br>
+    <div class="xx">
+      <iframe src="https://manzjulio064.github.io/glosariodeterminos/POPC7SRelacionesentreclasesClaseenVivo.pdf" width="100%" height="400vh" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="" title="BlockIframe"></iframe>
+      <br>
+    </div>
+
+
 <br>
 <br>
 <br>
