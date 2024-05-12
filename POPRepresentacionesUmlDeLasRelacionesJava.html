@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+
+    .contenedor {
+      margin-left: 10em;
+      margin-right: 10em;
+    }
+    /* Estilo para los puntos de la lista */
+    ul {
+        list-style-type: none;
+        padding-left: 20px;
+    }
+
+    li {
+          font-size: 1em;
+      }
+
+    li::before {
+        content: "•";
+        color: red;
+        display: inline-block;
+        width: 1em;
+        /* margin-left: -1em; */
+        font-size: 2em;
+    }
+    .block-box {
+        display: flex;
+        max-width: 100%;
+        flex-direction: column;
+        border-radius: .5rem;
+        --tw-bg-opacity: 1;
+        background-color: rgb(227 227 227 / var(--tw-bg-opacity));
+    }
+    .block-box__title {
+        padding: 1.5rem .75rem 1rem;
+    }
+    .block-box__title {
+        font-family: Montserrat, sans-serif;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 600;
+        --tw-text-opacity: 1;
+        color: rgb(0 0 0 / var(--tw-text-opacity));
+    }
+    .text-block__content {
+        padding: .75rem 1rem;
+        --tw-text-opacity: 1;
+        color: rgb(0 0 0 / var(--tw-text-opacity));
+    }
+    .module__header {
+        margin-bottom: 1.5rem;
+        display: flex;
+        flex: 1 1 0%;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .pdf-block__content, .slide-block__content {
+        overflow: hidden;
+        border-bottom-right-radius: .5rem;
+        border-bottom-left-radius: .5rem;
+    }
+    .pdf-block__content, .slide-block__content {
+        overflow: hidden;
+        border-bottom-right-radius: .5rem;
+        border-bottom-left-radius: .5rem;
+    }
+    .slide-block__content {
+        aspect-ratio: 3 / 2;
+        width: 100%;
+    }
+    audio, canvas, embed, iframe, img, object, svg, video {
+        display: block;
+        vertical-align: middle;
+    }
+
+</style>
+
+  <title>Representacion en UML de relaciones</title>
+</head>
+<body>
+  <br>
+  <div style="padding:59.4% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/945282335?h=8b1738df13&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="POPRepresentacionUMLderelacionesAsociacionJava"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+  <br>
+  <div class="block-box"><div><h2 class="block-box__title">Relación de clases</h2><iframe src="https://manzjulio064.github.io/glosariodeterminos/POPRelacionesdeClasesUMLJava.pdf" allowfullscreen="" title="BlockIframe" class="slide-block__content"></iframe></div></div>
+
+  <br>
+
+</body>
+</html>
