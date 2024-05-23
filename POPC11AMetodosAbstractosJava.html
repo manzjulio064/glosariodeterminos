@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" src="d48865cf5505cebc.css">
+  <style>
+    .contenedor {
+      margin-left: 10em;
+      margin-right: 10em;
+    }
+    /* Estilo para los puntos de la lista */
+    ul {
+        list-style-type: none;
+        padding-left: 20px;
+    }
+
+    li {
+          font-size: 1em;
+      }
+
+    li::before {
+        content: "•";
+        color: red;
+        display: inline-block;
+        width: 1em;
+        /* margin-left: -1em; */
+        font-size: 2em;
+    }
+    .block-box {
+        display: flex;
+        max-width: 100%;
+        flex-direction: column;
+        border-radius: .5rem;
+        --tw-bg-opacity: 1;
+        background-color: rgb(227 227 227 / var(--tw-bg-opacity));
+        align-items: center;
+    }
+
+    .block-box__title {
+        padding: 1.5rem .75rem 1rem;
+    }
+    .block-box__title {
+        font-family: Montserrat, sans-serif;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 600;
+        --tw-text-opacity: 1;
+        color: rgb(0 0 0 / var(--tw-text-opacity));
+    }
+    .text-block__content {
+        padding: .75rem 1rem;
+        --tw-text-opacity: 1;
+        color: rgb(0 0 0 / var(--tw-text-opacity));
+    }
+    .module__header {
+        margin-bottom: 1.5rem;
+        display: flex;
+        flex: 1 1 0%;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .pdf-block__content, .slide-block__content {
+        overflow: hidden;
+        border-bottom-right-radius: .5rem;
+        border-bottom-left-radius: .5rem;
+    }
+    .pdf-block__content, .slide-block__content {
+        overflow: hidden;
+        border-bottom-right-radius: .5rem;
+        border-bottom-left-radius: .5rem;
+    }
+    .slide-block__content {
+        aspect-ratio: 3 / 2;
+        width: 100%;
+    }
+    audio, canvas, embed, iframe, img, object, svg, video {
+        display: block;
+        vertical-align: middle;
+    }
+    @media (min-width: 1500px) {
+    .layout_narrow {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    }
+    .layout_narrow {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      max-width: 80rem;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .mb-6 {
+    margin-bottom: 1.5rem;
+    }
+    .information-module {
+      display: flex;
+      flex-direction: column;
+      border-radius: .75rem;
+      --tw-bg-opacity: 1;
+      background-color: rgb(203 203 203 / var(--tw-bg-opacity));
+      padding: 1.5rem 2rem;
+    }
+    .information-module__header {
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex: 1 1 0%;
+      align-items: center;
+      justify-content: space-between;
+    }
+    @media (min-width: 768px) {
+    .information-module__content {
+        flex-direction: row;
+    }
+}
+    .information-module__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  iframe {
+        width: 100%;
+        max-width: 100%;
+        height: 80vh;
+        border: 1px solid #ccc; /* Añade un borde para mayor claridad */
+    }
+    .xx {
+      width: 100%;
+    }
+
+  </style>
+
+  <title>Métodos abstractos</title>
+</head>
+<body>
+  <div class="contenedor">
+    <br />
+    <div class="block-box">
+      <div class="xx">
+        <br />
+        <h1>Implementación en Java</h1>
+        <br />
+        <br />
+        <iframe
+          src="https://manzjulio064.github.io/glosariodeterminos/POPC11AMetodosAbstractosJava.pdf"
+          width="100%"
+          height="400vh"
+          frameborder="0"
+          webkitallowfullscreen="true"
+          mozallowfullscreen="true"
+          allowfullscreen=""
+          title="BlockIframe"
+        ></iframe>
+        <br />
+        <br />
+      </div>
+    </div>
+    <br />
+    <div class="block-box">
+      <div>
+        <h2 class="block-box__title">Anotación @Override</h2>
+        <div class="text-block__content">
+          <div>
+            <h2>Redefinición de método, ¿cómo evitar equivocarnos?</h2>
+            <p>
+              Vimos que para redefinir un método de una superclase, debemos
+              sobrescribir el mismo, es decir, tenemos que escribir el mismo
+              método con la misma firma en la subclase.
+            </p>
+            <p>
+              Sin embargo, ¿qué sucede, si cuando intentamos sobrescribir este
+              método en la subclase tipeamos mal el nombre o nos olvidamos
+              alguno de sus parámetros? Lo que pasaría es que la firma de este
+              método sería diferente a la de la clase padre que intentábamos
+              sobrescribir y este error no sería descubierto durante la
+              compilación, excepto que sea un método abstracto.
+            </p>
+            <p>Pero no nos preocupemos...</p>
+            <p>
+              En Java existe una anotación llamada <span>@override</span> que
+              podemos escribir en el método que estamos sobrescribiendo. Con
+              esta anotación el compilador validará que ese método que estamos
+              sobrescribiendo tenga una firma igual a algún método de la
+              superclase y nos ayudará a no tener estos errores.
+            </p>
+          </div>
+          <div>
+            <pre>        <code>
+            public class Perro {
+                public String ladrar() {
+                    return “guau”;
+                }
+            }
+        </code>
+    </pre>
+          </div>
+          <div>
+            <pre>        <code>
+            public class Doberman extends Perro{
+                @Override
+                public String ladrar() {
+                    return “GUAU GUAU!!!”;
+                }
+            }
+
+        </code>
+    </pre>
+          </div>
+          <div>
+            <p>
+              La anotación “@Override” le pide al compilador que verifique que
+              efectivamente estamos redefiniendo un método de la superclase. A
+              continuación, te mostramos un ejemplo donde el compilador
+              emitirá un error, al no encontrar en la superclase Perro, un
+              método con la misma firma donde colocamos la anotación
+              <span>@Override</span>.
+            </p>
+          </div>
+          <div>
+            <pre>        <code>
+            public class Doberman extends Perro{
+                @Override
+                public String ladrar(int intensidad) {
+                    return “GUAU GUAU!!!”;
+                }
+            }
+
+        </code>
+    </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <iframe src="https://manzjulio064.github.io/glosariodeterminos/POPC11AMetodosAbstractosJavaPracticaCodigo" width="100%" height="400vh" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="" title="BlockIframe"></iframe>
+  <br>
+  <div class="block-box">
+    <div class="xx">
+      <br>
+      <h1>Ejercicio de Modelado e Implementación en Java</h1>
+      <br>
+      <br>
+      <iframe src="https://manzjulio064.github.io/glosariodeterminos/POPC11AMetodosAbstractosJavaEjercitacionModeladoClase.pdf" width="100%" height="400vh" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="" title="BlockIframe"></iframe>
+      <br>
+
+      <br>
+    </div>
+  </div>
+  <br>
+
+
+  </div>
+</body>
+</html>
