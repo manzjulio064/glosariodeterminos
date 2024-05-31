@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css">
+    <title>Clase en vivo</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 0 5% 0 5%;
+        }
+        .container {
+            border-radius: 1.5%;
+            padding: 10px;
+            margin-top: 5%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 70%;
+            width: 90%;
+        }
+        .x {
+            background-color: rgb(227, 227, 227);
+            border-radius: 1.5%;
+            padding: 10px;
+            margin-top: 5%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        }
+        p {
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <br>
+      <div class="x">
+        <h2>Patrón state</h2>
+        <div style="padding:59.4% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/952167298?h=e22bb5886d&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="C20APatronStateJava"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+      </div>
+      <br>
+      <div class="x">
+        <h2>Patrón State</h2>
+        <p>
+          Todos tenemos ejemplos de objetos que actúan de diferente manera de acuerdo a la situación (su estado). <br>
+          Una pareja que está enojada no recibe un regalo como cuando está alegre… o tal vez el regalo cambie su estado de ánimo. <br>
+          Debemos hacer que nuestros objetos actúen diferentes en distintos estados y puedan pasar de un estado a otro en el tiempo. <br>
+          Modelar esto en un programa a veces puede resultar confuso y difícil de manejar. <br>
+          Aquí viene en nuestra ayuda el …<span>¡Patrón State!</span>
+        </p>
+      </div>
+      <br>
+      <div class="x">
+        <h2>Presentación en UML</h2>
+        <iframe src="https://manzjulio064.github.io/glosariodeterminos/C20APatronStateJavaPresentacionUMLState.pdf" width="100%" height="400vh" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="" title="BlockIframe"></iframe>
+      </div>
+      <br>
+      <div class="x">
+        <div><h2 class="block-box__title">Patrón State: ejemplo de un modelo de Auto</h2><div class="text-block__content"><div>
+          <p>
+              Tenemos un auto que puede sencillamente tener varios estados.
+          </p>
+          <p>
+              Puede estar:
+          </p>
+          <ol>
+              <li><span>Apagado:</span> sin la llave de contacto y el motor detenido.</li>
+              <li><span>Parado:</span> el motor en marcha, pero sin moverse.</li>
+              <li><span>EnMarcha:</span> avanzando en el camino.</li>
+              <li><span>SinNafta:</span> se le terminó el combustible.</li>
+          </ol>
+          <p>
+              El auto deberá tener atributos para conocer su velocidad y la cantidad de combustible que tiene cargado.
+          </p>
+          <p>
+              Las responsabilidades podrán ser:
+          </p>
+          <ul>
+              <li><span>Acelerar:</span> incrementa la velocidad y consume nafta.</li>
+              <li><span>Contacto:</span> sirve para encender el auto.</li>
+              <li><span>Frenar:</span> le permite detenerse.</li>
+          </ul>
+          <p>
+              Las transiciones de estado se encuentran cuando por ejemplo:
+          </p>
+      </div>
+      <div>
+          <div>
+            <img alt="State" src="https://manzjulio064.github.io/glosariodeterminos/C20APatronStateJavastate.png">
+          </div>
+      </div>
+      <div>
+          <img alt="State UML" src="https://manzjulio064.github.io/glosariodeterminos/C20APatronStateJavastate_uml.png">
+      </div></div></div>
+      </div>
+      <br>
+      <div><h2 class="block-box__title">Implementación Típica en Java</h2><div class="text-block__content"><div>
+        <div style="width: 100%;">
+            <div style="position: relative; padding-bottom: 100.00%; padding-top: 0; height: 0;"><iframe scrolling="yes" allowfullscreen="true" src="https://view.genial.ly/60e5a6ac86a6a40d7f6505f6" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" height="1400" width="1400" frameborder="0"></iframe> </div>
+        </div>
+        </div></div></div>
+      <br>
+      <div class="x">
+        <h2>Código para alumnos</h2>
+        <p>
+            Aquí te dejamos para que descargues el código (para abrir en IntelliJ) del ejemplo de simulación del auto Tesla en Java donde se muestra el ejemplo del Patrón State. <br>
+            <a href="https://drive.google.com/file/d/1d3_yjy1TbboLbwxMeskYEor1PTACi8mG/view?usp=sharing">https://drive.google.com/file/d/1d3_yjy1TbboLbwxMeskYEor1PTACi8mG/view?usp=sharing</a>
+        </p>
+      </div>
+      <br>
+      <div class="x">
+        <h2>Ejercicio</h2>
+        <div>
+            <p>
+                Tenemos un semáforo que, como todos, puede estar:
+            </p>
+            <ul>
+                <li><span>Verde:</span> pasa a amarillo.</li>
+                <li><span>Amarillo:</span> pasa a rojo.</li>
+                <li><span>Rojo:</span> pasa a verde.</li>
+            </ul>
+
+            <p>
+                ¿ Te animas a dibujar un diagrama de clases y un programa en JAVA ?
+            </p>
+
+            <h3>Tips:</h3>
+            <p>
+                Cuando se crea el semáforo debe estar inicialmente en <span>verde</span>.
+            </p>
+            <p>
+                Usá el patrón State y debería tener dos acciones:
+            </p>
+            <ul>
+                <li><span>mostrarAviso</span>…una salida por consola que indique en qué estado está.</li>
+                <li><span>cambiarEstado</span>…cambia el estado del semáforo al estado que sigue.</li>
+            </ul>
+        </div>
+      </div>
+      <br>
+    </div>
+</body>
+</html>
