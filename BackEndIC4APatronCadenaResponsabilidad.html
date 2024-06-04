@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Patrón cadena de responsabilidad</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="dh-flex">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Anterior</span>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <p class="header__heading header__heading_md">
+                  Módulo 1 · C4A - Patrón cadena de responsabilidad
+                </p>
+                <h2 class="header__title header__title_md">
+                  Patrón cadena de responsabilidad
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Siguiente</span>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://player.vimeo.com/video/953707480?h=e97ced09c6&amp"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="video-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1MRnzASDSr1jm9dlL0EkuZF2cQJWuwD4y/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div style="width: 100%">
+                <div
+                  style="
+                    position: relative;
+                    padding-bottom: 70%;
+                    padding-top: 0;
+                    height: 0;
+                  "
+                >
+                  <iframe
+                    scrolling="yes"
+                    allowfullscreen="true"
+                    src="https://view.genial.ly/60f978c8b93d9e0da1c939eb"
+                    style="
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                    "
+                    height="700"
+                    width="1000"
+                    frameborder="0"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Conclusión</h2>
+                <p>
+                  Entonces, podemos concluir que es beneficioso utilizar el
+                  patrón cadena de responsabilidad cuando esperamos que nuestra
+                  aplicación procese diferentes tipos de solicitudes y responda
+                  con diferentes resultados, pero no conocemos de antemano
+                  cuáles son estas solicitudes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1bTQuwm906RkauiNuv47zSE1EQpRjq2Bu/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h1 style="background-color: black; color: white">
+                  Codigo: Patrón Observer
+                </h1>
+                <p>
+                  Les compartimos el código, para abrir en IntelliJ, del ejemplo
+                  del patrón cadena de responsabilidad.
+                  <a
+                    href="https://drive.google.com/file/d/1O76zTkfZS50wB9e9iqPXaxgjc9cGcxrk/view?usp=sharing"
+                    >Ver código</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>¡Vamos a practicar!</h2>
+                <p>
+                  Pensemos en un gobierno que está compuesto por tres tipos de
+                  jerarquías:
+                  <strong>diputados, ministros y presidente.</strong> Queremos
+                  desarrollar un sistema de mensajería interno, en el que
+                  podamos enviarle documentos a los miembros gubernamentales.
+                  Además, queremos que los documentos recibidos, solo puedan ser
+                  leídos si están autorizados.<br /><br />
+                  Un <strong>documento</strong> está compuesto por el
+                  <strong>contenido</strong> (String) y un
+                  <strong>tipo</strong> (Integer). Los posibles tipos de
+                  documento son valores numéricos: 1, 2 o 3. Cada número
+                  representa un nivel de acceso:<br /><br />
+                  <strong>
+                    1 = Reservado <br />
+                    2 = Secreto <br />
+                    3 = Muy secreto <br /><br />
+                  </strong>
+
+                  Los documentos de categoría “Reservado”, los leerán los
+                  diputados, los clasificados como “Secreto”, los ministros y
+                  por último, los categorizados como “Muy secreto” los leerá el
+                  presidente. También tengamos en cuenta que cada uno podrá leer
+                  los documentos que
+                  <strong
+                    >se encuentren clasificados en un orden menor al
+                    suyo.</strong
+                  >
+                  Por ejemplo, el presidente podrá leer todos los documentos,
+                  pero los diputados solo podrán leer los de categoría
+                  “Reservado”.<br /><br />
+                  Pensemos a los diputados, ministros y presidentes como
+                  usuarios del sistema. Queremos que al momento en el que
+                  cualquiera de los tres tipos de usuario intente leer un
+                  documento (tenga o no acceso), lo envíe a otro tipo de usuario
+                  y así sucesivamente hasta que a todos los usuarios les llegue
+                  el documento. Los tres tipos de usuario deberán tener un
+                  método para leer el documento y un atributo que indicara que
+                  tipo de acceso tiene (<strong>1, 2 o 3</strong>). Este método
+                  recibirá un documento y según el <strong>tipo</strong> de
+                  jerarca que sea, evaluará si lo puede leer, en caso de que
+                  pueda, lo hará y además lo enviará a otro jerarca. En el caso
+                  de que no tenga acceso para leerlo, también lo enviará a otro
+                  tipo de jerarca. Te proponemos representar la solución en un
+                  diagrama UML e implementarlo en JAVA.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
