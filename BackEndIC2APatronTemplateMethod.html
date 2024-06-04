@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <title>Patrón Template Method</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        padding: 0 5% 0 5%;
+      }
+      .container {
+        border-radius: 1.5%;
+        padding: 10px;
+        margin-top: 5%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 70%;
+        width: 90%;
+      }
+      .x {
+        background-color: rgb(227, 227, 227);
+        border-radius: 1.5%;
+        padding: 10px;
+        margin-top: 5%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      p {
+        text-align: justify;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="dh-flex">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Anterior</span>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <p class="header__heading header__heading_md">
+                  Módulo 1 · C2A - Patrón template method
+                </p>
+                <h2 class="header__title header__title_md">
+                  Patrón Template Method
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Siguiente</span>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://player.vimeo.com/video/953400521?h=81e1b15b2f&amp"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="video-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1BHyeSgK8uY-okG3-SyfSbl5es80YUyt6/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div style="width: 100%">
+                <div
+                  style="
+                    position: relative;
+                    padding-bottom: 80%;
+                    padding-top: 0;
+                    height: 0;
+                  "
+                >
+                  <iframe
+                    scrolling="yes"
+                    allowfullscreen="true"
+                    src="https://view.genial.ly/60f99942f6ad490da6b690e1"
+                    style="
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                    "
+                    height="800"
+                    width="1000"
+                    frameborder="0"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Conclusión</h2>
+                <p>
+                  Entonces, ¿para qué nos sirve el patrón template method?
+                  <strong
+                    >Porque al eliminar el código repetido, nuestro código será
+                    más eficiente, legible y mantenible.</strong
+                  >
+                  Esto hará que sea más fácil de extender y mejorar.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1hqFO2d_dyVny5akKA5Dt0r_oYm3Z3MKf/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h1 style="background-color: black; color: white">
+                  Código: Patrón template method
+                </h1>
+                <p>
+                  Les compartimos el código, para abrir en IntelliJ, del ejemplo
+                  del patrón template method.
+                  <a
+                    href="https://drive.google.com/file/d/1vYzEZM55I_0ySDx3siK_vXIxCPRHlzFa/view?usp=sharing"
+                    >Ver código</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>¡Vamos a practicar!</h2>
+                <p>
+                  Pensemos en un sistema para validar pagos, ya sea por tarjeta
+                  de crédito o de débito. Una tarjeta está compuesta por los
+                  <span>números del frente</span>, un
+                  <span>código de seguridad</span> y una
+                  <span>fecha de expiración</span>. A su vez, la tarjeta puede
+                  ser de <span>crédito o de débito</span>. Si es de crédito,
+                  tendrá un campo para el
+                  <span
+                    >límite y otro para el <span>saldo utilizado</span>. Si es
+                    de débito, tendrá un único campo para el
+                    <span>saldo</span> disponible.</span
+                  >
+                </p>
+                <p>
+                  Para realizar un pago con tarjeta, es necesario recibir una
+                  autorización. Si la tarjeta es de débito, la autorización se
+                  produce si el saldo de la cuenta sobre la que se debita la
+                  tarjeta es suficiente. En el caso de crédito, se produce si el
+                  límite no ha sido superado. Actualmente, contamos con dos
+                  servicios llamados: <span>ProcesadorCredito</span> y
+                  <span>ProcesadorDebito</span>. Ambos cuentan con un método
+                  para procesar el pago, pero antes, validamos que la fecha de
+                  expiración sea posterior a la fecha actual. Esa lógica es
+                  común, independientemente si el pago se está realizando con
+                  débito o crédito, es decir, tenemos un código que se repite en
+                  los dos métodos. Los métodos que utilizan los dos procesadores
+                  de pago reciben la tarjeta y el monto a cobrar.
+                </p>
+                <p>
+                  Nos gustaría eliminar el código repetido. ¿Cómo lo resolverías
+                  aplicando el patrón template method? También nos gustaría
+                  poder ver por consola si el pago pudo ser autorizado. Te
+                  proponemos realizar el diagrama UML e implementación en JAVA.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
