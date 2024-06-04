@@ -60,6 +60,13 @@ p {
   .container {
     max-width: 100%;
   }
+
+  .zoom-container {
+    transform-origin: 0 0;
+    transform: scale(0.25); /* Aplicar zoom del 25% */
+    width: 400%;
+    height: 400%;
+  }
 }
 
 @media (max-width: 768px) and (orientation: landscape) {
@@ -76,12 +83,7 @@ p {
     max-width: 90%;
   }
 
-  .zoom-container {
-    transform-origin: 0 0;
-    transform: scale(0.25); /* Aplicar zoom del 25% */
-    width: 400%;
-    height: 400%;
-  }
+
 }
 
 @media (min-width: 769px) {
