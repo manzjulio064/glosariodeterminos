@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Patrón Facade</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="dh-flex">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Anterior</span>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <p class="header__heading header__heading_md">
+                  Módulo 1 · C8A - Patrón facade
+                </p>
+                <h2 class="header__title header__title_md">Patrón Facade</h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Siguiente</span>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://player.vimeo.com/video/953793045?h=7f9b46e1c9&amp"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="video-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1HVkfi_tiOxvtrUeeXTWZ8yqgRylvHmi0/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div style="width: 100%">
+                <div
+                  style="
+                    position: relative;
+                    padding-bottom: 56.25%;
+                    padding-top: 0;
+                    height: 0;
+                  "
+                >
+                  <iframe
+                    scrolling="yes"
+                    allowfullscreen="true"
+                    src="https://view.genial.ly/60f9a3b2c605640da8acb365"
+                    style="
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                    "
+                    height="1024"
+                    width="1200"
+                    frameborder="0"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h3>Conclusión</h3>
+                <p>
+                  El patrón facade nos ayuda a reducir la complejidad de
+                  interactuar con un conjunto de subsistemas, actuando de
+                  intermediario entre el cliente y los subsistemas,
+                  permitiéndonos tener una única entrada, facilitando la
+                  comunicación entre estos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1WV9QaX3hFqCLXATErsJlY_pWPRhqFcaS/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h1 style="background-color: black; color: white">
+                  Código: Patrón Facade
+                </h1>
+                <p>
+                  Les compartimos el código, para abrir en IntelliJ, del ejemplo
+                  del patrón facade.<a
+                    href="https://drive.google.com/file/d/10idJ5FM29IsNxLfvltX8bEXY43dTjAFZ/view?usp=sharing"
+                  >
+                    Ver código</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h3>¿Estás listo para un desafío?</h3>
+                <p>
+                  Imaginate que tenés que aplicar el patrón facade en un sistema
+                  para retirar dinero en el cajero. Contás con tres servicios
+                  (subsistemas) disponibles para usar: uno se encargará de la
+                  <strong>autenticación (AutenticationService)</strong>, otro de
+                  traer los
+                  <strong>datos de la cuenta bancaria (CuentaService)</strong> y
+                  el último de
+                  <strong>solicitar al banco el efectivo (CajaService).</strong>
+                  Queremos que el cliente pueda retirar dinero enviando al
+                  sistema el número de identificación, contraseña y saldo a
+                  retirar, sin tener que utilizar directamente estos
+                  servicios.<br /><br />
+
+                  El servicio de autenticación, cuenta con un método llamado
+                  <strong>validarUsuarioYContrasena</strong>, que recibirá un
+                  identificador del usuario (DNI) y contraseña.<br /><br />
+
+                  El servicio que nos trae la información de la cuenta tiene un
+                  método llamado <strong>getCuenta</strong>, que recibirá
+                  solamente el identificador del usuario (DNI). Este servicio lo
+                  deberíamos usar solamente luego de utilizar el servicio de
+                  autenticación. La cuenta está compuesta por un campo de
+                  <strong>identificación del usuario</strong> y otro de
+                  <strong>saldo actual.</strong><br /><br />
+
+                  Y por último tenemos el servicio de CAJA, que es el encargado
+                  de retirar dinero del banco. Este servicio tiene un método
+                  llamado <strong>entregarDinero</strong>, que recibirá el monto
+                  a retirar del banco.<br /><br />
+
+                  Luego de verificar que el usuario tiene el dinero que quiere
+                  retirar, deberíamos usar el servicio de caja. Te proponemos
+                  realizar diagrama de clases e implementación en JAVA. ¡Éxitos!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
