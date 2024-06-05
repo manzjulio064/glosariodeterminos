@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Conclusión</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="dh-flex">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Anterior</span>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <p class="header__heading header__heading_md">
+                  Módulo 2 · C10A - Logging (trazas y debug)
+                </p>
+                <h2 class="header__title header__title_md">Conclusión</h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Siguiente</span>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Ahora, te proponemos ver el siguiente video de live coding
+                  para repasar los conceptos de esta clase.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://player.vimeo.com/video/953802182?h=59ac0caaef&amp"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="video-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>¡Vamos a practicar!</h2>
+                <p>
+                  Te proponemos resolver la siguiente actividad: Crear una
+                  aplicación donde tengamos dos clases: León y Tigre. Cada una
+                  debe tener dos atributos:
+                </p>
+                <ul>
+                  <li>nombre String</li>
+                  <li>edad int</li>
+                  <p>y para la clase León vamos a agregar el atributo:</p>
+                  <li>esAlfa boolean</li>
+                </ul>
+
+                <p>
+                  Para los dos animales vamos a crear un método correr, que va a
+                  loguear un info de que está corriendo y vamos a crear otro
+                  método que calcule si es mayor a 10 años y ser alfa, en caso
+                  de serlo, deberá loguear un info con la información.<br /><br />
+
+                  También deberemos arrojar una Exception si la edad del animal
+                  es menor a cero y agregar un log de error. Creamos una clase
+                  main, donde creamos leones y tigres que cumplan que al correr
+                  y esMayorA10 ejecutan los métodos:
+                </p>
+                <ul>
+                  <li>public void correr()</li>
+                  <li>public void esMayorA10()</li>
+                </ul>
+                <p>
+                  También debemos chequear que los logs existan.<br /><br />
+
+                  La salida debe ser algo como:
+                </p>
+              </div>
+              <div>
+                <pre>    <code>
+    [2021-07-18 18:27:46] [ INFO ] [Leon:37] El León Simba está corriendo
+    [2021-07-18 18:27:46] [ INFO ] [Leon:37] El León Bom está corriendo
+    [2021-07-18 18:27:46] [ ERROR] [Leon:45] La edad no puede ser negativa
+    [2021-07-18 18:27:46] [ ERROR] [Test:30] La edad del León Bom es incorrecta
+    java.lang.Exception
+      at com.main.Leon.esMayorA10(Leon.java:46)
+      at com.main.Test.main(Test.java:28)
+    [2021-07-18 18:27:46] [ INFO ] [Tigre:28] El Tigre está corriendo
+    [2021-07-18 18:27:46] [ INFO ] [Tigre:28] El Tigre está corriendo
+
+        </code>
+      </pre>
+
+                <p>¡Éxitos!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Arquitectura Log4J</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="dh-flex">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Anterior</span>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <p class="header__heading header__heading_md">
+                  Módulo 2 · C10A - Logging (trazas y debug)
+                </p>
+                <h2 class="header__title header__title_md">
+                  Arquitectura Log4J
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Siguiente</span>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Arquitectura Log4j</h2>
+                <p>
+                  La API de Log4j sigue una arquitectura en capas donde cada una
+                  proporciona diferentes objetos para realizar diferentes
+                  tareas. Esta estructura hace que el diseño sea flexible y
+                  fácil de ampliar en el futuro.<br /><br />
+
+                  Los dos tipos de objetos disponibles con el marco Log4j son:
+                </p>
+                <ul>
+                  <li>
+                    Objetos base: Objetos de marco obligatorios y necesarios
+                    para utilizar el marco.
+                  </li>
+                  <li>
+                    Objetos de soporte: Objetos de marco opcionales que soportan
+                    objetos básicos para realizar tareas adicionales
+                  </li>
+                </ul>
+                <p>Veámoslos un poco más en detalle.</p>
+              </div>
+              <div>
+                <h3>Los objetos base</h3>
+                <p>
+                  Los objetos base incluyen los siguientes tipos de objetos:
+                </p>
+                <ul>
+                  <li>Logger object</li>
+                  <li>Appender object</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div style="width: 100%">
+                <div
+                  style="
+                    position: relative;
+                    padding-bottom: 74.92%;
+                    padding-top: 0;
+                    height: 0;
+                  "
+                >
+                  <iframe
+                    scrolling="yes"
+                    allowfullscreen="true"
+                    src="https://view.genial.ly/61017593b46b6b0d8e3aaf53"
+                    style="
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                    "
+                    height="675"
+                    width="901"
+                    frameborder="0"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Niveles de registro</h2>
+                <p>
+                  Por defecto Log4j tiene niveles de prioridad para los
+                  mensajes, entre ellos se encuentran:
+                </p>
+                <ul>
+                  <li>
+                    OFF: Este es el nivel de mínimo detalle, deshabilita todos
+                    los logs.
+                  </li>
+                  <li>
+                    FATAL: Se utiliza para mensajes críticos del sistema,
+                    generalmente después de guardar el mensaje, el programa se
+                    cierra.
+                  </li>
+                  <li>
+                    ERROR: Indica eventos de error que aún podrían permitir que
+                    la aplicación continúe ejecutándose.
+                  </li>
+                  <li>
+                    WARN: Se utiliza para mensajes de alerta sobre eventos.
+                  </li>
+                  <li>
+                    INFO: Se refiere a mensajes informativos que resaltan el
+                    progreso de la aplicación en un nivel aproximado.
+                  </li>
+                  <li>
+                    DEBUG: Designa los eventos informativos detallados más
+                    útiles para depurar una aplicación.
+                  </li>
+                  <li>
+                    TRACE: Se utiliza para mostrar mensajes con un mayor nivel
+                    de detalle que debug.
+                  </li>
+                  <li>
+                    ALL: Es el nivel de máximo detalle, habilita todos los logs.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/file/d/1yF4AkdHCL2_dhlX8I6zfykOPeWwa2mcg/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="pdf-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1g4ZKy06_S71ngS4pgz7f3OFlMWxklIel/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h3>Ejemplo</h3>
+                <p>
+                  En el siguiente ejemplo veremos cómo instanciar un objeto
+                  logger que nos permitirá loguear mensajes en diferentes
+                  prioridades. Los más usados son error, warning, debug e info.
+                </p>
+                <pre>    <code>
+
+    import org.apache.log4j.Logger;
+
+    public class TestLog {
+       private static final Logger logger = Logger.getLogger(TestLog.class);
+       public static void main(String[] args) {
+          logger.info("Empezamos nuestro metodo MAIN");
+          try {
+         String variable = "Hola";
+         int division = 1 / 0;
+          } catch (Exception e) {
+         logger.error("Error por dividir por cero ", e);
+          }
+          logger.warn("Advertencia el metodo MAIN esta por finalizar");
+          logger.debug("Esto va a mostrarse solo si el infoLogger esta en DEBUG");
+          logger.info("Finalizamos el thread MAIN");
+       }
+    }
+       </code>
+      </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
