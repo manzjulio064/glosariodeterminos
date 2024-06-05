@@ -1,0 +1,17 @@
+****Archivos pdf******
+
+<div class="x">
+   <div><iframe src="https://docs.google.com/file/d/1OSTCA6djzJ8TY7Cp2YgXGq4T6pRKSjuf/preview" allowfullscreen="" title="BlockIframe" class="pdf-block__content"></iframe></div>
+</div>
+
+*****Archivos doc*****
+
+<div class="x">
+   <div><iframe src="https://docs.google.com/document/d/1UjjjC9ePWzGfl1J46foHJDEs8_O9C3Su/preview" allowfullscreen="" title="BlockIframe" class="pdf-block__content"></iframe></div>
+</div>
+
+****Archivos Presentacion ppt*****
+
+<div class="x">
+  <div><iframe src="https://docs.google.com/presentation/d/10NqmgORcNz0F3LPSf7AsBv-v1aAQcRsp/preview?usp=sharing" allowfullscreen="" title="BlockIframe" class="slide-block__content"></iframe></div>
+</div>
