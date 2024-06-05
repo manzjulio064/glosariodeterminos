@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>JDBC</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="dh-flex">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Anterior</span>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <p class="header__heading header__heading_md">
+                  Módulo 2 · C11A - Acceso a base de datos
+                </p>
+                <h2 class="header__title header__title_md">JDBC</h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Siguiente</span>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>¿Qué es JDBC?</h2>
+                <p>
+                  JDBC, por las siglas de Java DataBase Conectivity, es un
+                  framework que consiste en múltiples interfaces y solo algunas
+                  clases de soporte. Esto se debe a que la idea detrás de JDBC
+                  es que cualquiera pueda crear su propia implementación del
+                  framework y adaptarla a sus necesidades. Dado que se trata de
+                  un conjunto de interfaces, cualquier código que interactúe con
+                  el framework no se verá afectado si se altera la
+                  implementación.<br /><br />
+
+                  Es por esto que JDBC define interfaces que
+                  <span>solo</span> declaran el comportamiento que debe llevarse
+                  a cabo para conectarse e interactuar con una base de datos.
+                  Así, nos encontramos con interfaces tales como: Connection
+                  (abstracción del comportamiento de una conexión), Statement
+                  (define el comportamiento para realizar sentencias contra una
+                  base de datos, sean queries y otras instrucciones), ResultSet
+                  (que abstrae el comportamiento para extraer resultados de las
+                  consultas), entre otras. Todas estas clases e interfaces están
+                  dentro del paquete java.sql.*. Entonces, para interactuar con
+                  los diferentes motores de base de datos, debemos tener una
+                  implementación de estas y otras interfaces, es decir, una
+                  clase concreta que implemente cada interfaz.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/161AWWS0DSmo2_T7nY4JtqiGREVkjpH_U/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h3>Veamos en detalle</h3>
+                <p>
+                  Analicemos las líneas de código expuestas anteriormente, pero
+                  a partir del siguiente diagrama.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div style="width: 100%">
+                <div
+                  style="
+                    position: relative;
+                    padding-bottom: 109.09%;
+                    padding-top: 0;
+                    height: 0;
+                  "
+                >
+                  <iframe
+                    scrolling="yes"
+                    allowfullscreen="true"
+                    src="https://view.genial.ly/6103461f2361e20d774a8eab"
+                    style="
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                    "
+                    height="1200"
+                    width="1100"
+                    frameborder="0"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>

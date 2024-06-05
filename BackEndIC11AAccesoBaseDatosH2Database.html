@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>H2 Database</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="dh-flex">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Anterior</span>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <p class="header__heading header__heading_md">
+                  Módulo 2 · C11A - Acceso a base de datos
+                </p>
+                <h2 class="header__title header__title_md">H2 Database</h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Siguiente</span>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>¿Qué es H2?</h2>
+                <p>
+                  H2 es una base de datos open source escrita en Java que
+                  permite integrar aplicaciones en Java o ejecutarse en modo
+                  cliente-servidor. Principalmente, se puede configurar para que
+                  se ejecute como una base de datos en memoria. Entonces, los
+                  datos no persistirán en el disco, debido a que la base de
+                  datos no se utiliza para el desarrollo de producción, sino
+                  principalmente para el desarrollo y las pruebas.
+                </p>
+              </div>
+              <div>
+                <p>
+                  ¿Sabían qué? Es muy importante que puedan instalarse esta base
+                  de datos porque la vamos a utilizar a lo largo de la cursada
+                  para realizar las actividades y trabajos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div style="width: 100%">
+                <div
+                  style="
+                    position: relative;
+                    padding-bottom: 100%;
+                    padding-top: 0;
+                    height: 0;
+                  "
+                >
+                  <iframe
+                    scrolling="yes"
+                    allowfullscreen="true"
+                    src="https://view.genial.ly/6102fd6c04ef740d704ba6f2"
+                    style="
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                    "
+                    height="800"
+                    width="800"
+                    frameborder="0"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/file/d/1kk2nyLsjoOqIlAyfOLglDH89DDzYlpPG/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="pdf-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Conectándonos a H2 desde Java</h2>
+                <p>
+                  Con el objetivo de conectarnos, vamos a crear una tabla TEST
+                  en la base de datos. Para eso, en la consola ejecutamos:<br /><br />
+
+                  DROP TABLE IF EXISTS TEST;<br /><br />
+
+                  CREATE TABLE TEST(ID INT PRIMARY KEY, NAME VARCHAR(255));
+                </p>
+                <img
+                  alt="Conectándonos a H2 desde Java"
+                  src="https://manzjulio064.github.io/glosariodeterminos/conectando-db-java.png"
+                  style="margin-top: 50px"
+                />
+
+                <p style="margin-top: 50px">
+                  Ahora vamos a agregar el jar h2-1.4. que está en nuestra
+                  carpeta bin. Para llegar a la carpeta bin, debemos extraer el
+                  archivo ZIP que bajamos previamente.
+                </p>
+
+                <img
+                  alt="Conectándonos a H2 desde Java"
+                  src="https://manzjulio064.github.io/glosariodeterminos/conectando-db-java-2.png"
+                  style="margin-top: 50px"
+                />
+              </div>
+
+              <div>
+                <h3>Statement</h3>
+
+                <p>
+                  Hagamos un pequeño ejemplo para entender el Statement. Si
+                  queremos ver estos datos, tenemos que ejecutar un ResultSet.
+                </p>
+
+                <pre style="margin-top: 50px">    <code>
+    public class TestLog {
+
+       public static void main(String[] args) throws Exception {
+           Class.forName("org.h2.Driver").newInstance();
+           Connection con = DriverManager.getConnection("jdbc:h2:"+
+            "./Database/my", "root", "myPassword");
+           Statement stmt = con.createStatement();
+
+           //Código para crear una tabla. Elimina la tabla si esta ya existe y la
+           //vuelve a crear
+           String createSql = "DROP TABLE IF EXISTS TEST;\n" +
+                   "CREATE TABLE TEST(ID INT PRIMARY KEY, NAME VARCHAR(255));\n" +
+                   "INSERT INTO TEST VALUES(1, 'Hello');\n" +
+                   "INSERT INTO TEST VALUES(2, 'World');\n";
+           stmt.execute(createSql);
+
+          //Codigo para consultar todos los registros de la tabla TEST
+           String sql = "select * from TEST";
+           ResultSet rd = stmt.executeQuery(sql);
+
+          //Código para recorrer el resultado de la consulta
+           while(rd.next()) {
+               System.out.println(rd.getInt(1) + rd.getString(2));
+           }
+       }
+    }
+
+       </code>
+      </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
