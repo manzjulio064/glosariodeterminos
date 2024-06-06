@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Patrón DAO</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="dh-flex">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Anterior</span>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <p class="header__heading header__heading_md">
+                  Módulo 2 · C14A - Patrón DAO (Data Access Object)
+                </p>
+                <h2 class="header__title header__title_md">Patrón DAO</h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Siguiente</span>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Motivación: Patrón DAO</h2>
+
+                <p>
+                  Como sabemos, con JDBC tenemos la posibilidad de utilizar
+                  diferentes motores de base de datos, sin que nuestro código se
+                  vea afectado. Si respetamos los contratos, es decir,
+                  programamos siempre contra las interfaces y nunca contra las
+                  implementaciones, seremos inmunes a los cambios de driver. Con
+                  solo dos toques podremos abandonar MySQL y migrar a
+                  PostgreSQL, ya que los dos motores utilizan el estándar
+                  SQL.<br /><br />
+
+                  Pero lamentablemente, no todos los proveedores respetan el
+                  estándar, esto significa que las consultas que estábamos
+                  usando en MySQL probablemente fallen en PostgreSQL, ya que hay
+                  detalles que cambian. Veamos cómo el patrón DAO nos ayudará a
+                  cambiar de motor de base de datos sin afectar la lógica
+                  principal de nuestro sistema.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/11lBWkPphnksnJm7_ZRavh9DhuQvxsL8M/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h3>Implementación</h3>
+                <p>
+                  Ahora veamos cómo podemos representar el patrón DAO.
+                  Supongamos que estamos modelando un sistema para una academia
+                  y necesitamos realizar un ABM para los estudiantes. Queremos
+                  tener la posibilidad de cambiar la forma de persistir los
+                  estudiantes, sin afectar el funcionamiento de la capa de
+                  servicio.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div style="width: 100%">
+                <div
+                  style="
+                    position: relative;
+                    padding-bottom: 64.29%;
+                    padding-top: 0;
+                    height: 0;
+                  "
+                >
+                  <iframe
+                    scrolling="yes"
+                    allowfullscreen="true"
+                    src="https://view.genial.ly/611054512a78730da8808a99"
+                    style="
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                    "
+                    height="900"
+                    width="1400"
+                    frameborder="0"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Código Patrón DAO</h2>
+                <p>
+                  Les compartimos el código, para abrir en IntelliJ, del ejemplo
+                  del patrón DAO:
+                  <a
+                    href="https://drive.google.com/file/d/1zBDVnJXtIFBUx5YHgVEG6F5rfyhteKVI/view?usp=sharing"
+                  >
+                    https://drive.google.com/file/d/1zBDVnJXtIFBUx5YHgVEG6F5rfyhteKVI/view?usp=sharing
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
