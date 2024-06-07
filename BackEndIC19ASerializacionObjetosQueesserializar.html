@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>¿Qué es serializar?</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="dh-flex">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Anterior</span>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <p class="header__heading header__heading_md">
+                  Módulo 2 · C19A - Serialización de objetos y E/S Archivos
+                </p>
+                <h2 class="header__title header__title_md">
+                  ¿Qué es serializar?
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Siguiente</span>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Serializar un objeto</h2>
+
+                <p>
+                  A partir de lo visto en el video, analicemos en profundidad a
+                  qué se refiere el concepto ‘‘serializar’’.
+                </p>
+
+                <p>
+                  Para que un programa Java pueda convertir un objeto entero con
+                  todos sus atributos en un montón de bytes y pueda luego
+                  recuperarlo, el objeto necesita ser <span>serializable</span>.
+                  Al poder convertir el objeto a bytes, el mismo se puede, por
+                  ejemplo, enviar a través de la red o guardarlo en un archivo y
+                  después reconstruirlo al otro lado de la red o leerlo del
+                  archivo.
+                </p>
+
+                <p>
+                  Para que un objeto sea <span>serializable</span> basta con que
+                  implemente la interfaz
+                  <span> &lt;&lt; Serializable &gt;&gt;</span>. Como esta
+                  interfaz no tiene métodos, es muy sencillo implementarla.
+                  Basta con escribir implements <span>Serializable</span> y
+                  listo. Por ejemplo, la clase Persona es serializable y Java
+                  sabrá perfectamente enviar un objeto del tipo Persona por la
+                  red, escribirlo en un archivo o reconstruirlo a partir de un
+                  archivo.
+                </p>
+
+                <div>
+                  <pre>    <code>
+        import java.io.*;
+
+        public class Persona implements Serializable {
+            private String nombre;
+            private String apellido;
+            private int DNI;
+        }
+
+            </code>
+          </pre>
+                </div>
+
+                <div
+                  style="
+                    border-radius: 15px;
+                    border: 1px solid #e28c37;
+                    padding: 10px;
+                    font-size: 16px;
+                  "
+                >
+                  <div
+                    style="
+                      border-left: 3px solid #ccc;
+                      padding-left: 17px;
+                      font-family: 'IBM Plex Sans', sans-serif;
+                      font-size: 16px;
+                      font-weight: bold;
+                      margin-left: -15px;
+                    "
+                  >
+                    Si dentro de una clase que queremos serializar hay atributos
+                    que son otras clases,<br />
+                    estas, a su vez, también deben ser serializables. La clase
+                    ArrayList de Java, por<br />
+                    ejemplo, es serializable con lo cual si queremos guardar una
+                    lista con todos sus<br />
+                    elementos en un archivo, dichos elementos deben ser objetos
+                    de clases que imple-<br />menten serializable.
+                  </div>
+                </div>
+                <br />
+                <h3>ObjectOutputStream y ObjectInputStream</h3>
+                <p>
+                  Para poder <u>convertir un objeto en un array de bytes</u>,
+                  necesitamos usar la clase <span>ObjectOutputStream</span> y
+                  para poder
+                  <u>reconstruir un objeto a partir de un array de bytes</u> la
+                  clase <span>ObjectInputStream</span>. A continuación, veremos
+                  un ejemplo en Java de cómo guardar un objeto en un archivo y
+                  luego cómo recuperarlo.
+                </p>
+
+                <div>
+                  <pre>    <code>
+        import java.io.*;
+        public class Prueba{
+         public static void main(String[] args) throws IOException {
+           /*Guardamos el objeto en un archivo*/
+           FileOutputStream fo = new FileOutputStream("OutputFile.txt");
+           ObjectOutputStream oos = new ObjectOutputStream(fo);
+           oos.writeObject(persona);
+
+           /*Recuperamos el objeto en un archivo*/
+           FileInputStream fi = new FileInputStream("OutputFile.txt");
+           ObjectInputStream ois = new ObjectInputStream(fi);
+
+           System.out.println(ois.readObject());
+           dos.close();
+         }
+        }
+
+            </code>
+          </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>

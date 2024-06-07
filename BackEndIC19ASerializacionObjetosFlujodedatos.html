@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Flujo de datos: entrada y salida</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="dh-flex">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Anterior</span>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <p class="header__heading header__heading_md">
+                  Módulo 2 · C19A - Serialización de objetos y E/S Archivos
+                </p>
+                <h2 class="header__title header__title_md">
+                  Flujo de datos: entrada y salida
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Siguiente</span>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Flujos de datos</h2>
+
+                <p>
+                  En Java, como en otros lenguajes, se trata la entrada y salida
+                  de datos desde y hacia nuestro programa como un
+                  <span>flujo o <i>stream</i> de datos</span>. Estos pueden ser
+                  de <span>entrada o de salida</span>. Para discernir la
+                  “dirección” del flujo se tomó como punto de vista el código
+                  que se está ejecutando: un <span>flujo de salida</span> toma
+                  datos y estos “salen” hacia la plataforma, escribiendo en
+                  disco, enviando por la red, etc. Un
+                  <span>flujo de entrada</span> recibe datos desde la plataforma
+                  que “ingresan” leyendo desde el disco, un dispositivo etc.
+                </p>
+                <br />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <img
+                  alt="Flujo de Datos"
+                  src="https://assets.digitalhouse.com/content/ar/td/be1/ES flujo de datos_Mesa de trabajo 1.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1LkQljZx2hAkN41SFHYV-jhC06pOqfF2h/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Buffers</h2>
+
+                <p>
+                  Todos los flujos de entrada y salida pueden funcionar de dos
+                  maneras: <span>byte-a-byte o por “lotes”</span>. Es decir,
+                  que, si hay que leer un archivo de 1024 bytes, se puede leer
+                  1024 veces un byte o se puede leer 8 veces un lote de 128
+                  bytes. Para ello, los flujos binarios o de carácter establecen
+                  subclases <span>“Buffered”</span> —se puede observar en los
+                  diagramas anteriormente presentados—.
+                  <u
+                    >Estas clases definen métodos que permiten elegir el tamaño
+                    de los lotes para leer o escribir</u
+                  >
+                  —si no se establece un tamaño, estas clases definen uno por
+                  default—.
+                </p>
+              </div>
+
+              <div
+                style="
+                  border-radius: 15px;
+                  border: 1px solid #e58c37;
+                  padding: 10px;
+                  font-size: 16px;
+                "
+              >
+                <div
+                  style="border-left: 3px solid #ccc;
+            padding-left: 17px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            margin-left: -15px;
+        "
+                >
+                  Elegir entre usar un flujo “buffereado” o no depende de cada
+                  aplicación. Si bien los<br />
+                  buffers dan velocidad a las operaciones de lectura, consumen
+                  algo más de memoria<br />
+                  —cada lote que se lee de un tirón se almacena en memoria hasta
+                  que se hace algo<br />
+                  con él, como, por ejemplo, escribirlo en otro lado—. Por otro
+                  lado, no usar buffers<br />
+                  consume menos memoria porque no se almacena un lote temporal
+                  en memoria,<br />
+                  pero implica que, por cada byte leído, hay una llamada al
+                  sistema operativo o la pla-<br />taforma, intensificando el
+                  uso de CPU.
+                </div>
+              </div>
+
+              <div>
+                <p>
+                  Dicho esto, utilizar los streams “buffereados” tiene algunas
+                  ventajas hacia el programador. Por ejemplo, el
+                  BufferedInputStream permite leer bloques de bytes, lo que
+                  posibilitaría leer muy fácilmente un archivo. De otra manera,
+                  habría que leer carácter por carácter y detectar el retorno de
+                  carro para saber cuándo termina cada línea. ¡Avancemos para
+                  conocer más!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div style="width: 100%">
+                <div
+                  style="
+                    position: relative;
+                    padding-bottom: 108.33%;
+                    padding-top: 0;
+                    height: 0;
+                  "
+                >
+                  <iframe
+                    scrolling="yes"
+                    allowfullscreen="true"
+                    src="https://view.genial.ly/61114baee2c4a60d8246e2a0"
+                    style="
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                    "
+                    height="1300"
+                    width="1200"
+                    frameborder="0"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
