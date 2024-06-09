@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Protocolo HTTP</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="dh-flex">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Anterior</span>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <p class="header__heading header__heading_md">
+                  Módulo 3 · C21A - Introducción a Spring Boot
+                </p>
+                <h2 class="header__title header__title_md">Protocolo HTTP</h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Siguiente</span>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Protocolo HTTP</h2>
+                <p>
+                  Como ya saben, este protocolo está orientado a transacciones.
+                  El cliente realiza una petición enviando un “mensaje”
+                  (<span>request</span>) con cierto formato al servidor.
+                  Posteriormente, este le envía un “mensaje” de respuesta
+                  (<span>response</span>). Por ejemplo, cuando vos escribís en
+                  el navegador la dirección www.facebook.com, vos —como cliente—
+                  estás enviando una solicitud a través de Internet al servidor
+                  o servidores de Facebook; y este, tras recibir dicha petición,
+                  la procesa y te envía como resultado una respuesta, por
+                  ejemplo: mostrarte la página de inicio para que ingreses tu
+                  usuario y contraseña.
+                </p>
+
+                <p>Veamos un resumen de lo visto hasta ahora.</p>
+                <br />
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 55%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/61154ebe80f3e60d9ddd24aa"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="1000"
+                      width="1000"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+                <br />
+                <hr />
+                <br />
+                <h2>
+                  ¿Por qué es importante conocer este flujo request-response?
+                </h2>
+                <p>
+                  Dentro del mundo del desarrollo web, la mayoría de las
+                  aplicaciones tienen dos frentes: el front end y el back end.
+                  Como se podrán imaginar, todo lo que sucede en el front end es
+                  lo que pasa del lado del cliente, mientras que el back end es
+                  todo lo que pasa del lado del servidor (funcionamiento lógico
+                  e interno del sitio).
+                </p>
+                <br />
+
+                <h3>¿Cómo son sus formatos?</h3>
+                <p>
+                  Cada uno de los mensajes existentes entre cliente y servidor
+                  tiene una estructura con la cual son enviados a través de la
+                  red.
+                </p>
+                <br />
+
+                <h3>Request</h3>
+                <ul>
+                  <li style="font-size: 16px">
+                    <span>Method</span>: se indica qué método se está utilizando
+                    para enviar el mensaje.
+                  </li>
+                  <li style="font-size: 16px">
+                    <span>URL</span>: dirección a donde se está enviando la
+                    petición.
+                  </li>
+                  <li style="font-size: 16px">
+                    <span>Header (cabecera)</span>: atributos generales o
+                    esenciales que se incluyen. Por ejemplo, Auth.
+                  </li>
+                  <li style="font-size: 16px">
+                    <span>Body</span>: cuerpo del mensaje utilizado en las
+                    peticiones para poder transmitir datos.
+                  </li>
+                </ul>
+                <img
+                  alt="Protocolo HTTP"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIRequest-01.jpg"
+                />
+                <br />
+                <hr />
+                <br />
+                <h3>Response</h3>
+                <ul>
+                  <li style="font-size: 16px">
+                    <span>Status</span>: es un código que representa qué sucede
+                    con una petición. Existen distintos “Status Code”:
+                  </li>
+
+                  <li>
+                    1xx: respuestas informativas que indican que la petición fue
+                    recibida y se está procesando.
+                  </li>
+                  <li>
+                    2xx: respuestas correctas. Indican que la petición fue
+                    procesada correctamente, por ejemplo: 200 Success.
+                  </li>
+                  <li>3xx: respuestas de redireccionamiento.</li>
+                  <li>
+                    4xx: errores causados por el cliente, por ejemplo: 404 Not
+                    Found.
+                  </li>
+                  <li>
+                    5xx: errores causados por el servidor, por ejemplo: 500
+                    Internal Server Error.
+                  </li>
+                  <li style="font-size: 16px">
+                    <span>Header</span>: atributos generales o esenciales que se
+                    incluyen.
+                  </li>
+                  <li style="font-size: 16px">
+                    <span>Body</span>: respuesta del mensaje.
+                  </li>
+                </ul>
+
+                <img
+                  alt="Protocolo HTTP"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIResponse-01.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>

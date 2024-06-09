@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Spring & Spring Boot</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="dh-flex">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Anterior</span>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <p class="header__heading header__heading_md">
+                  Módulo 3 · C21A - Introducción a Spring Boot
+                </p>
+                <h2 class="header__title header__title_md">
+                  Spring &amp; Spring Boot
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Siguiente</span>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://player.vimeo.com/video/955508912?h=d26cf62a3f&amp"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="video-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Spring</h2>
+
+                <p>
+                  Avancemos para comprender más sobre Spring, para luego conocer
+                  más en detalle Spring Boot.
+                </p>
+                <br /><br />
+
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 67.5%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/611698cd786c590d9881ba19"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="1000"
+                      width="1000"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+                <br /><br />
+
+                <hr />
+
+                <br /><br />
+
+                <h3>¿Qué es Spring Platform?</h3>
+
+                <p>
+                  Spring Platform es un conjunto de proyectos
+                  <span>open source</span> desarrollados en
+                  <span>Java</span> con el objetivo de
+                  <span>agilizar el desarrollo de aplicaciones</span
+                  >.<br /><br />
+
+                  Cuenta con gran variedad de <span>herramientas</span> que nos
+                  facilitan el trabajo desde el acceso a datos, infraestructura,
+                  creación de aplicaciones web, microservicios, etc.<br /><br />
+
+                  Ellos son:
+                </p>
+                <br /><br />
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Spring Boot</td>
+                      <td>Spring HATEOAS</td>
+                    </tr>
+                    <tr>
+                      <td>Spring Framework</td>
+                      <td>Spring REST Docs</td>
+                    </tr>
+                    <tr>
+                      <td>Spring Data</td>
+                      <td>Spring Batch</td>
+                    </tr>
+                    <tr>
+                      <td>Spring Cloud</td>
+                      <td>Spring AMQP</td>
+                    </tr>
+                    <tr>
+                      <td>Spring Cloud Data Flow</td>
+                      <td>Spring CredHub</td>
+                    </tr>
+                    <tr>
+                      <td>Spring Security</td>
+                      <td>Spring Flo</td>
+                    </tr>
+                    <tr>
+                      <td>Spring Integration</td>
+                      <td>Spring Apache Kafka</td>
+                    </tr>
+                    <tr>
+                      <td>Spring LDAP</td>
+                      <td>Spring Shell</td>
+                    </tr>
+                    <tr>
+                      <td>Spring Roo</td>
+                      <td>Spring Statemachine</td>
+                    </tr>
+                    <tr>
+                      <td>Spring Vault</td>
+                      <td>Spring Web Flow</td>
+                    </tr>
+                    <tr>
+                      <td>Spring Services</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br />
+                <p>
+                  Para conocer más, los invitamos a ingresar al siguiente
+                  <a target="_blank" href="https://spring.io/projects">link</a
+                  ><a>.</a>
+                </p>
+                <a>
+                  <br /><br />
+
+                  <hr />
+
+                  <br /><br />
+
+                  <h3>¿Qué es Spring Framework?</h3>
+
+                  <p>
+                    Como vimos anteriormente se trata de un framework para el
+                    desarrollo de aplicaciones y contenedor de inversión de
+                    control.<br /><br />
+
+                    A su vez, puede ser usado en cualquier aplicación
+                    desarrollada en Java.
+                  </p>
+                  <br /><br />
+
+                  <img
+                    alt="Spring Framework"
+                    src="https://manzjulio064.github.io/glosariodeterminos/Springframeworkruntime_MesaTrabajo1.jpg"
+                  />
+                  <br /><br />
+
+                  <hr />
+
+                  <br /><br />
+
+                  <h3>¿Qué es Spring Boot?</h3>
+
+                  <div>
+                    <div>
+                      <p>
+                        Es una <span>extensión</span> de
+                        <span>Spring framework</span> que permite la creación
+                        fácil y rápida de
+                        <span>aplicaciones web listas para producción</span> con
+                        el concepto de <i>just run</i> (solo ejecutar).<br /><br />
+
+                        Requiere una <span>mínima configuración</span> y se
+                        complementa con muchos proyectos de Spring Platform y
+                        librerías de terceros.<br /><br />
+
+                        Como conclusión podemos mencionar que reduce en gran
+                        medida el tiempo de desarrollo y aumenta la
+                        productividad.
+                      </p>
+                    </div>
+                    <div>
+                      <img
+                        alt="Imagen"
+                        src="https://manzjulio064.github.io/glosariodeterminos/1SQz_qyEPMeZS1EJedLRChacUKq9XnnqbXiz2iRg.png"
+                        height="162px"
+                      />
+                    </div>
+                  </div>
+                  <br /><br />
+
+                  <hr />
+
+                  <br /><br />
+
+                  <p>
+                    Spring Boot nos permite dejar de lado algunas cuestiones de
+                    configuración que con Spring pueden ser algo tediosas.
+                    ¡Avancemos para conocer sus características principales!
+                  </p>
+
+                  <br /><br />
+
+                  <div style="width: 100%">
+                    <div
+                      style="
+                        position: relative;
+                        padding-bottom: 37.5%;
+                        padding-top: 0;
+                        height: 0;
+                      "
+                    >
+                      <iframe
+                        scrolling="yes"
+                        allowfullscreen="true"
+                        src="https://view.genial.ly/61170ff98ad90d0d9f2344c3"
+                        style="
+                          position: absolute;
+                          top: 0;
+                          left: 0;
+                          width: 100%;
+                          height: 100%;
+                        "
+                        height="450"
+                        width="1200"
+                        frameborder="0"
+                      ></iframe>
+                    </div>
+                  </div>
+                  <br />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1AJ5iCm0knBoV_ehLgCeelt_DhxrI6u2d/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <img
+                  alt="Spring Framework vs Spring Boot"
+                  src="https://manzjulio064.github.io/glosariodeterminos/SpringFrameworkvsSpringBoot-01.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
