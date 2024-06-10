@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Spring MVC y Spring Boot MVC</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="dh-flex">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Anterior</span>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <p class="header__heading header__heading_md">
+                  Módulo 3 · C22A - Patrón MVC
+                </p>
+                <h2 class="header__title header__title_md">
+                  Spring MVC y Spring Boot MVC
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+              <span class="navigator__label">Siguiente</span>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Spring MVC y Spring Boot MVC</h2>
+
+                <p>
+                  En la clase anterior vimos la diferencia de Spring y Spring
+                  Boot. A su vez, mencionamos que Spring Platform cuenta con una
+                  gran variedad de herramientas para facilitar el trabajo del
+                  desarrollador. Una de ellas es Spring Framework, que nos
+                  provee un módulo que sigue el patrón de diseño MVC y que se lo
+                  denomina <span><u>Spring MVC.</u></span>
+                </p>
+                <br /><br />
+
+                <h3>¿Cómo trabaja Spring MVC?</h3>
+
+                <p>
+                  Spring MVC cuenta con un componente conocido como el
+                  <span><u>DispatcherServlet</u></span
+                  >. Es el responsable de delegar y coordinar el control entre
+                  varias interfaces en la fase de ejecución durante una petición
+                  HTTP, utilizando
+                  <span>el patrón de diseño controlador frontal.</span
+                  ><br /><br />
+
+                  Esto significa que todas las solicitudes que vienen de un
+                  recurso en una aplicación serán manejadas por un solo
+                  controlador y luego enviadas al controlador apropiado para ese
+                  tipo de solicitud.<br /><br />
+
+                  El controlador frontal puede usar otros ayudantes para lograr
+                  el mecanismo de reenvío.
+                </p>
+                <br /><br />
+
+                <img
+                  alt="Infografia Plana Provisoria"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC22APatronMVCSpringMVCySpringBootMVCimg1.jpg"
+                />
+                <br /><br />
+
+                <hr />
+
+                <br /><br />
+
+                <p>
+                  Veamos en detalle cómo hace la magia el DispatcherServlet.
+                </p>
+                <br /><br />
+
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 66.67%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/6116812f786c590d9881b598"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="800"
+                      width="1200"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+                <br /><br />
+
+                <p>
+                  Hasta ahora vimos cómo opera Spring MVC de Spring Framework
+                  cada vez que solicitamos un HTTP Request para devolvernos un
+                  HTTP Response.
+                </p>
+                <br /><br />
+
+                <hr />
+
+                <br /><br />
+
+                <h2>Spring Boot MVC</h2>
+
+                <p>
+                  Ahora veamos cómo Spring Boot se integra con Spring MVC para
+                  simplificar la interacción entre el modelo, vista y
+                  controlador.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1ZZ0ziWLwp-1TH9WYKvTYUva1QuAjWqnF/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Tecnologías para la capa de presentación</h2>
+
+                <p>
+                  Spring MVC admite muchos tipos de vistas para diferentes
+                  tecnologías de presentación, a menudo denominadas plantillas
+                  de vistas.<br /><br />
+
+                  Estas tecnologías se describen como <i>templates</i> porque
+                  proporcionan un lenguaje de marcado para exponer los atributos
+                  del modelo dentro de la vista durante la representación del
+                  lado del servidor. Veamos algunas:
+                </p>
+                <br /><br />
+
+                <img
+                  alt="Tecnologías para la capa de presentación"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC22APatronMVCSpringMVCySpringBootMVCimg2.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
