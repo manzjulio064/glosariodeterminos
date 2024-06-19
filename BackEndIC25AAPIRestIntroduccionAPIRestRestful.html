@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Introducción a API Rest-Restful</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Introducción a API Rest-Restful
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://player.vimeo.com/video/961920861?h=5f1343b976&amp"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="video-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Ahora que viste el video, ya sabés que distintas aplicaciones
+                  se comunican porque comparten el mismo idioma.
+                </p>
+                <br /><br />
+
+                <img
+                  alt="API-01"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC25AAPIRestIntroduccionAPIRestRestful.png"
+                />
+                <br /><br />
+
+                <div
+                  style="
+                    border-radius: 15px;
+                    border: 1px solid #e48b37;
+                    padding: 10px;
+                    font-size: 16px;
+                  "
+                >
+                  <div
+                    style="border-left: 3px solid #ccc;
+            padding-left: 17px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            margin-left: -15px;
+            padding-top: 10px;
+        "
+                  >
+                    Antes de continuar, es importante aclarar que nos
+                    enfocaremos en las <font>APIs web</font>.
+                  </div>
+                </div>
+                <hr />
+                <br /><br />
+
+                <h3>APIs web</h3>
+
+                <div>
+                  <div>
+                    <p>
+                      Se utilizan para crear aplicaciones que necesitan ofrecer
+                      <font>interoperabilidad</font> como parte de sus
+                      características. Es decir, permiten comunicarse con otras
+                      aplicaciones sin depender del sistema operativo y los
+                      lenguajes de programación.
+                    </p>
+                  </div>
+
+                  <div>
+                    <img
+                      alt="Imagen"
+                      src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC25AAPIRestIntroduccionAPIRestRestfulimg2.png"
+                      height="162px"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  style="
+                    border-radius: 15px;
+                    border: 1px solid #cccc;
+                    padding: 10px;
+                    font-size: 16px;
+                  "
+                >
+                  <div
+                    style="
+                      border-left: 3px solid #ccc;
+                      padding-left: 17px;
+                      font-family: 'IBM Plex Sans', sans-serif;
+                      font-size: 16px;
+                      font-weight: bold;
+                      margin-left: -15px;
+                      padding-top: 10px;
+                    "
+                  >
+                    Una API web es una colección de estándares y protocolos que
+                    las aplicaciones y<br />
+                    los sistemas usan para intercambiar datos a través de
+                    Internet.
+                  </div>
+                </div>
+
+                <br /><br />
+
+                <hr />
+
+                <br /><br />
+
+                <h2>Hagamos un poco de historia</h2>
+
+                <h3>¿SOAP?</h3>
+
+                <p>
+                  Si bien en la actualidad ya no usamos en los nuevos proyectos
+                  SOAP (Simple Object Access Protocol), consideramos que es
+                  importante que sepas qué es, ya que en el mercado existen
+                  varios proyectos que aún mantienen este tipo de sistemas. SOAP
+                  es un protocolo estándar que define cómo dos objetos en
+                  diferentes procesos pueden comunicarse por medio de un
+                  intercambio de datos específico utilizando archivos (XML). Por
+                  lo general, opera con el protocolo HTTP, pero puede ser
+                  enviado por POP3, TCP, colas de mensajería (JMS, MQ, etc.) o
+                  FTP.
+                </p>
+                <br /><br />
+
+                <img
+                  alt="ALGUNA DESCRIPCION DE LA IMAGEN"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC25AAPIRestIntroduccionAPIRestRestfulimg3.png"
+                />
+                <br /><br />
+
+                <hr />
+
+                <br /><br />
+
+                <h3>Y en la actualidad...</h3>
+
+                <p>
+                  Actualmente la gran mayoría de las aplicaciones
+                  <span>consumen o proveen una <font>API Rest</font></span
+                  >.
+                </p>
+
+                <br /><br />
+
+                <hr />
+
+                <br /><br />
+
+                <h3>¿Qué es REST?</h3>
+
+                <div>
+                  <div>
+                    <img
+                      alt="Rest"
+                      src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC25AAPIRestIntroduccionAPIRestRestfulRest.png"
+                      height="100px"
+                    />
+                  </div>
+                  <div>
+                    <p>
+                      REST (transferencia de estado de presentación o
+                      Representational State Transfer) es una arquitectura de
+                      software que proporciona muchas características y
+                      protocolos subyacentes que rigen el comportamiento de los
+                      clientes y los servidores.
+                    </p>
+                  </div>
+                </div>
+
+                <p>
+                  Un servicio REST <span>no tiene estado</span> (es
+                  <i>stateless</i>), quiere decir que no se puede llamar a un
+                  servicio REST, pasarle unos datos y esperar que “los recuerde”
+                  en la siguiente petición, porque no lo hará.
+                </p>
+                <p>
+                  De ahí el nombre: el estado lo mantiene el cliente y, por lo
+                  tanto, es el cliente quien debe pasar el estado en cada
+                  llamada.
+                </p>
+                <p>Características principales:</p>
+                <ul>
+                  <li style="font-size: 16px">
+                    Requiere menos recursos del servidor.
+                  </li>
+                  <li style="font-size: 16px">
+                    Se centra en la escalabilidad y rendimiento a gran escala
+                    para
+                  </li>
+                  <li style="font-size: 16px">
+                    sistemas distribuidos hipermedia.
+                  </li>
+                  <li style="font-size: 16px">
+                    Funciona basándose en los métodos HTTP (POST, GET, PUT y
+                    DELETE)
+                  </li>
+                </ul>
+                <img
+                  alt="IMAGEN"
+                   src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC25AAPIRestIntroduccionAPIRestRestfulimg4.png"
+                />
+                <br />
+                <hr />
+                <br />
+                <h2>¿Qué significa RESTful?</h2>
+                <p>
+                  Hace referencia a un
+                  <span>servicio web que implementa la arquitectura REST</span>.
+                  Es decir:
+                </p>
+                <ul>
+                  <li>Implementa la arquitectura cliente- servidor.</li>
+                  <li>Está basado en protocolo HTTP.</li>
+                  <li>No mantiene estado.</li>
+                  <li>Se accede a los recursos por medio de una URL.</li>
+                </ul>
+                <p>
+                  Utiliza explícitamente los métodos HTTP. Todos los datos que
+                  movemos por medio del protocolo HTTP son recursos y podemos
+                  acceder a ellos utilizando los siguientes métodos.
+                </p>
+                <br /><br />
+
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 50%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/611db3db4ac15e0d8d1bb9f9"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="600"
+                      width="1200"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+                <br />
+
+                <hr />
+
+                <br /><br />
+
+                <h3>Ejemplos</h3>
+
+                <p>
+                  Todos los sitios web y redes sociales más populares ofrecen
+                  APIs RESTful. Algunos ejemplos son:
+                </p>
+
+                <p>
+                  <span>Facebook</span>
+                  <a target="_blank" href="https://developers.facebook.com/"
+                    >https://developers.facebook.com/</a
+                  >
+                </p>
+
+                <p>
+                  <span>Cloudways</span>:
+                  <a
+                    target="_blank"
+                    href="https://www.cloudways.com/blog/introducing-cloudways-api/"
+                    >https://www.cloudways.com/blog/introducing-cloudways-api/</a
+                  >
+                </p>
+
+                <p>
+                  <span>Twitter</span>:
+                  <a target="_blank" href="https://dev.twitter.com/rest/public"
+                    >https://dev.twitter.com/rest/public</a
+                  >
+                </p>
+
+                <p>
+                  <span>Google Translate</span>:
+                  <a
+                    target="_blank"
+                    href="https://cloud.google.com/translate/docs/translating-text"
+                    >https://cloud.google.com/translate/docs/translating-text</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
