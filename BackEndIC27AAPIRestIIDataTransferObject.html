@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Data Transfer Object (DTO)</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Data Transfer Object (DTO)
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Data Transfer Object (DTO)</h2>
+
+                <p>
+                  Una de las problemáticas más comunes cuando desarrollamos
+                  aplicaciones es el diseño de la forma en que la información
+                  debe viajar desde la capa de servicios (o desde el
+                  controlador) hasta las aplicaciones o capa de presentación.
+                  Muchas veces, por desconocimiento, utilizamos las clases de
+                  entidades para retornar los datos. Esto ocasiona que
+                  devolvamos más datos de los necesarios o que incluso tengamos
+                  que ir en más de una ocasión a la capa de servicios para
+                  recuperar los datos requeridos.
+                </p>
+
+                <p>Para facilitarnos este trabajo existe el patrón DTO.</p>
+
+                <br />
+                <div
+                  style="
+                    border-radius: 15px;
+                    border: 1px solid #e48b37;
+                    padding: 10px;
+                    font-size: 16px;
+                  "
+                >
+                  <div
+                    style="border-left: 3px solid #cccc;
+            padding-left: 17px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            margin-left: -15px;
+            padding-top: 10px;
+        "
+                  >
+                    El patrón <font>DTO</font> tiene como finalidad crear un
+                    objeto plano (POJO) con una serie de<br />
+                    atributos que puedan ser enviados o recuperados del servidor
+                    en <font>una sola invoca-<br />ción</font>, de tal forma que
+                    un <font>DTO</font> puede contener información de
+                    <font>múltiples fuentes</font> o<br />
+                    tablas y agruparla en una única clase simple.
+                  </div>
+                </div>
+                <hr />
+                <br />
+
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 80%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/611fed0d135ad10d95258f8b"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="800"
+                      width="1000"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+                <hr />
+                <br />
+                <p>
+                  Si bien un DTO es simplemente un objeto plano, tiene que
+                  cumplir algunas reglas:
+                </p>
+                <br /><br />
+
+                <img
+                  alt="Caracteristicas de un DTO"
+                  src="https://manzjulio064.github.io/glosariodeterminos/caracteristicas-de-un-dto.jpg"
+                />
+                <br />
+                <hr />
+                <br />
+                <h3>Entidades vs DTO</h3>
+                <p>
+                  Un error muy frecuente es el hecho de utilizar las clases de
+                  entidad para la transmisión de datos entre el cliente y el
+                  servidor. Sin embargo, las entidades son clases que fueron
+                  diseñadas para mapear contra la base de datos, no para ser una
+                  vista para una pantalla o servicio determinado, lo que provoca
+                  que muchos de los campos no puedan ser serializables o no
+                  contengan todos los campos necesarios.
+                </p>
+                <p>
+                  El hecho de que las entidades no contengan todos los atributos
+                  necesarios, o que no sean serializables, trae otros problemas.
+                  Por ejemplo, la necesidad de agregar más atributos a las
+                  entidades con el único objetivo de poder cubrir los
+                  requerimientos de transferencia de datos, dejando de lado el
+                  verdadero propósito de la entidad, que es únicamente mapear
+                  contra la base de datos, lo que va llevando lentamente a la
+                  creación de una mezcla entre Entidad y DTO.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1k99Mi120dEwrrJUYp9vtLMro6TUGZZZG/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>

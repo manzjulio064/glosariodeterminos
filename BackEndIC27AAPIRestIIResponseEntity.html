@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>ResponseEntity</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="flex flex-col gap-6 grow w-full relative overflow-auto">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">ResponseEntity</h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>ResponseEntity</h2>
+
+                <p>
+                  Con Spring generalmente tenemos muchas formas de lograr el
+                  mismo objetivo, incluido el ajuste fino de las respuestas
+                  HTTP.
+                </p>
+
+                <p>Veamos la clase Response Entity &lt; T &gt;.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1f7B4Ab3bpayvh-6l9J0ww3OrJWtu-rUN/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Alternativas</h2>
+                <ul>
+                  <li style="font-size: 16px">
+                    <u>@ResponseBody</u>: en las aplicaciones clásicas de Spring
+                    MVC, los endpoints generalmente devuelven páginas HTML
+                    renderizadas. A veces solo necesitamos devolver los datos
+                    reales. <br />En tales casos podemos marcar el método del
+                    controlador con <span>@ResponseBody</span>, y Spring trata
+                    el valor de resultado del método como el propio cuerpo de
+                    respuesta HTTP.
+                  </li>
+                  <li style="font-size: 16px">
+                    <u>@ResponseStatus</u>: cuando un endpoint regresa con
+                    éxito, Spring proporciona una respuesta HTTP 200 (OK). Si el
+                    endpoint arroja una excepción, Spring busca un controlador
+                    de excepciones que indique qué estado HTTP usar.
+                    <br />Podemos marcar estos métodos con
+                    <span>@ResponseStatus</span> y, por lo tanto, Spring regresa
+                    con un estado HTTP personalizado.
+                  </li>
+                  <li style="font-size: 16px">
+                    <u>Manipular la respuesta directamente</u>: Spring también
+                    nos permite acceder directamente al objeto
+                    javax.servlet.http.HttpServletResponse; solo tenemos que
+                    declararlo como argumento de método, como vemos en la
+                    siguiente imagen:
+                  </li>
+                </ul>
+                <div>
+                  <pre>    <code>
+        @GetMapping("/manual")
+        void manual (HttpServerletResponse response) throws IOException {
+               response.setHeader("Custom - Header", "foo");
+               response.setStatus(200);
+               response.getWriter().println("Hello Word!");
+        }
+
+            </code>
+          </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
