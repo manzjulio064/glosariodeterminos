@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Introducción a Inyección de Dependencias</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Introducción a Inyección de Dependencias
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <img
+                  alt="Introducción inyección de dependencia"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC30AInyeccionDependenciasIntroduccionInyeccionDependencias.jpg"
+                />
+                <hr />
+                <br /><br />
+
+                <h2>¿Qué es un POJO?</h2>
+
+                <p>
+                  <span>POJO o Plain Old Java Object</span> es un concepto que
+                  se comenzó a utilizar con los frameworks no intrusivos, como
+                  Spring y Hibernate. Es una instancia de una clase que no
+                  extiende ni implementa nada en especial.
+                </p>
+                <ul>
+                  <li style="font-size: 16px">
+                    <u>No</u> debe extender clases preespecificadas.
+                  </li>
+                  <li style="font-size: 16px">
+                    <u>No</u> debe implementar interfaces preespecificadas.
+                  </li>
+                  <li style="font-size: 16px">
+                    <u>No</u> debe tener anotaciones preespecificadas.
+                  </li>
+                  <li style="font-size: 16px">
+                    No hay restricción sobre el acceso-modificador de los
+                    atributos.
+                  </li>
+                  <li style="font-size: 16px">
+                    No es necesario incluir ningún constructor en él.
+                  </li>
+                </ul>
+                <div
+                  style="
+                    border-radius: 15px;
+                    border: 1px solid #e28c37;
+                    padding: 10px;
+                    font-size: 16px;
+                  "
+                >
+                  <div
+                    style="
+                      border-left: 3px solid #ccc;
+                      padding-left: 17px;
+                      font-family: 'IBM Plex Sans', sans-serif;
+                      font-size: 16px;
+                      font-weight: bold;
+                      margin-left: -15px;
+                      padding-top: 10px;
+                    "
+                  >
+                    Entonces, si en tu programa deseas que una clase represente
+                    a la entidad podés crear<br />
+                    un POJO de la siguiente manera.
+                  </div>
+                </div>
+
+                <div>
+                  <pre>    <code>
+        public class Alumno {
+           private String name;
+           private String lastName;
+
+           public int yearsOld;
+
+           public String getName() {
+               return name;
+           }
+
+           public void setName(String name) {
+               this.name = name;
+           }
+
+           public String getLastName() {
+               return lastName;
+           }
+
+           public void setLastName(String lastName) {
+               this.lastName = lastName;
+           }
+        }
+
+            </code>
+          </pre>
+                </div>
+                <br />
+                <hr />
+                <br />
+                <p>
+                  En clases anteriores vimos la magia que nos provee el uso de
+                  <font>@annotation</font> en nuestro código. Para continuar con
+                  nuestro aprendizaje de cómo programamos una aplicación en Java
+                  necesitamos seguir conociendo más sobre:
+                </p>
+                <ul>
+                  <li style="font-size: 16px">@Component</li>
+                  <li style="font-size: 16px">@Service</li>
+                  <li style="font-size: 16px">@Repository</li>
+                </ul>
+                <hr />
+                <br />
+                <h3>@Component</h3>
+
+                <p>
+                  <u>Es una anotación de nivel de clase</u> que indica que la
+                  clase con esta anotación es un componente o Bean de Spring.
+                </p>
+                <p>
+                  Spring Framework detecta automáticamente las clases anotadas
+                  con
+                  <a
+                    target="_blank"
+                    href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-stereotype-annotations"
+                    >@Component</a
+                  >
+                  . Por ejemplo
+                </p>
+
+                <div>
+                  <pre>    <code>
+        @Component
+        public class SoyUnComponente {
+          // …
+        }
+
+            </code>
+          </pre>
+                </div>
+                <p>
+                  Esta annotation posee otras
+                  <u>especificaciones más concretas</u> que podemos utilizar:
+                </p>
+                <ul>
+                  @Repository @Service @Controller
+                </ul>
+                <p>¡Veamos algunas recomendaciones!</p>
+                <br /><br />
+                <img
+                  alt="Recomendaciones Component"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC30AInyeccionDependenciasIntroduccionInyeccionDependenciasimg2.jpg"
+                />
+                <br />
+                <hr />
+                <br />
+                <h3>@Service</h3>
+
+                <p>
+                  La annotation @Service sirve para indicar que una clase
+                  pertenece a la <u>capa de negocio</u>, es decir, donde
+                  codificamos la lógica de negocios de nuestra aplicación y
+                  ocultamos la complejidad de la misma al resto de las capas.
+                </p>
+
+                <p>
+                  <u
+                    ><span>@Service</span> es una especialización de<span>
+                      @Component</span
+                    ></u
+                  >, añade un valor <u>semántico</u> que indica la utilidad de
+                  la clase anotada como @Service para la capa de negocio.
+                </p>
+
+                <div>
+                  <pre>    <code>
+        @Service
+        public class SoyUnServicio {
+          // …
+        }
+
+            </code>
+          </pre>
+                </div>
+                <h3>@Repository</h3>
+
+                <p>
+                  Con esta anotación estaremos definiendo una clase que
+                  implementará el patrón repositorio, que es el encargado de
+                  almacenar datos en una base de datos.
+                </p>
+
+                <div>
+                  <pre>    <code>
+        @Repository
+        public class SoyUnaClaseParaGuardarDatos {
+          // …
+        }
+
+            </code>
+          </pre>
+                </div>
+
+                <p>
+                  Es recomendable utilizar cada anotación para lo que es. Por lo
+                  tanto, aunque es posible intercambiarlas, no es recomendable.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
