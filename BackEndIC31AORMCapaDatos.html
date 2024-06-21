@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Capa de Datos</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">Capa de Datos</h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Capa de datos (Data layer)</h2>
+                <p>
+                  En esta clase vamos a enfocarnos, entre otras cosas, en la
+                  persistencia de los datos y en cómo conectarse y trabajar con
+                  una base de datos relacional.
+                </p>
+                <br /><br />
+
+                <img
+                  alt="Capas de la aplicación"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC31AORMCapaDatosImg1.jpg"
+                />
+                <br /><br />
+
+                <hr />
+                <br /><br />
+
+                <h2>Base de datos relacionales</h2>
+
+                <p>
+                  Es un tipo de base de datos que cumple con el modelo
+                  relacional. El lenguaje más común para construir las consultas
+                  a bases de datos relacionales es el
+                  <span>SQL (Structured Query Language)</span>, un estándar
+                  implementado por los principales motores o sistemas de gestión
+                  de bases de datos relacionales integradas.<br /><br />
+
+                  Las bases de datos relacionales (SQL) siguen las garantías de
+                  <span>ACID</span>, por sus siglas en inglés: atomicity
+                  (atomicidad), consistency (consistencia), isolation
+                  (aislamiento) y durability (durabilidad).
+                </p>
+                <p>Avancemos para conocer sus características.</p>
+
+                <br /><br />
+
+                <img
+                  alt="Garantias de ACID"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC31AORMCapaDatosImg2.jpg"
+                />
+                <br /><br />
+
+                <p>
+                  Esas son características excelentes, pero —para garantizarlas—
+                  estas bases de datos no pueden manejar adecuadamente la
+                  escalabilidad horizontal (múltiples nodos distribuidos), lo
+                  que significa que no escalan tan bien.
+                </p>
+
+                <p>
+                  Un sistema de software utilizado para mantener las bases de
+                  datos relacionales es un
+                  <span>relational database management system (RDBMS)</span> o
+                  sistema de gestión de bases de datos relacionales.
+                  Virtualmente, todos los sistemas de bases de datos
+                  relacionales utilizan SQL para consultar y mantener la base de
+                  datos.
+                </p>
+
+                <br /><br />
+
+                <hr />
+                <br /><br />
+
+                <h2>
+                  Discrepancia de impedancia objeto-relacional (o desajuste de
+                  paradigma)
+                </h2>
+                <br /><br />
+
+                <img
+                  alt="Grafico"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC31AORMCapaDatosgrafico.png"
+                />
+                <br /><br />
+
+                <p>
+                  Es solo una forma elegante de decir que los modelos de objeto
+                  y los modelos relacionales no funcionan muy bien juntos. Los
+                  <span>RDBMS</span> representan datos en un formato tabular
+                  (por ejemplo una hoja cálculo), mientras que los lenguajes
+                  orientados a objetos, como Java, los representan como un
+                  gráfico interconectado de objetos. Cargar y almacenar gráficos
+                  de objetos usando una base de datos relacional tabular nos
+                  expone a 5 problemas de discrepancia.
+                </p>
+                <br /><br />
+
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 55.65%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/6125182c9407790d2f05ab2f"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="640"
+                      width="1150"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>JPA</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">JPA</h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>¿Qué es JPA?</h2>
+
+                <p>
+                  Ni bien comenzó esta clase, te lo mencionamos y te dijimos que
+                  a la brevedad nos íbamos a adentrar en este concepto. ¡Llegó
+                  el momento!
+                </p>
+
+                <p>
+                  <span>JPA o Java persistence API</span> es una colección de
+                  clases y métodos que almacenan de forma persistente grandes
+                  cantidades de datos en una BD.
+                  <span>No es un framework</span>, sino que define un conjunto
+                  de <span>conceptos</span> que
+                  <span>pueden ser implementados</span> por cualquier
+                  herramienta o <span>framework</span>.
+                </p>
+
+                <p>
+                  <span>JPA</span> busca solucionar la problemática planteada al
+                  intentar traducir un modelo orientado a objetos a un modelo
+                  relacional. A su vez, permite almacenar entidades del negocio
+                  como entidades relacionales.
+                </p>
+                <br />
+
+                <div
+                  style="
+                    border-radius: 15px;
+                    border: 1px solid #e28c37;
+                    padding: 10px;
+                    font-size: 16px;
+                  "
+                >
+                  <div
+                    style="
+                      border-left: 3px solid #ccc;
+                      padding-left: 17px;
+                      font-family: 'IBM Plex Sans', sans-serif;
+                      font-size: 16px;
+                      font-weight: bold;
+                      margin-left: -15px;
+                      padding-top: 10px;
+                    "
+                  >
+                    La especificación JPA posibilita al desarrollador definir
+                    qué objetos va a persistir, y<br />
+                    cómo esos objetos deben ser persistidos en las aplicaciones
+                    Java.
+                  </div>
+                </div>
+
+                <p>
+                  Al usar JPA se crea un <span>mapa</span> de la BD a los
+                  objetos del modelo de datos de la aplicación. La
+                  <span>conexión</span> entre la
+                  <span>BD relacional y la aplicación</span> es gestionada por
+                  <span>JDBC (Java database connectivity API).</span>
+                </p>
+                <p>
+                  JPA es una API open source y
+                  <span
+                    >existen diferentes proveedores que lo implementan, siendo
+                    utilizado en productos como por ejemplo
+                    <span>Hibernate</span> y <span>Spring Data JPA</span>.</span
+                  >
+                </p>
+                <br /><br />
+                <img
+                  alt="Grafico 3"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC31AORMJPAImg1.png"
+                />
+                <br /><br />
+
+                <p>
+                  A continuación, te invitamos a recorrer la arquitectura JPA. A
+                  partir del siguiente gráfico vas a conocer las clases e
+                  interfaces que conforman el núcleo de JPA.
+                </p>
+                <br /><br />
+                <hr />
+                <br /><br />
+
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 56.25%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/612921b54de7d20d51a88efe"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="675"
+                      width="1200"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+
+                <br /><br />
+
+                <hr />
+                <br /><br />
+
+                <h2>Ejemplo: Mapeando del DER a clases Java</h2>
+
+                <p>
+                  Al mapear debemos tener en consideración
+                  <span>el tipo de datos y sus relaciones</span>. Por defecto,
+                  el <span>nombre</span> del objeto persistido se convierte en
+                  el <span>nombre de la tabla</span> y los
+                  <span>atributos</span> se convierten en <span>columnas</span>.
+                  Una vez que la tabla está creada, cada registro corresponde a
+                  un objeto.
+                </p>
+
+                <br /><br />
+
+                <img
+                  alt="Grafico 5"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC31AORMJPAImg2.png"
+                  height="180px"
+                />
+
+                <br /><br />
+                <p>Author</p>
+                <div>
+                  <pre>    <code>
+        @Entity
+        public class Author{
+
+        @Id
+        @GeneratedValue(strategy=generationType.SEQUENCE)
+        private Long id;
+
+        @Column(name = “first_name”)
+        private String firstName;
+
+        @Column(name = “last_name”)
+        private String lastName;
+
+        @OnetoMany(mappedBy = “author”)
+        private Set &lt; Publicacion &gt; publications = HashSet&lt; Publicacion &gt;();
+
+        }
+
+            </code>
+          </pre>
+                </div>
+                <p>Publication</p>
+                <div>
+                  <pre>    <code>
+        @Entity
+        public abstract class Publication {
+
+        @Id
+        @GeneratedValue(strategy=generationType.SEQUENCE)
+        private Long id;
+        private int version;
+        private String title;
+
+        @ManytoOne(fetch = FetchType.LAZY)
+        private Author author;
+
+
+        @Column(name = “publishing_date”)
+        private LocalDate publishingDate;
+
+        }
+
+            </code>
+          </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Spring Data</h2>
+
+                <p>
+                  <span>Spring Framework</span> tiene múltiples módulos
+                  disponibles para trabajar con bases de datos, agrupados en la
+                  familia <span>Spring Data</span>: JDBC, Cassandra, Hadoop,
+                  Elasticsearch, entre otros.
+                </p>
+                <p>
+                  Uno de ellos es <span>Spring Data JPA</span>, que abstrae el
+                  acceso a las bases de datos utilizando la
+                  <span>API de persistencia de Java</span> en un estilo de
+                  programación basado en Spring.
+                </p>
+
+                <p>
+                  <span>Spring Boot</span> da un paso adicional con un iniciador
+                  dedicado que usa la configuración automática y algunas
+                  herramientas adicionales para iniciar rápidamente el acceso a
+                  la base de datos:
+                  <span>el módulo spring-boot-starterdata-jpa</span>. También
+                  puede autoconfigurar bases de datos integradas como H2.
+                </p>
+                <br />
+
+                <div>
+                  <pre>  <code>
+
+
+              org.springframework.boot
+              spring-boot-starter-data-jpa
+
+
+               com.h2database
+               h2
+               runtime
+
+
+          </code>
+          </pre>
+                </div>
+
+                <div
+                  style="
+                    border-radius: 15px;
+                    border: 1px solid #e28c37;
+                    padding: 10px;
+                    font-size: 16px;
+                  "
+                >
+                  <div
+                    style="border-left: 3px solid #ccc;
+            padding-left: 17px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            margin-left: -15px;
+            padding-top: 10px;
+        "
+                  >
+                    <font>Hibernate</font> es la implementación de referencia
+                    para JPA en Spring Boot. Eso significa<br />
+                    que el iniciador trae las dependencias de Hibernate adentro.
+                    También incluye los arte-<br />factos principales de JPA y
+                    la dependencia con su módulo principal,
+                    <font>Spring Data JPA</font>.
+                  </div>
+                </div>
+                <br /><br />
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 110%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/612941994de7d20d51a89142"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="1100"
+                      width="1000"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="summary-step" data-testid="summary-step">
+          <div class="circular-progress">
+            <div
+              class="circular-progress__content dh-bg-secondary-alternative dark:dh-bg-tertiary"
+              style="width: 150px; height: 150px"
+            >
+              <svg class="dh-relative circular-progress__svg">
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="50%"
+                  class="2xl dh-fill-none dh-stroke-gray-300 dark:dh-stroke-gray-600"
+                  style="
+                    stroke-width: 0;
+                    stroke-dasharray: 1e7;
+                    stroke-dashoffset: 0;
+                  "
+                ></circle>
+                <circle
+                  class="2xl dh-fill-none circular-progress_full"
+                  cx="50%"
+                  cy="50%"
+                  r="50%"
+                  style="
+                    stroke-width: 5;
+                    stroke-dasharray: 471;
+                    stroke-dashoffset: 0;
+                    stroke-linecap: round;
+                  "
+                ></circle>
+              </svg>
+              <div
+                class="circular-progress__info circular-progress__info_2xl"
+                style="width: 150px; height: 150px"
+              >
+                <svg
+                  width="75"
+                  height="76"
+                  viewBox="0 0 75 76"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_3709_148715)">
+                    <path
+                      d="M59.7031 4.75C59.7031 4.75 59.5513 12.4773 53.8594 12.4773C59.5513 12.4773 59.7031 20.2047 59.7031 20.2047C59.7031 20.2047 59.8498 12.4773 65.5418 12.4773C59.8498 12.4529 59.7031 4.75 59.7031 4.75Z"
+                      fill="#8A6DF1"
+                    ></path>
+                    <path
+                      d="M52.9507 2.93359C52.9507 2.93359 52.8577 6.63137 49.3828 6.63137C52.8577 6.63137 52.9507 10.2218 52.9507 10.2218C52.9507 10.2218 53.0388 6.63137 56.5137 6.63137C53.0388 6.63137 52.9507 2.93359 52.9507 2.93359Z"
+                      fill="#B9A7F7"
+                    ></path>
+                    <path
+                      d="M64.7196 0C64.7196 0 64.6461 2.97579 61.8516 2.97579C64.6461 2.97579 64.7196 5.86868 64.7196 5.86868C64.7196 5.86868 64.7979 2.97579 67.5925 2.97579C64.7979 2.97579 64.7196 0 64.7196 0Z"
+                      fill="#B9A7F7"
+                    ></path>
+                    <path
+                      d="M64.8171 75.9981H9.02344C9.02344 68.6233 11.9626 61.5505 17.1942 56.3357C22.4259 51.121 29.5216 48.1914 36.9203 48.1914C44.319 48.1914 51.4146 51.121 56.6463 56.3357C61.878 61.5505 64.8171 68.6233 64.8171 75.9981Z"
+                      fill="black"
+                    ></path>
+                    <path
+                      d="M36.9132 44.6992C45.7709 44.6992 52.9515 37.4937 52.9515 28.6054C52.9515 19.7171 45.7709 12.5117 36.9132 12.5117C28.0556 12.5117 20.875 19.7171 20.875 28.6054C20.875 37.4937 28.0556 44.6992 36.9132 44.6992Z"
+                      fill="#B9A7F7"
+                    ></path>
+                    <path
+                      d="M38.7671 23.6172L40.2501 29.4615L37.6953 30.1054"
+                      stroke="black"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                    ></path>
+                    <path
+                      d="M69.545 22.9557C71.3026 23.4735 72.782 24.6656 73.6584 26.27C74.5348 27.8744 74.7364 29.7599 74.2189 31.5124L71.8355 39.5519L68.4878 50.8551C68.2412 51.7344 67.8216 52.5561 67.2536 53.2724C66.6855 53.9887 65.9802 54.5852 65.1787 55.0274C64.3772 55.4695 63.4955 55.7484 62.585 55.8478C61.6744 55.9472 60.7531 55.8652 59.8746 55.6066C58.9961 55.3479 58.178 54.9177 57.4678 54.341C56.7576 53.7643 56.1695 53.0526 55.7377 52.2473C55.3059 51.442 55.0391 50.5592 54.9527 49.6502C54.8663 48.7412 54.9621 47.8242 55.2344 46.9524L58.582 35.6492L60.9655 27.6048C61.4871 25.8558 62.6831 24.3843 64.2913 23.5129C65.8995 22.6414 67.7888 22.441 69.545 22.9557Z"
+                      fill="#B9A7F7"
+                    ></path>
+                    <path
+                      d="M5.80209 22.5037C4.02123 22.9286 2.48232 24.0405 1.52339 25.5955C0.564447 27.1505 0.263843 29.0212 0.687635 30.7969L2.64531 38.9535L5.39093 50.4177C5.8503 52.1582 6.97484 53.6504 8.52394 54.575C10.073 55.4996 11.9237 55.7831 13.6799 55.3649C15.436 54.9468 16.9582 53.8601 17.9208 52.3374C18.8834 50.8147 19.2099 48.9771 18.8304 47.2175L16.0799 35.7534L14.1222 27.5967C13.6949 25.8225 12.5788 24.2898 11.0189 23.3349C9.45907 22.3801 7.58285 22.0811 5.80209 22.5037Z"
+                      fill="#B9A7F7"
+                    ></path>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_3709_148715">
+                      <rect
+                        width="74"
+                        height="76"
+                        fill="white"
+                        transform="translate(0.5)"
+                      ></rect>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <h1 class="summary-step__title">
+            ¡Excelente! Aprobaste el cuestionario con todas las respuestas
+            correctas.
+          </h1>
+          <p class="summary-step__description">
+            ¡Felicitaciones! ¡Aprobaste el cuestionario!
+          </p>
+          <div class="mt-10">
+            <h3 class="summary-step__heading">Tus respuestas</h3>
+            <p class="summary-step__subheading">Respuestas correctas 6/6</p>
+          </div>
+          <div class="summary-step__container">
+            <div class="summary-step__container-div">
+              <div
+                class="flex items-start gap-1 summary-step__container-answer_correct"
+              >
+                <div class="mt-1">
+                  <i
+                    data-testid="icon"
+                    class="uil icon uil-check-circle icon_md"
+                  ></i>
+                </div>
+                <h1 class="summary-step__container-question">
+                  <div>
+                    <p>
+                      Un sistema de software utilizado para mantener las bases
+                      de datos relacionales es un:
+                    </p>
+                    <p><br /></p>
+                  </div>
+                </h1>
+              </div>
+              <div class="summary-step__container-answers">
+                <div class="flex flex-col gap-4">
+                  <div
+                    data-testid="summary-step-answer"
+                    class="summary-step__container-answer summary-step__container-answer_correct"
+                  >
+                    <i
+                      data-testid="icon"
+                      class="uil icon uil-check icon_md"
+                    ></i>
+                    <div class="summary-step__container-answer-text">
+                      <div><p class="quiz-option__text">RDBMS</p></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="summary-step__helper-question">
+                <div class="summary-step__helper-container">
+                  <svg
+                    class="icon icon_sm !text-alternative-lighter dark:!text-default"
+                    viewBox="0 0 16 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_6581_36213)">
+                      <path
+                        d="M14.2026 7.21873C14.0153 6.99383 13.7809 6.81278 13.5159 6.68837C13.251 6.56397 12.962 6.49923 12.6693 6.49873H9.62927L10.0026 5.54539C10.1579 5.12798 10.2096 4.67913 10.1533 4.23734C10.097 3.79555 9.9344 3.37401 9.6794 3.00888C9.42439 2.64375 9.08462 2.34593 8.68923 2.14096C8.29384 1.93599 7.85463 1.82999 7.40927 1.83206C7.28103 1.83233 7.15559 1.86958 7.04798 1.93934C6.94038 2.00911 6.85518 2.10843 6.8026 2.22539L4.9026 6.49873H3.33594C2.8055 6.49873 2.2968 6.70944 1.92172 7.08451C1.54665 7.45959 1.33594 7.9683 1.33594 8.49873V13.1654C1.33594 13.6958 1.54665 14.2045 1.92172 14.5796C2.2968 14.9547 2.8055 15.1654 3.33594 15.1654H11.8226C12.2905 15.1652 12.7435 15.0011 13.1028 14.7014C13.4621 14.4018 13.7051 13.9856 13.7893 13.5254L14.6359 8.85873C14.6883 8.57031 14.6766 8.27391 14.6018 7.99051C14.5269 7.70711 14.3906 7.44363 14.2026 7.21873ZM4.66927 13.8321H3.33594C3.15913 13.8321 2.98956 13.7618 2.86453 13.6368C2.73951 13.5118 2.66927 13.3422 2.66927 13.1654V8.49873C2.66927 8.32192 2.73951 8.15235 2.86453 8.02732C2.98956 7.9023 3.15913 7.83206 3.33594 7.83206H4.66927V13.8321Z"
+                        fill="currentColor"
+                      ></path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_6581_36213">
+                        <rect
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          transform="translate(0 0.5)"
+                        ></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <p class="summary-step__helper-container-help">¡Correcto!</p>
+                </div>
+                <p class="summary-step__helper-text">
+                  ¡Muy bien! La respuesta es correcta.
+                </p>
+              </div>
+            </div>
+            <div class="summary-step__container-div">
+              <div
+                class="flex items-start gap-1 summary-step__container-answer_correct"
+              >
+                <div class="mt-1">
+                  <i
+                    data-testid="icon"
+                    class="uil icon uil-check-circle icon_md"
+                  ></i>
+                </div>
+                <h1 class="summary-step__container-question">
+                  <div>
+                    <p>
+                      Al elegir un ORM nos vemos obligados a utilizar un solo
+                      gestor de base de datos en el proyecto
+                    </p>
+                  </div>
+                </h1>
+              </div>
+              <div class="summary-step__container-answers">
+                <div class="flex flex-col gap-4">
+                  <div
+                    data-testid="summary-step-answer"
+                    class="summary-step__container-answer summary-step__container-answer_correct"
+                  >
+                    <i
+                      data-testid="icon"
+                      class="uil icon uil-check icon_md"
+                    ></i>
+                    <div class="summary-step__container-answer-text">
+                      <div><p class="quiz-option__text">Falso</p></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="summary-step__helper-question">
+                <div class="summary-step__helper-container">
+                  <svg
+                    class="icon icon_sm !text-alternative-lighter dark:!text-default"
+                    viewBox="0 0 16 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_6581_36213)">
+                      <path
+                        d="M14.2026 7.21873C14.0153 6.99383 13.7809 6.81278 13.5159 6.68837C13.251 6.56397 12.962 6.49923 12.6693 6.49873H9.62927L10.0026 5.54539C10.1579 5.12798 10.2096 4.67913 10.1533 4.23734C10.097 3.79555 9.9344 3.37401 9.6794 3.00888C9.42439 2.64375 9.08462 2.34593 8.68923 2.14096C8.29384 1.93599 7.85463 1.82999 7.40927 1.83206C7.28103 1.83233 7.15559 1.86958 7.04798 1.93934C6.94038 2.00911 6.85518 2.10843 6.8026 2.22539L4.9026 6.49873H3.33594C2.8055 6.49873 2.2968 6.70944 1.92172 7.08451C1.54665 7.45959 1.33594 7.9683 1.33594 8.49873V13.1654C1.33594 13.6958 1.54665 14.2045 1.92172 14.5796C2.2968 14.9547 2.8055 15.1654 3.33594 15.1654H11.8226C12.2905 15.1652 12.7435 15.0011 13.1028 14.7014C13.4621 14.4018 13.7051 13.9856 13.7893 13.5254L14.6359 8.85873C14.6883 8.57031 14.6766 8.27391 14.6018 7.99051C14.5269 7.70711 14.3906 7.44363 14.2026 7.21873ZM4.66927 13.8321H3.33594C3.15913 13.8321 2.98956 13.7618 2.86453 13.6368C2.73951 13.5118 2.66927 13.3422 2.66927 13.1654V8.49873C2.66927 8.32192 2.73951 8.15235 2.86453 8.02732C2.98956 7.9023 3.15913 7.83206 3.33594 7.83206H4.66927V13.8321Z"
+                        fill="currentColor"
+                      ></path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_6581_36213">
+                        <rect
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          transform="translate(0 0.5)"
+                        ></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <p class="summary-step__helper-container-help">¡Correcto!</p>
+                </div>
+                <p class="summary-step__helper-text">
+                  ¡Muy bien! La respuesta es correcta.
+                </p>
+              </div>
+            </div>
+            <div class="summary-step__container-div">
+              <div
+                class="flex items-start gap-1 summary-step__container-answer_correct"
+              >
+                <div class="mt-1">
+                  <i
+                    data-testid="icon"
+                    class="uil icon uil-check-circle icon_md"
+                  ></i>
+                </div>
+                <h1 class="summary-step__container-question">
+                  <div>
+                    <p>
+                      Cuando hablamos de <strong>persistencia </strong>de datos
+                      nos referimos al mecanismo que nos permite que el estado
+                      de nuestros objetos viva más allá del alcance de la JVM
+                      para que el mismo estado esté disponible más adelante.
+                    </p>
+                    <p><br /></p>
+                  </div>
+                </h1>
+              </div>
+              <div class="summary-step__container-answers">
+                <div class="flex flex-col gap-4">
+                  <div
+                    data-testid="summary-step-answer"
+                    class="summary-step__container-answer summary-step__container-answer_correct"
+                  >
+                    <i
+                      data-testid="icon"
+                      class="uil icon uil-check icon_md"
+                    ></i>
+                    <div class="summary-step__container-answer-text">
+                      <div><p class="quiz-option__text">Verdadero</p></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="summary-step__helper-question">
+                <div class="summary-step__helper-container">
+                  <svg
+                    class="icon icon_sm !text-alternative-lighter dark:!text-default"
+                    viewBox="0 0 16 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_6581_36213)">
+                      <path
+                        d="M14.2026 7.21873C14.0153 6.99383 13.7809 6.81278 13.5159 6.68837C13.251 6.56397 12.962 6.49923 12.6693 6.49873H9.62927L10.0026 5.54539C10.1579 5.12798 10.2096 4.67913 10.1533 4.23734C10.097 3.79555 9.9344 3.37401 9.6794 3.00888C9.42439 2.64375 9.08462 2.34593 8.68923 2.14096C8.29384 1.93599 7.85463 1.82999 7.40927 1.83206C7.28103 1.83233 7.15559 1.86958 7.04798 1.93934C6.94038 2.00911 6.85518 2.10843 6.8026 2.22539L4.9026 6.49873H3.33594C2.8055 6.49873 2.2968 6.70944 1.92172 7.08451C1.54665 7.45959 1.33594 7.9683 1.33594 8.49873V13.1654C1.33594 13.6958 1.54665 14.2045 1.92172 14.5796C2.2968 14.9547 2.8055 15.1654 3.33594 15.1654H11.8226C12.2905 15.1652 12.7435 15.0011 13.1028 14.7014C13.4621 14.4018 13.7051 13.9856 13.7893 13.5254L14.6359 8.85873C14.6883 8.57031 14.6766 8.27391 14.6018 7.99051C14.5269 7.70711 14.3906 7.44363 14.2026 7.21873ZM4.66927 13.8321H3.33594C3.15913 13.8321 2.98956 13.7618 2.86453 13.6368C2.73951 13.5118 2.66927 13.3422 2.66927 13.1654V8.49873C2.66927 8.32192 2.73951 8.15235 2.86453 8.02732C2.98956 7.9023 3.15913 7.83206 3.33594 7.83206H4.66927V13.8321Z"
+                        fill="currentColor"
+                      ></path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_6581_36213">
+                        <rect
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          transform="translate(0 0.5)"
+                        ></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <p class="summary-step__helper-container-help">¡Correcto!</p>
+                </div>
+                <p class="summary-step__helper-text">
+                  ¡Muy bien! La respuesta es correcta.
+                </p>
+              </div>
+            </div>
+            <div class="summary-step__container-div">
+              <div
+                class="flex items-start gap-1 summary-step__container-answer_correct"
+              >
+                <div class="mt-1">
+                  <i
+                    data-testid="icon"
+                    class="uil icon uil-check-circle icon_md"
+                  ></i>
+                </div>
+                <h1 class="summary-step__container-question">
+                  <div>
+                    <p>
+                      Cuando hablamos de que “a veces, un modelo de objetos
+                      tendrá más clases que el número de tablas correspondientes
+                      en la base de datos”, estamos mencionando un problema de
+                      discrepancia de impedancia objeto-relacional. Nos estamos
+                      refiriendo a:
+                    </p>
+                    <p><br /></p>
+                  </div>
+                </h1>
+              </div>
+              <div class="summary-step__container-answers">
+                <div class="flex flex-col gap-4">
+                  <div
+                    data-testid="summary-step-answer"
+                    class="summary-step__container-answer summary-step__container-answer_correct"
+                  >
+                    <i
+                      data-testid="icon"
+                      class="uil icon uil-check icon_md"
+                    ></i>
+                    <div class="summary-step__container-answer-text">
+                      <div><p class="quiz-option__text">Granularidad</p></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="summary-step__helper-question">
+                <div class="summary-step__helper-container">
+                  <svg
+                    class="icon icon_sm !text-alternative-lighter dark:!text-default"
+                    viewBox="0 0 16 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_6581_36213)">
+                      <path
+                        d="M14.2026 7.21873C14.0153 6.99383 13.7809 6.81278 13.5159 6.68837C13.251 6.56397 12.962 6.49923 12.6693 6.49873H9.62927L10.0026 5.54539C10.1579 5.12798 10.2096 4.67913 10.1533 4.23734C10.097 3.79555 9.9344 3.37401 9.6794 3.00888C9.42439 2.64375 9.08462 2.34593 8.68923 2.14096C8.29384 1.93599 7.85463 1.82999 7.40927 1.83206C7.28103 1.83233 7.15559 1.86958 7.04798 1.93934C6.94038 2.00911 6.85518 2.10843 6.8026 2.22539L4.9026 6.49873H3.33594C2.8055 6.49873 2.2968 6.70944 1.92172 7.08451C1.54665 7.45959 1.33594 7.9683 1.33594 8.49873V13.1654C1.33594 13.6958 1.54665 14.2045 1.92172 14.5796C2.2968 14.9547 2.8055 15.1654 3.33594 15.1654H11.8226C12.2905 15.1652 12.7435 15.0011 13.1028 14.7014C13.4621 14.4018 13.7051 13.9856 13.7893 13.5254L14.6359 8.85873C14.6883 8.57031 14.6766 8.27391 14.6018 7.99051C14.5269 7.70711 14.3906 7.44363 14.2026 7.21873ZM4.66927 13.8321H3.33594C3.15913 13.8321 2.98956 13.7618 2.86453 13.6368C2.73951 13.5118 2.66927 13.3422 2.66927 13.1654V8.49873C2.66927 8.32192 2.73951 8.15235 2.86453 8.02732C2.98956 7.9023 3.15913 7.83206 3.33594 7.83206H4.66927V13.8321Z"
+                        fill="currentColor"
+                      ></path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_6581_36213">
+                        <rect
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          transform="translate(0 0.5)"
+                        ></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <p class="summary-step__helper-container-help">¡Correcto!</p>
+                </div>
+                <p class="summary-step__helper-text">
+                  ¡Muy bien! La respuesta es correcta.
+                </p>
+              </div>
+            </div>
+            <div class="summary-step__container-div">
+              <div
+                class="flex items-start gap-1 summary-step__container-answer_correct"
+              >
+                <div class="mt-1">
+                  <i
+                    data-testid="icon"
+                    class="uil icon uil-check-circle icon_md"
+                  ></i>
+                </div>
+                <h1 class="summary-step__container-question">
+                  <div>
+                    <p>&nbsp;</p>
+                    <p>
+                      Cuando decimos: “colección de clases y métodos que
+                      almacenan de forma persistente grandes cantidades de datos
+                      en una BD”, estamos hablando de:
+                    </p>
+                    <p><br /></p>
+                  </div>
+                </h1>
+              </div>
+              <div class="summary-step__container-answers">
+                <div class="flex flex-col gap-4">
+                  <div
+                    data-testid="summary-step-answer"
+                    class="summary-step__container-answer summary-step__container-answer_correct"
+                  >
+                    <i
+                      data-testid="icon"
+                      class="uil icon uil-check icon_md"
+                    ></i>
+                    <div class="summary-step__container-answer-text">
+                      <div><p class="quiz-option__text">JPA</p></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="summary-step__helper-question">
+                <div class="summary-step__helper-container">
+                  <svg
+                    class="icon icon_sm !text-alternative-lighter dark:!text-default"
+                    viewBox="0 0 16 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_6581_36213)">
+                      <path
+                        d="M14.2026 7.21873C14.0153 6.99383 13.7809 6.81278 13.5159 6.68837C13.251 6.56397 12.962 6.49923 12.6693 6.49873H9.62927L10.0026 5.54539C10.1579 5.12798 10.2096 4.67913 10.1533 4.23734C10.097 3.79555 9.9344 3.37401 9.6794 3.00888C9.42439 2.64375 9.08462 2.34593 8.68923 2.14096C8.29384 1.93599 7.85463 1.82999 7.40927 1.83206C7.28103 1.83233 7.15559 1.86958 7.04798 1.93934C6.94038 2.00911 6.85518 2.10843 6.8026 2.22539L4.9026 6.49873H3.33594C2.8055 6.49873 2.2968 6.70944 1.92172 7.08451C1.54665 7.45959 1.33594 7.9683 1.33594 8.49873V13.1654C1.33594 13.6958 1.54665 14.2045 1.92172 14.5796C2.2968 14.9547 2.8055 15.1654 3.33594 15.1654H11.8226C12.2905 15.1652 12.7435 15.0011 13.1028 14.7014C13.4621 14.4018 13.7051 13.9856 13.7893 13.5254L14.6359 8.85873C14.6883 8.57031 14.6766 8.27391 14.6018 7.99051C14.5269 7.70711 14.3906 7.44363 14.2026 7.21873ZM4.66927 13.8321H3.33594C3.15913 13.8321 2.98956 13.7618 2.86453 13.6368C2.73951 13.5118 2.66927 13.3422 2.66927 13.1654V8.49873C2.66927 8.32192 2.73951 8.15235 2.86453 8.02732C2.98956 7.9023 3.15913 7.83206 3.33594 7.83206H4.66927V13.8321Z"
+                        fill="currentColor"
+                      ></path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_6581_36213">
+                        <rect
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          transform="translate(0 0.5)"
+                        ></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <p class="summary-step__helper-container-help">¡Correcto!</p>
+                </div>
+                <p class="summary-step__helper-text">
+                  ¡Muy bien! La respuesta es correcta.
+                </p>
+              </div>
+            </div>
+            <div class="summary-step__container-div">
+              <div
+                class="flex items-start gap-1 summary-step__container-answer_correct"
+              >
+                <div class="mt-1">
+                  <i
+                    data-testid="icon"
+                    class="uil icon uil-check-circle icon_md"
+                  ></i>
+                </div>
+                <h1 class="summary-step__container-question">
+                  <div>
+                    <p>
+                      Un <strong>ORM </strong>permite que, desde la capa que
+                      contiene la lógica de negocio, se pueda &nbsp;acceder a
+                      objetos de dominio en vez de tablas de base de datos.
+                    </p>
+                  </div>
+                </h1>
+              </div>
+              <div class="summary-step__container-answers">
+                <div class="flex flex-col gap-4">
+                  <div
+                    data-testid="summary-step-answer"
+                    class="summary-step__container-answer summary-step__container-answer_correct"
+                  >
+                    <i
+                      data-testid="icon"
+                      class="uil icon uil-check icon_md"
+                    ></i>
+                    <div class="summary-step__container-answer-text">
+                      <div><p class="quiz-option__text">Verdadero</p></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="summary-step__helper-question">
+                <div class="summary-step__helper-container">
+                  <svg
+                    class="icon icon_sm !text-alternative-lighter dark:!text-default"
+                    viewBox="0 0 16 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_6581_36213)">
+                      <path
+                        d="M14.2026 7.21873C14.0153 6.99383 13.7809 6.81278 13.5159 6.68837C13.251 6.56397 12.962 6.49923 12.6693 6.49873H9.62927L10.0026 5.54539C10.1579 5.12798 10.2096 4.67913 10.1533 4.23734C10.097 3.79555 9.9344 3.37401 9.6794 3.00888C9.42439 2.64375 9.08462 2.34593 8.68923 2.14096C8.29384 1.93599 7.85463 1.82999 7.40927 1.83206C7.28103 1.83233 7.15559 1.86958 7.04798 1.93934C6.94038 2.00911 6.85518 2.10843 6.8026 2.22539L4.9026 6.49873H3.33594C2.8055 6.49873 2.2968 6.70944 1.92172 7.08451C1.54665 7.45959 1.33594 7.9683 1.33594 8.49873V13.1654C1.33594 13.6958 1.54665 14.2045 1.92172 14.5796C2.2968 14.9547 2.8055 15.1654 3.33594 15.1654H11.8226C12.2905 15.1652 12.7435 15.0011 13.1028 14.7014C13.4621 14.4018 13.7051 13.9856 13.7893 13.5254L14.6359 8.85873C14.6883 8.57031 14.6766 8.27391 14.6018 7.99051C14.5269 7.70711 14.3906 7.44363 14.2026 7.21873ZM4.66927 13.8321H3.33594C3.15913 13.8321 2.98956 13.7618 2.86453 13.6368C2.73951 13.5118 2.66927 13.3422 2.66927 13.1654V8.49873C2.66927 8.32192 2.73951 8.15235 2.86453 8.02732C2.98956 7.9023 3.15913 7.83206 3.33594 7.83206H4.66927V13.8321Z"
+                        fill="currentColor"
+                      ></path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_6581_36213">
+                        <rect
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          transform="translate(0 0.5)"
+                        ></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <p class="summary-step__helper-container-help">¡Correcto!</p>
+                </div>
+                <p class="summary-step__helper-text">
+                  ¡Muy bien! La respuesta es correcta.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="summary-step__navigator">
+            <div class="summary-step__navigator-repeat-button">
+              <button type="button" class="button button-xl button_primary">
+                Repetir
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
