@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Mapeo de Relaciones</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Mapeo de Relaciones
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Mapeo de relaciones</h2>
+                <h3>Modelo DER</h3>
+                <p>
+                  Seguramente recuerden de cuando cursaron Base de Datos que un
+                  sistema de gestión de base de datos relacional administra la
+                  información que deseamos guardar en diferentes tablas, como si
+                  fueran hojas de Excel.
+                </p>
+                <p>
+                  Sin embargo, la diferencia entre una base de datos relacional
+                  y una planilla de Excel es que
+                  <span
+                    >la base de datos administra relaciones entre tablas a
+                    través de claves.</span
+                  >
+                </p>
+                <p>
+                  Un registro en una tabla tiene una clave primaria que lo
+                  identifica unívocamente. Cuando una tabla almacena en una
+                  columna una clave primaria de otra tabla, este campo es
+                  conocido como <font><b>clave foránea</b></font
+                  >. Este hecho permite que surjan relaciones entre tablas. Es
+                  decir, el hecho de persistir una clave primaria de una tabla
+                  en una columna de otra tabla crea una relación entre estas.
+                </p>
+                <br />
+
+                <h3>Refresquemos nuestra memoria con un ejemplo</h3>
+
+                <p>¿Qué relación existe entre un usuario y una dirección?</p>
+                <br />
+
+                <img
+                  alt="IMAGEN"
+                  src="https://manzjulio064.github.io/glosariodeterminos/C33Amorocha.jpg"
+                  height="120px"
+                />
+
+                <p>
+                  Cada uno de ellos tiene una clave primaria que podemos llamar
+                  id. Pero queremos que nuestra tabla de usuarios almacene la
+                  clave primaria de la tabla dirección. Con esta relación
+                  conocemos cuál es el registro de la tabla dirección que está
+                  asociado a un usuario. Podemos observar esta relación en la
+                  imagen:
+                </p>
+                <br />
+
+                <img
+                  alt="IMAGEN"
+                  src="https://manzjulio064.github.io/glosariodeterminos/1pBfLh1nmxKRH7gIODOBjEfA6jXSngOD2bRbSwQ8.png"
+                  height="150px"
+                />
+                <br />
+                <div
+                  style="
+                    border-radius: 15px;
+                    border: 1px solid #e28c37;
+                    padding: 10px;
+                    font-size: 16px;
+                  "
+                >
+                  <div
+                    style="border-left: 3px solid #ccc;
+            padding-left: 17px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            margin-left: -15px;
+            padding-top: 10px;
+        "
+                  >
+                    La imagen representa una relación 1 a 1 entre dos tablas,
+                    pero… ¿cómo podemos<br />
+                    implementar esta relación y otras en Spring Data JPA con
+                    Hibernate?
+                  </div>
+                </div>
+                <br />
+                <hr />
+                <br />
+                <h3>Anotaciones</h3>
+                <p>
+                  Para cada uno de los tipos de relaciones que hay tenemos un
+                  equivalente en anotaciones para JPA. Estas son:
+                </p>
+                <br />
+                <img
+                  alt="Cuadro"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC33Acuadrito.jpg"
+                  height="160px"
+                />
+
+                <hr />
+                <br />
+
+                <p>
+                  Llegó el momento de aprender cómo mapear los siguientes tipos
+                  de relaciones del modelo relacional de base de datos al modelo
+                  orientado a objetos.
+                </p>
+                <br />
+
+                <img
+                  alt="IMAGEN"
+                  src="https://manzjulio064.github.io/glosariodeterminos/sl86qcbE0dOmxj8Dzp47-Mg_164.png"
+                  height="570px"
+                />
+
+                <br />
+                <h3>Relación Uno a Uno</h3>
+                <p>
+                  En las clases de Java vas a aprender a mapear, a través de las
+                  anotaciones de Hibernate, una relación 1 a 1 de acuerdo con
+                  las diferentes <span>navegabilidades</span> de nuestro modelo
+                  orientado a objetos.
+                </p>
+                <br />
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 61.48%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/6126d8855c91180def395deb"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="830"
+                      width="1350"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+                <br />
+                <h3>Relación Uno a Muchos</h3>
+                <p>
+                  En las clases de Java vas a aprender a mapear,a través de las
+                  anotaciones de Hibernate, una relación 1 a M de acuerdo con
+                  las diferentes <span>navegabilidades</span> que tengamos en
+                  nuestro modelo orientado a objetos, haciendo clic en cada una
+                  de las clases.
+                </p>
+                <br />
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 61.48%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/612785595c91180def39657a"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="830"
+                      width="1350"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+
+                <br />
+                <h3>Subtítulos</h3>
+                <p>
+                  Por último, vas a aprender cómo mapear en las clases de Java,
+                  a través de las anotaciones de Hibernate, una relación M a M
+                  de acuerdo a las diferentes <span>navegabilidades</span> que
+                  tengamos en nuestro modelo orientado a objetos haciendo, clic
+                  en cada una de las clases.
+                </p>
+                <br />
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 59.29%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/6127aa48e4e36d0de8b84149"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="830"
+                      width="1400"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>

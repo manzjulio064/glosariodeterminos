@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Join Column, Cascading y Fetch Type</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Join Column, Cascading y Fetch Type
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>JoinColumn, Cascade y Fetch type</h2>
+
+                <p>
+                  A continuación veremos tres tipos de anotaciones importantes:
+                  JoinColumn, Cascade y Fetch type.
+                </p>
+                <br />
+                <hr />
+                <br />
+
+                <h3>@JoinColumn</h3>
+                <p>
+                  En una relación, <font><b>@OneToOne</b></font> puede
+                  utilizarse para indicar que una columna en la entidad padre se
+                  referencia a una clave primaria en la entidad hijo.
+                </p>
+                <p>
+                  Por ejemplo, Office se relaciona con Address a través de una
+                  clave foránea, que es addressId.
+                </p>
+                <br />
+                <div>
+                  <pre>    <code>
+        @Entity
+        public class Office {
+        @OneToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = “addressId”)
+        private Address address;
+        }
+
+            </code>
+          </pre>
+                </div>
+                <p>
+                  En una relación @OneToMany podemos usar el atributo “mappedBy”
+                  para indicar que la columna referencia a otra entidad.
+                </p>
+                <p>
+                  Por ejemplo, Email, que es la entidad padre, se une a Employee
+                  a través de la id.
+                </p>
+                <br />
+                <img
+                  alt="IMAGEN"
+                  src="https://manzjulio064.github.io/glosariodeterminos/1Dk0yBIc0rUDnBzXacsd0ZqaS0O13y5TuMfyPKjg.png"
+                  height="160px"
+                />
+
+                <div>
+                  <pre>    <code>
+        @Entity
+        public class Employee {
+        @Id
+        private Long id;
+
+        @OneToMany(fetch = FetchType.LAZY, mappedBy = “employee”)
+        private List  emails;
+
+        @Entity
+        public class Email {
+
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = “employee_id”)
+        private Employee employee;
+
+        }
+
+            </code>
+          </pre>
+                </div>
+                <h3>@JoinColumns</h3>
+                <p>¡Atención! Se agregó una letra S al final ?...</p>
+                <p>
+                  Esta anotación puede utilizarse en los casos en que nuestra
+                  intención sea <span>crear joins de múltiples columnas</span>.
+                </p>
+                <p>
+                  Por ejemplo, en la entidad Office crearemos dos claves
+                  foráneas que apunten a las columnas ID y ZIP en la entidad
+                  Address.
+                </p>
+
+                <br />
+                <div>
+                  <pre>    <code>
+        @Entity
+        public class Office{
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumns({name = “student_id”
+            @JoinColumn(name = “ADDR_ID”, referencedColumnName = “ID”),
+            @JoinColumn(name = “ADDR_ZIP”, referencedColumnName = “ZIP”)
+        })
+
+        private Address address;
+        }
+
+            </code>
+          </pre>
+                </div>
+                <h3>Cascading</h3>
+                <p>
+                  La mayoría de las veces las relaciones entre entidades
+                  dependen de la existencia de otra entidad.
+                </p>
+                <p>
+                  Sin una la otra no podría existir, y si modificamos una
+                  deberíamos modificar ambas.
+                </p>
+                <p>
+                  Por lo tanto,
+                  <u
+                    >si realizamos una acción sobre una entidad, la misma acción
+                    debe aplicarse a la entidad asociada.</u
+                  >
+                </p>
+                <p>Las más utilizadas son:</p>
+                <ul>
+                  <b>
+                    <li style="font-size: 16px">CascadeType.ALL</li>
+                    <li style="font-size: 16px">CascadeType.PERSIST</li>
+                    <li style="font-size: 16px">CascadeType.REMOVE</li>
+                    <li style="font-size: 16px">CascadeType.MERGE</li></b
+                  >
+                </ul>
+                <div>
+                  <pre>    <code>
+        @Entity
+        public class Person {
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        private int id;
+        private String name;
+        @OneToMany(mappedBy = “person”, cascade = CascadeType.ALL)
+        private List</code><address><code> addresses;
+        }
+
+            </code>
+          </address></pre>
+                </div>
+                <br />
+                <div>
+                  <pre>    <code>
+        @Entity
+        public class Address {
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        private int id;
+        private String street;
+        private int houseNumber;
+        private String city;
+        private int zipCode;
+        @ManyToOne(fetch = FetchType.LAZY)
+        private Person person;
+        }
+
+            </code>
+          </pre>
+                </div>
+
+                <br />
+                <img
+                  alt="Cuadro"
+                  src="https://manzjulio064.github.io/glosariodeterminos/Cuadroobjetoliteraljson.jpg"
+                  height="280px"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1gbrI_MppXKLik03TN9Q5wkyJdhEY-NG9/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
