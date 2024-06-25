@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>MongoDB con Spring</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  MongoDB con Spring
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Anotaciones Spring Mongo Data</h2>
+
+                <p>
+                  <span>@Document:</span> usada en clases, le indica al
+                  MongoDriver que puede tomar objetos de esa clase como Mongo
+                  Documents en una colección particular. El nombre de la
+                  colección se deduce del nombre de la clase, pero si tienen
+                  diferentes nombres es necesario agregar el de la Collection
+                  que se va a asociar. Es similar a la anotación @Entity
+                  utilizada en JPA.
+                </p>
+                <br />
+
+                <p>
+                  <span>@Field:</span> instruye al framework de qué manera
+                  persistir los atributos de las clases en Mongo. Podemos
+                  utilizar el atributo “name” para especificar el nombre que
+                  tiene ese campo en el Document de MongoDB.
+                </p>
+
+                <div>
+                  <pre>    <code>
+        @Document(collection = “airplanes”)
+        public class Aircraft {
+
+        private String id;
+
+        private String model;
+
+        @Field(name=”seats”) private int nbSeats;
+
+        }
+            </code>
+          </pre>
+                </div>
+                <p>
+                  <span>@Id:</span> todo document en una Collection Mongo debe
+                  tener un campo de id. Es único y está indexado. Es similar a
+                  una clave primaria en la BD relacionales.
+                </p>
+
+                <p>
+                  <span>@Transient:</span> excluir un atributo para que no sea
+                  persistido.
+                </p>
+                <br />
+                <div>
+                  <pre>    <code>
+        @Document
+        public class Aircraft {
+
+        @Id private String id;
+
+        private String model;
+
+        @Transient private int nbSeats;
+
+        }
+
+            </code>
+          </pre>
+                </div>
+                <p>
+                  <span>@Indexed:</span> si queremos ejecutar queries con
+                  filtros más rápidamente. Si, por ejemplo, vamos a realizar
+                  muchas queries sobre el field model es bueno indexarlo. Puede
+                  especificarse la dirección del index, y si es único.
+                </p>
+                <br />
+
+                <div>
+                  <pre>    <code>
+        @Document
+        public class Aircraft {
+
+        @Id private String id;
+
+        @Indexed(direction = IndexDirection.ASCENDING, unique = false)
+
+        private String model;
+
+        private int nbSeats;
+        }
+
+            </code>
+          </pre>
+                </div>
+                <p>
+                  @DbRef: actúa parecido a un join de una BD relacional. Se une
+                  un document a otro de una Collection diferente.
+                </p>
+                <br />
+
+                <div>
+                  <pre>    <code>
+        @Document
+        public class Manufacturer {
+
+        @Id private String id;
+
+        private String name;
+
+        }
+
+            </code>
+          </pre>
+                </div>
+                <br />
+                <div>
+                  <pre>    <code>
+        @Document
+        public class Aircraft {
+
+        @Id private String id;
+
+        private String model;
+
+        @DbRef
+        private Manufacturer man;
+        }
+
+
+            </code>
+          </pre>
+                </div>
+
+                <hr />
+                <br />
+                <h3>Guías de instalación</h3>
+
+                <p>
+                  Antes de comenzar a crear una base de datos en MongoDB, te
+                  dejamos dos links importantes que tendrás que descargarte para
+                  poder trabajar.
+                </p>
+                <p>
+                  Instalación de MongoDB: la forma de instalación y ubicación
+                  dependerá del sistema operativo.
+                  <a
+                    target="_blank"
+                    href="https://docs.mongodb.com/manual/installation/"
+                    >Install MongoDB — MongoDB Manual</a
+                  >
+                </p>
+                <p>
+                  Instalación de Robo 3T: es una interfaz gráfica para MongoDB
+                  <a target="_blank" href="https://robomongo.org/download"
+                    >Robomongo</a
+                  >
+                </p>
+                <br />
+
+                <p>
+                  A continuación, te brindamos las guías de instalación según el
+                  sistema operativo que tengas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1CeKAJaaUnjpKHf7vhMGg4bciVVrJB_fs/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1yiwmXFjBDyyMGJP6N4gpeDLfTle4VaX4/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1hB-08_4KesKb_pmjrBLVKTi-KCzMWtnH/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/file/d/1BfInlkhzjQif9qZsZYxzVg7N7h5Yksyk/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="pdf-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1bvNdOlhng4yqjWg2yWhj4X2K2G77mhlJ/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
