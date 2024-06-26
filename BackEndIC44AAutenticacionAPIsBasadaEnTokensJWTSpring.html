@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Autenticación de APIs basada en tokens con Spring y JWT</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Autenticación de APIs basada en tokens con Spring y JWT
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Autenticación de APIs basada en tokens con Spring y JWT</h2>
+
+                <p>
+                  En esta clase vamos a explicar cómo autenticar una API
+                  mediante tokens para poder garantizar que los usuarios que
+                  consumen nuestros servicios tienen permiso para hacerlo y son
+                  quienes dicen ser. Vamos a aprender a:
+                </p>
+                <ul>
+                  <li style="font-size: 16px">
+                    Crear un API REST con Spring Boot.
+                  </li>
+                  <li style="font-size: 16px">
+                    Proteger recursos publicados en el API.
+                  </li>
+                  <li style="font-size: 16px">
+                    Implementar un controlador para autenticar usuarios y
+                    generar un token de acceso.
+                  </li>
+                  <li style="font-size: 16px">
+                    Implementar un filtro para autorizar peticiones a recursos
+                    protegidos de nuestro API.
+                  </li>
+                </ul>
+                <p>
+                  Primero vamos a ver algunos conceptos básicos de encriptación
+                  y formatos del token de JWT.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://player.vimeo.com/video/969240996?h=eb236e6dd5&amp"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="video-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h3>Encriptación con hash</h3>
+
+                <p>
+                  Para entender JWT, necesitamos repasar algunos conceptos
+                  criptográficos. Lo primero que tenemos que comprender es el
+                  <span><u>algoritmo de hash</u></span
+                  >. Este es el que se encarga de generar un hash (bloque de
+                  caracteres de longitud fila) a partir de una cadena arbitraria
+                  de texto.
+                </p>
+                <br /><br />
+
+                <img
+                  alt="Encriptación con HASH"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC44AEncriptacionHASH.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h3>JSON Based Token (JWT)</h3>
+
+                <p>
+                  JSON Based Token (<a href="https://jwt.io/">JWT</a>) es un
+                  estándar de código abierto basado en JSON para crear tokens de
+                  acceso que nos permiten securizar las APIs. ¿Cómo funciona?
+                  ¡Vamos a descubrirlo!
+                </p>
+              </div>
+
+              <div>
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 90%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/6140b1cd3978560d5110d090"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="900"
+                      width="1000"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h3>Estructura del token</h3>
+
+                <p>Los tokens están compuestos por tres partes:</p>
+                <ul>
+                  <li style="font-size: 16px">Header.</li>
+                  <li style="font-size: 16px">Payload.</li>
+                  <li style="font-size: 16px">Signature.</li>
+                </ul>
+                <p>Avancemos para conocerlas en detalle.</p>
+
+                <br /><br />
+
+                <img
+                  alt="Infografia Plana"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC44AEstructuraToken.jpg"
+                />
+
+                <br /><br />
+
+                <p>
+                  ¡Stop! Sabemos que es un tema complejo y que puede resultar
+                  difícil su comprensión.<br /><br />
+
+                  Continuemos para conocer en mayor profundidad la estructura
+                  del token.
+                </p>
+
+                <br /><br />
+
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 40%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/613bb2e9b296e30d75793991"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="600"
+                      width="1500"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
