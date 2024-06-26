@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Repaso de Excepciones en Java</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Repaso de Excepciones en Java
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Excepciones</h2>
+                <p>
+                  Este tema ya lo viste en Programación Orientada a Objetos,
+                  pero vamos a hacer un repaso y agregar algunos conceptos
+                  nuevos que te serán útiles en esta materia.
+                </p>
+                <p><span>¿Qué son las excepciones?</span></p>
+                <br />
+                <div
+                  style="
+                    border-radius: 15px;
+                    border: 1px solid #c37e28;
+                    padding: 10px;
+                    font-size: 16px;
+                  "
+                >
+                  <div
+                    style="border-left: 3px solid #ccc;
+            padding-left: 17px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            margin-left: -15px;
+            padding-top: 10px;
+        "
+                  >
+                    <font
+                      >Son los errores que se pueden producir en nuestras
+                      aplicaciones Java en tiempo de<br />
+                      ejecución</font
+                    >, es decir, aquellos que se generan cuando estamos
+                    ejecutando la aplica-<br />ción y llevan a que esta finalice
+                    abruptamente.
+                  </div>
+                </div>
+
+                <p>
+                  Lo importante es saber que, como programadores, debemos
+                  anticiparnos ante estos errores que pueden hacer que nuestra
+                  aplicación deje de funcionar.<br /><br />
+
+                  Existen muchos tipos de excepciones, y cuando se producen se
+                  crea un objeto de una determinada clase dependiendo del tipo
+                  de error que se haya producido. Este objeto tendrá la
+                  información sobre el error y nos proporcionará métodos para
+                  obtener dicha información.
+                </p>
+                <br /><br />
+
+                <hr />
+                <br /><br />
+
+                <h3>Exception</h3>
+
+                <p>
+                  En Java podemos atrapar excepciones y así evitar que nuestro
+                  programa se detenga cuando ocurran. Para ello necesitamos
+                  encerrar nuestro código en un <span>bloque Try catch</span>.
+                </p>
+                <br /><br />
+
+                <img
+                  alt="IMAGEN"
+                  src="https://manzjulio064.github.io/glosariodeterminos/sRlfsmIJQbRD936wzOJzMLw_45.png"
+                /><br />
+                <hr />
+                <br />
+
+                <h3>Lanzar excepciones</h3>
+
+                <p>
+                  <span
+                    >Ya vimos cómo manejar las excepciones para evitar que nos
+                    frenen abruptamente la ejecución de nuestra aplicaciones.
+                    Ahora veamos cómo podemos lanzar una excepción en caso de
+                    que lo necesitemos.</span
+                  ><br /><br />
+
+                  Para lanzar una excepción en tiempo de ejecución utilizamos
+                  <span>throw</span> junto a una instancia de la excepción que
+                  queremos lanzar. Es decir, supongamos que para nuestro ejemplo
+                  de películas tenemos que cada vez que se cree una película con
+                  rating menor a cero lanzaremos una excepción:
+                </p>
+                <br /><br />
+
+                <img
+                  alt="IMAGEN"
+                  src="https://manzjulio064.github.io/glosariodeterminos/sDyjlYij8mIv3t1swHbZ3Vg_24.png"
+                  height="305px"
+                />
+
+                <br /><br />
+
+                <hr />
+                <br /><br />
+
+                <h3>Crear nuestras propias excepciones</h3>
+
+                <p>
+                  <span
+                    >Además de lanzar excepciones que nos provee la Api de Java
+                    también podemos crear propias:
+                  </span>
+                </p>
+
+                <p>
+                  Por ejemplo, para el caso anterior lanzamos una excepción del
+                  tipo <font><b>RuntimeException</b></font
+                  >, pero este tipo de excepción es muy general. ¿Qué pasa si
+                  necesitamos una excepción más particular?, es decir, una
+                  propia para manejar este tipo de errores. Para ello podemos
+                  crear nuestras excepciones:
+                </p>
+
+                <p>
+                  Lo único que debemos hacer es crear una clase y hacer que
+                  herede de la clase <font><b>Exception</b></font
+                  >.
+                </p>
+
+                <p><span>Veamos cómo hacerlo.</span></p>
+                <br /><br />
+
+                <img
+                  alt="IMAGEN"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC41AManejoExcepcionesRepasoExcepcionesJava.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Manejo de Excepciones en Java con Spring Boot</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Manejo de Excepciones en Java con Spring Boot
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Excepciones con Spring Boot</h2>
+
+                <p>
+                  Manejar excepciones y errores en las API y enviar la respuesta
+                  adecuada al cliente es necesario para las aplicaciones
+                  empresariales. Por eso debemos aprender cómo manejar
+                  excepciones con Spring Boot que, como ya hemos visto, nos
+                  facilita el desarrollo de nuestras aplicaciones.<br /><br />
+
+                  Spring boot nos ofrece varias alternativas a la hora de
+                  manejar los diferentes errores, vemos en detalle cuáles son.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1BJf3L2g33TNXIGXGSxGNWr91FWgXU-Nt/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h3>Status Codes</h3>
+
+                <p>
+                  A continuación te proporcionamos todos los posibles códigos de
+                  status que se pueden devolver en HTTP para que puedas
+                  consultarlos cuando lo necesites.
+                </p>
+
+                <br /><br />
+
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 75%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/613682926481860d8ad12d95"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="900"
+                      width="1200"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+
+                <br /><br />
+
+                <hr />
+                <br /><br />
+
+                <h2>Concluyendo</h2>
+
+                <p>
+                  Mediante un try catch podemos utilizar responseStatusException
+                  para procesar los errores de este método en particular.<br /><br />
+
+                  De esta manera, vimos cómo podemos procesar los diferentes
+                  errores a nivel de aplicación, a nivel de clase y a nivel de
+                  método.<br /><br />
+
+                  ¡Ahora es momento de practicar!
+                </p>
+
+                <br /><br />
+
+                <hr />
+                <br /><br />
+
+                <h2>¡Practiquemos!</h2>
+
+                <h3>Proyecto paquetería - Parte I</h3>
+
+                <p>
+                  Seguimos trabajando en el proyecto que comenzamos en la clase
+                  39.
+                </p>
+                <p>
+                  Para esta etapa vas a tratar los posibles errores de tu
+                  aplicación.
+                </p>
+                <br />
+
+                <p>El chapter lead pide:</p>
+                <ul>
+                  <li style="font-size: 16px">
+                    Crear una Excepción llamada
+                    <span>BadRequestException</span>.
+                  </li>
+
+                  <li style="font-size: 16px">
+                    Lanzar esta excepción desde el servicio de paquetes, en el
+                    caso de que se intente registrar un paquete con un
+                    <span>código</span> que ya posee otro paquete.
+                  </li>
+
+                  <li style="font-size: 16px">
+                    Utilizando @ExceptionHandler, crear un método en el
+                    controller de los paquetes, para procesar esta excepción
+                    lanzada desde el servicio de paquetes.
+                  </li>
+
+                  <li style="font-size: 16px">
+                    Retornar un ResponseEntity con código 400 (BAD REQUEST)
+                  </li>
+                </ul>
+
+                <p>
+                  Por último, debés probar desde Postman el correcto
+                  funcionamiento.<br /><br />
+
+                  ¡Manos a la obra!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
