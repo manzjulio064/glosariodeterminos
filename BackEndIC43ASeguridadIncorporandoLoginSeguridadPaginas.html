@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Incorporando Login y Seguridad a las páginas</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Incorporando Login y Seguridad a las páginas
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  A continuación veremos cómo armar un Login con Spring Boot que
+                  permita autenticar y autorizar a través de usuarios
+                  almacenados en una base de datos (JDBC).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1VPtGq-BznJi2sBQf_4xhUZVWvXoip4_x/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>¿Qué son las cookies?</h2>
+
+                <p>
+                  Una <span>cookie</span> es información que envía el servidor
+                  web al cliente (navegador), con información que necesita
+                  quedar guardada en la pc de cada usuario. El browser la
+                  almacena en archivos de texto plano, de no más de 4kb.
+                </p>
+                <br /><br />
+                <div
+                  style="
+                    border-radius: 15px;
+                    border: 1px solid #e28c37;
+                    padding: 10px;
+                    font-size: 16px;
+                  "
+                >
+                  <div
+                    style="border-left: 3px solid #ccc;
+            padding-left: 17px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            margin-left: -15px;
+            padding-top: 10px;
+        "
+                  >
+                    ¡Atención! Cada navegador tiene sus cookies.
+                  </div>
+                </div>
+                <p>Avancemos para conocer sus principales ventajas.</p>
+                <br />
+                <img
+                  alt="Infografia Plana"
+                  src="https://manzjulio064.github.io/glosariodeterminos/Ventajas cookies-01.jpg"
+                />
+                <br />
+                <hr />
+                <br />
+
+                <h3>
+                  Permitir cookies en el login: Remember Me &amp; Spring Boot
+                </h3>
+
+                <p>
+                  <font><b>“Remember Me”</b></font> es una opción en el
+                  formulario de login que permite crear una cookie en el
+                  navegador para poder mantener la sesión abierta.
+                </p>
+                <p>
+                  <font><b>Spring Security</b></font> nos permite crear una
+                  cookie con la siguiente composición:
+                </p>
+                <ul>
+                  <li style="font-size: 16px">
+                    <font><b>username:</b></font> identifica el usuario que
+                    inició sesión.
+                  </li>
+                  <li style="font-size: 16px">
+                    <font><b>expirationTime:</b></font> el tiempo de vida de la
+                    cookie creada.
+                  </li>
+                  <li style="font-size: 16px">
+                    <font><b>MD5 hash:</b></font> contiene el valor hash de los
+                    dos atributos anteriores, username y expirationTime. Además,
+                    agrega el password y la llave predefinida.
+                  </li>
+                </ul>
+
+                <div
+                  style="
+                    border-radius: 15px;
+                    border: 1px solid #e28c37;
+                    padding: 10px;
+                    font-size: 16px;
+                  "
+                >
+                  <div
+                    style="border-left: 3px solid #ccc;
+            padding-left: 17px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            margin-left: -15px;
+            padding-top: 10px;
+        "
+                  >
+                    ¡Atención! La cookie contiene el username y password, pero
+                    si alguno de estos<br />
+                    parámetros cambia su valor, esta dejará de servir.
+                  </div>
+                </div>
+                <p>
+                  Para poder crear la cookie con
+                  <font>Spring Security</font> solo debemos indicar en el método
+                  <font>configure</font> lo siguiente:
+                </p>
+                <br />
+                <div>
+                  <pre>    <code>
+        .rememberMe().key("uniqueAndSecret")
+            </code>
+          </pre>
+                </div>
+
+                <p>
+                  Además debemos borrar la cookie <font>JSESSIONID</font> cuando
+                  cerremos sesión:
+                </p>
+                <br />
+                <div>
+                  <pre>    <code>
+        logout().deleteCookies("JSESSIONID")
+            </code>
+          </pre>
+                </div>
+                <p>En nuestro formulario deberíamos agregar un checkbox:</p>
+                <br />
+                <div>
+                  <pre>  <code>
+        <div id="rememberme-group">
+          <input id="remember-me" name="my-remember-me">
+          <label style="color:white;">Recordarme</label>
+        </div>
+
+          </code>
+          </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
