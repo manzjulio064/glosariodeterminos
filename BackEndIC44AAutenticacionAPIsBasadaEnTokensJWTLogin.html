@@ -37,9 +37,7 @@
             </button>
             <div class="navigator__title">
               <div class="header">
-                <h2 class="header__title header__title_xs">
-                  API para Generar y Validar Tokens JWT
-                </h2>
+                <h2 class="header__title header__title_xs">Login con JWT</h2>
               </div>
             </div>
             <button class="navigator__button navigator__button_next">
@@ -56,14 +54,72 @@
           <div>
             <div class="text-block__content">
               <div>
-                <h2>Construcción de una API de Generación de Token</h2>
+                <h3>Login con JWT</h3>
 
                 <p>
-                  En este átomo te vamos a mostrar paso a paso cómo crear un API
-                  para generar y validar tokens sin entrar en detalle en cada
-                  uno de los métodos ya que te proporcionaremos el código para
-                  que puedas reutilizar a modo de librería todas estas
-                  funcionalidades cuando lo necesites en el futuro.
+                  Los componentes que necesitamos para armar un login con JWT
+                  son:
+                </p>
+
+                <ul>
+                  <li>
+                    <span>HTML del login:</span> es la vista, es decir, la
+                    pantalla donde ingresaremos el usuario y contraseña a
+                    validar.
+                  </li>
+                  <li>
+                    <span>JavaScript del login:</span> es el encargado de
+                    invocar la API de autenticación que, dado un usuario y
+                    password (si estos son válidos), devolverá un token JWT.
+                    Este token JWT será guardado del lado cliente en el
+                    localStorage, para ser utilizado en la invocación del resto
+                    de los servicios que necesitan ese JWT para poder
+                    invocarlos.
+                  </li>
+                  <li>
+                    <span>API de autenticación:</span> es una API que tenemos
+                    que armar, la cual tendrá la lógica de validación de este
+                    usuario y contraseña. En nuestro caso, la lógica consistirá
+                    en buscar en una base de datos ese usuario y contraseña, y
+                    validar que sean iguales.
+                  </li>
+                  <li>
+                    <span>Service, User, DAO:</span> son todos los componentes
+                    que necesitamos para acceder a la base de datos.
+                  </li>
+                  <li>
+                    <span>JwtUtil:</span> es una clase que se encargará de
+                    generar el JWT cuando hacemos un login y también de
+                    validarlo cuando un servicio que es invocado tiene seguridad
+                    por JWT.
+                  </li>
+                  <li>
+                    <span>RequestFilter:</span> los filtros son clases que se
+                    utilizan para invocarse antes o después de un request o
+                    response. En este caso, queremos que ante cualquier request
+                    —si el mismo tiene un JWT—, sea validado utilizando la
+                    JwtUtil. Para poder programar estas clases debemos heredar
+                    de <span>OncePerRequestFilter</span>.
+                  </li>
+                  <li>
+                    <span>SecurityConfiguration:</span> en esta clase
+                    configuraremos las URL que serán exceptuadas para poder ser
+                    invocadas sin JWT e instanciaremos el requestFilter.
+                  </li>
+                </ul>
+                <p>
+                  A continuación, te mostramos la arquitectura completa de un
+                  ejemplo de login en donde —una vez logueados— nos redirige a
+                  una página llamada “Bienvenido”, que nos muestra el nombre del
+                  usuario. Hacé clic en cada uno de los componentes para ver su
+                  implementación. Además, te dejamos el
+                  <a
+                    href="https://drive.google.com/file/d/1xlPZk2H-26NKfSsudiOFdI16FjkXO6XV/view"
+                    >código completo</a
+                  >
+                  en un ZIP para que lo puedas descargar. Cuando lo ejecutes,
+                  recordá insertar en la base de datos un usuario y contraseña
+                  con el que puedas validar.
                 </p>
               </div>
             </div>
@@ -71,32 +127,34 @@
         </div>
         <div class="block-box x">
           <div>
-            <iframe
-              src="https://docs.google.com/presentation/d/15iM-ZDcMFye8GsQXoStK1EinEV1tEhm-/preview?usp=sharing"
-              allowfullscreen=""
-              title="BlockIframe"
-              class="slide-block__content"
-            ></iframe>
-          </div>
-        </div>
-        <div class="block-box x">
-          <div>
             <div class="text-block__content">
               <div>
-                <h3>Resumiendo</h3>
-
-                <p>
-                  Con estos seis pasos nos aseguramos de tener nuestra API para
-                  generar un token y utilizarlo en cualquiera de nuestros
-                  proyectos. Te dejamos el
-                  <a
-                    target="_blank"
-                    href="https://drive.google.com/file/d/1xlPZk2H-26NKfSsudiOFdI16FjkXO6XV/view?usp=sharing"
-                    >código</a
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 56.25%;
+                      padding-top: 0;
+                      height: 0;
+                    "
                   >
-                  para que puedas descargarlo y utilizarlo para generar y
-                  validar tokens en futuros proyectos.
-                </p>
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/61f7e6f322b102001f6c8d53"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="675"
+                      width="1200"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
