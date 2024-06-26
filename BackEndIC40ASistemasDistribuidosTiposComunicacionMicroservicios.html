@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Tipos de Comunicacion entre microservicios</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Tipos de Comunicacion entre microservicios
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="text-block__content">
+              <div>
+                <h2>Comunicación entre microservicios</h2>
+
+                <p>
+                  En una arquitectura <span>monolítica</span> los componentes se
+                  comunican entre ellos mediante llamadas a nivel del lenguaje.
+                </p>
+                <p>
+                  Con la arquitectura de <span>microservicios</span>, los
+                  servicios tienen que comunicarse mediante un
+                  <span>protocolo</span> de <span>comunicación</span>, por
+                  ejemplo <span>HTTP o AMQP</span>.
+                </p>
+                <p>
+                  No existe una única solución de comunicación entre
+                  microservicios. Depende del protocolo y puede ser
+                  <span>síncrona</span> o <span>asíncrona</span>.
+                </p>
+                <br /><br />
+
+                <hr />
+                <br /><br />
+
+                <h3>Comunicación Síncrona</h3>
+
+                <p>
+                  En este tipo de comunicación se requiere una dirección de
+                  servicio de origen predefinida, hacia dónde enviar la
+                  <span>Request</span>, y ambos (remitente y destinatario de la
+                  llamada) deben estar en funcionamiento en este momento. El
+                  cliente únicamente puede continuar su tarea en el momento que
+                  recibe una <span>Response</span> del servidor. El enfoque de
+                  Request/Response suele utilizar el protocolo HTTP e incluye
+                  <span>REST, GraphQL y gRPC</span>.
+                </p>
+                <br /><br />
+
+                <img
+                  alt="Comunicación Síncrona"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC40ASistemasDistribuidosComunicaciónSíncrona-01.jpg"
+                />
+
+                <br /><br />
+
+                <hr />
+                <br /><br />
+
+                <h3>Comunicación Asíncrona</h3>
+
+                <p>
+                  Por otra parte, en este tipo de comunicación se envía un
+                  mensaje a una cola o agente de mensajes. El mensaje se pone en
+                  <span>cola</span> si el servicio de recepción está inactivo y
+                  continúa más tarde cuando está activo. El remitente del
+                  mensaje no espera ninguna respuesta. Los protocolos
+                  asincrónicos como <span>MQTT, STOMP, AMQP</span> son manejados
+                  por plataformas como
+                  <span>Apache Kafka Stream, RabbitMQ</span>.
+                </p>
+
+                <br /><br />
+
+                <img
+                  alt="IMAGEN"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC40ASistemasDistribuidosComunicaciónAsíncrona-01.jpg"
+                />
+
+                <br /><br />
+
+                <hr />
+                <br /><br />
+
+                <h3>Resumiendo</h3>
+
+                <p>
+                  Entonces, las dos maneras de comunicación que acabamos de ver
+                  se traducen en la siguiente imagen. La comunicación
+                  sincrónica, ante un pedido, debe esperar la respuesta del
+                  servidor (<i>back end</i>) y la comunicación asincrónica,
+                  cuando el cliente hace un pedido, continúa trabajando hasta
+                  obtener la respuesta.
+                </p>
+
+                <br /><br />
+
+                <img
+                  alt="Infografia Plana"
+                  src="https://manzjulio064.github.io/glosariodeterminos/ComunicaciónSincrónicaVsAsincrónica-01.jpg"
+                />
+
+                <br /><br />
+
+                <img
+                  alt="Infografia Plana"
+                  src="https://manzjulio064.github.io/glosariodeterminos/BackEndIC40ASistemasDistribuidosConociendoalgunosprotocolos.jpg"
+                />
+
+                <br /><br />
+
+                <hr />
+                <br /><br />
+
+                <h3>¿Qué elegir?</h3>
+
+                <p>
+                  La comunicación <span>Rest/HTTP</span> funciona para patrones
+                  de <span>Request/Response síncronos</span>, para arquitecturas
+                  orientadas a servicios (SOA) y APIs expuestas al público.
+                </p>
+
+                <p>Algunas <span>desventajas</span> son:</p>
+                <ul>
+                  <li style="font-size: 16px">
+                    <span>Baja <i>performance</i>:</span> la Request no obtiene
+                    una Response hasta que todas las llamadas internas han
+                    terminado esto puede resultar en tiempos de respuesta más
+                    lentos. También puede bajar si hay muchas llamadas HTTP.
+                  </li>
+                  <li style="font-size: 16px">
+                    <span>Pérdida de autonomía:</span> si los microservicios se
+                    conectan a través de HTTP y dependen de la respuesta de
+                    otro, no pueden ser totalmente autónomos.
+                  </li>
+                  <li style="font-size: 16px">
+                    <span>Manejo de fallas complejo:</span> si hay una cadena de
+                    llamadas HTTP y un microservicio intermedio falla, toda la
+                    cadena falla. Para esto se utilizan los
+                    <i>retries y los circuit breakers</i>.
+                  </li>
+                </ul>
+                <p>
+                  Suele recomendarse, para la
+                  <span>comunicación interna entre microservicios</span>, un
+                  patrón <span>asíncrono</span> para disminuir la cantidad de
+                  llamadas en cadena, e independizarse del ciclo de
+                  Request/Response.
+                </p>
+
+                <br /><br />
+                <img
+                  alt="IMAGEN"
+                  src="https://manzjulio064.github.io/glosariodeterminos/C40A.png"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
