@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Problema a resolver</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="flex flex-col gap-6 grow w-full relative overflow-auto">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Problema a resolver
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class=""></div>
+            <div class="text-block__content">
+              <div>
+                <h1>Problema a resolver</h1>
+
+                <p>
+                  Supongamos que estamos trabajando en la siguiente
+                  arquitectura, en donde tenemos un API Gateway, un
+                  microservicio en Go y Eureka Server. Queremos que el
+                  microservicio actúe como servidor de recursos validando el
+                  token antes de dar acceso a sus endpoints y vamos a utilizar
+                  Keycloak como IAM.
+                </p>
+
+                <img
+                  alt="Imagen referencial"
+                  src="https://assets.digitalhouse.com/content/AR/CTD/grafico-ppt-espbe3.png"
+                />
+
+                <p>
+                  Realicemos una configuración mínima antes de comenzar con el
+                  microservicio en Go. Como primer paso, en <b>Keycloak</b>,
+                  vamos a crear:
+                </p>
+
+                <ul>
+                  <li>Un reino.</li>
+                  <li>Un cliente.</li>
+                  <li>
+                    Un rol “USER” y lo mapeamos dentro de los roles del cliente
+                    creado anteriormente.
+                  </li>
+                  <li>Un usuario, al cual le asignamos el rol “USER”.</li>
+                </ul>
+
+                <p>
+                  El cliente va a tener el tipo de acceso en confidencial y
+                  tendrá habilitado el flujo standard (para intercambiar el
+                  código por el access token). Ya que no tenemos una aplicación
+                  front-end, el API Gateway será el encargado de autenticar a
+                  los usuarios en caso de que no estén logueados.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+  </body>
+</html>
