@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/player.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Crear una aplicación de cero con React</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Crear una aplicación de cero con React
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">
+                Introducción: Creando una aplicación con React
+              </h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <h3>¿Qué veremos en esta clase?</h3>
+                <p>
+                  En esta clase presentaremos Create React App, también conocida
+                  como CRA (por sus iniciales). Exploraremos qué incluye, cómo
+                  usarlo, qué nos simplifica y cómo instalarlo.
+                </p>
+                <h3>¿Qué es Create React App?</h3>
+                <p>
+                  Create React App es un creador oficial de aplicaciones de
+                  React desarrollado por Facebook. CRA configura, mediante un
+                  solo comando, un ambiente de desarrollo de forma que podamos
+                  usar las últimas características de Javascript, permitiendo
+                  una gran y simple experiencia de desarrollo, y optimizando
+                  nuestra aplicación para producción. Asimismo, genera proyectos
+                  con compilación y linting preestablecidos. También viene con
+                  un servidor de desarrollo y soporte de aplicación web
+                  progresiva (PWA) de primera clase.
+                </p>
+                <img
+                  alt=""
+                  src="https://assets.digitalhouse.com/content/ar/fs/react.png"
+                />
+                <h3>¿Qué es linting?</h3>
+                <p>
+                  Seguro se están preguntando qué es linting. Se trata de la
+                  detección de ciertos errores en el momento de desarrollo de
+                  aplicaciones (es decir, antes de su ejecución). Entre estos
+                  podemos encontrar:
+                </p>
+                <ul>
+                  <li>Errores de sintaxis.</li>
+                  <li>Código poco intuitivo o difícil de mantener.</li>
+                  <li>Uso de "malas prácticas".</li>
+                  <li>Estilos de código inconsistentes.</li>
+                </ul>
+              </div>
+              <div>
+                <p>
+                  Al final de la clase tendremos que resolver un ejercicio, así
+                  que presten mucha atención.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Beneficios de Create React App</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <img
+                  alt="Create React App beneficios"
+                  src="https://assets.digitalhouse.com/content/ar/td/fe3/Create.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Instalación</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 100%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/6053434ad2c2ff0d97e699e7"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="1400"
+                      width="1400"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">
+                ¿Cómo ejecutamos Create React App?
+              </h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Como ya mencionamos, Create React App se ejecuta mediante un
+                  comando. Esto quiere decir que Create React App es un CLI
+                  (interfaz de línea de comandos) que se puede ejecutar en una
+                  terminal independiente, en una Powershell o CMD de Windows, o
+                  mismo desde la terminal provista en Visual Code, entre
+                  numerosas opciones.
+                </p>
+                <h3>El comando básico</h3>
+                <p>El comando básico puede correrse con npx:</p>
+                <pre>        <code>
+                    npx create-react-app [nombre del proyecto]
+                </code>
+            </pre>
+                <img
+                  src="https://camo.githubusercontent.com/29765c4a32f03bd01d44edef1cd674225e3c906b/68747470733a2f2f63646e2e7261776769742e636f6d2f66616365626f6f6b2f6372656174652d72656163742d6170702f323762343261632f73637265656e636173742e737667"
+                />
+                <p>O yarn:</p>
+                <pre>        <code>
+                    yarn create react-app [nombre del proyecto]
+                </code>
+            </pre>
+                <p>
+                  Alternativamente, para usuarios más avanzados podemos crear
+                  una aplicación React en Typescript:
+                </p>
+                <pre>        <code>
+                    npx create-react-app [nombre del proyecto] --template typescript
+                </code>
+            </pre>
+                <pre>        <code>
+                    yarn create react-app [nombre del proyecto] --template typescript
+                </code>
+            </pre>
+                <h3>Arrancar nuestro proyecto</h3>
+                <p>
+                  Los dos comandos más usados y que deben correrse en la
+                  terminal ubicados en la carpeta raíz del proyecto son:
+                </p>
+                <ul>
+                  <li>npm start.</li>
+                  <li>yarn start (si tienen yarn instalado).</li>
+                </ul>
+              </div>
+              <div>
+                <p>
+                  El nombre de la carpeta debe ser en minúsculas, sin caracteres
+                  extraños ni espacios en blanco. También se pueden usar
+                  guiones.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">
+                ¿Cuáles son las principales herramientas que instalamos con CRA
+                además de React y ReactDom?
+              </h2>
+            </div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1GaenH3_xzy9DlHchSFWu8sx8AW5ZqXYYq5hhBCqd-Xk/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Estructura de carpetas</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Una vez instalado el proyecto creado con Create React App, es
+                  de gran utilidad entender la estructura del mismo y
+                  aproximarnos a su arquitectura, para entender el sentido de
+                  archivos y carpetas en general. ¿Por qué no vemos un video?
+                  ¡Vamos!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Estructura de carpetas</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 100%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/605d42b2e44ee30d9ab70528"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="1400"
+                      width="1400"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Estructura de carpetas</h2>
+            </div>
+            <div
+              data-testid="VIMEO-player"
+              class="video-block__content"
+              data-vimeo-initialized="true"
+            >
+              <iframe
+                src="https://player.vimeo.com/video/985408175?h=00a71efe82&amp"
+                width="640"
+                height="360"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                title="Estructura de proyecto React"
+                data-ready="true"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">En conclusión</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Como hemos abordado en la clase de hoy, Create React App es
+                  una herramienta que viene a simplificar y facilitar el trabajo
+                  de los desarrolladores en React en un nivel profesional y
+                  recomendado por la comunidad React y Facebook. Es el punto de
+                  partida perfecto para comenzar nuestro aprendizaje y vida
+                  profesional.
+                </p>
+              </div>
+
+              <div>
+                <p>
+                  Antes de terminar la clase, es hora de realizar una actividad.
+                  ¿Estás listo?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="quiz-step__container">
+            <p class="quiz-step__label">Pregunta 1/5</p>
+            <div class="quiz-step__question">
+              <div class="multiple-choice" data-testid="multiple-choice">
+                <h3 class="multiple-choice__question">
+                  <div>
+                    <p>
+                      &nbsp;¿Qué comandos podemos ejecutar para crear nuestro
+                      proyecto en React?&nbsp;
+                    </p>
+                  </div>
+                </h3>
+                <div class="multiple-choice__answers">
+                  <div class="contents">
+                    <label
+                      data-testid="option"
+                      class="multiple-choice__answer dh-ring-accent-royal-velvet-primary"
+                      ><div class="check-box__container">
+                        <input
+                          data-testid="check-box-input"
+                          class="check-box__input"
+                          id="97f70418-b032-4437-97b6-c0025a7a5469"
+                          name="97f70418-b032-4437-97b6-c0025a7a5469"
+                          type="checkbox"
+                          value=""
+                        /><label
+                          data-testid="check-box-label"
+                          class="check-box__label"
+                          for="97f70418-b032-4437-97b6-c0025a7a5469"
+                          ><div>
+                            <p class="quiz-option__text">
+                              npm init react-app mi-app-de-react
+                            </p>
+                          </div></label
+                        >
+                      </div>
+                      <div
+                        class="check-box__hint"
+                        data-testid="check-box-hint"
+                      ></div
+                    ></label>
+                  </div>
+                  <div class="contents">
+                    <label
+                      data-testid="option"
+                      class="multiple-choice__answer dh-ring-accent-royal-velvet-primary"
+                      ><div class="check-box__container">
+                        <input
+                          data-testid="check-box-input"
+                          class="check-box__input"
+                          id="e95992a0-d101-40af-8457-1aced3b537df"
+                          name="e95992a0-d101-40af-8457-1aced3b537df"
+                          type="checkbox"
+                          value=""
+                        /><label
+                          data-testid="check-box-label"
+                          class="check-box__label"
+                          for="e95992a0-d101-40af-8457-1aced3b537df"
+                          ><div>
+                            <p class="quiz-option__text">
+                              npm npx init react-app mi-proyecto
+                            </p>
+                          </div></label
+                        >
+                      </div>
+                      <div
+                        class="check-box__hint"
+                        data-testid="check-box-hint"
+                      ></div
+                    ></label>
+                  </div>
+                  <div class="contents">
+                    <label
+                      data-testid="option"
+                      class="multiple-choice__answer dh-ring-accent-royal-velvet-primary"
+                      ><div class="check-box__container">
+                        <input
+                          data-testid="check-box-input"
+                          class="check-box__input"
+                          id="ee8b41ae-f049-463a-b970-209c4ee7b60e"
+                          name="ee8b41ae-f049-463a-b970-209c4ee7b60e"
+                          type="checkbox"
+                          value=""
+                        /><label
+                          data-testid="check-box-label"
+                          class="check-box__label"
+                          for="ee8b41ae-f049-463a-b970-209c4ee7b60e"
+                          ><div>
+                            <p class="quiz-option__text">
+                              npm init mi-app-de-react React -v16
+                            </p>
+                          </div></label
+                        >
+                      </div>
+                      <div
+                        class="check-box__hint"
+                        data-testid="check-box-hint"
+                      ></div
+                    ></label>
+                  </div>
+                  <div class="contents">
+                    <label
+                      data-testid="option"
+                      class="multiple-choice__answer dh-ring-accent-royal-velvet-primary"
+                      ><div class="check-box__container">
+                        <input
+                          data-testid="check-box-input"
+                          class="check-box__input"
+                          id="486e93ad-f9e9-402c-ad39-2844dda75260"
+                          name="486e93ad-f9e9-402c-ad39-2844dda75260"
+                          type="checkbox"
+                          value=""
+                        /><label
+                          data-testid="check-box-label"
+                          class="check-box__label"
+                          for="486e93ad-f9e9-402c-ad39-2844dda75260"
+                          ><div>
+                            <p class="quiz-option__text">
+                              npx create-react-app mi-app-de-react
+                            </p>
+                          </div></label
+                        >
+                      </div>
+                      <div
+                        class="check-box__hint"
+                        data-testid="check-box-hint"
+                      ></div
+                    ></label>
+                  </div>
+                  <div class="contents">
+                    <label
+                      data-testid="option"
+                      class="multiple-choice__answer dh-ring-accent-royal-velvet-primary"
+                      ><div class="check-box__container">
+                        <input
+                          data-testid="check-box-input"
+                          class="check-box__input"
+                          id="550d63bc-651a-4d1d-bf20-adbf8dfc56f7"
+                          name="550d63bc-651a-4d1d-bf20-adbf8dfc56f7"
+                          type="checkbox"
+                          value=""
+                        /><label
+                          data-testid="check-box-label"
+                          class="check-box__label"
+                          for="550d63bc-651a-4d1d-bf20-adbf8dfc56f7"
+                          ><div>
+                            <p class="quiz-option__text">
+                              npx create mi-app-de-react
+                            </p>
+                          </div></label
+                        >
+                      </div>
+                      <div
+                        class="check-box__hint"
+                        data-testid="check-box-hint"
+                      ></div
+                    ></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="quiz-step__button-group">
+              <button
+                disabled=""
+                type="button"
+                class="button button_md button_secondary"
+              >
+                Anterior</button
+              ><button type="button" class="button button_md button_primary">
+                Siguiente
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
