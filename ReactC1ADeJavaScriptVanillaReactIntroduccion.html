@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Introducción a React</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="flex flex-col gap-6 grow w-full relative overflow-auto">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Introducción a React
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Bienvenida</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <h2>Estás listo para comenzar nuestro camino?</h2>
+                <h3>¡Comencemos!</h3>
+                <p>
+                  ¡Bienvenido a la primera clase! Para comenzar nuestro camino,
+                  nos adentraremos completamente en React, la librería creada
+                  por Facebook. Esta es una herramienta espectacular y
+                  actualmente una de las más usadas en el desarrollo de
+                  aplicaciones del lado del front end. Veremos cómo crear una
+                  aplicación con esta tecnología, trabajando con componentes,
+                  entendiendo su ciclo de vida y cómo enlazarlos dentro de la
+                  aplicación.
+                </p>
+                <h3>¿Qué vamos a ver en esta clase?</h3>
+                <p>
+                  A lo largo de esta clase, vamos a incursionar en el nuevo y
+                  maravilloso mundo de React. Veremos:
+                </p>
+                <ul>
+                  <li>
+                    Introducción a React: ¿qué es y por qué usarlo? Origen,
+                    ventajas y desventajas.
+                  </li>
+                  <li>
+                    Agregar React a una página existente (createElement y
+                    Render).
+                  </li>
+                  <li>
+                    Al finalizar la clase, podrás realizar una ejercitación para
+                    repasar lo visto.
+                  </li>
+                </ul>
+                <p>
+                  Sin más que decir por el momento, iniciemos entonces con esta
+                  clase. ¡Adelante!
+                </p>
+                <h3>Un camino de aprendizaje</h3>
+                <img
+                  alt=""
+                  src="https://assets.digitalhouse.com/content/ar/fs/Un%20camino%20de%20aprendizaje.jpg"
+                />
+              </div>
+              <div>
+                <p>
+                  Al final de cada clase, tendrás una ejercitación para repasar
+                  todo lo visto. ¡Asegurate de estar bien atento!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Introducción a React</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  React es una librería de JavaScript para crear proyectos del
+                  lado del front end. Entre muchas de sus ventajas, su
+                  implementación permite que la carga de la aplicación sea más
+                  rápida y performante. ¿Cómo logra esto? React utiliza
+                  componentes, que no son otra cosa más que bloques de código
+                  que crearemos una única vez para luego reutilizar cuando lo
+                  necesitemos. Profundicemos un poco más a través del siguiente
+                  video.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">
+                Introducción a React: ¿Por qué usarlo?
+              </h2>
+            </div>
+            <div
+              data-testid="VIMEO-player"
+              class="video-block__content"
+              data-vimeo-initialized="true"
+            >
+              <iframe
+                src="https://player.vimeo.com/video/985377265?h=73e28e7dcd&amp"
+                width="640"
+                height="360"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                title="Introducción a React"
+                data-ready="true"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">
+                Agregar React a una página existente: Elementos
+              </h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Así como en HTML tenemos etiquetas, en React tenemos
+                  elementos. Un elemento de React es el equivalente a una
+                  etiqueta en HTML, solo que mucho más poderosa. Al igual que
+                  las etiquetas de HTML, pueden tener atributos y manejadores de
+                  eventos asociados, pero con una gran diferencia: no estamos
+                  limitados a los tags de HTML y a la funcionalidad básica que
+                  ofrece el DOM, sino que se pueden componer elementos
+                  personalizados que no existen en HTML, con funcionalidad
+                  híbrida o incluso única y de cualquier complejidad para
+                  interactuar con el DOM y que lucen como etiquetas HTML.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">
+                Agregando React a una página existente
+              </h2>
+            </div>
+            <div
+              data-testid="VIMEO-player"
+              class="video-block__content"
+              data-vimeo-initialized="true"
+            >
+              <iframe
+                src="https://player.vimeo.com/video/985379677?h=521f3835f7&amp"
+                width="640"
+                height="360"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                title="Agregando React a una página existente"
+                data-ready="true"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">CreateElement</h2>
+            </div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1Nk38tvFdgtlwqQ0QrZN3XJhOLZ5xgqr4MPKu-M_JENA/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Create Element</h2>
+            </div>
+            <iframe
+              src="https://drive.google.com/file/d/14w4tdkMJbEkkwWhnmkVb8Kd4xWNsQ3nu/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="pdf-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">¡Vamos a practicar!</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Ahora que ya estás en tema, ¿estás listo para hacer un
+                  ejercicio? ¡A ver qué tanto aprendiste!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Ejercitación con createElement</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Usando createElement, crear un elemento div que contenga un
+                  encabezado h2 y un p, y que dentro del p haya un elemento
+                  span, de manera que React produzca un código HTML similar al
+                  de abajo. Podés usar los textos de tu preferencia. ¡Mucha
+                  suerte!
+                </p>
+                <pre>        <code>
+                    &lt;div&gt;
+                        &lt;h2&gt;¡Hola!&lt;/h2&gt;
+                        &lt;p&gt; Hola &lt;span&gt; Mundo &lt;/span&gt; &lt;/p&gt;
+                     &lt;/div&gt;
+                </code>
+            </pre>
+                <p>Y tu navegador debe renderizar esto (con tus textos):</p>
+                <img
+                  alt=""
+                  src="https://assets.digitalhouse.com/content/ar/td/fe3/c1a.png"
+                />
+                <p>Pistas:</p>
+                <ol>
+                  <li>
+                    Crear cada elemento por separado y recordar guardar una
+                    referencia a cada elemento para que puedas usarlas cuando
+                    los anides.
+                  </li>
+                  <li>
+                    Recordar que la función acepta null si no necesitas props.
+                    La firma de la función es:
+                  </li>
+                </ol>
+                <pre>        <code>
+                    React.createElement(
+                        type,
+                        [props],
+                        [...children]
+                    );
+
+                </code>
+            </pre>
+                <p>
+                  Podés usar el siguiente boilerplate de HTML para correr el
+                  ejercicio directamente en tu navegador:
+                </p>
+                <pre>        <code>
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="es"&gt;
+                    &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                    &lt;title&gt;Creando elementos con React&lt;/title&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    &lt;script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"&gt;&lt;/script&gt;
+                    &lt;script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"&gt;&lt;/script&gt;
+                    &lt;div id="root"&gt; &lt;/div&gt;
+
+                    &lt;script type="text/javascript"&gt;
+
+                    /* Tu código React va aquí
+                        No olvides que el elemento padre debe llamarse igual que el elemento que espera el render */
+
+                    ReactDOM.render(div_el, document.getElementById("root"));
+
+
+
+                </code>
+            </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+  </body>
+</html>

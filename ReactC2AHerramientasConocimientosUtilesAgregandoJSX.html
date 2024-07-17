@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Agregando JSX</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="flex flex-col gap-6 grow w-full relative overflow-auto">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">Agregando JSX</h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">¡Bienvenido a la clase 2!</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  A lo largo de esta clase, vamos a adentrarnos en las
+                  herramientas y conocimientos útiles. Veremos:
+                </p>
+                <ul>
+                  <li>Integración de JSX en React (React y ReactDom)</li>
+                  <li>React Developer Tools</li>
+                  <li>
+                    Al finalizar la clase, podrás realizar una ejercitación para
+                    repasar lo visto.
+                  </li>
+                </ul>
+                <p>
+                  Sin más que decir por el momento, iniciemos entonces con esta
+                  clase. ¡Adelante!
+                </p>
+              </div>
+              <div>
+                <p>
+                  Al final de cada clase, tendrás una ejercitación para repasar
+                  todo lo visto. ¡Asegurate de estar bien atento!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Introducción a JSX</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Como vimos anteriormente, con React podemos crear elementos
+                  HTML en un archivo Javascript con <i>CreateElement</i>. Sin
+                  embargo, como ya mencionamos, tenemos una forma incluso más
+                  práctica e intuitiva de hacer esto: JSX.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">El DOM y el Virtual DOM</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 100%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/6057d7fda6568b0d0359039d"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="1400"
+                      width="1400"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Integración de JSX en React</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <h3>¿Qué es JSX?</h3>
+                <p>
+                  JSX son las siglas de JavaScript XML, y es una extensión de la
+                  sintaxis de JavaScript, es decir, que nos permite escribir
+                  Javascript de otra forma diferente a la manera estándar.
+                </p>
+                <p>
+                  JSX no es un requisito para usar React, pero es muy
+                  conveniente usar esta sintaxis porque se puede escribir HTML
+                  directamente dentro de código JavaScript.
+                </p>
+                <p>
+                  En el corazón de React está la idea de que en realidad la
+                  lógica de renderizado (o representación visual) está
+                  intrínsecamente acoplada con la lógica encargada de cómo
+                  manejar los eventos, cómo cambiar el estado de la interfaz con
+                  el tiempo y cómo preparar los datos para su visualización.
+                </p>
+                <p>
+                  Por eso, React separa los aspectos (concerns) en unidades
+                  débilmente acopladas llamadas "componentes" que contienen
+                  tanto el marcado (HTML) como la lógica (Javascript), en lugar
+                  de separarlos artificialmente en archivos .js y .html.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Introducción a JSX</h2>
+            </div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1SGqyDCWK1eR8kN41tVcETEVSMHUbEy0QVjz0yhoF88g/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Introducción a JSX</h2>
+            </div>
+            <iframe
+              src="https://drive.google.com/file/d/1NWKkAf6uafcAPOzl24IEk9IZOEARxeUQ/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="pdf-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Integración de JSX en React</h2>
+            </div>
+            <div
+              data-testid="VIMEO-player"
+              class="video-block__content"
+              data-vimeo-initialized="true"
+            >
+              <iframe
+                src="https://player.vimeo.com/video/985385823?h=4a793678c6&amp"
+                width="640"
+                height="360"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                title="Integración de JSX en React"
+                data-ready="true"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">
+                Introducción a React Developer Tools
+              </h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Una gran herramienta llena de ventajas que nos permite ver
+                  cómo se estructura el código de un sitio web es el Chrome
+                  Devtools. Para acceder a ella, hacemos clic derecho sobre la
+                  pantalla y seleccionamos inspeccionar. A la hora de analizar
+                  nuestro código o sitios web hechos con React, contaremos con
+                  una ventaja aún mayor para analizar nuestros componentes y su
+                  código. Esta se llama React Developer Tools.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">React Developer Tools</h2>
+            </div>
+            <div
+              data-testid="VIMEO-player"
+              class="video-block__content"
+              data-vimeo-initialized="true"
+            >
+              <iframe
+                src="https://player.vimeo.com/video/985387579?h=7db02f2cc0&amp"
+                width="640"
+                height="360"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                title="React Developer Tools"
+                data-ready="true"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">React Developer Tools</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Las herramientas de desarrollo de React (o React Developer
+                  Tools) son una extensión para el navegador, disponible para
+                  Chrome, Firefox y Edge. Las React Devtools son muy valiosas
+                  porque permiten al desarrollador ver a los componentes en el
+                  navegador de la forma en que se escribieron, es decir,
+                  manteniendo la estructura de React, en vez de “traducidos” a
+                  elementos HTML, lo cual facilita mucho el desarrollo y
+                  depuración.
+                </p>
+                <h2>El inspector</h2>
+                <p>
+                  La extensión funciona como una aplicación independiente dentro
+                  de las herramientas de desarrollo del navegador en la que se
+                  instale y proporciona un inspector, similar al inspector de
+                  HTML nativo del navegador, pero para inspeccionar la jerarquía
+                  de componentes de React. <br />
+                  El inspector revela el árbol de componentes de React que
+                  construye la página y para cada componente se pueden verificar
+                  sus propiedades, su estado, qué componente lo renderizó, qué
+                  eventos lo rerenderizan, y permite evaluar la performance de
+                  los componentes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">¡Vamos a practicar!</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Ahora que ya estás en tema, ¿estás listo para hacer un
+                  ejercicio? ¡A ver qué tanto aprendiste!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Ejercitación JSX</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Usando sintaxis JSX, crear un elemento h2 y un elemento ul que
+                  contenga un listado de elementos li, de manera que React
+                  produzca un código HTML similar al de abajo. Podés usar los
+                  textos que prefieras. <br />
+                  ¡Mucha suerte!
+                </p>
+                <pre>        <code>
+                    &lt;h2&gt; Listado &lt;/h2&gt;
+                    &lt;ul&gt;
+                      &lt;li key={1}&gt;soy&lt;/li&gt;
+                      &lt;li key={2}&gt;una&lt;/li&gt;
+                      &lt;li key={3}&gt;lista&lt;/li&gt;
+                    &lt;/ul&gt;
+                </code>
+            </pre>
+                <p>Y tu navegador debe renderizar esto (con tus textos):</p>
+                <img
+                  alt=""
+                  src="https://assets.digitalhouse.com/content/ar/td/fe3/c2a.png"
+                />
+                <p>
+                  Pistas: Si tratás de usar el fragmento (<a
+                    href="https://es.reactjs.org/docs/fragments.html"
+                    >https://es.reactjs.org/docs/fragments.html</a
+                  >) (&lt;&gt;&lt;/&gt;), tendrás un error porque la versión de
+                  babel que importamos del CDN no soporta la sintaxis aún.
+                  Utilizá el elemento <span>&lt;div&gt;</span> como contenedor
+                  del <span>h2</span> y el <span>ul</span>.
+                </p>
+                <p>
+                  Se puede usar el siguiente boilerplate de HTML para correr el
+                  ejercicio directamente en tu navegador:
+                </p>
+                <pre>        <code>
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="es"&gt;
+                    &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                    &lt;title&gt;Creando Elementos con JSX&lt;/title&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    &lt;script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"&gt;&lt;/script&gt;
+                    &lt;script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"&gt;&lt;/script&gt;
+                    &lt;script src="https://unpkg.com/babel-standalone@6/babel.min.js"&gt;&lt;/script&gt;
+
+
+                    &lt;div id="root"&gt; &lt;/div&gt;
+
+                    &lt;script type="text/babel"&gt;
+
+                    /* Tu código React va aquí
+                        No olvides que el elemento padre debe llamarse igual que el elemento que espera el render */
+
+                    ReactDOM.render(div_el, document.getElementById("root"));
+
+                    &lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;
+                </code>
+            </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">
+                Ejercitación React Developer Tools
+              </h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Por último, es tiempo de instalar las herramientas del
+                  desarrollador de React en tu navegador favorito. ¿Estamos
+                  listos? Actualmente las podemos instalar para Chrome, Firefox
+                  y Edge. Para esto, vamos al sitio web oficial donde está el
+                  plugin y seguimos las instrucciones.
+                </p>
+                <p>
+                  Para Chrome: <br />
+                  <a
+                    href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en"
+                    >https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en</a
+                  >
+                </p>
+
+                <p>
+                  Para Firefox: <br />
+                  <a
+                    href="https://addons.mozilla.org/en-US/firefox/addon/react-devtools/"
+                    >https://addons.mozilla.org/en-US/firefox/addon/react-devtools/</a
+                  >
+                </p>
+
+                <p>
+                  Para Edge: <br />
+                  <a
+                    href="https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil"
+                    >https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil</a
+                  >
+                </p>
+
+                <p>
+                  Una vez instalada, navegamos hasta un website donde podemos
+                  inspeccionar los componentes con la herramienta. Algunos
+                  sitios web hechos en React para revisar son:
+                </p>
+
+                <p>
+                  Netflix: <br />
+                  <a href="https://www.netflix.com/ar-en/"
+                    >https://www.netflix.com/ar-en/</a
+                  >
+                </p>
+
+                <p>
+                  Vimeo (debemos estar dentro de alguna URL): <br />
+                  <a href="https://vimeo.com/watch">https://vimeo.com/watch</a>
+                </p>
+
+                <p>
+                  Mercado Libre: <br />
+                  <a href="https://www.mercadolibre.com.ar/"
+                    >https://www.mercadolibre.com.ar/</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+  </body>
+</html>
