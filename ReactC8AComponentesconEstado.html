@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/player.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Componentes</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">Componentes</h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Te damos la bienvenida</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  En la Clase 8 vamos a adentrarnos en los componentes con
+                  estado. Veremos:
+                </p>
+                <ul>
+                  <li>Estructura de un componente de clase</li>
+                  <li>State y setState</li>
+                </ul>
+                <p>
+                  ¡Empecemos! <br />
+                  Comencemos por preguntarnos, ¿qué es el estado? En
+                  programación, al hablar de estado, nos referimos a programas
+                  que manejan sus propios datos internos y, de alguna manera,
+                  los protegen para que no puedan ser modificados desde otras
+                  partes del mismo o por programas externos. Una de las formas
+                  de resolver el manejo del estado es usar clases. El concepto
+                  de clase viene del paradigma de la programación orientada a
+                  objetos. <br />
+                  El manejo del estado es un tema interesante y extremadamente
+                  importante. Los diversos paradigmas de programación tratan
+                  este desde ópticas que incluso llegan a ser opuestas. Para
+                  adentrarnos en el tema, veamos el siguiente video:
+                </p>
+              </div>
+
+              <div>
+                <p>
+                  Al final de cada clase, tendrás una ejercitación para repasar
+                  todo lo visto. ¡Asegurate de estar bien atento!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">
+                Estructura de componentes de clase
+              </h2>
+            </div>
+            <div
+              data-testid="VIMEO-player"
+              class="video-block__content"
+              data-vimeo-initialized="true"
+            >
+              <iframe
+                src="https://player.vimeo.com/video/986911222?h=02470ae12d&amp"
+                width="640"
+                height="360"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                title="Estructura de componentes de clase"
+                data-ready="true"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Componentes stateful</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Los componentes stateful, o con estado, son aquellos que
+                  poseen información interna la cual, a su vez, puede ser
+                  modificada propiamente por estos componentes. Este tipo de
+                  componente es sumamente funcional dado que nos permite dejar
+                  de depender de las props para trabajar con información
+                  dinámica. Sin embargo, no debemos pensar que ahora todos
+                  nuestros componentes deberán ser stateful, ya que dicha
+                  decisión dependerá del contexto dentro del que se utilice
+                  dicho componente.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Componentes stateful</h2>
+            </div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1o5k4kG5tNoDoiw9e94zBclXBxGPhg66jHE152Xtnbgo/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">State y setState</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  El estado de un componente es aquel que permite que el mismo
+                  pueda guardar información internamente. Al estado de un
+                  componente lo llamamos “state”. Este es un objeto literal
+                  (clave/valor) que almacenará la información que deseemos.
+                  <br />
+                  Por otro lado, el setState() es un método que nos va a
+                  permitir actualizar el estado cuando lo estimemos necesario,
+                  logrando así que sea el mismo componente quien se encargue de
+                  administrar esta información.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">State y setState</h2>
+            </div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1exXTHl7m9gpAeSYxHDKPdFefuRALg4Y87FQQUkpSeNk/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Clases y objetos</h2>
+            </div>
+            <iframe
+              src="https://drive.google.com/file/d/1HyFpVtbAPK1K4fcyk46vPd3qyV2imBLu/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="pdf-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">
+                Manejo del estado componentes de clase
+              </h2>
+            </div>
+            <div
+              data-testid="VIMEO-player"
+              class="video-block__content"
+              data-vimeo-initialized="true"
+            >
+              <iframe
+                src="https://player.vimeo.com/video/986913041?h=24b0bea5eb&amp"
+                width="640"
+                height="360"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                title="Manejo del estado en componentes de clase"
+                data-ready="true"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">
+                Herencia, especialización y composición
+              </h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Las clases pueden derivarse de otras clases y también pueden
+                  componerse de varias clases. Seguro te preguntarás: ¿por qué
+                  querríamos derivar clases de otras clases o componer clases
+                  con otras clases?, ¿por qué no utilizar la misma clase para
+                  todos los tipos o por qué no crear una clase nueva para cada
+                  nuevo tipo? La respuesta a estas preguntas es:
+                  <span>especialización y reutilización</span>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">
+                Herencia, especialización y composición
+              </h2>
+            </div>
+            <iframe
+              src="https://drive.google.com/file/d/18Xi4-O8y71tj8Li2pioypvvl4SNjzXpE/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="pdf-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">En resumen</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 100%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/610d15142a78730da880575b"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="1400"
+                      width="1400"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Creando una clase en JavaScript</h2>
+            </div>
+            <iframe
+              src="https://drive.google.com/file/d/1gzLNxxeWT8tSVzJeEZS51DsDFQlczIkM/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="pdf-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Clases en React</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Antes de que ECMAScript 2015 (o ES6) incluyera clases, React
+                  proveía su propia definición de clases. Sin embargo, al estar
+                  disponibles las clases en forma nativa, el equipo de
+                  desarrollo de React se encargó de que estas estuvieran
+                  soportadas desde React v0.13 (lanzada en 2015), y recomienda
+                  utilizar las clases ES6 en lugar de su propia definición de
+                  clases.
+                </p>
+                <p>
+                  Habiendo dicho esto, es importante destacar que React no está
+                  basado en el paradigma de orientación a objetos. De hecho, el
+                  componente base de las clases es un componente de tipo
+                  funcional, es decir, es una función, no una clase: <br />
+                  <a
+                    href="https://github.com/facebook/react/blob/16.8.6/packages/react/src/ReactBaseClasses.js"
+                    >https://github.com/facebook/react/blob/16.8.6/packages/react/src/ReactBaseClasses.js
+                  </a>
+                </p>
+              </div>
+              <div>
+                <p>
+                  Chequeá este enlace en el que podrás ver que Component es en
+                  realidad una función, ¡no es una clase! Este es el componente
+                  que se llama cuando se crea un componente de clase que
+                  extiende la clase base de React.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Estructura de una clase en React</h2>
+            </div>
+            <iframe
+              src="https://drive.google.com/file/d/1ABEpAvb-6VjQpqb0Yp-J6YwB4-pwuHd9/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="pdf-block__content"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Dato de color</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Antes de finalizar la clase, te dejamos este artículo donde
+                  podrás leer cómo el propio React se ha alejado de los
+                  componentes basados en clases en favor de componentes basados
+                  en funciones: <br />
+                  <a
+                    href="https://reactjs.org/docs/hooks-intro.html#classes-confuse-both-people-and-machines"
+                    >https://reactjs.org/docs/hooks-intro.html#classes-confuse-both-people-and-machines</a
+                  >
+                </p>
+                <h3>¿Qué es ciudadano de primera clase?</h3>
+                <p>
+                  El término “ciudadano de primera clase” se usa en programación
+                  para indicar que lo que sea denominado con ese término es
+                  tratado como un tipo de dato. Por ejemplo, en la programación
+                  orientada a objetos, los objetos son ciudadanos de primera
+                  clase y se les puede dar nombres, se pueden devolver desde
+                  funciones o pueden pasarse como parámetros a funciones.
+                </p>
+                <p>
+                  De la misma manera, en JavaScript —y en la programación
+                  funcional en general—, las funciones son ciudadanas de primera
+                  clase. Esto en la práctica lo que implica es que una función
+                  se puede almacenar con un nombre (referencia), se puede
+                  devolver desde adentro de otra función o incluso puede pasarse
+                  como parámetro a otras funciones.
+                </p>
+                <p>
+                  React es una biblioteca de JavaScript, por lo tanto, disfruta
+                  de todo el poder que la última versión de ECMAScript aporta,
+                  ya sea en forma nativa por el navegador o gracias a los
+                  transpiladores que convierten la última versión de ECMAScript
+                  en una versión que el navegador entienda.
+                </p>
+              </div>
+
+              <div>
+                <p>
+                  ¡Llegaste al final de la clase! Es hora de realizar una
+                  actividad. Es importante que completes las actividades para
+                  que puedas llegar preparado al encuentro online con tus
+                  docentes y compañeros.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">¡Vamos a practicar!</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Llegaste al final de la clase. Hoy, tuvimos una primera
+                  aproximación a los componentes con estado. Ahora, ¿estás listo
+                  para realizar una actividad? ¡Veamos qué tanto has aprendido!
+                </p>
+              </div>
+              <div>
+                <p>
+                  Es importante que realices todas las actividades. Así podrás
+                  practicar y sentirte más preparado para la clase en vivo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="quiz-step__container">
+            <p class="quiz-step__label">Pregunta 4/4</p>
+            <div class="quiz-step__question">
+              <div class="multiple-choice" data-testid="multiple-choice">
+                <h3 class="multiple-choice__question">
+                  <div>
+                    <p>&nbsp;</p>
+                    <p>El constructor se utiliza para:</p>
+                  </div>
+                </h3>
+                <div class="multiple-choice__answers">
+                  <div class="contents">
+                    <label
+                      data-testid="option"
+                      class="multiple-choice__answer dh-ring-accent-royal-velvet-primary"
+                      ><div class="check-box__container">
+                        <input
+                          data-testid="check-box-input"
+                          class="check-box__input"
+                          id="561c77a8-964c-4c88-9f6a-16a5bae2da2a"
+                          name="561c77a8-964c-4c88-9f6a-16a5bae2da2a"
+                          type="checkbox"
+                          value=""
+                        /><label
+                          data-testid="check-box-label"
+                          class="check-box__label"
+                          for="561c77a8-964c-4c88-9f6a-16a5bae2da2a"
+                          ><div>
+                            <p class="quiz-option__text">Crear el estado.</p>
+                          </div></label
+                        >
+                      </div>
+                      <div
+                        class="check-box__hint"
+                        data-testid="check-box-hint"
+                      ></div
+                    ></label>
+                  </div>
+                  <div class="contents">
+                    <label
+                      data-testid="option"
+                      class="multiple-choice__answer dh-ring-accent-royal-velvet-primary"
+                      ><div class="check-box__container">
+                        <input
+                          data-testid="check-box-input"
+                          class="check-box__input"
+                          id="0c83491b-d813-4a65-a391-4b24355602a8"
+                          name="0c83491b-d813-4a65-a391-4b24355602a8"
+                          type="checkbox"
+                          value=""
+                        /><label
+                          data-testid="check-box-label"
+                          class="check-box__label"
+                          for="0c83491b-d813-4a65-a391-4b24355602a8"
+                          ><div>
+                            <p class="quiz-option__text">
+                              Declarar la función setState que manejará el
+                              estado.
+                            </p>
+                          </div></label
+                        >
+                      </div>
+                      <div
+                        class="check-box__hint"
+                        data-testid="check-box-hint"
+                      ></div
+                    ></label>
+                  </div>
+                  <div class="contents">
+                    <label
+                      data-testid="option"
+                      class="multiple-choice__answer dh-ring-accent-royal-velvet-primary"
+                      ><div class="check-box__container">
+                        <input
+                          data-testid="check-box-input"
+                          class="check-box__input"
+                          id="00684f69-2688-4e0f-9fa4-de3a39bf85de"
+                          name="00684f69-2688-4e0f-9fa4-de3a39bf85de"
+                          type="checkbox"
+                          value=""
+                        /><label
+                          data-testid="check-box-label"
+                          class="check-box__label"
+                          for="00684f69-2688-4e0f-9fa4-de3a39bf85de"
+                          ><div>
+                            <p class="quiz-option__text">
+                              Actualizar el estado.
+                            </p>
+                          </div></label
+                        >
+                      </div>
+                      <div
+                        class="check-box__hint"
+                        data-testid="check-box-hint"
+                      ></div
+                    ></label>
+                  </div>
+                  <div class="contents">
+                    <label
+                      data-testid="option"
+                      class="multiple-choice__answer dh-ring-accent-royal-velvet-primary"
+                      ><div class="check-box__container">
+                        <input
+                          data-testid="check-box-input"
+                          class="check-box__input"
+                          id="649dff63-1e11-4cf7-aa8c-ead297571896"
+                          name="649dff63-1e11-4cf7-aa8c-ead297571896"
+                          type="checkbox"
+                          value=""
+                        /><label
+                          data-testid="check-box-label"
+                          class="check-box__label"
+                          for="649dff63-1e11-4cf7-aa8c-ead297571896"
+                          ><div>
+                            <p class="quiz-option__text">
+                              Vincular con bind las funciones que serán llamadas
+                              desde otros componentes.
+                            </p>
+                          </div></label
+                        >
+                      </div>
+                      <div
+                        class="check-box__hint"
+                        data-testid="check-box-hint"
+                      ></div
+                    ></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="quiz-step__button-group">
+              <button type="button" class="button button_md button_secondary">
+                Anterior</button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    disabled=""
+                    type="button"
+                    class="button button_md button_primary"
+                  >
+                    <i
+                      data-testid="icon"
+                      class="uil icon uil-exclamation-circle icon_sm"
+                    ></i
+                    >Finalizar
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      Debes responder todas las preguntas antes de finalizar
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+          <div>
+            <a href="https://manzjulio064.github.io/glosariodeterminos/ReactC8AComponentesconEstado.jpg">Preguntas</a>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+  </body>
+</html>
