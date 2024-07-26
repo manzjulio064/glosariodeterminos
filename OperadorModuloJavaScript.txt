@@ -24,3 +24,30 @@ function prueba(array) {
 }
 
 console.log(prueba(array));
+
+
+//*********************************************************/
+
+dado un numero n. para cada entero i en el rango de 1 a n inclusive. imprima un valor por linea de la siguiente manera:
+
+Si / es un multiplo de 3 y 5. imprima FizzBuzz.
+Si / es un multiplo de 3 (pero no de 5) imprima FizzBuzz.
+Si / es un multiplo de 5 (pero no de 3) imprima Buzz.
+Si / no es un multiplo de 3 o 5 imprima el valor de i.
+
+function fizzBuzz(n) {
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log('FizzBuzz');
+    } else if (i % 3 === 0) {
+      console.log('Fizz');
+    } else if (i % 5 === 0) {
+      console.log('Buzz');
+    } else {
+      console.log(i);
+    }
+  }
+}
+
+fizzBuzz(15); // ejecutar el codigo invocando la funcion
+//*********************************************************/
