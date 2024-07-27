@@ -1,0 +1,31 @@
+
+*****************************************************************************
+**Mi funcion******
+function obtenerValor(a, b) {
+  return 3 * a + 2 * b;
+}
+
+en jaszmin teniedo este codigo de casos de prueba
+
+// el codigo de prueba de jazmin
+describe("obtenerValor(a, b) funcion", funcion() {
+  it("deberia ser igual", funcion() {
+    expect(obtenerValor(1, 2)).toBe( 7 );
+  })
+  it("deberia ser igual", funcion() {
+    expect(obtenerValor(7, 4)).toBe( 29 );
+  })
+})
+
+Cual deberia ser el codigo que debo hacer para que pasen los casos de prueba de jazmin?
+
+tengo estas 4 opciones para escojer una
+
+- devuelve 2*a+3*b
+- devuelve 3*a+2*b  ******expect(obtenerValor(1, 2)).toBe( 7 ); // 3*1+2*2=7
+                    ******expect(obtenerValor(7, 4)).toBe( 29 ); // 3*7+2*4=28
+- devuelve 3*a+3*b
+- devuelve 2*a+2*b
+
+
+********************************************************************************************
