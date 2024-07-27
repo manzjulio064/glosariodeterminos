@@ -1,4 +1,34 @@
 
+Para entender por qué el módulo de 3 da 0 y el módulo de 5 da 0, es importante aclarar el concepto de "módulo" en matemáticas y programación.
+
+Concepto de Módulo
+El operador de módulo (%) devuelve el resto de la división de un número por otro. En otras palabras, para dos números a y b, a % b es el resto que queda cuando a se divide por b.
+
+Ejemplos
+3 % 3:
+
+Cuando divides 3 por 3, el cociente es 1 y el resto es 0.
+Entonces, 3 % 3 es 0 porque 3 se divide exactamente por 3 sin dejar resto.
+5 % 5:
+
+Cuando divides 5 por 5, el cociente es 1 y el resto es 0.
+Entonces, 5 % 5 es 0 porque 5 se divide exactamente por 5 sin dejar resto.
+En general, para cualquier número n, n % n siempre será 0 porque n se divide exactamente por sí mismo sin dejar un resto.
+
+Más Ejemplos
+10 % 3:
+
+Cuando divides 10 por 3, el cociente es 3 y el resto es 1.
+Entonces, 10 % 3 es 1.
+14 % 5:
+
+Cuando divides 14 por 5, el cociente es 2 y el resto es 4.
+Entonces, 14 % 5 es 4.
+Resumen
+El módulo de un número por sí mismo siempre será 0 porque no hay resto cuando un número se divide exactamente por sí mismo. Por eso 3 % 3 da 0 y 5 % 5 da 0.
+
+
+************************************************************************
 const array = [1,2,3,4,5];
 
 function prueba(array) {
