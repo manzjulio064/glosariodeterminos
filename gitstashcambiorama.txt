@@ -1,0 +1,6 @@
+git stash:
+
+Descripción:
+Guarda los cambios no commitados en un "stash" y limpia el área de trabajo, permitiendo cambiar de rama sin perder los cambios.
+Uso:
+Esta opción es ideal si deseas cambiar de rama sin hacer un commit de tus cambios actuales y quieres guardarlos temporalmente para aplicarlos más tarde.
