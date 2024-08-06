@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/player.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Buenas Prácticas</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">Buenas Prácticas</h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Buenas prácticas</h2>
+            </div>
+            <div class="text-block__content">
+              <div>
+                <h2>Buenas prácticas CSS</h2>
+                <p>
+                  Existen una serie de buenas prácticas que pueden orientarnos a
+                  escribir un código de calidad que sea limpio y ordenado.
+                  Veamos algunas sugerencias:
+                </p>
+                <h3>Crear primero tu HTML</h3>
+                <p>
+                  Crear primero la estructura HTML te permite visualizar toda la
+                  página como un todo, y te permite pensar en tu CSS de una
+                  manera más organizada.
+                </p>
+                <h3>Comentar</h3>
+                <p>No te olvides de comentar cada sección de tu documento.</p>
+                <img
+                  alt="Comentarios"
+                  src="https://assets.digitalhouse.com/content/ar/td/fe/c5a/comentarios.png"
+                />
+                <h3>Nombra correctamente los selectores</h3>
+                <p>
+                  Para conseguir más claridad en el código y soporte en todos
+                  los navegadores conviene no comenzar el nombre de los
+                  selectores con mayúsculas, números ni caracteres especiales.
+                </p>
+                <h3>
+                  Separa las palabras mediante guiones o mediante mayúsculas
+                </h3>
+                <p>
+                  Elige una única manera de escribir el nombre de los
+                  selectores. Además, no utilices guiones bajos “_” u otros
+                  caracteres especiales ya que algunos navegadores no los
+                  soportan. Es recomendable seguir alguna de las siguientes
+                  opciones:
+                </p>
+                <img
+                  alt="Nombres"
+                  src="https://assets.digitalhouse.com/content/ar/td/fe/c5a/nombres.png"
+                />
+                <h3>Utiliza nombres descriptivos en los selectores</h3>
+                <p>
+                  Utiliza nombres que te permitan averiguar fácilmente a qué
+                  elemento le estás dando estilo.
+                </p>
+                <img
+                  alt="Nombres descriptivos"
+                  src="https://assets.digitalhouse.com/content/ar/td/fe/c5a/nombresDescriptivos.png"
+                />
+                <h3>
+                  No utilices como nombre de un selector una característica
+                  visual
+                </h3>
+                <p>
+                  Al utilizar en el nombre de un selector una característica
+                  visual como el color, el tamaño o la posición y
+                  posteriormente, modificamos esa característica, también
+                  deberíamos cambiar el nombre del selector.
+                </p>
+                <p>
+                  Esto complica mucho el código ya que tendríamos que actualizar
+                  todas las referencias a ese selector en HTML
+                </p>
+                <img
+                  alt="Nombre descriptivos"
+                  src="https://assets.digitalhouse.com/content/ar/td/fe/c5a/noNombreCaract.png"
+                />
+                <h3>Combinar elementos</h3>
+                <p>
+                  Los elementos de una hoja de estilo a veces comparten
+                  propiedades. En lugar de volver a escribir el código anterior,
+                  ¿por qué no sólo combinarlos? Por ejemplo, los elementos h1,
+                  h2 y h3 podrían compartir la misma fuente y el mismo grosor:
+                </p>
+                <img
+                  alt="Combinar elementos"
+                  src="https://assets.digitalhouse.com/content/ar/td/fe/c5a/combinarElementos.png"
+                />
+                <h3>Utilizar varias clases</h3>
+                <p>
+                  A veces es beneficioso agregar varias clases a un elemento.
+                </p>
+                <img
+                  alt="Multiples clases"
+                  src="https://assets.digitalhouse.com/content/ar/td/fe/c5a/multiplesClases.png"
+                />
+                <h3>Orden de declaración</h3>
+                <p>
+                  Para el orden de declaración resulta mucho más cómodo usar el
+                  orden alfabético para poder buscar luego una propiedad, por
+                  ejemplo si querés buscar un z-index sabes que siempre está al
+                  final de las declaraciones.
+                </p>
+                <img
+                  alt="Orden de declaracion"
+                  src="https://assets.digitalhouse.com/content/ar/td/fe/c5a/ordenDeclaracion.png"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+  </body>
+</html>
