@@ -1,111 +1,187 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/player.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
     <title>Ingreso de datos Scanner</title>
-
-    <style>
-
-      .contenedor {
-        margin-left: 10em;
-        margin-right: 10em;
-      }
-      /* Estilo para los puntos de la lista */
-      ul {
-          list-style-type: none;
-          padding-left: 20px;
-      }
-
-      li {
-            font-size: 1em;
-        }
-
-      li::before {
-          content: "•";
-          color: red;
-          display: inline-block;
-          width: 1em;
-          /* margin-left: -1em; */
-          font-size: 2em;
-      }
-
-      .block-box__title {
-        font-family: Montserrat, sans-serif;
-        font-size: 1.5rem;
-        line-height: 2rem;
-        font-weight: 600;
-        --tw-text-opacity: 1;
-        color: rgb(0 0 0 / var(--tw-text-opacity));
-      }
-
-      .text-block__content {
-        padding: .75rem 1rem;
-        --tw-text-opacity: 1;
-        color: rgb(0 0 0 / var(--tw-text-opacity));
-      }
-
-      .block-box {
-          display: flex;
-          max-width: 100%;
-          flex-direction: column;
-          border-radius: .5rem;
-          --tw-bg-opacity: 1;
-          background-color: rgb(227 227 227 / var(--tw-bg-opacity));
-      }
-  </style>
-
-</head>
-<body>
-  <div class="contenedor">
-
-    <br>
-    <br>
-    <br>
-
-    <div class="text-block__content"><div>
-      <p>
-          Muchos elementos de Java son clases, vimos anteriormente String, Integer y Float. Para realizar la entrada y salida de datos también utilizamos clases propias de Java. Una clase muy importante es System, en ella encontramos System.in y System.out, que nos permitirán interactuar con las entradas y salidas del programa. Ya vimos que Sistem.out.println nos permite mostrar un dato o mensaje. Para ingresar valores vamos a utilizar System.in. Las entradas se realizan mediante esta clase, es decir, la información ingresa a través de System.in, pero para gestionarla y asignarla a las variables utilizaremos los métodos que nos provee Scanner. Veamos de qué se trata.
-      </p>
-    </div></div>
-
-    <br>
-    <br>
-    <br>
-
-
-
-
-
-    <iframe src="https://manzjulio064.github.io/glosariodeterminos/POPIngresodatosScannerJava.jpg" id="BasiBlockIframe756a6e59-d57b-4516-8325-5ef2f56a52c7" class="basic-block-content__content" width="100%" height="800vh" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="" title="BlockIframe"></iframe>
-
-<br>
-<br>
-
-<iframe src="https://manzjulio064.github.io/glosariodeterminos/POPEjemplosScannerJava.pdf" id="BasiBlockIframe756a6e59-d57b-4516-8325-5ef2f56a52c7" class="basic-block-content__content" width="100%" height="800vh" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="" title="BlockIframe"></iframe>
-<br>
-<br>
-<br>
-
-<div class="block-box"><div><h2 class="block-box__title">Codificando juntos - Ingreso de datos, Scaner</h2><iframe src="https://player.vimeo.com/video/601470207" allowfullscreen="" title="BlockIframe" class="video-block__content"></iframe></div></div>
-
-<br>
-<br>
-<br>
-<br>
-
-<div style="padding:62.5% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/932316643?h=a999243573&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="POPVideoScannerJava"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-<br>
-<br>
-<br>
-<br>
-
-
-<iframe src="https://manzjulio064.github.io/glosariodeterminos/POPEjercictacionScannerjava.pdf" id="BasiBlockIframe756a6e59-d57b-4516-8325-5ef2f56a52c7" class="basic-block-content__content" width="100%" height="800vh" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="" title="BlockIframe"></iframe>
-<br>
-<br>
-<br>
-<br>
-  </div>
-</body>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Ingreso de datos, Sccaner
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  Muchos elementos de Java son clases, vimos anteriormente
+                  String, Integer y Float. Para realizar la entrada y salida de
+                  datos también utilizamos clases propias de Java. Una clase muy
+                  importante es System, en ella encontramos System.in y
+                  System.out, que nos permitirán interactuar con las entradas y
+                  salidas del programa. Ya vimos que Sistem.out.println nos
+                  permite mostrar un dato o mensaje. Para ingresar valores vamos
+                  a utilizar System.in. Las entradas se realizan mediante esta
+                  clase, es decir, la información ingresa a través de System.in,
+                  pero para gestionarla y asignarla a las variables utilizaremos
+                  los métodos que nos provee Scanner. Veamos de qué se trata.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <div class="text-block__content">
+              <div>
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 100%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/60abec1fea8a290d34b9fe66"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="1400"
+                      width="1400"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1p1pTzBnw2feWiZGlq02UtT7ddigcK5-F/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content slide-block__content_rounded"
+            ></iframe>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <div class="text-block__content">
+              <div>
+                <p>
+                  A continuación te proponemos ver el siguiente video donde
+                  podrás observar cómo programar en Java el ingreso de datos a
+                  través de Scanner.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">
+                Codificando juntos - Ingreso de datos, Scaner
+              </h2>
+            </div>
+            <div
+              data-testid="VIMEO-player"
+              class="video-block__content video-block__content_rounded"
+              data-vimeo-initialized="true"
+            >
+              <iframe
+                src="https://player.vimeo.com/video/932316643?h=a999243573&amp"
+                width="640"
+                height="326"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                title="Ingreso de datos"
+                data-ready="true"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <iframe
+              src="https://drive.google.com/file/d/1F9-SfMBjNLKlkHRV7y2Qtsvtc83jJg-6/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="pdf-block__content pdf-block__content_rounded"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+  </body>
 </html>
