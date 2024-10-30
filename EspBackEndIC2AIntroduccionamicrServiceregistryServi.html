@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/player.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Service registry & Service discovery</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Service registry &amp; Service discovery
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <div class="rich-text text-block__content">
+              <div>
+                <h2>Patrones de diseño</h2>
+
+                <h3>Service registry y Service discovery</h3>
+
+                <p>
+                  En esta clase vamos a ver varios patrones de diseño que iremos
+                  poniendo en práctica en las distintas clases. Todos son útiles
+                  e importantes, ahora llegó el momento de ver sus
+                  características comenzando por el patrón
+                  <span>Service registry y Service discovery.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <div
+              data-testid="VIMEO-player"
+              class="video-block__content video-block__content_square"
+              data-vimeo-initialized="true"
+            >
+              <iframe
+                src="https://player.vimeo.com/video/1024890782?h=b2c7eceba0&amp"
+                width="640"
+                height="360"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                title="Patrones Service registry y service discovery v2.mp4"
+                data-ready="true"
+              ></iframe>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <div class="rich-text text-block__content">
+              <div>
+                <p>
+                  Uno de los problemas más comunes cuando estamos trabajando con
+                  servicios es la necesidad de saber forzosamente dónde se
+                  encuentra cada servicio. A medida que las empresas crecen,
+                  también lo hace la cantidad de servicios que se requieren para
+                  darle soporte a la operación. Esto provoca que cada vez sea
+                  más difícil saber en dónde está cada servicio exactamente (IP,
+                  puerto).<br /><br />
+
+                  El patrón <strong>Service registry</strong> permite contar con
+                  la creación de un <strong>servidor centralizado</strong>,
+                  donde
+                  <strong
+                    >todos los servicios se registren al momento de
+                    iniciar</strong
+                  >. De esta manera, cada uno de los servicios le tendrá que
+                  enviar la dirección IP, el puerto en el que responde al
+                  servidor y, finalmente, el identificador de servicio (que por
+                  lo general es un nombre alfanumérico que ayuda a
+                  identificarlo). De esta forma, el servidor central o registro
+                  sabrá exactamente dónde está cada servicio disponible. Veamos
+                  cómo funciona
+                </p>
+              </div>
+
+              <div style="width: 100%">
+                <div
+                  style="
+                    position: relative;
+                    padding-bottom: 68.36%;
+                    padding-top: 0;
+                    height: 0;
+                  "
+                >
+                  <iframe
+                    scrolling="yes"
+                    allowfullscreen="true"
+                    src="https://view.genial.ly/61eea349fb99ca0012e6d859"
+                    style="
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                    "
+                    height="700"
+                    width="1024"
+                    frameborder="0"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <div class="rich-text text-block__content">
+              <div>
+                <p>
+                  Como pudimos observar, este patrón propone que
+                  <strong
+                    >sepamos exactamente qué servicios están disponibles y su
+                    ruta de acceso</strong
+                  >. Por lo general, proporciona una interfaz gráfica que nos
+                  permite ver todo el universo de servicios que se encuentran
+                  activos.<br /><br />
+
+                  Otra característica es que los servicios que se registren,
+                  deberán estar enviando constantemente una señal al registro,
+                  conocida como “latidos” (heartbeat en inglés). Esta indica que
+                  los servicios siguen disponibles al pasar el tiempo. Si no
+                  recibe esa señal, el microservicio lo marca automáticamente
+                  como fuera de servicio y puede mandar en ese momento una
+                  notificación a algún administrador o DevOps para que lo
+                  administre.
+                </p>
+              </div>
+
+              <div>
+                <img
+                  alt="Service Registry"
+                  src="https://assets.digitalhouse.com/content/AR/CTD/service-registry-parte-2.jpg"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <div class="rich-text text-block__content">
+              <div>
+                <p>
+                  Podemos concluir mencionando que el
+                  <span>Service registry</span> es un componente indispensable
+                  en una arquitectura de microservicios porque permite que los
+                  servicios se puedan registrar independientemente de su
+                  ubicación física. Esto genera que podamos conocer su ubicación
+                  fácilmente y, posteriormente, utilizar técnicas de
+                  autodescubrimiento para localizarlos y balancear la carga.
+                </p>
+              </div>
+
+              <div>
+                <h2>Service discovery</h2>
+                <p>
+                  El patrón <strong>Service registry</strong> es complementario
+                  al patrón <strong>Service discovery</strong> (ya veremos por
+                  qué), pero antes es necesario aclarar que —en arquitecturas
+                  cloud— la <strong>elasticidad</strong> es la capacidad de la
+                  nube para
+                  <strong
+                    >crecer o disminuir en recursos a medida que la demanda
+                    aumenta o disminuye.</strong
+                  >
+                  Esto permite que no sea necesaria la intervención humana y que
+                  sea posible aprovisionar nuestros servidores o ampliar la
+                  capacidad de procesamiento de los existentes a demanda.<br /><br />
+
+                  Por lo tanto, si la nube es elástica no tiene sentido contar
+                  con un archivo de configuración fijo donde se guarden las
+                  direcciones de cada servicio porque implicaría tener una
+                  persona que continuamente esté actualizando ese archivo por
+                  cada vez que una instancia se da de alta o baja.<br /><br />
+
+                  En la siguiente imagen, podemos apreciar que las nuevas
+                  instancias resultan desconocidas para la aplicación, a menos
+                  que alguien las agregue manualmente al archivo de
+                  configuración. Esto termina siendo algo
+                  <strong>ineficiente y altamente propenso a errores</strong>.
+                </p>
+              </div>
+
+              <div>
+                <img
+                  alt="service-discovery-parte-1"
+                  src="https://assets.digitalhouse.com/content/AR/CTD/service-discovery-parte-1.jpg"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <div class="rich-text text-block__content">
+              <div>
+                <p>
+                  Otra situación la ilustra la siguiente imagen, donde puede
+                  verse claramente cómo dos instancias del servicio dejan de
+                  responder (o simplemente se han dado de baja), dando por
+                  resultado que la aplicación se encuentre desactualizada
+                  nuevamente, e incluso termine fallando por intentar ejecutar
+                  servicios que no están disponibles.
+                </p>
+              </div>
+
+              <div>
+                <img
+                  alt="service-discovery-parte-2-mesa-de-trabajo"
+                  src="https://assets.digitalhouse.com/content/AR/CTD/service-discovery-parte-2-mesa-de-trabajo-1.jpg"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <div class="rich-text text-block__content">
+              <div>
+                <p>
+                  Es acá donde aparece el llamado
+                  <strong>Service discovery</strong>, encargado de determinar
+                  todas las instancias activas de los servicios por medio de un
+                  registro central, el cual es nada menos que el Service
+                  registry que conocimos anteriormente.<br /><br />
+
+                  El <strong>Service discovery</strong> es un componente que se
+                  encarga de recuperar del Service registry todas las instancias
+                  de los servicios disponibles y realizar el balance de cargas.
+                  Sin embargo, existen dos formas en las que este descubrimiento
+                  se pueda dar:
+                  <strong>del lado del cliente y del lado del servidor</strong>.
+                  Avancemos para conocer la diferencia.
+                </p>
+              </div>
+              <div>
+                <img
+                  alt="service-discovery-lado-cliente-servidor"
+                  src="https://assets.digitalhouse.com/content/AR/CTD/Service_Discovery_del_lado_del_cliente_y_servidor-01.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <div class="rich-text text-block__content">
+              <div>
+                <p>
+                  Como conclusiones, podemos decir que —al igual que el Service
+                  registry— el Service discovery es uno de los patrones más
+                  importantes a la hora de implementar arquitecturas de
+                  microservicios o nativas para la nube. Esto se debe a que nos
+                  permite: primero, desacoplarnos de los servidores físicos y,
+                  en segundo término, escalar rápidamente con tan solo levantar
+                  nuevas instancias. Es por ello que utilizando
+                  <span
+                    >una estrategia de auto descubrimiento de servicios nos
+                    permite crear aplicaciones mucho más escalables</span
+                  >, evitando la dependencia de un servicio específico, IP o
+                  puerto que se nos asigne. Esto permite el despliegue donde sea
+                  y cómo sea de todos los servicios gracias al Service discovery
+                  que, mediante el Service registry, nos es posible ubicar y
+                  balancear la carga de todas las instancias disponibles.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
