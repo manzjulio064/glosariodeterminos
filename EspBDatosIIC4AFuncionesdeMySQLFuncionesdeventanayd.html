@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/player.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Funciones de ventana y de información</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Funciones de ventana y de información
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <div class="rich-text text-block__content">
+              <div>
+                <h1>Funciones de ventana y de información</h1>
+
+                <h2>¿Qué es una función de ventana?</h2>
+
+                <p>
+                  Una función de ventana
+                  <b
+                    >realiza un cálculo en un conjunto de filas de la tabla que
+                    de alguna manera están relacionadas con la fila actual</b
+                  >. Esto es comparable al tipo de cálculo que se puede hacer
+                  con una función de agregación —AVG, COUNT, SUM, etc.—.
+                </p>
+                <p>
+                  Pero, a diferencia de las funciones agregadas normales, el uso
+                  de una función de ventana no hace que
+                  <b
+                    >las filas se agrupen en una sola fila de salida; las filas
+                    conservan sus identidades separadas</b
+                  >. Detrás de escena, la función de ventana puede acceder a más
+                  que solo la fila actual del resultado de la consulta.
+                </p>
+                <p>
+                  Podés consultar todas las funciones de ventana de MySQL
+                  <a
+                    href="https://dev.mysql.com/doc/refman/8.0/en/window-function-descriptions.html"
+                    >acá</a
+                  >
+                </p>
+                <p>Funciones más utilizadas:</p>
+                <ul>
+                  <li>
+                    <b>FIRST_VALUE:</b> Devuelve el primer valor del primer
+                    registro de nuestra consulta.
+                  </li>
+                  <li>
+                    <b>LAG:</b> Devuelve el valor anterior del registro actual
+                    que estamos mostrando.
+                  </li>
+                  <li>
+                    <b>LAST_VALUE:</b> Devuelve el valor del último registro de
+                    nuestra consulta.
+                  </li>
+                  <li>
+                    <b>LEAD:</b> Devuelve el valor siguiente del registro actual
+                    que estamos mostrando.
+                  </li>
+                  <li>
+                    <b>NTILE:</b> Divide la cantidad de resultados por el
+                    parámetro que recibe y asigna un grupo a cada uno de los
+                    registros.
+                  </li>
+                  <li>
+                    <b>ROW_NUMBER:</b> Devuelve el número de la fila actual
+                    dentro de la cantidad de resultados. Los números de filas
+                    van desde 1 hasta el número de filas de resultados.
+                  </li>
+                </ul>
+
+                <h2>¿Qué es una función de información?</h2>
+
+                <p>
+                  Las funciones de información del sistema se utilizan para
+                  consultar la información del sistema de la base de datos
+                  MySQL.
+                </p>
+
+                <p>
+                  Se utilizan también para obtener información sobre las
+                  conexiones a nuestra base.
+                </p>
+
+                <p>
+                  Consulta todas las funciones de información de MySQL
+                  <a
+                    href="https://dev.mysql.com/doc/refman/8.0/en/information-functions.html"
+                    >acá</a
+                  >
+                </p>
+
+                <p>Funciones más utilizadas:</p>
+
+                <ul>
+                  <li>
+                    <b>CURRENT_ROLE:</b> Devuelve los roles activos actuales del
+                    usuario conectado.
+                  </li>
+                  <li>
+                    <b>CURRENT_USER:</b> Devuelve el nombre de usuario y el
+                    nombre de host autenticados.
+                  </li>
+                  <li>
+                    <b>DATABASE:</b> Devuelve el nombre de la base de datos
+                    actual.
+                  </li>
+                  <li>
+                    <b>LAST_INSERT_ID:</b> Devuelve el valor de la columna
+                    AUTOINCREMENT para el último INSERT.
+                  </li>
+                  <li>
+                    <b>ROW_COUNT:</b> Devuelve el número de filas actualizadas.
+                  </li>
+                  <li>
+                    <b>VERSION:</b> Devuelve una cadena que indica la versión
+                    del servidor MySQL.
+                  </li>
+                </ul>
+                <p>
+                  Ya habiendo visto las diferentes funciones, ¡vamos a ver cómo
+                  se implementan con un ejemplo en un video!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <div
+              data-testid="VIMEO-player"
+              class="video-block__content video-block__content_square"
+              data-vimeo-initialized="true"
+            >
+              <iframe
+                src="https://player.vimeo.com/video/1027839757?h=ea3e3f6677&amp"
+                width="426"
+                height="240"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                title="Funciones parte I - Funciones de ventana"
+                data-ready="true"
+              ></iframe>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <div
+              data-testid="VIMEO-player"
+              class="video-block__content video-block__content_square"
+              data-vimeo-initialized="true"
+            >
+              <iframe
+                src="https://player.vimeo.com/video/1027842892?h=20fe05bd64&amp"
+                width="426"
+                height="240"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                title="Funciones parte II - Funciones de información"
+                data-ready="true"
+              ></iframe>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
