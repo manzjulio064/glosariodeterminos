@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/player.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Obteniendo datos de un formulario</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Obteniendo datos de un formulario
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Obtener datos</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <p>
+                  Los formularios web son uno de los principales puntos de
+                  interacción entre un usuario y un sitio web o aplicación, ya
+                  que permiten a los usuarios la introducción de datos, que
+                  generalmente se envían a un servidor web para su procesamiento
+                  y almacenamiento.
+                </p>
+                <p>
+                  Antes de conocer cómo obtener los datos de los forms, vamos a
+                  revisar algunas posibilidades de optimizar el funcionamiento
+                  de un formulario.
+                </p>
+                <h2>Evitar enviar un formulario dos veces</h2>
+                <p>
+                  Cuando se pulsa sobre el botón de envío de un formulario, se
+                  produce el evento click y por lo tanto, se ejecuta el envío de
+                  información de este; instrucción que por defecto sucede en
+                  todos los formularios.
+                </p>
+                <p>
+                  Lo que deberíamos tener en cuenta a la hora de validar desde
+                  el cliente es que no debemos mandar esa información hasta
+                  haber certificado el contenido de dicho formulario: campos
+                  obligatorios, formato de mail correcto
+                  (hola@digitalhouse.com), etcétera.
+                </p>
+                <p>
+                  Lo que necesitamos a través de JavaScript, y antes de ir a la
+                  propia validación, es frenar el envío de datos. Esto lo
+                  podemos lograr con el método preventDefault(). Veamos cómo y
+                  dónde aplicarlo:
+                </p>
+                <ul>
+                  <li>
+                    Necesitamos capturar el formulario (getElement,
+                    querySelector) para luego poner un evento de escucha en el
+                    mismo (addEventListener).
+                  </li>
+                  <li>
+                    En el primer parámetro de este listener, vamos a poner
+                    “submit”, que justamente es el evento que se ejecuta al
+                    enviar un formulario.
+                  </li>
+                  <li>
+                    En el segundo parámetro —y como siempre— pondremos un
+                    callback. La diferencia es que ahora, este recibirá un
+                    parámetro que hará referencia al objeto event. Por eso, una
+                    buena idea sería llamarlo event, ev, o simplemente e.
+                  </li>
+                  <li>
+                    Por último, y ya dentro de las llaves del callback,
+                    utilizaremos el event antes mencionado y accederemos al
+                    método preventDefault().
+                  </li>
+                </ul>
+                <p>El código resultante sería el siguiente:</p>
+                <pre>        <code>
+                  let formulario = document.querySelector("form");
+                  formulario.addEventListener("submit", function(event) {
+                      event.preventDefault()
+                  })
+              </code>
+          </pre>
+                <h2>Limitar el tamaño de caracteres de un textarea</h2>
+                <p>
+                  El valor por defecto de los eventos en JavaScript es true. Si
+                  cambiamos esto por <i>false</i>, estaríamos evitando que el
+                  evento se produzca, por lo tanto, si lo hacemos con
+                  onkeypress, la tecla presionada no se transforma en ningún
+                  carácter dentro del <i>textarea</i>.
+                </p>
+                <p>
+                  De la siguiente manera se comprueba si se ha llegado al máximo
+                  número de caracteres permitido y en caso afirmativo se evita
+                  el comportamiento habitual del evento y, por lo tanto, los
+                  caracteres adicionales no se añaden al textarea:
+                </p>
+                <pre>        <code>
+                  function limita(maximoCaracteres) {
+                      var elemento = document.getElementById("texto");
+                      if(elemento.value.length &gt;= maximoCaracteres ) {
+                          return false;
+                      }
+                      else {
+                          return true;
+                      }
+                  }
+              </code>
+          </pre>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1fM3mZJ3GA0uy-_5-cOaUCox2-sV2ZVvprfqcs44HGvw/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content slide-block__content_square"
+            ></iframe>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <div class="rich-text text-block__content">
+              <div>
+                <p>
+                  En nuestra carrera profesional como desarrolladores, nos
+                  encontraremos con muchas situaciones en las que será necesario
+                  obtener y manipular datos que provienen de formularios. Por
+                  ello, y ahora que ya vimos los métodos que nos permiten
+                  obtener los datos de un formulario, es momento de que veamos
+                  de qué manera podemos utilizar los mismos en una aplicación
+                  real.
+                </p>
+                <p>
+                  En esta instancia, te proponemos una actividad mediante la
+                  cual partiremos de un formulario en el cual las personas
+                  completarán ciertos datos para poder registrarse en nuestra
+                  aplicación. El objetivo principal del ejercicio es poder
+                  aplicar los conocimientos que adquirimos hasta aquí, para
+                  obtener los datos ingresados por la persona, realizar algunas
+                  validaciones básicas sobre la información obtenida y almacenar
+                  los mismos en un objeto que contenga dicha información.
+                </p>
+                <p>
+                  El punto de partida, es un repositorio de Github que se
+                  encuentra en este
+                  <a
+                    href="https://github.com/alazzuri/ejercicio-formulario-js/blob/main/README.md"
+                  >
+                    link </a
+                  >. Allí, encontraremos la consigna, archivos y todo lo
+                  necesario para poder realizar la actividad. Para comenzar,
+                  podemos realizar un fork del repositorio para almacenarlo en
+                  nuestra cuenta de Github o simplemente descargarlo como un
+                  archivo .zip para trabajarlo localmente en la computadora.
+                  ¡Manos a la obra!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
