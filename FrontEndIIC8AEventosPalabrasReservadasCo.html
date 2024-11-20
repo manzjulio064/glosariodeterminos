@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/player.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Palabras Reservadas: ¿Cómo declarar una variable?</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Palabras Reservadas: ¿Cómo declarar una variable?
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Palabras reservadas</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <p>
+                  A partir de ES6 utilizamos las siguientes palabras reservadas
+                  para declarar nuestras variables.
+                </p>
+                <h3>var</h3>
+                <p>
+                  El scope es su contexto de ejecución (en otras palabras, la
+                  variable vive dentro de la función en la cual es declarada).
+                  El scope de una variable declarada fuera de una función es
+                  global.
+                </p>
+                <h3>let</h3>
+                <p>
+                  Gracias a esta se introduce el scope de bloque. Las variables
+                  asignadas con let solo son accesibles dentro de su bloque.
+                  Recordemos que el bloque es aquella porción de código que se
+                  encuentra definida entre llaves ({}), por ejemplo, dentro de
+                  un bloque if:
+                </p>
+                <pre>        <code>
+      let color = "rojo"; if (color === "rojo") { let colorElegido = color; // Esta variable vive dentro del bloque if
+      console.log("El color elegido es" + " " + colorElegido); // El color elegido es rojo
+      }else{
+      console.log(colorElegido); // Esto devolvería un error, ya que colorElegido no vive dentro del bloque else.
+      }
+              </code>
+          </pre>
+                <p>
+                  Las variables declaradas fuera de un bloque de código tienen
+                  un scope global.
+                </p>
+                <h3>const</h3>
+                <p>
+                  Su comportamiento es igual que el de let, salvo por la
+                  diferencia de que no se puede reasignar su valor. Su correcto
+                  uso minimiza el estado de mutación.
+                </p>
+                <h1>Conclusiones</h1>
+                <p>
+                  Viendo todas estas funcionalidades y comportamientos que nos
+                  dan las palabras reservadas, podemos inferir la siguiente
+                  conclusión.
+                </p>
+              </div>
+              <div>
+                <p>
+                  Lo ideal al momento de declarar una variable es utilizar
+                  siempre la palabra reservada <span>const</span>, salvo que en
+                  algún momento necesitemos reasignar su valor. En esos casos,
+                  podemos implementar la palabra reservada <span>let</span>.
+                  <br />
+                  Prácticamente no deberíamos utilizar la palabra
+                  <span>var</span> en nuestro código, sin embargo, si en algún
+                  momento nos vemos en la necesidad de utilizar dicha palabra
+                  reservada para que nuestro código funcione, entonces, quizás
+                  debamos pensar en refactorizar nuestro código para evitar
+                  tener que recurrir al uso de <span>var</span>.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>

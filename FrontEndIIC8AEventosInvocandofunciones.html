@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/player.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Invocando funciones</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Invocando funciones
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <div class="rich-text text-block__content">
+              <div>
+                <p>
+                  Como hemos visto anteriormente, frente a un evento, nuestro
+                  código reacciona invocando una función, la que contendrá la
+                  acción que deseamos ejecutar en respuesta a dicho evento. En
+                  esta oportunidad, presentaremos algunos conceptos útiles
+                  relacionados con el uso de funciones.
+                </p>
+                <h1>Scope</h1>
+                <p>
+                  El scope es el contexto actual de ejecución. Ese contexto se
+                  refiere al “ámbito de vida” de las variables. Las mismas que
+                  “nacen” en un determinado bloque, “mueren” en ese bloque.
+                </p>
+                <pre>        <code>
+      function funcionDeEjemplo() {
+          const x = "declarada dentro de la función"; // x solo se puede utilizar en funcionDeEjemplo
+          console.log("Funcion interna");
+          console.log(x);
+      }
+      console.log(x);  // error
+              </code>
+          </pre>
+              </div>
+              <div>
+                <p>
+                  Si queremos llamar a una variable desde afuera de su bloque,
+                  esta no va a existir.
+                </p>
+              </div>
+              <div>
+                <p>
+                  También entra en juego la jerarquía de los bloques, esto
+                  quiere decir que los scopes secundarios tienen acceso a los
+                  ámbitos primarios, pero no al revés. Por ejemplo:
+                </p>
+                <pre>        <code>
+      function funcionPrimaria() {
+          const variablePrimaria = "Me encuentro en el bloque superior";
+
+          function funcionSecundaria() {
+              const variableSecundaria = "Soy del bloque inferior";
+
+              console.log("Dentro: "+variablePrimaria);
+              console.log("Dentro: "+variableSecundaria);
+          }
+          funcionSecundaria();
+
+          console.log("Fuera: "+variablePrimaria);
+          console.log("Fuera: "+variableSecundaria); // error
+      }
+      funcionPrimaria();
+              </code>
+          </pre>
+              </div>
+              <div>
+                <p>
+                  Lo que observamos es que desde dentro —es decir, el bloque
+                  inferior— podemos llamar a las variables superiores. Pero en
+                  el caso inverso no es posible, ya que no se detecta como
+                  definida, es inexistente en ese scope.
+                </p>
+              </div>
+              <div>
+                <h2>Arrow functions</h2>
+                <p>
+                  Existe otra forma de declarar una función mediante la notación
+                  de 'arrow function':
+                </p>
+                <pre>        <code>
+      let sumar = (a, b) =&gt; {
+          let valor = a + b;
+          return valor;
+      }
+              </code>
+          </pre>
+                <p>
+                  Esta forma es usual en algunos códigos. Su funcionamiento no
+                  varía, pero sí permite hacer notaciones más cortas, como la
+                  siguiente:
+                </p>
+                <pre>        <code>
+      let sumar = (a, b) =&gt; a + b;
+              </code>
+          </pre>
+                <p>Algunas particularidades acerca de esta notación:</p>
+                <ul>
+                  <li>
+                    Esta notación debe ser utilizada con una variable cuyo
+                    nombre será el nombre de la función.
+                  </li>
+                  <li>
+                    Si luego de utilizar '=&gt;', no se abren llaves, lo
+                    siguiente será devuelto como si se tratara de un return,
+                    pero la función no puede tener más de una línea.
+                  </li>
+                  <li>
+                    Esta notación es utilizada mayormente cuando pasamos como
+                    parámetro una función, pero ahora vamos a eso.
+                  </li>
+                </ul>
+                <h2>Funciones como parámetros</h2>
+                <p>
+                  JavaScript nos permite utilizar una función como parámetro de
+                  otra, esto es de gran utilidad para nuestro código:
+                </p>
+                <pre>        <code>
+      function ejecutor(func) {
+          // código de la función
+          func();
+          // código de la función
+      }
+
+      function sumar(a, b) {
+          return a + b;
+      }
+
+      ejecutor(sumar(1, 2));
+              </code>
+          </pre>
+                <p>
+                  En el ejemplo, se puede ver que tenemos una función
+                  "ejecutor". Esta función realiza todo su algoritmo y, cuando
+                  lo necesita, ejecuta la función “func” pasada como parámetro.
+                  En el ejemplo, dicho parámetro corresponde a la función
+                  "sumar" que es pasada como argumento de la función "ejecutor"
+                  al momento de invocarla.
+                  <br /><br />
+                  Se suele decir en estos casos que la función "ejecutor" es la
+                  responsable de ejecutar la función "sumar" (o cualquier otra
+                  que le pasemos como argumento al momento de invocar dicha
+                  función).
+                </p>
+                <h2>Callbacks</h2>
+                <p>
+                  El callback es el nombre que se le suele dar a funciones que
+                  son utilizadas como parámetros de otra función. Veamos otros
+                  ejemplos:
+                </p>
+                <pre>        <code>
+      miFuncion('este es un parámetro aleatorio', (a, b) =&gt; { return a + b; });
+              </code>
+          </pre>
+                <p>
+                  En este ejemplo nuestro callback es la función
+                  <span>(a,b) =&gt; { return a + b }</span>. Este mismo ejemplo
+                  podría ser escrito, como vimos antes, de la siguiente manera:
+                </p>
+                <pre>        <code>
+      // Opcion 1
+      miFuncion('este es un parámetro aleatorio', (a, b) =&gt; a + b );
+
+      // Opcion 2
+      miFuncion('este es un parámetro aleatorio', function(a, b){ return a + b; });
+
+      // Opcion 3
+      miFuncion('este es un parámetro aleatorio', (a, b) =&gt; {
+          return a + b;
+      });
+              </code>
+          </pre>
+                <p>
+                  Estas 3 formas son exactamente iguales en comportamiento,
+                  siendo la última la más utilizada.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Funciones</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <p>
+                  A continuación te dejamos una presentación para que puedas
+                  repasar lo visto sobre funciones.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class=""></div>
+            <iframe
+              src="https://docs.google.com/presentation/d/1XD2cqGcWh5nx1-h98iGVQEw18D4B_9Hq8kLZjND_KnY/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="slide-block__content slide-block__content_square"
+            ></iframe>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Fill the blanks</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <div>
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 100%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/60c352166df6b60db1b9d034"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="1400"
+                      width="1400"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Tipos de funciones en Javascript</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <img
+                  alt="Tipos de funciones en Javascript"
+                  src="https://assets.digitalhouse.com/content/AR/CTD/Tipos-de-funciones.jpg"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
