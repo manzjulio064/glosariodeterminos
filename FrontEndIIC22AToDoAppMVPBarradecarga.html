@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/player.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Barra de carga</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">Barra de carga</h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Animando nuestra aplicación</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <p>
+                  En la actualidad, las aplicaciones modernas se caracterizan
+                  por ser dinámicas, ya que brindan al usuario la posibilidad de
+                  interactuar mediante distintos tipos de acciones, ofreciendo
+                  una respuesta como reacción a dicha interacción.
+                </p>
+                <p>
+                  Este proceso de acción y reacción se da en tiempo real, pero
+                  no siempre en forma inmediata.
+                </p>
+                <p>
+                  Como ya sabemos, existen múltiples situaciones en las que,
+                  frente a un pedido del usuario, la aplicación necesita
+                  consumir datos que se encuentran almacenados fuera de ella
+                  (como por ejemplo, en una base de datos), lo que requiere
+                  realizar una (o varias) peticiones a servicios y servidores
+                  externos para obtener dicha información.
+                </p>
+                <p>
+                  Según lo que vimos algunas clases atrás, este proceso de
+                  peticiones y respuestas ocurre de manera asincrónica, es
+                  decir, diferida en el tiempo. ?
+                </p>
+                <p>
+                  Ahora bien, ya sea que la reacción se produzca de manera más o
+                  menos inmediata o con cierta demora, debemos asegurarnos de
+                  informar al usuario que dicho proceso se encuentra en curso.
+                </p>
+                <p>
+                  En otras palabras, para garantizar que nuestra aplicación
+                  mantenga una sensación de fluidez y dinamismo, es necesario
+                  que aun en esos momentos en los que estamos procesando un
+                  pedido del usuario, le hagamos saber que la aplicación se
+                  encuentra activa y trabajando para poder ofrecerle la
+                  respuesta esperada.
+                </p>
+                <p>
+                  Para ello, una de las estrategias que tenemos disponibles es
+                  el uso de animaciones.? Por supuesto que esta no es la única
+                  función que cumplen las animaciones, pero este quizás es uno
+                  de sus usos más frecuentes.
+                </p>
+                <p>
+                  En esta oportunidad, veremos uno de los recursos más antiguos
+                  y utilizados para indicar el momento en el cual nuestra
+                  aplicación se encuentra procesando información: la barra de
+                  carga o progress bar.
+                </p>
+                <h2>Paso a paso: construyendo una progress bar</h2>
+                <p>
+                  Para poder construir nuestra barra de progreso comenzaremos
+                  creando un archivo <span>index.html</span>, el cual contendrá
+                  la estructura básica de este tipo de documentos:
+                </p>
+                <pre>        <code>
+                  &lt;!DOCTYPE html&gt;
+                  &lt;html lang="en"&gt;
+                  &lt;head&gt;
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;<title>Barra de Progreso</title>
+                  &lt;/head&gt;
+                  &lt;body&gt;&lt;/body&gt;
+                  &lt;/html&gt;
+              </code>
+          </pre>
+                <p>
+                  <span>TIP:</span>
+                  <i
+                    >Puedes inicializar rápidamente un documento HTML en tu VS
+                    Code tipeando el carácter “ ! ” seguido de la tecla Tab.</i
+                  >
+                </p>
+                <p>
+                  Ahora que ya tenemos el documento inicializado, incorporaremos
+                  dentro del body los elementos necesarios para renderizar
+                  nuestra barra:
+                </p>
+                <pre>        <code>
+                  &lt;body&gt;
+                      &lt;div id="progreso"&gt;
+                          &lt;div id="barra"&gt;10%&lt;/div&gt;
+                      &lt;/div&gt;
+                      &lt;button id="iniciar-carga"&gt;Comenzar Carga&lt;/button&gt;
+                  &lt;/body&gt;
+              </code>
+          </pre>
+                <p>
+                  Seguidamente, incorporaremos algunos estilos. Para ello,
+                  crearemos un archivo <span>styles.css</span> (no olvides
+                  incluir este archivo en el index.html) y agregaremos los
+                  siguientes estilos:
+                </p>
+                <pre>        <code>
+                  body {
+                      height: 100vh;
+                      display: flex;
+                      flex-direction: column;
+                      justify-content: center;
+                      align-items: center;
+                    }
+
+                    #progreso {
+                      width: 30%;
+                      border: 2px solid rgb(27, 27, 27);
+                      box-shadow: 3px 3px 5px darkgray;
+                    }
+
+                    #barra {
+                      width: 0%;
+                      height: 30px;
+                      background-color: #04aa6d;
+                      text-align: center;
+                      line-height: 30px;
+                      color: white;
+                    }
+
+                    #iniciar-carga {
+                      margin-top: 1rem;
+                      padding: 0.3rem;
+                      border-radius: 5px;
+                      box-shadow: 3px 3px 5px darkgray;
+                      cursor: pointer;
+                    }
+              </code>
+          </pre>
+                <p>
+                  Finalmente, utilizaremos Javascript para dar vida a nuestra
+                  barra de carga. Para ello, crearemos nuestro archivo
+                  <span>index.js</span> (no olvides vincularlo en el
+                  index.html). En este incluiremos el siguiente código:
+                </p>
+                <pre>        <code>
+                  // Simulamos un proceso que demora 5 segundos en completarse
+                  const tiempoDeCarga = 5000;
+
+                  function animarBarra() {
+                      // Seleccionamos el elemento barra
+                      let elem = document.getElementById("barra");
+
+                      // Inicializamos el progreso en 0, para asegurarnos
+                      // que siempre arranque desde el principio
+                      let width = 0;
+
+                      // Calculamos el progreso en base al tiempo total de carga,
+                      const progresoSobreTiempoTotal = tiempoDeCarga / 100;
+
+                      // Creamos un intervalo que se repita en el tiempo que calculamos
+                      // para ir incrementando el progreso.
+                      let id = setInterval(incrementarProgreso, progresoSobreTiempoTotal);
+
+                      function incrementarProgreso() {
+                          // Si el progreso esta completo, detenemos el programa
+                          if (width &gt;= 100) {
+                          clearInterval(id);
+                          } else {
+                          width++;
+
+                          // Modificamos el DOM, para impactar el nuevo progreso.
+                          elem.style.width = width + "%";
+                          elem.innerHTML = width + "%";
+                          }
+                      }
+                  }
+
+                  document.querySelector("#iniciar-carga").addEventListener("click", animarBarra);
+
+              </code>
+          </pre>
+                <p>
+                  ¡Excelente! A esta altura ya tienes una barra de carga animada
+                  y totalmente funcional.?
+                </p>
+
+                <p>
+                  ¿Necesitas ayuda?? En el siguiente link te dejamos el
+                  ejercicio finalizado para que puedas probarlo y mirar el
+                  código:
+                  <a href="https://codesandbox.io/s/barra-de-carga-8j0pz"
+                    >https://codesandbox.io/s/barra-de-carga-8j0pz</a
+                  >
+                </p>
+
+                <p>
+                  Hasta aquí hemos visto una de las aplicaciones posibles para
+                  una barra animada con CSS y Javascript, pero existen muchas
+                  otras. Te proponemos que investigues y pruebes distintas
+                  maneras de utilizar una progress bar. ¡Adelante!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Ejercicio: ejemplo dinámico</h2>
+            </div>
+            <iframe
+              src="https://drive.google.com/file/d/1nz844f2SPMpKFUwMwAIwamuuJMvlRrl6/preview?usp=sharing"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="pdf-block__content pdf-block__content_square"
+            ></iframe>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>

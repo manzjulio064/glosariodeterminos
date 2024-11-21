@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/player.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Agregando animaciones</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Agregando animaciones
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">TODO: Nuestro primer spinner</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <p>
+                  Anteriormente hemos visto distintos tipos de animaciones que
+                  podemos realizar utilizando CSS y Javascript, y de qué manera
+                  estas nos ayudan a dar feedback al usuario. Ahora es momento
+                  de aplicar lo aprendido en nuestro proyecto To Do.
+                </p>
+                <p>
+                  En esta instancia vamos a agregar un spinner en la pantalla de
+                  registro. La finalidad de dicho Spinner es indicarle a la
+                  persona que la aplicación ha enviado una solicitud de registro
+                  a la API, y que se encuentra a la espera de una respuesta.
+                  ¡Comencemos!
+                </p>
+                <p>
+                  En primer lugar, vamos a crear un archivo
+                  <span>loaders.js</span>, dentro del cual crearemos las
+                  funciones que tendrán a su cargo las tareas de mostrar y
+                  ocultar el spinner de carga.
+                </p>
+                <p>
+                  Dentro de dicho archivo empezaremos por crear una función para
+                  mostrar el spinner:
+                </p>
+                <pre>        <code>
+                  function mostrarSpinner() {
+                      // Seleccionamos el body. Esto nos servirá para incorporar nuestro spinner
+                      // dentro de nuestro HTML.
+                      const body = document.querySelector("body");
+
+                      // Seleccionamos el formulario de registro para poder ocultarlo durante la carga
+                      const form = document.querySelector("form");
+
+                      // Creamos nuestro spinner
+                      const spinnerContainer = document.createElement("div");
+                      const spinner = document.createElement("div");
+
+                      // Asignamos los IDs a cada nuevo elemento, para poder manipular
+                      // sus estilos
+                      spinnerContainer.setAttribute("id", "contenedor-carga");
+                      spinner.setAttribute("id", "carga");
+
+                      // Ocultamos el formulario de registro
+                      form.classList.add("hidden");
+
+                      // Agregamos el Spinner a nuestro HTML.
+                      spinnerContainer.appendChild(spinner);
+                      body.appendChild(spinnerContainer);
+
+                      return;
+                     }
+              </code>
+          </pre>
+                <p>
+                  Por su parte, una vez obtenida la respuesta, puede que
+                  necesitemos ocultar el spinner y mostrar el formulario
+                  nuevamente (por ejemplo, en caso de algún error). Para ello
+                  crearemos una función <span>ocultarSpinner</span>:
+                </p>
+                <pre>        <code>
+                  function ocultarSpinner() {
+                      // Seleccionamos el body para poder remover el spinner del HTML.
+                      const body = document.querySelector("body");
+
+                      // Seleccionamos el formulario de registro para poder mostrarlo nuevamente
+                      const form = document.querySelector("form");
+
+                      // Seleccionamos el spinner
+                      const spinnerContainer = document.querySelector("#contenedor-carga");
+
+                      // Removemos el spinner del HTML
+                      body.removeChild(spinnerContainer);
+
+                      // Quitamos la clase que oculta el formulario
+                      form.classList.remove("hidden");
+                      return;
+                     }
+              </code>
+          </pre>
+                <p>
+                  ¡Excelente! Ya tenemos implementada la lógica para manipular
+                  nuestro spinner. Ahora, ocupémonos de los estilos. Para ello,
+                  agregaremos los siguientes estilos en nuestro archivo CSS
+                  (también podemos crear un archivo específico para estos
+                  estilos, pero no debemos olvidarnos de linkearlo en nuestro
+                  HTML).
+                </p>
+                <pre>        <code>
+                  /* Esta clase oculta el formulario */
+                  .hidden {
+                  display: none;
+                  }
+
+                  /* Estilos del Spinner */
+                  #contenedor-carga {
+                  width: 100%;
+                  height: 100%;
+                  z-index: 2;
+                  -webkit-transition: all 3s ease;
+                  transition: all 3s ease;
+                  background-color: whitesmoke;
+                  }
+
+                  #carga {
+                  border: 10px solid rgb(255, 255, 255);
+                  outline: 1px solid lightgray;
+                  border-top-color: var(--primary);
+                  border-bottom-color: var(--secondary);
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  margin: auto;
+                  height: 50px;
+                  width: 50px;
+                  border-radius: 100%;
+                  -webkit-animation: girar 1.5s linear infinite;
+                  animation: girar 1.5s linear infinite;
+                  }
+
+                  /* Animación del spinner */
+                  @-webkit-keyframes girar {
+                      from {
+                          -webkit-transform: rotate(0deg);
+                          transform: rotate(0deg);
+                      }
+                      to {
+                          -webkit-transform: rotate(360deg);
+                          transform: rotate(360deg);
+                      }
+                  }
+
+                  @keyframes girar {
+                      from {
+                      -webkit-transform: rotate(0deg);
+                      transform: rotate(0deg);
+                      }
+                      to {
+                      -webkit-transform: rotate(360deg);
+                      transform: rotate(360deg);
+                      }
+                  }
+
+              </code>
+          </pre>
+                <p>
+                  Finalmente es hora de agregar esta funcionalidad en la
+                  aplicación. En primer lugar, incluimos el archivo loaders.js
+                  en el documento HTML:
+                </p>
+                <pre>        <code>
+                  // Agregar este script debajo de los otros script de la aplicación
+                  &lt;script src="./scripts/loaders.js"&gt;&lt;/script&gt;
+              </code>
+          </pre>
+                <p>
+                  Ahora que tenemos todo preparado, puede que nos preguntemos en
+                  qué momento debemos llamar a nuestra función
+                  <span>mostrarSpinner</span>. Para ello, debemos buscar el
+                  momento en previo a realizar el pedido a nuestra API. En
+                  nuestro caso, dicho pedido se realiza luego de que se realiza
+                  el “submit” del formulario, por lo que la implementación del
+                  spinner debería realizarse de la siguiente manera:
+                </p>
+                <pre>        <code>
+                  form.addEventListener("submit", (e) =&gt; {
+                      // Esta función se ejecuta cuando se realiza el submit del formulario
+                      e.preventDefault();
+
+                      // Aquí podemos mostrar el spinner para indicar a la persona que se
+                      // ha iniciado el proceso de registro
+                      mostrarSpinner();
+
+                      // Realizamos algunas validaciones de los datos ingresados
+                      const nombreValido = validarNombre(nombre.value);
+                      const contrValido = validarContrasenia(
+                          contrasenia.value,
+                          repetirContrasenia.value
+                      );
+                      const emailValido = validarEmail(email.value);
+
+                      if (nombreValido &amp;&amp; contrValido &amp;&amp; emailValido) {
+                          const datosUsuario = new DatosUsuario();
+                          datosUsuario.setFirstname(nombre.value);
+                          datosUsuario.setLastname("DH");
+                          datosUsuario.setPassword(contrasenia.value);
+                          datosUsuario.setEmail(email.value);
+
+                          const url = "https://ctd-todo-api.herokuapp.com/v1";
+
+                          // Realizamos el llamado a la API
+                          fetch(`${url}/users`, {
+                          method: "POST",
+                          headers: {
+                              "Content-Type": "application/json",
+                          },
+                          body: JSON.stringify({
+                              email: datosUsuario.email,
+                              firstName: datosUsuario.firstName,
+                              lastName: datosUsuario.lastName,
+                              password: datosUsuario.password,
+                          }),
+                          })
+                          .then((datos) =&gt; {
+                              return datos.json();
+                          })
+                          .then((datos) =&gt; {
+                              localStorage.setItem("token", datos.jwt);
+                              // Una vez obtenida la respuesta de la API, ocultamos el spinner
+                              ocultarSpinner();
+                              location.href = "./lista-tareas.html";
+                          })
+                          .catch((err) =&gt; {
+                              console.log(err);
+                              // Ocultamos el spinner en caso de error
+                              ocultarSpinner();
+                          });
+                      } else {
+                          // Si alguno de los campos es incorrecto, ocultamos el spinner
+                          ocultarSpinner();
+                      }
+                      });
+                      };
+
+              </code>
+          </pre>
+                <p>
+                  ¡Listo! Ya tenemos nuestro spinner implementado. Si todo salió
+                  bien, veremos cómo aparece en la pantalla cuando se realiza el
+                  registro de un nuevo usuario.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Ejercicio: spinner para login</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <p>
+                  La consigna del presente ejercicio consiste en utilizar lo
+                  visto en el recurso anterior para agregar el spinner de carga
+                  durante el proceso de inicio de sesión.
+                </p>
+                <p>
+                  Para ello podemos utilizar las funciones mostrarSpinner y
+                  ocultarSpinner, invocándolas dentro del <i>request</i> al
+                  <i>endpoint</i> de login de nuestra API. No es necesario crear
+                  ningún componente ni estilo adicional a los ya vistos.
+                </p>
+                <p>¡Manos a la obra!</p>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">TO DO: Agregando skeletons</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <p>
+                  Ahora que ya tenemos nuestros spinners en los formularios de
+                  registro y login es momento de ocuparnos de nuestra página
+                  principal.
+                </p>
+                <p>
+                  Para ello, vamos a crear un skeleton que nos permitirá indicar
+                  al usuario que la aplicación se encuentra obteniendo las
+                  tareas almacenadas en el servidor (API). ¡Comencemos!
+                </p>
+                <p>
+                  En primer lugar, dentro de nuestro archivo
+                  <span>loaders.js</span>, crearemos una función que tendrá a su
+                  cargo la tareas de renderizar los skeletons:
+                </p>
+                <pre>        <code>
+                  /*
+                  Nuestra función recibirá dos argumentos:
+
+                  1) En primer lugar, la cantidad de skeletons que queremos
+                  mostrar;
+                  2) En segundo lugar, el contenedor dentro del cual queremos incluir
+                  los skeletons
+                  Por ejemplo, si queremos mostrar 5 skeletons dentro
+                  del siguiente contenedor:
+
+                  &lt;ul class="tareas-pendientes"&gt;&lt;/ul&gt;
+
+                  al invocar la función le podremos pasar los siguientes argumentos:
+
+                  renderizarSkeletons(5, ".tareas-pendientes")
+
+                  */
+                  function renderizarSkeletons(cantidad, contenedor) {
+                  // Seleccionamos el contenedor
+                  const contenedorTareas = document.querySelector(contenedor);
+
+                  // Creamos un array que tendrá un lenght igual a la cantidad de
+                  //skeletons que queremos renderizar
+                  const skeletons = Array.from({ length: cantidad });
+
+                  // Iteramos sobre el array accediendo a cada elemento
+                  skeletons.forEach(() =&gt; {
+                  // Guardamos el HTML de cada skeleton. Agregamos una clase con el selector del contenedor
+                  // Esto nos permitirá luego poder eliminar los skeletons de dicho contenedor
+                  const template = `
+                  &lt;li class="skeleton-container ${contenedor.replace(".", "")}-child"&gt;
+                      &lt;div class="skeleton-card"&gt;
+                      &lt;p class="skeleton-text"&gt;&lt;/p&gt;
+                      &lt;p class="skeleton-text"&gt;&lt;/p&gt;
+                      &lt;/div&gt;
+                  &lt;/li&gt;
+                  `;
+
+                  // Insertamos el HTML dentro del contenedor
+                  contenedorTareas.innerHTML += template;
+                  });
+                  }
+              </code>
+          </pre>
+                <p>
+                  Ahora que ya tenemos nuestra función, crearemos algunos
+                  estilos para poder darle vida a los skeletons:
+                </p>
+                <pre>        <code>
+                  /* SKELETON */
+                  .skeleton-container {
+                  display: flex;
+                  align-items: center;
+                  margin-bottom: 1.5em;
+                  }
+
+                  .skeleton-card {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  flex: 1;
+                  padding: 1em 2em;
+                  box-shadow: 2px 2px 5px lightgrey;
+                  animation: loadingContainerAnimation 2s linear infinite;
+                  }
+
+                  .skeleton-text {
+                  animation: loadingTextAnimation 2s linear infinite;
+                  width: 150px;
+                  display: block;
+                  padding: 0.7rem;
+                  }
+
+                  @keyframes loadingContainerAnimation {
+                  0% {
+                  background: white;
+                  }
+                  50% {
+                  background: rgb(182, 177, 177);
+                  }
+                  100% {
+                  background: white;
+                  }
+                  }
+
+                  @keyframes loadingTextAnimation {
+                  0% {
+                  background: white;
+                  }
+                  50% {
+                  background: rgb(128, 123, 123);
+                  }
+                  100% {
+                  background: white;
+                  }
+                  }
+
+              </code>
+          </pre>
+                <p>
+                  Una vez incluidos los estilos, podremos invocar nuestra
+                  función en el momento en que deseemos mostrar los skeletons.
+                  Por ejemplo, haremos esto cuando se realiza la carga inicial
+                  de la página:
+                </p>
+                <pre>        <code>
+                  window.onload = () =&gt; {
+                      renderizarSkeletons(5, ".tareas-pendientes");
+                     };
+              </code>
+          </pre>
+                <p>
+                  No olvidemos agregar el script en el HTML de la página
+                  principal.
+                </p>
+                <pre>        <code>
+                  // Agregar este script debajo de los otros script de la aplicación
+                  &lt;script src="./scripts/loaders.js"&gt;&lt;/script&gt;
+              </code>
+          </pre>
+                <p>
+                  Si todo salió bien, deberíamos ver los skeletons en pantalla:
+                </p>
+                <img
+                  alt="Skeleton"
+                  src="https://assets.digitalhouse.com/content/ar/td/fe2/skeleton.png"
+                />
+                <p>
+                  ¡Excelente! Ya tenemos los skeletons listos para usar en su
+                  aplicación.
+                </p>
+                <p>
+                  Ahora bien, una vez obtenida las tareas desde la API, será
+                  necesario ocultar los skeletons para poder mostrar las
+                  tarjetas con la información recibida. Para ello, crearemos una
+                  función <span>removerSkeleton</span>:
+                </p>
+                <pre>        <code>
+                  /*
+                  Esta función recibirá el nombre del contenedor dentro del cual
+                  se encuentran los skeletons que deseamos remover
+                  */
+                  function removerSkeleton(contenedor) {
+                  // Seleccionamos el contenedor
+                  const contenedorTareas = document.querySelector(contenedor);
+
+                  // Seleccionamos todos los skeletons dentro de ese contenedor
+                  const skeletons = document.querySelectorAll(`${contenedor}-child`);
+
+                  // Iteramos sobre la lista de skeletons y removemos cada uno de ellos
+                  // de dicho contenedor
+                  skeletons.forEach((skeleton) =&gt; contenedorTareas.removeChild(skeleton));
+                  }
+              </code>
+          </pre>
+                <p>
+                  ¡Listo! Todo lo que necesitamos hacer es llamar a esta función
+                  una vez obtenida la respuesta de la API. Así veremos cómo
+                  nuestros skeletons desaparecen.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>

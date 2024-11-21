@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/player.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <title>Ejemplo Skeleton</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">Ejemplo Skeleton</h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Texto</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <h1 style="margin-top: 25px">Creando un skeleton</h1>
+              <p>
+                Ya hemos visto distintos tipos de animaciones que podemos
+                realizar utilizando CSS y Javascript, y de qué manera dichas
+                animaciones nos ayudan a dar feedback al usuario. Pero, antes de
+                dar por concluido este tópico, queremos mostrarte una
+                alternativa más.
+              </p>
+              <p>
+                Si bien el uso de barras de carga y spinners representa un gran
+                recurso a la hora de indicar que nuestra aplicación se encuentra
+                realizando algún tipo de petición o proceso, en el último tiempo
+                ha surgido un nuevo tipo de animación muy popular entre los
+                desarrolladores: <b>los skeletons</b> ?.
+              </p>
+              <p>
+                ¿Qué es un skeleton? Bueno, para responder esa pregunta, te
+                invitamos a que ingreses a
+                <a href="https://www.youtube.com/">Youtube.</a> Si prestas
+                atención verás que en un primer momento, apenas se carga la
+                página, aparecen una serie de elementos no contienen información
+                sobre los videos (la que aparecerá segundos después) sino que
+                dichos elementos actúan como una especie de placeholders de la
+                información que la aplicación se encuentra solicitando al
+                servidor.
+              </p>
+              <p>
+                Esos placeholders no son otra cosa que los skeletons. Su uso ha
+                ido ganando popularidad entre los diseñadores y desarrolladores
+                ya que, a diferencia de los spinners y barra de carga, brindan a
+                la persona que accede al sitio, una representación visual del
+                layout y contenido que tendrá la página una vez obtenida la
+                información que se encuentra pendiente de carga. De esta manera,
+                se obtiene una interfaz mucho más amigable y representativa del
+                sitio en su totalidad.
+              </p>
+              <p>
+                A esta altura puede que te preguntes si crear un skeleton puede
+                llegar a ser algo complicado. Bueno, la realidad es que no lo
+                es. Solo hace falta un poco de HTML y CSS y listo, tendremos un
+                skeleton listo para usar. ¿No nos crees? Veamos un ejemplo:
+              </p>
+
+              <h2>Paso a paso: construyendo nuestro primer skeleton</h2>
+              <p>
+                Para poder construir nuestro skeleton comenzaremos creando un
+                archivo index.html que contendrá la estructura básica de este
+                tipo de documentos:
+              </p>
+              <img
+                height="200"
+                width="200"
+                src="https://assets.digitalhouse.com/content/ar/mkt/doctype.png"
+              />
+
+              <p>
+                <b>TP:</b
+                ><i>
+                  Puedes inicializar rápidamente un documento HTML en tu VS Code
+                  tipeando el carácter “ ! ” seguido de la tecla Tab.</i
+                >
+              </p>
+              <p>
+                Ahora que ya tenemos el documento inicializado, incorporaremos
+                dentro del body los elementos necesarios para renderizar nuestro
+                skeleton:
+              </p>
+
+              <img
+                height="300"
+                width="200"
+                src="https://assets.digitalhouse.com/content/ar/mkt/body.png"
+              />
+
+              <p>
+                Seguidamente incorporaremos algunos estilos. Para ello,
+                crearemos un archivo <b>styles.css</b> (no te olvides de incluir
+                este archivo en el index.html) y agregaremos los siguientes
+                estilos:
+              </p>
+
+              <img
+                height="450"
+                width="400"
+                src="https://assets.digitalhouse.com/content/ar/mkt/style.png"
+              />
+
+              <img
+                height="500"
+                width="400"
+                src="https://assets.digitalhouse.com/content/ar/mkt/center.png"
+              />
+
+              <img
+                height="450"
+                width="450"
+                src="https://assets.digitalhouse.com/content/ar/mkt/text.png"
+              />
+
+              <img
+                height="140"
+                width="100"
+                src="https://assets.digitalhouse.com/content/ar/mkt/back.png"
+              />
+
+              <p>
+                Como puede verse del código anterior, utilizamos
+                <b>keyframes</b> para animar nuestro skeleton, lo que dará la
+                sensación de movimiento propia de una verdadera animación. De
+                esta manera, la persona que lo vea podrá hacerse la idea de que
+                la aplicación se encuentra activa, realizando una determinada
+                petición o proceso.
+              </p>
+              <p>
+                ¡Excelente! A esta altura ya tienes un skeleton animado y
+                totalmente funcional.?
+              </p>
+              <p>
+                ¿Necesitas ayuda?? En el siguiente link te dejamos el ejercicio
+                finalizado para que puedas probarlo y mirar el código:<br />
+                <a
+                  href="https://codesandbox.io/s/loading-skeleton-jqskn?file=/styles.css:0-1139"
+                  >https://codesandbox.io/s/loading-skeleton-jqskn?file=/styles.css:0-1139</a
+                >
+              </p>
+
+              <p>
+                Ahora que hemos descubierto este nuevo tipo de animación te
+                invitamos a utilizarlo en tus proyectos. ¡Adelante!
+              </p>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">PDF</h2>
+            </div>
+            <iframe
+              src="https://docs.google.com/document/d/1VIqlSJI8H-kK9wu2MQzPGcynheGtsc2ldW-C-PhgDm0/preview"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="pdf-block__content pdf-block__content_square"
+            ></iframe>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>

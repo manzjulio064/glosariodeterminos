@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css">
+    <link rel="stylesheet" href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"/>
+    <link rel="stylesheet" href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"/>
+    <link rel="stylesheet" href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"/>
+    <link rel="stylesheet" href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"/>
+    <link rel="stylesheet" href="https://manzjulio064.github.io/glosariodeterminos/player.css">
+    <link rel="stylesheet" href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css">
+		<title>Autenticación y Autorización</title>
+
+</head>
+	<body>
+			<div class="container">
+				<br>
+        <div class="">
+          <div class="layout">
+            <div class="navigator">
+              <button class="navigator__button navigator__button_prev">
+                <div class="navigator__icon">
+                  <i
+                    data-testid="icon"
+                    class="uil icon uil-arrow-left icon_md"
+                  ></i>
+                </div>
+              </button>
+              <div class="navigator__title">
+                <div class="header">
+                  <h2 class="header__title header__title_xs">
+                    Autenticación y Autorización
+                  </h2>
+                </div>
+              </div>
+              <button class="navigator__button navigator__button_next">
+                <div class="navigator__icon">
+                  <i
+                    data-testid="icon"
+                    class="uil icon uil-arrow-right icon_md"
+                  ></i>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div class="block-box x">
+            <div>
+              <div class="block-box__headline">
+                <h2 class="block-box__title">¿Auth?</h2>
+              </div>
+              <div class="rich-text text-block__content">
+                <div>
+                  <p>
+                    Una aplicación web moderna, necesita contar con diferentes
+                    tipos de información. En algunos casos, dicha información es
+                    pública y puede ser compartida con cualquier persona que
+                    acceda a nuestra aplicación. Pero, en otros casos, dicha
+                    información se encuentra reservada exclusivamente para una
+                    persona o un grupo de personas determinado.
+                  </p>
+                  <p>
+                    Pensemos, por ejemplo, en la página web de un banco
+                    cualquiera. Si accedemos a su página principal, seguramente
+                    podremos visualizar cierta información institucional de dicha
+                    entidad, así como un listado de los servicios que la misma
+                    presta a sus clientes. Esta información, generalmente, es
+                    pública y puede ser visualizada por cualquier persona que
+                    ingrese al sitio web, independientemente de que dicha persona
+                    sea cliente del banco o no.
+                  </p>
+                  <p>
+                    Ahora bien, ¿qué pasaría si yo quiero visualizar el saldo de
+                    la caja de ahorros que tengo abierta en ese banco?; ¿puedo
+                    acceder a esa información directamente desde la página
+                    principal del banco, o es necesario realizar algún paso
+                    adicional?.
+                  </p>
+                  <p>
+                    Como es de imaginarse, la respuesta a esta pregunta es no. En
+                    efecto, para poder consultar el saldo de tu caja de ahorro, en
+                    general hace falta que se cumplan un par de requisitos: a) que
+                    seas cliente del banco, desde luego; b) que cuentes con un
+                    nombre de usuario y contraseña (o token de seguridad), que te
+                    permita acceder al Home Banking de la entidad; y c) que
+                    cuentes con un paquete que incluya una caja de ahorros.
+                  </p>
+                  <p>
+                    A esta altura, puede que te preguntes de qué manera este
+                    ejemplo se relaciona con el desarrollo de aplicaciones web.
+                    Para responder dicha pregunta, debemos introducir los
+                    conceptos de <span>Autenticación</span> y
+                    <span>Autorización</span>.
+                  </p>
+                  <p>
+                    La autenticación, como su nombre lo indica, implica verificar
+                    la identidad de la persona que accede a una aplicación
+                    determinada mediante el uso de sus credenciales. En otras
+                    palabras, la autenticación se enfoca en determinar que la
+                    persona es quien dice ser. Volviendo al ejemplo anterior,
+                    cuando ingresamos el nombre de usuario y contraseña para
+                    acceder al Home Banking, estamos autenticándonos. Si los datos
+                    ingresados son correctos, podremos acceder; caso contrario, la
+                    página nos impedirá el acceso, puesto que no puede verificar
+                    que realmente seamos la persona que decimos ser.
+                  </p>
+                  <p>
+                    Ahora bien, supongamos que nos hemos autenticado correctamente
+                    dentro del Home Banking. Una vez allí, deseamos acceder al
+                    extracto de nuestra caja de ahorros. Como vimos anteriormente,
+                    para poder realizar dicha acción es necesario (además de
+                    autenticarnos con nuestras credenciales), contar con un
+                    paquete que incluya una caja de ahorros.
+                  </p>
+                  <p>
+                    Entonces, si contamos con dicho paquete, seguramente
+                    encontraremos un botón o link que nos permitirá acceder al
+                    extracto. Caso contrario, no podremos acceder a ese recurso ya
+                    que no estamos <span>autorizados</span> para ello.
+                  </p>
+                  <p>
+                    Como podemos ver en el ejemplo anterior, en este caso ya no
+                    estamos hablando de verificar si la persona es quien dice ser
+                    (ya que nos hemos logueado satisfactoriamente), sino que lo
+                    que aquí se esta validando es si la misma se encuentra
+                    habilitada para acceder a determinado recurso. Este concepto,
+                    se refiere a lo que conocemos como <span>Autorización</span>.
+                  </p>
+                  <p>
+                    La autorización, entonces, se ocupa de determinar que tipo de
+                    acciones puede realizar la persona dentro de la aplicación,
+                    validando el acceso a los distintos tipos de recursos
+                    disponibles en dicha aplicación.
+                  </p>
+                  <p>
+                    Si bien ambos conceptos (autenticación y autorización) se
+                    enfocan en diferentes momentos y situaciones, generalmente se
+                    complementan para generar un sistema de roles y permisos con
+                    el objetivo de brindar un adecuado sistema de seguridad para
+                    nuestra aplicación. Comprender y aplicar ambos conceptos en
+                    forma conjunta, nos permitirá crear aplicaciones web robustas
+                    y de calidad.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="block-box__heading-container">
+              <p class="block-box__heading">Nos interesa tu opinión</p>
+              <div class="block-box__feedback">
+                <button class="block-box__button-like">
+                  <i
+                    data-testid="icon"
+                    class="uil icon uil-thumbs-up icon_nm"
+                  ></i></button
+                ><button class="block-box__button-dislike">
+                  <i
+                    data-testid="icon"
+                    class="uil icon uil-thumbs-up icon_nm"
+                  ></i></button
+                ><span class="dh-inline-block dh-relative dh-group"
+                  ><span class="dh-flex dh-justify-center"
+                    ><button
+                      class="block-box__button-report"
+                      data-testid="report"
+                    >
+                      <svg
+                        class="icon icon_nm"
+                        viewBox="0 0 17 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </button>
+                    <div class="tooltip tooltip-top">
+                      <div class="tooltip-content tooltip-arrow-top">
+                        sugerir revisión
+                      </div>
+                    </div></span
+                  ></span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+				<br>
+			</div>
+	</body>
+</html>
