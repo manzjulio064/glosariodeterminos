@@ -40,7 +40,7 @@
           document.head.innerHTML += data;
         });
     </script>
-    <title>Cierre de la semana</title>
+    <title>Intarface</title>
   </head>
   <body>
     <div class="container">
@@ -58,9 +58,7 @@
             </button>
             <div class="navigator__title">
               <div class="header">
-                <h2 class="header__title header__title_xs">
-                  Cierre de la semana
-                </h2>
+                <h2 class="header__title header__title_xs">Intarface</h2>
               </div>
             </div>
             <button class="navigator__button navigator__button_next">
@@ -75,18 +73,84 @@
         </div>
         <div class="block-box x">
           <div>
-            <div class=""></div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Solución a la herencia múltiple</h2>
+            </div>
             <div class="rich-text text-block__content">
               <div>
                 <p>
-                  En estas dos últimas clases incorporamos muchos conceptos
-                  nuevos: cómo implementar la herencia en Java, sobreescribir
-                  métodos para lo cual necesitamos la herencia, su diferencia
-                  con la sobrecarga y conocimos las clases abstractas. En la
-                  clase en vivo estaremos llevando a la práctica estos
-                  conocimientos. ¡Éxitos!
+                  Aprendimos que el uso de la herencia múltiple trae
+                  complicaciones y no es una buena práctica al punto que en
+                  Java, por ejemplo, no está permitido. No obstante, sí tenemos
+                  permitido implementar múltiples interfaces. Pero, ¿qué son las
+                  interfaces?
                 </p>
               </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">¿que es una interface?</h2>
+            </div>
+            <div
+              data-testid="VIMEO-player"
+              class="video-block__content video-block__content_square"
+              data-vimeo-initialized="true"
+            >
+              <iframe
+                src="https://player.vimeo.com/video/1035371871?h=1b2d0bb13f&amp"
+                width="640"
+                height="360"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                title="¿Qué es una interfaz?"
+                data-ready="true"
+              ></iframe>
             </div>
           </div>
           <div class="block-box__heading-container">

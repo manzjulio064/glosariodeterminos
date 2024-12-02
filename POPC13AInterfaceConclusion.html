@@ -40,7 +40,7 @@
           document.head.innerHTML += data;
         });
     </script>
-    <title>Cierre de la semana</title>
+    <title>Conclusion</title>
   </head>
   <body>
     <div class="container">
@@ -58,9 +58,7 @@
             </button>
             <div class="navigator__title">
               <div class="header">
-                <h2 class="header__title header__title_xs">
-                  Cierre de la semana
-                </h2>
+                <h2 class="header__title header__title_xs">Conclusion</h2>
               </div>
             </div>
             <button class="navigator__button navigator__button_next">
@@ -75,18 +73,26 @@
         </div>
         <div class="block-box x">
           <div>
-            <div class=""></div>
-            <div class="rich-text text-block__content">
-              <div>
-                <p>
-                  En estas dos últimas clases incorporamos muchos conceptos
-                  nuevos: cómo implementar la herencia en Java, sobreescribir
-                  métodos para lo cual necesitamos la herencia, su diferencia
-                  con la sobrecarga y conocimos las clases abstractas. En la
-                  clase en vivo estaremos llevando a la práctica estos
-                  conocimientos. ¡Éxitos!
-                </p>
-              </div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">
+                Por último, te invitamos a ver un ejemplo de lo visto
+                anteriormente.
+              </h2>
+            </div>
+            <div
+              data-testid="VIMEO-player"
+              class="video-block__content video-block__content_square"
+              data-vimeo-initialized="true"
+            >
+              <iframe
+                src="https://player.vimeo.com/video/950328735?h=c4e6ef02a1&amp"
+                width="640"
+                height="360"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                title="Interface"
+                data-ready="true"
+              ></iframe>
             </div>
           </div>
           <div class="block-box__heading-container">
