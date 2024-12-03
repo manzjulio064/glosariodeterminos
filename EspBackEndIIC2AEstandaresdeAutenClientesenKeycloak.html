@@ -32,13 +32,15 @@
       href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
     />
     <script>
-      fetch("https://manzjulio064.github.io/glosariodeterminos/shared-elements.html")
+      fetch(
+        "https://manzjulio064.github.io/glosariodeterminos/shared-elements.html"
+      )
         .then((response) => response.text())
         .then((data) => {
           document.head.innerHTML += data;
         });
     </script>
-    <title>Ejercicio para Mesas de Trabajo</title>
+    <title>Clientes en Keycloak</title>
   </head>
   <body>
     <div class="container">
@@ -57,7 +59,7 @@
             <div class="navigator__title">
               <div class="header">
                 <h2 class="header__title header__title_xs">
-                  Ejercicio para Mesas de Trabajo
+                  Clientes en Keycloak
                 </h2>
               </div>
             </div>
@@ -73,44 +75,42 @@
         </div>
         <div class="block-box x">
           <div>
-            <div class=""></div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Texto Introductorio</h2>
+            </div>
             <div class="rich-text text-block__content">
               <div>
-                <h1>¡Manos a la obra!</h1>
-              </div>
-              <div>
+                <h1>Clientes en Keycloak</h1>
                 <p>
-                  <img
-                    style="
-                      float: left;
-                      padding: 15px;
-                      width: 5%;
-                      margin-bottom: -4px;
-                    "
-                    alt="icono compu"
-                    src="https://assets.digitalhouse.com/content/ar/meli/icono compu.png"
-                  />
+                  En la <b>arquitectura cliente-servidor</b> tenemos claro que
+                  existe, un <b>cliente</b> que hace solicitudes (requests) a un
+                  <b>servidor</b>, donde luego éste último le proporciona una
+                  respuesta.
                 </p>
-                <div
-                  style="
-                    border-left: 8px solid #9f33ff;
-                    margin-left: 80px;
-                    padding-left: 5px;
-                  "
-                >
-                  <p>
-                    A continuación te facilitamos una serie de ejercicios para
-                    que puedas practicar el contenido que venimos abordando
-                    hasta el momento.
-                  </p>
-
-                  <p>
-                    <b>Importante:</b>Recordá que podés despejar cualquier duda
-                    o consulta que tengas respecto a las consignas o a las
-                    resoluciones con el equipo de facilitadores.
-                  </p>
-                  <p>Ahora sí… ¿Todo listo? ¡Vamos a ello!</p>
-                </div>
+                <p>
+                  Generalmente, en la “vida real” esto se ve representado por:
+                  una app frontend como cliente, que consume una api o una
+                  aplicación que se encuentra del lado del servidor (backend).
+                </p>
+                <p>
+                  Ahora bien… Cuando utilizamos herramientas de autenticación
+                  como el caso de Keycloak, es necesario que configuremos los
+                  clientes que van a poder comunicarse y autenticarse con este
+                  IAM.
+                </p>
+                <p>
+                  Como en esta materia no utilizamos frontend como tal para
+                  comunicarnos con Keycloak, estaremos utilizando
+                  <a href="https://youtu.be/laZv3I9XN0w">Postman</a> como
+                  herramienta. Para ello, es necesario que lo configuremos como
+                  cliente.
+                </p>
+                <p>
+                  A continuación te dejamos el paso a paso tanto en formato
+                  video como tutorial en PDF de cómo crear un nuevo cliente en
+                  Keycloak y cómo configurar para que Postman sea uno de ellos.
+                </p>
+                <p><b>¡Vamos!</b></p>
               </div>
             </div>
           </div>
@@ -160,9 +160,78 @@
         </div>
         <div class="block-box x">
           <div>
-            <div class=""></div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Clientes en Keycloak</h2>
+            </div>
+            <div
+              data-testid="VIMEO-player"
+              class="video-block__content video-block__content_square"
+              data-vimeo-initialized="true"
+            >
+              <iframe
+                src="https://player.vimeo.com/video/1035623953?h=53d5afb9d7&amp"
+                width="426"
+                height="240"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                title="Clientes en Keycloak"
+                data-ready="true"
+              ></iframe>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">
+                Paso a paso para crear un cliente
+              </h2>
+            </div>
             <iframe
-              src="https://docs.google.com/document/d/1WHY2XNSRLlO5h49S8a2ESaIfKPKT6eFwdVTFcvnGhj4/preview"
+              src="https://docs.google.com/document/d/1DIqq3fNyIzQ9JfXJQsFAVwDUrnMHeI8Sp4xtjH3jOCI/preview"
               allowfullscreen=""
               title="BlockIframe"
               class="pdf-block__content pdf-block__content_square"

@@ -32,13 +32,15 @@
       href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
     />
     <script>
-      fetch("https://manzjulio064.github.io/glosariodeterminos/shared-elements.html")
+      fetch(
+        "https://manzjulio064.github.io/glosariodeterminos/shared-elements.html"
+      )
         .then((response) => response.text())
         .then((data) => {
           document.head.innerHTML += data;
         });
     </script>
-    <title>Ejercicio para Mesas de Trabajo</title>
+    <title>Usuarios en Keycloak</title>
   </head>
   <body>
     <div class="container">
@@ -57,7 +59,7 @@
             <div class="navigator__title">
               <div class="header">
                 <h2 class="header__title header__title_xs">
-                  Ejercicio para Mesas de Trabajo
+                  Usuarios en Keycloak
                 </h2>
               </div>
             </div>
@@ -73,44 +75,47 @@
         </div>
         <div class="block-box x">
           <div>
-            <div class=""></div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Texto introductorio</h2>
+            </div>
             <div class="rich-text text-block__content">
               <div>
-                <h1>¡Manos a la obra!</h1>
-              </div>
-              <div>
+                <h1>Usuarios en Keycloak</h1>
                 <p>
-                  <img
-                    style="
-                      float: left;
-                      padding: 15px;
-                      width: 5%;
-                      margin-bottom: -4px;
-                    "
-                    alt="icono compu"
-                    src="https://assets.digitalhouse.com/content/ar/meli/icono compu.png"
-                  />
+                  En <b>Keycloak</b>, los <b>usuarios</b> son la “pieza
+                  fundamental” de la gestión de identidad y acceso. Un usuario
+                  representa una entidad que necesita acceder a recursos
+                  protegidos por la organización y puede ser, por ejemplo, un
+                  empleado, un cliente o un proveedor.
                 </p>
-                <div
-                  style="
-                    border-left: 8px solid #9f33ff;
-                    margin-left: 80px;
-                    padding-left: 5px;
-                  "
-                >
-                  <p>
-                    A continuación te facilitamos una serie de ejercicios para
-                    que puedas practicar el contenido que venimos abordando
-                    hasta el momento.
-                  </p>
+                <p>
+                  Los usuarios en <b>Keycloak</b> tienen un conjunto de
+                  atributos que definen su perfil y les permiten autenticarse y
+                  autorizarse en las aplicaciones y servicios de la
+                  organización. Entre estos atributos se encuentran el nombre de
+                  usuario, la contraseña, la dirección de correo electrónico, la
+                  fecha de caducidad de la cuenta, los grupos y roles a los que
+                  pertenece, entre otros.
+                </p>
 
-                  <p>
-                    <b>Importante:</b>Recordá que podés despejar cualquier duda
-                    o consulta que tengas respecto a las consignas o a las
-                    resoluciones con el equipo de facilitadores.
-                  </p>
-                  <p>Ahora sí… ¿Todo listo? ¡Vamos a ello!</p>
-                </div>
+                <p>
+                  A lo largo de esta materia vamos a necesitar crear usuarios en
+                  diferentes situaciones para poder asignarles roles (término
+                  que veremos más adelante) como así también determinar a qué
+                  lugares tendrá o no acceso.
+                </p>
+
+                <p>
+                  A continuación te dejamos un paso a paso de cómo
+                  <b>crear un usuario</b> en <b>Keycloak</b> tanto en formato de
+                  <b>video</b> como en formato <b>PDF</b>. Tené en cuenta que,
+                  para poder realizar más adelante la actividad final propuesta
+                  para esta clase, debés tener bien en claro estos conceptos y
+                  cómo implementarlos, por lo que te recomendamos seguir estos
+                  pasos para practicar los conceptos dados.
+                </p>
+
+                <p><b>¡Vamos a ello!</b></p>
               </div>
             </div>
           </div>
@@ -160,9 +165,77 @@
         </div>
         <div class="block-box x">
           <div>
-            <div class=""></div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Usuarios en Keycloak</h2>
+            </div>
+            <div
+              data-testid="VIMEO-player"
+              class="video-block__content video-block__content_square"
+              data-vimeo-initialized="true"
+            >
+              <iframe
+                src="https://player.vimeo.com/video/1035627483?h=6a09c0e0ab&amp"
+                width="426"
+                height="240"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                title="Usuarios en Keycloak"
+              ></iframe>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">
+                Paso a paso para crear un usuario
+              </h2>
+            </div>
             <iframe
-              src="https://docs.google.com/document/d/1WHY2XNSRLlO5h49S8a2ESaIfKPKT6eFwdVTFcvnGhj4/preview"
+              src="https://docs.google.com/document/d/1asEbG3IP5QPgqRq5V4pb3H9TIcjOC85tlGMojS1CGwk/preview"
               allowfullscreen=""
               title="BlockIframe"
               class="pdf-block__content pdf-block__content_square"

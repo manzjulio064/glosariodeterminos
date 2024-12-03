@@ -32,13 +32,15 @@
       href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
     />
     <script>
-      fetch("https://manzjulio064.github.io/glosariodeterminos/shared-elements.html")
+      fetch(
+        "https://manzjulio064.github.io/glosariodeterminos/shared-elements.html"
+      )
         .then((response) => response.text())
         .then((data) => {
           document.head.innerHTML += data;
         });
     </script>
-    <title>Ejercicio para Mesas de Trabajo</title>
+    <title>Json Web Token (JWT)</title>
   </head>
   <body>
     <div class="container">
@@ -57,7 +59,7 @@
             <div class="navigator__title">
               <div class="header">
                 <h2 class="header__title header__title_xs">
-                  Ejercicio para Mesas de Trabajo
+                  Json Web Token (JWT)
                 </h2>
               </div>
             </div>
@@ -73,43 +75,115 @@
         </div>
         <div class="block-box x">
           <div>
-            <div class=""></div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Texto introductorio</h2>
+            </div>
             <div class="rich-text text-block__content">
               <div>
-                <h1>¡Manos a la obra!</h1>
-              </div>
-              <div>
+                <h1>Json Web Token (JWT)</h1>
                 <p>
-                  <img
-                    style="
-                      float: left;
-                      padding: 15px;
-                      width: 5%;
-                      margin-bottom: -4px;
-                    "
-                    alt="icono compu"
-                    src="https://assets.digitalhouse.com/content/ar/meli/icono compu.png"
-                  />
+                  Los JSON web tokens (JWT) son una forma estandarizada,
+                  compacta y autocontenida de transmitir de manera segura
+                  información entre partes. Sabemos que la J refiere a JSON y es
+                  que esa información se transmite como objetos de tipo JSON.
+                  Los JWT pueden ser verificados y confiados, ya que son
+                  firmados digitalmente (junto con la posibilidad de ser
+                  encriptados) y contienen toda la información requerida sobre
+                  una entidad, evitando tener que hacer consultas a una base de
+                  datos más de una vez. Además, quien recibe ese JWT tampoco
+                  necesita llamar a un servidor para validarlo. Pero vale la
+                  pena recalcar que, como dijimos que son un estándar, esto
+                  significa que
+                  <b
+                    >todos los JWT son tokens, pero no todos los token son
+                    JWT</b
+                  >.
                 </p>
+                <h2>Beneficios</h2>
+                <p>
+                  Veamos brevemente algunos beneficios de los JWT frente a otros
+                  estándares que se usan en la industria (SWT o tokens de SAML).
+                  Nunca viene mal conocer otras formas de hacer las cosas, ¡así
+                  que vamos a investigar un poco más sobre estas otras
+                  tecnologías!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Beneficios de JWT</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div style="width: 100%">
                 <div
                   style="
-                    border-left: 8px solid #9f33ff;
-                    margin-left: 80px;
-                    padding-left: 5px;
+                    position: relative;
+                    padding-bottom: 56.25%;
+                    padding-top: 0;
+                    height: 0;
                   "
                 >
-                  <p>
-                    A continuación te facilitamos una serie de ejercicios para
-                    que puedas practicar el contenido que venimos abordando
-                    hasta el momento.
-                  </p>
-
-                  <p>
-                    <b>Importante:</b>Recordá que podés despejar cualquier duda
-                    o consulta que tengas respecto a las consignas o a las
-                    resoluciones con el equipo de facilitadores.
-                  </p>
-                  <p>Ahora sí… ¿Todo listo? ¡Vamos a ello!</p>
+                  <iframe
+                    scrolling="yes"
+                    allowfullscreen="true"
+                    src="https://view.genial.ly/631fc6e1a6692d0014df0fb4"
+                    style="
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                    "
+                    height="576"
+                    width="1024"
+                    frameborder="0"
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -160,13 +234,22 @@
         </div>
         <div class="block-box x">
           <div>
-            <div class=""></div>
-            <iframe
-              src="https://docs.google.com/document/d/1WHY2XNSRLlO5h49S8a2ESaIfKPKT6eFwdVTFcvnGhj4/preview"
-              allowfullscreen=""
-              title="BlockIframe"
-              class="pdf-block__content pdf-block__content_square"
-            ></iframe>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Texto</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <p>
+                  Entonces, es muy importante que, antes de usar un JWT, este
+                  sea validado de forma apropiada usando su firma. Podemos notar
+                  que un token validado con éxito asegura que la información no
+                  fue manipulada, pero no significa que no haya sido vista; por
+                  ello es muy importante nunca transmitir información sensible
+                  vía JWT y utilizar mecanismos para que no sea interceptado
+                  (por ejemplo, enviarlos por medio de HTTPS).
+                </p>
+              </div>
+            </div>
           </div>
           <div class="block-box__heading-container">
             <p class="block-box__heading">Nos interesa tu opinión</p>

@@ -32,13 +32,15 @@
       href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
     />
     <script>
-      fetch("https://manzjulio064.github.io/glosariodeterminos/shared-elements.html")
+      fetch(
+        "https://manzjulio064.github.io/glosariodeterminos/shared-elements.html"
+      )
         .then((response) => response.text())
         .then((data) => {
           document.head.innerHTML += data;
         });
     </script>
-    <title>Ejercicio para Mesas de Trabajo</title>
+    <title>OIDC Discovery</title>
   </head>
   <body>
     <div class="container">
@@ -56,9 +58,7 @@
             </button>
             <div class="navigator__title">
               <div class="header">
-                <h2 class="header__title header__title_xs">
-                  Ejercicio para Mesas de Trabajo
-                </h2>
+                <h2 class="header__title header__title_xs">OIDC Discovery</h2>
               </div>
             </div>
             <button class="navigator__button navigator__button_next">
@@ -73,44 +73,64 @@
         </div>
         <div class="block-box x">
           <div>
-            <div class=""></div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Texto introductorio</h2>
+            </div>
             <div class="rich-text text-block__content">
               <div>
-                <h1>¡Manos a la obra!</h1>
-              </div>
-              <div>
+                <h1>OIDC Discovery</h1>
                 <p>
-                  <img
-                    style="
-                      float: left;
-                      padding: 15px;
-                      width: 5%;
-                      margin-bottom: -4px;
-                    "
-                    alt="icono compu"
-                    src="https://assets.digitalhouse.com/content/ar/meli/icono compu.png"
-                  />
+                  <b>OpenID Connect (OIDC) Discovery</b> es un proceso que
+                  permite a un cliente de <b>OIDC</b> descubrir información
+                  sobre un proveedor de identidad (<b>IdP</b>) y sus
+                  capacidades. En términos simples, <b>OIDC Discovery</b> es un
+                  proceso mediante el cual un cliente de <b>OIDC</b> puede
+                  descubrir los puntos finales y otros detalles relevantes
+                  necesarios para interactuar con un proveedor de identidad y
+                  solicitar tokens de acceso.
                 </p>
-                <div
-                  style="
-                    border-left: 8px solid #9f33ff;
-                    margin-left: 80px;
-                    padding-left: 5px;
-                  "
-                >
-                  <p>
-                    A continuación te facilitamos una serie de ejercicios para
-                    que puedas practicar el contenido que venimos abordando
-                    hasta el momento.
-                  </p>
 
+                <p>
+                  Ya vimos los conceptos principales de OAuth 2.0 y OpenID
+                  Connect, ahora vamos a profundizar en cómo es el
+                  funcionamiento de OpenID Connect en conjunto con Keycloak con
+                  un ejemplo práctico.
+                </p>
+
+                <p>
+                  Para entender cómo funciona el flujo de autenticación, vamos a
+                  utilizar como herramienta de prueba a <b>Postman</b>. Hay que
+                  tener en cuenta que, en un caso real donde tengamos una API
+                  desarrollada en Java, será <b>Spring Security</b> el encargado
+                  de implementar el estándar <b>OpenID</b> de acuerdo a sus
+                  especificaciones; pero, como en este caso queremos saber qué
+                  sucede detrás, vamos a realizar pruebas con
+                  <b>Postman</b> para ver qué información obtendremos.
+                </p>
+
+                <h2>Configuraciones</h2>
+                <p>
+                  Para la práctica que vamos a llevar a cabo sugerimos utilizar
+                  los siguientes datos de configuración en <b>Keycloak</b>
+                </p>
+                <ul>
+                  <li>Crear un reino con el nombre: <b>digital-house</b></li>
+                  <li>
+                    URL de Keycloak: <b>https://localhost:8080</b> (recordar que
+                    acá el número de puerto dependerá de en qué puerto hayan
+                    configurado a Keycloak cuando lo instalaron).
+                  </li>
+                  <h2>Paso a Paso</h2>
                   <p>
-                    <b>Importante:</b>Recordá que podés despejar cualquier duda
-                    o consulta que tengas respecto a las consignas o a las
-                    resoluciones con el equipo de facilitadores.
+                    A continuación te dejamos un video con el paso a paso para
+                    llevar a cabo la prueba práctica de obtención de los datos
+                    de <b>OpenID Connect Discovery</b> con <b>Keycloak</b>. Para
+                    acompañar al video, te dejamos una presentación que explica
+                    los mismos pasos para que tengas como documentación de
+                    respaldo.
                   </p>
-                  <p>Ahora sí… ¿Todo listo? ¡Vamos a ello!</p>
-                </div>
+                  <p>¡Practiquemos!</p>
+                </ul>
               </div>
             </div>
           </div>
@@ -160,12 +180,79 @@
         </div>
         <div class="block-box x">
           <div>
-            <div class=""></div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">OpenID Connect Discovery</h2>
+            </div>
+            <div
+              data-testid="VIMEO-player"
+              class="video-block__content video-block__content_square"
+              data-vimeo-initialized="true"
+            >
+              <iframe
+                src="https://player.vimeo.com/video/1035620643?h=c16a09aab8&amp"
+                width="426"
+                height="240"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                title="OpenID Connect Discovery"
+                data-ready="true"
+              ></iframe>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">OpenID Connect Discovery</h2>
+            </div>
             <iframe
-              src="https://docs.google.com/document/d/1WHY2XNSRLlO5h49S8a2ESaIfKPKT6eFwdVTFcvnGhj4/preview"
+              src="https://docs.google.com/presentation/d/1HOTTLqyLDuV88kI5VWHDuxF8Jj9AAOjhMk1r_WGT6-M/preview"
               allowfullscreen=""
               title="BlockIframe"
-              class="pdf-block__content pdf-block__content_square"
+              class="slide-block__content slide-block__content_square"
             ></iframe>
           </div>
           <div class="block-box__heading-container">

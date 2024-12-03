@@ -32,13 +32,15 @@
       href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
     />
     <script>
-      fetch("https://manzjulio064.github.io/glosariodeterminos/shared-elements.html")
+      fetch(
+        "https://manzjulio064.github.io/glosariodeterminos/shared-elements.html"
+      )
         .then((response) => response.text())
         .then((data) => {
           document.head.innerHTML += data;
         });
     </script>
-    <title>Ejercicio para Mesas de Trabajo</title>
+    <title>Autenticación de un usuario</title>
   </head>
   <body>
     <div class="container">
@@ -57,7 +59,7 @@
             <div class="navigator__title">
               <div class="header">
                 <h2 class="header__title header__title_xs">
-                  Ejercicio para Mesas de Trabajo
+                  Autenticación de un usuario
                 </h2>
               </div>
             </div>
@@ -73,44 +75,71 @@
         </div>
         <div class="block-box x">
           <div>
-            <div class=""></div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Texto</h2>
+            </div>
             <div class="rich-text text-block__content">
               <div>
-                <h1>¡Manos a la obra!</h1>
-              </div>
-              <div>
+                <h1>Autenticación de un usuario</h1>
                 <p>
-                  <img
-                    style="
-                      float: left;
-                      padding: 15px;
-                      width: 5%;
-                      margin-bottom: -4px;
-                    "
-                    alt="icono compu"
-                    src="https://assets.digitalhouse.com/content/ar/meli/icono compu.png"
-                  />
+                  El <b>proceso de autenticación</b> de un usuario es un
+                  conjunto de procedimientos y técnicas utilizados para
+                  verificar la identidad de un usuario que intenta acceder a un
+                  sistema o servicio.
                 </p>
-                <div
-                  style="
-                    border-left: 8px solid #9f33ff;
-                    margin-left: 80px;
-                    padding-left: 5px;
-                  "
-                >
-                  <p>
-                    A continuación te facilitamos una serie de ejercicios para
-                    que puedas practicar el contenido que venimos abordando
-                    hasta el momento.
-                  </p>
+                <p>
+                  El proceso de autenticación generalmente implica
+                  <b>tres factores de autenticación</b> algo que el usuario sabe
+                  (como una contraseña), algo que el usuario tiene (como un
+                  token de seguridad) y algo que el usuario es (como su huella
+                  digital o reconocimiento facial).
+                </p>
+                <p>
+                  <b>Keycloak</b> ofrece diversas formas de autenticación de
+                  usuarios, pero una de las formas más populares es mediante el
+                  <b>flujo de autenticación</b> de OpenID Connect tal como se ve
+                  en la siguiente infografía:
+                </p>
 
-                  <p>
-                    <b>Importante:</b>Recordá que podés despejar cualquier duda
-                    o consulta que tengas respecto a las consignas o a las
-                    resoluciones con el equipo de facilitadores.
-                  </p>
-                  <p>Ahora sí… ¿Todo listo? ¡Vamos a ello!</p>
+                <div style="width: 100%">
+                  <div
+                    style="
+                      position: relative;
+                      padding-bottom: 68.36%;
+                      padding-top: 0;
+                      height: 0;
+                    "
+                  >
+                    <iframe
+                      scrolling="yes"
+                      allowfullscreen="true"
+                      src="https://view.genial.ly/6269ead65b9e510018039fd0"
+                      style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      "
+                      height="700"
+                      width="1024"
+                      frameborder="0"
+                    ></iframe>
+                  </div>
                 </div>
+                <p>
+                  Ahora bien, ¿Podemos recrear este flujo de autenticación de
+                  alguna manera? ¡Claro que si! A continuación te dejamos una
+                  actividad con un paso a paso para poder recrear en
+                  <b>Keycloak</b> un flujo completo.
+                </p>
+                <p>
+                  Recordá que si tenés dudas o no lográs replicar el caso, podés
+                  aprovechar el momento en vivo para consultar con tu
+                  facilitador asignado.
+                </p>
+
+                <p><b>¡Vamos a practicar!</b></p>
               </div>
             </div>
           </div>
@@ -160,9 +189,13 @@
         </div>
         <div class="block-box x">
           <div>
-            <div class=""></div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">
+                Recrear flujo de autenticación de OpenID Connect
+              </h2>
+            </div>
             <iframe
-              src="https://docs.google.com/document/d/1WHY2XNSRLlO5h49S8a2ESaIfKPKT6eFwdVTFcvnGhj4/preview"
+              src="https://docs.google.com/document/d/1ffXzeId3Yrxt71qW_dyz4DW2wXjq_5isMh4bkkJL1oY/preview"
               allowfullscreen=""
               title="BlockIframe"
               class="pdf-block__content pdf-block__content_square"
