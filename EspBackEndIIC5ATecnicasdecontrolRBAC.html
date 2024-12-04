@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/player.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <script>
+      fetch(
+        "https://manzjulio064.github.io/glosariodeterminos/shared-elements.html"
+      )
+        .then((response) => response.text())
+        .then((data) => {
+          document.head.innerHTML += data;
+        });
+    </script>
+    <title>RBAC</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">RBAC</h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Texto introductorio</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <h1>RBAC (role-based access control)</h1>
+                <p>
+                  El control de acceso RBAC (acrónimo en inglés de "Role-Based
+                  Access Control") es un modelo de control de acceso utilizado
+                  en sistemas de información y seguridad informática.
+                </p>
+
+                <p>
+                  En el modelo RBAC, el acceso a los recursos del sistema se
+                  otorga según los roles que desempeñan los usuarios en la
+                  organización. En lugar de otorgar permisos individuales a cada
+                  usuario, los permisos se asignan a roles específicos y los
+                  usuarios se asignan a esos roles según sus responsabilidades
+                  dentro de la organización.
+                </p>
+
+                <p>
+                  Por ejemplo, en un sistema RBAC de una empresa, se podría
+                  definir un rol "Administrador de Red" que tenga permisos para
+                  configurar la red y un rol "Empleado de Ventas" que tenga
+                  acceso a los datos de ventas. Luego, los usuarios de la
+                  empresa se asignarían a los roles correspondientes según sus
+                  funciones en la organización.
+                </p>
+
+                <p>
+                  El modelo RBAC se considera una práctica recomendada en la
+                  gestión de acceso a los recursos de los sistemas informáticos,
+                  ya que simplifica la administración de los permisos y reduce
+                  el riesgo de errores o abusos. Además, facilita el seguimiento
+                  de la actividad de los usuarios y ayuda a asegurar la
+                  confidencialidad, integridad y disponibilidad de los recursos
+                  protegidos.
+                </p>
+                <p>
+                  Vamos a ver 3 reglas fundamentales por las cuales se rige el
+                  RBAC:
+                </p>
+
+                <ol>
+                  <li>
+                    <b>Asignación de roles</b> un usuario solo puede ejercer
+                    privilegios si se le ha asignado un rol.
+                  </li>
+                  <li>
+                    <b>Autorización basada en roles</b>: dicho rol del usuario
+                    debe estar autorizado, lo que garantiza que los usuarios
+                    solo puedan asumir roles para los que están autorizados.
+                  </li>
+                  <li>
+                    <b>Autorización de privilegios</b> un usuario puede ejercer
+                    ciertos privilegios si, por supuesto, está autorizado para
+                    hacerlo.
+                  </li>
+                </ol>
+                <p>
+                  Por otro lado, el RBAC tiene objetivos o funciones para las
+                  cuales está diseñado y orientado. Vamos a conocerlos en la
+                  siguientes imágenes:
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Funciones de RBAC</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <img
+                  src="https://assets.digitalhouse.com/content/ar/mkt/2.%20ImagenRBAC.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">
+                Control de acceso basado en roles
+              </h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <img
+                  src="https://assets.digitalhouse.com/content/ar/mkt/3.%20Control%20de%20acceso%20basado%20en%20roles.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Texto Nexo</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <p>
+                  Todas estas características hacen del RBAC muy popular en
+                  grandes organizaciones que necesitan otorgar acceso a cientos
+                  o miles de empleados. Pero también es cada vez más popular
+                  entre las organizaciones más pequeñas, ya que a menudo es más
+                  fácil de administrar que las listas de control de acceso.
+                </p>
+                <h2>
+                  ¿Y cómo hace Keycloak para poner en juego este mecanismo de
+                  seguridad?
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Tipos de roles y sus usos</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <img
+                  src="https://assets.digitalhouse.com/content/ar/mkt/5.%20Tipos%20de%20roles%20de%20Keycloack%20y%20sus%20usos.jpg"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>

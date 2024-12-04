@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/player.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <script>
+      fetch(
+        "https://manzjulio064.github.io/glosariodeterminos/shared-elements.html"
+      )
+        .then((response) => response.text())
+        .then((data) => {
+          document.head.innerHTML += data;
+        });
+    </script>
+    <title>ABAC</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">ABAC</h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Texto Intro ABAC</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <h1>ABAC (attribute-based access control)</h1>
+                <p>
+                  A diferencia de RBAC, en un sistema de control de acceso
+                  basado en atributos (<b>ABAC</b>), cualquier tipo de atributo
+                  —como los atributos de usuario y los atributos de recursos— se
+                  utilizan para determinar el acceso.
+                </p>
+                <p>
+                  En <b>ABAC, un atributo</b> es una <u>característica</u> que
+                  se utiliza para definir las políticas de acceso y tomar
+                  decisiones de acceso a recursos protegidos. Un atributo
+                  <u
+                    >puede ser cualquier tipo de información que sea
+                    relevante</u
+                  >
+                  para la política de acceso, como la identidad del usuario, su
+                  ubicación, su función dentro de la organización, la hora del
+                  día, entre otros.
+                </p>
+                <p>
+                  Un <b>ejemplo de un atributo en ABAC</b> sería por ejemplo la
+                  afiliación/pertenencia de un usuario. En este caso, el
+                  atributo podría tomar el valor de "miembro" o "no miembro" de
+                  una determinada organización o grupo. La política de acceso
+                  podría establecer que solo los usuarios que sean miembros de
+                  una organización específica tengan acceso a ciertos recursos
+                  protegidos.
+                </p>
+                <p>
+                  <b>Otro ejemplo de atributo</b> podría ser la ubicación
+                  geográfica del usuario. En este caso, el atributo podría tomar
+                  valores como "dentro de la red de la empresa" o "fuera de la
+                  red de la empresa".
+                </p>
+
+                <p>
+                  Estos atributos se comparan con valores estáticos definidos o
+                  incluso con otros atributos, lo que lo convierte en un control
+                  de acceso basado en relaciones.
+                </p>
+                <p>
+                  Los atributos vienen en pares clave-valor (como por ejemplo
+                  "Rol = Supervisor"), que se pueden usar para limitar el acceso
+                  a una determinada característica de un sistema. Es decir, que
+                  este tipo de control utiliza los atributos que contiene el
+                  token e información sobre el contexto de autorización para
+                  conceder acceso a los recursos.
+                </p>
+                <p>
+                  <b>ABAC</b> se considera una
+                  <u>forma más flexible y granular de control de acceso</u> que
+                  otros modelos, como el control de acceso basado en roles
+                  (RBAC) o el control de acceso basado en permisos (PBAC), ya
+                  que permite la creación de políticas de acceso más detalladas
+                  y sofisticadas.
+                </p>
+                <img
+                  src="https://assets.digitalhouse.com/content/ar/mkt/1.%20b.%20imagen%20acompa%C3%B1a%20Texto%20Intro%20ABAC.png"
+                />
+                <p>
+                  Los <b>tokens</b> se utilizan para tomar decisiones de acceso
+                  en <b>ABAC</b>. Cuando un usuario solicita acceso a un recurso
+                  protegido, el sistema de control de acceso utiliza los
+                  <b>claims</b> contenidos en el <b>token</b> del usuario para
+                  determinar si tiene los permisos necesarios para acceder al
+                  recurso.
+                </p>
+
+                <p><b>¿Qué es un CLAIM?</b></p>
+                <p>
+                  Un <b>claim</b> es un dato en particular que se utiliza para
+                  describir un usuario o una entidad y que se utiliza para tomar
+                  decisiones de acceso.
+                </p>
+                <p>
+                  Los <b>claims</b> pueden ser cualquier tipo de información que
+                  sea relevante para la política de acceso, como el nombre del
+                  usuario, su correo electrónico, su identidad federada, su
+                  cargo dentro de la organización, entre otros.
+                </p>
+                <p>
+                  Un claim suele estar formado por dos partes: el nombre del
+                  claim y el valor del claim. El nombre del claim es una cadena
+                  de caracteres que describe el tipo de información que se está
+                  proporcionando, como "nombre", "correo electrónico" o "cargo".
+                  El valor del claim es el valor real de la información
+                  proporcionada, como "Juan Pérez", "juan.perez@empresa.com" o
+                  "Gerente de Recursos Humanos".
+                </p>
+
+                <p>
+                  <b>Por ejemplo</b>, un claim podría ser "cargo: Gerente de
+                  Ventas". Si un recurso protegido requiere que los usuarios
+                  tengan el rol de gerente de ventas para acceder, entonces la
+                  política de acceso ABAC se puede configurar para que solo los
+                  usuarios que tengan ese claim específico puedan acceder al
+                  recurso.
+                </p>
+                <img
+                  src="https://assets.digitalhouse.com/content/ar/mkt/1.%20c.%20Claims%20Keycloak%20ABAC.png"
+                />
+                <div>
+                  <p>
+                    Particularmente no vamos a entrar, a lo largo de esta
+                    materia,e n profundidad con este tema. Sin embargo, si
+                    tienen ganas de investigar un poco más o ver su aplicación
+                    en Keycloak, pueden dirigirse al siguiente enlace de la
+                    documentación oficial
+                    <a
+                      href="https://www.keycloak.org/docs/latest/server_admin/#_protocol-mappers"
+                      >enlace</a
+                    >.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/player.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <script>
+      fetch(
+        "https://manzjulio064.github.io/glosariodeterminos/shared-elements.html"
+      )
+        .then((response) => response.text())
+        .then((data) => {
+          document.head.innerHTML += data;
+        });
+    </script>
+    <title>Introducción</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">Introducción</h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Texto Introductorio</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <h1>Introducción</h1>
+                <p>
+                  En esta clase vamos a ver un tema que es esencial para la
+                  seguridad de cualquier sistema: los
+                  <b>mecanismos de control de acceso.</b> Estos se pueden
+                  definir como un componente lógico que sirve para capturar una
+                  solicitud de acceso (de un usuario/cliente), tomar una
+                  decisión y verificar que esa decisión de acceso se cumpla.
+                </p>
+                <p>
+                  Existen diversas estrategias (cada una con sus puntos fuertes
+                  y débiles), pero no se puede decir que una sea superadora por
+                  sobre otra, sino que son distintos enfoques que —muy a menudo—
+                  se usan en forma conjunta para enfrentar escenarios complejos.
+                </p>
+                <p>
+                  Conocer y comprender estos métodos y sus características es un
+                  buen punto de partida para aplicarlos en distintos casos de
+                  uso de forma eficaz y costo-eficiente.
+                </p>
+                <p>
+                  Las estrategias de control de acceso sobre las cuales
+                  estaremos aprendiendo son:
+                </p>
+                <ul>
+                  <li><b>RBAC</b> (role-based access control)</li>
+                  <li><b>ABAC</b> (attribute-based access control)</li>
+                  <li><b>Scopes</b> de OAuth 2.0</li>
+                  <li><b>GBAC</b> (group-based access control)</li>
+                </ul>
+                <p>
+                  Por último, pero no menos importante, también nos vamos a
+                  introducir en la manera de usar Keycloack como un servidor de
+                  autorización centralizado para desacoplar la autorización de
+                  nuestras aplicaciones.
+                </p>
+                <p>¡Vamos!</p>
+                <div>
+                  <p>
+                    ¡Atención! Esta clase empieza con un carácter BASTANTE
+                    TEÓRICO para entender los conceptos que hay detrás de las
+                    aplicaciones prácticas. Sin embargo, termina con un paso a
+                    paso que va a integrar todos estos conceptos que estamos
+                    viendo en una aplicación de Spring Boot, por lo que es MUY
+                    IMPORTANTE que prestes atención a cada concepto y que puedas
+                    repasar los paso a paso de configuraciones de clases
+                    anteriores para estar completamente al día y poder realizar
+                    el paso a paso sin problemas.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/player.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <script>
+      fetch(
+        "https://manzjulio064.github.io/glosariodeterminos/shared-elements.html"
+      )
+        .then((response) => response.text())
+        .then((data) => {
+          document.head.innerHTML += data;
+        });
+    </script>
+    <title>GBAC</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">GBAC</h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Texto Introductorio GBAC</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <h1>GBAC (group-based access control)</h1>
+                <p>
+                  Como vimos en clases anteriores, <b>Keycloak</b> nos permite
+                  administrar grupos (<b>&gt;groups</b>) dentro de nuestro
+                  <b>reino</b> que los usuarios pueden formar parte de un
+                  <b>group</b> ya sea para representar su función dentro de una
+                  unidad de negocio de la organización o para agruparlos de
+                  acuerdo a los roles que cumplen dentro del contexto de la
+                  aplicación —como podría ser, por ejemplo, un grupo de usuarios
+                  administradores—.
+                </p>
+                <p>
+                  Cuando utilizamos este tipo de políticas de control de acceso
+                  entra en juego GBAC (Group-Based Access Control), asignando
+                  roles a los diferentes groupos. De esta manera,
+                  <b>Keycloak</b> hace mucho más fácil la tarea de administrar
+                  roles comunes para múltiples usuarios sin obligarnos a otorgar
+                  o revocar roles a cada usuario de forma individual dentro del
+                  reino.
+                </p>
+                <p>
+                  Los <b>grupos</b> dentro de Keycloak son jerárquicos y, cuando
+                  se emiten los <b>tokens</b>, se puede atravesar esta jerarquía
+                  observando el path del grupo.
+                </p>
+                <p>
+                  Supongamos un ejemplo: tenemos un grupo de recursos humanos
+                  llamado <b>“human resource”</b>. Como hijo de este grupo,
+                  tenemos un grupo de administradores llamado <b>“manager”</b>.
+                </p>
+                <p>
+                  Cuando Keycloak almacena información sobre grupos dentro de
+                  los tokens, la información debería llegar en el siguiente
+                  formato: <b>/human resource/manager</b>. Esta información
+                  estará disponible para cada token emitido por el servidor,
+                  donde el sujeto (usuario) sea miembro del group.
+                </p>
+                <p>
+                  A diferencia de los roles, la información sobre el grupo no se
+                  incluye de forma automática dentro de los tokens, sino que
+                  debemos asociar un protocolo de mapeo al cliente (o un client
+                  scope con el mismo mapeo) como lo hicimos en clases
+                  anteriores. <b>¿No te acordás cómo hacerlo?</b> Te recordamos
+                  que podés encontrar los videos paso a paso y los tutoriales en
+                  PDF en clases anteriores.
+                </p>
+
+                <p>
+                  Como este tema ya lo vimos en detalle anteriormente, en esta
+                  sección solo recordamos un poco su uso y la fundamentación
+                  teórica que posee.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
