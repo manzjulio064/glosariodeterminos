@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/player.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <script>
+      fetch(
+        "https://manzjulio064.github.io/glosariodeterminos/shared-elements.html"
+      )
+        .then((response) => response.text())
+        .then((data) => {
+          document.head.innerHTML += data;
+        });
+    </script>
+    <title>Forzar expiración de una sesión</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Forzar expiración de una sesión
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Forzar expiración de una sesión</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <h1>Forzar expiración de una sesión</h1>
+                <p>
+                  La <b>expiración de una sesión</b> es un mecanismo de
+                  seguridad importante que se utiliza para garantizar que las
+                  cuentas de usuario estén protegidas contra el acceso no
+                  autorizado.
+                </p>
+                <p>
+                  Cuando se inicia una sesión en un sitio web o una aplicación,
+                  se crea un identificador único que se asocia con la cuenta del
+                  usuario. Este identificador se utiliza para autenticar al
+                  usuario en futuras solicitudes a la aplicación o el sitio web.
+                </p>
+                <p>
+                  Sin embargo, en algunos casos, es posible que se necesite
+                  <b>forzar la expiración de una sesión</b> antes de que expire
+                  naturalmente. Por ejemplo:
+                </p>
+                <ol>
+                  <li>
+                    <b
+                      >Cuando un usuario ha iniciado sesión en un dispositivo
+                      compartido</b
+                    >, como una computadora pública o una terminal de punto de
+                    venta, es importante asegurarse de que su sesión se cierre
+                    cuando el usuario termine de utilizar el dispositivo para
+                    evitar que otros usuarios accedan a la cuenta.
+                  </li>
+                  <li>
+                    <b
+                      >Cuando un usuario ha iniciado sesión en una aplicación o
+                      sitio web y ha olvidado cerrar la sesión al finalizar</b
+                    >, es importante forzar la expiración de la sesión para
+                    evitar que alguien más acceda a la cuenta.
+                  </li>
+                  <li>
+                    <b
+                      >Cuando un usuario ha iniciado sesión en un sitio web o
+                      aplicación que no está funcionando correctamente</b
+                    >, forzar la expiración de la sesión puede solucionar el
+                    problema al borrar cualquier información almacenada en la
+                    sesión.
+                  </li>
+                </ol>
+                <p>
+                  En resumen, la expiración de sesión es una medida importante
+                  de seguridad que puede ayudar a prevenir el acceso no
+                  autorizado a una cuenta de usuario. En algunos casos, puede
+                  ser necesario forzar la expiración de una sesión para
+                  garantizar que la seguridad de la cuenta se mantenga intacta.
+                </p>
+
+                <p>
+                  En <b>Keycloak</b>, podemos administrar las sesiones a través
+                  de tres niveles:
+                </p>
+                <ul>
+                  <li>Por reino</li>
+                  <li>Por cliente</li>
+                  <li>Por usuario</li>
+                </ul>
+                <p>
+                  Veamos a continuación el paso a paso de cómo hacerlo para cada
+                  nivel.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Paso a Paso</h2>
+            </div>
+            <iframe
+              src="https://docs.google.com/document/d/1KVa856SdEpHR7I3tP5yCbJnoYvs9iPuPajX-njxKv30/preview"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="pdf-block__content pdf-block__content_square"
+            ></iframe>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
