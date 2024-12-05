@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/d48865cf5505cebc.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/4cb20a70a005a50b.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/dd4497a75999855e.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/6b5d0ae8c6d8f9fa.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/cbdf0184859274a8.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/player.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://manzjulio064.github.io/glosariodeterminos/digitalhousecssstandar.css"
+    />
+    <script>
+      fetch(
+        "https://manzjulio064.github.io/glosariodeterminos/shared-elements.html"
+      )
+        .then((response) => response.text())
+        .then((data) => {
+          document.head.innerHTML += data;
+        });
+    </script>
+    <title>Seguridad en aplicaciones internas y externas</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="">
+        <div class="layout">
+          <div class="navigator">
+            <button class="navigator__button navigator__button_prev">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-left icon_md"
+                ></i>
+              </div>
+            </button>
+            <div class="navigator__title">
+              <div class="header">
+                <h2 class="header__title header__title_xs">
+                  Seguridad en aplicaciones internas y externas
+                </h2>
+              </div>
+            </div>
+            <button class="navigator__button navigator__button_next">
+              <div class="navigator__icon">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-arrow-right icon_md"
+                ></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Texto Introductorio</h2>
+            </div>
+            <div class="rich-text text-block__content">
+              <div>
+                <h1>Diferencias entre una aplicación interna y una externa</h1>
+                <p>
+                  Primero que nada, antes de aprender cómo securizar distintos
+                  tipos de aplicaciones, tenemos que entender las diferencias
+                  entre aquellas que son internas y las que se utilizan de
+                  manera externa.
+                </p>
+
+                <p>
+                  Las <b>aplicaciones web internas</b> son aquellas que se
+                  desarrollan y se utilizan dentro de una organización o
+                  empresa. Están diseñadas para cumplir con las necesidades
+                  específicas de la organización, como ser por ejemplo un
+                  seguimiento de inventario/stock, la gestión de proyectos, la
+                  administración de recursos humanos, entre otros.
+                </p>
+                <p>
+                  Las aplicaciones web internas son accesibles <b>solo</b> por
+                  los empleados de la empresa que las utilizan y se implementan
+                  generalmente para mejorar la eficiencia y la productividad de
+                  las tareas que se suelen hacer diariamente.
+                </p>
+
+                <p>
+                  Por otro lado, las <b>aplicaciones web externas</b>, son
+                  aquellas que
+                  <u
+                    >están diseñadas para ser utilizadas por personas fuera de
+                    la organización que es su creadora</u
+                  >. Estas aplicaciones suelen ser consumidas o consultadas para
+                  obtener determinados datos que otro sistema o usuario pueda
+                  estar necesitando. Hay que tener en cuenta que las
+                  aplicaciones web externas pueden ser gratuitas o de pago, como
+                  así también tener acceso totalmente público o restringido.
+                </p>
+
+                <p>
+                  En cuanto a <b>seguridad</b>, ambos tipos de aplicaciones
+                  tienen particularidades. Las <b>aplicaciones internas</b> se
+                  utilizan dentro de una organización y, por lo tanto,
+                  <u>están protegidas GENERALMENTE por la red interna</u> de la
+                  misma, mientras que las <b>aplicaciones externas</b>, al
+                  utilizarlas on line, están mucho más expuestas constantemente
+                  a <b>amenazas de seguridad externas</b>. Esto significa que,
+                  <u
+                    >deben tener medidas de seguridad adicionales para proteger
+                    los datos de los usuarios</u
+                  >.
+                </p>
+
+                <p>
+                  Ahora que ya sabemos la diferencia entre una y otra, llegó el
+                  momento de que veamos cómo se realizan las configuraciones de
+                  cada una de ellas en <b>Keycloak</b>. ¡Vamos!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="block-box x">
+          <div>
+            <div class="block-box__headline">
+              <h2 class="block-box__title">Aplicación interna o externa</h2>
+            </div>
+            <iframe
+              src="https://docs.google.com/document/d/18YrY_0ILQrce_wEca_TsMKS3i9B__H41cYAu5-Q0OKA/preview"
+              allowfullscreen=""
+              title="BlockIframe"
+              class="pdf-block__content pdf-block__content_square"
+            ></iframe>
+          </div>
+          <div class="block-box__heading-container">
+            <p class="block-box__heading">Nos interesa tu opinión</p>
+            <div class="block-box__feedback">
+              <button class="block-box__button-like">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><button class="block-box__button-dislike">
+                <i
+                  data-testid="icon"
+                  class="uil icon uil-thumbs-up icon_nm"
+                ></i></button
+              ><span class="dh-inline-block dh-relative dh-group"
+                ><span class="dh-flex dh-justify-center"
+                  ><button
+                    class="block-box__button-report"
+                    data-testid="report"
+                  >
+                    <svg
+                      class="icon icon_nm"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 10.5001C7 7.0357 10 13.9645 14 10.5001V6.75008V3.00008C10 6.46445 7 -0.464296 3 3.00008V13.5001"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="tooltip tooltip-top">
+                    <div class="tooltip-content tooltip-arrow-top">
+                      sugerir revisión
+                    </div>
+                  </div></span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+    </div>
+  </body>
+</html>
