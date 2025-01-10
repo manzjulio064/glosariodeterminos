@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EspBackEndIIIGoVideosClaseEnVivo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #sidebar {
+            width: 300px;
+            background-color: #f4f4f4;
+            overflow-y: auto;
+            transition: width 0.3s ease;
+        }
+
+        #sidebar.hidden {
+            width: 0;
+        }
+
+        #toggle-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        #main-content {
+            flex: 1;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: margin-left 0.3s ease;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-list {
+            list-style: none;
+            padding: 10px;
+        }
+
+        .video-list li {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .video-list li:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            #sidebar {
+                width: 70%;
+            }
+
+            #toggle-btn {
+                top: 5px;
+                left: 5px;
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button id="toggle-btn">☰</button>
+    <div id="sidebar">
+        <ul class="video-list">
+            <!-- Lista de videos generada dinámicamente -->
+        </ul>
+    </div>
+    <div id="main-content">
+        <iframe id="video-player" src="https://player.vimeo.com/video/1043539402?h=46e16018ce" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+    </div>
+
+    <script>
+        const videoBaseUrl = "https://player.vimeo.com/video/";
+        const videoIds = [
+            "1043539402?h=46e16018ce",
+            "1043554824?h=ca03a3ccf4",
+            "1043564064?h=3d9a6ae71c",
+            "1043566664?h=f7a4aa6158",
+            "1043573310?h=bbbb3d5adc",
+            "1043674911?h=8a091fc0bb",
+            "1044716302?h=1db1c043bd",
+            "1044967080?h=174bb81e9a",
+            "1044985639?h=f9a200e0e1",
+            "1043699552?h=4598408360",
+            "1045010934?h=265493ca64",
+            "1045376021?h=794b2eabb9",
+            "1045400181?h=c9f3dda8bc",
+            "1045721767?h=df0cf91363",
+            "1045740557?h=6a765d4fa0",
+            "1045766829?h=d996b842ff",
+            "1045786400?h=7a33eed802",
+            "1045790211?h=bad63a611e",
+            "1045793494?h=553a14e417",
+            "1045807217?h=173c15a5ab"
+        ];
+
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('toggle-btn');
+        const mainContent = document.getElementById('main-content');
+        const videoList = document.querySelector('.video-list');
+
+
+        // Función para cargar un video en el iframe
+        function loadVideo(url) {
+            // Agregar el parámetro autoplay=1 para que el video inicie automáticamente
+            const autoplayUrl = url.includes('?') ? `${url}&autoplay=1` : `${url}?autoplay=1`;
+
+            document.getElementById('video-player').src = autoplayUrl;
+            toggleSidebar(); // Al cargar un video, se oculta la barra lateral si está visible
+        }
+
+        // Función para ocultar o mostrar la barra lateral
+        function toggleSidebar() {
+            sidebar.classList.toggle('hidden');
+            mainContent.style.marginLeft = sidebar.classList.contains('hidden') ? '0' : '0px';
+        }
+
+        // Generación de la lista de videos dinámicamente
+        videoIds.forEach((id, index) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Clase ${index + 1}`;
+            listItem.onclick = () => loadVideo(videoBaseUrl + id);
+            videoList.appendChild(listItem);
+        });
+
+        // Evento para el botón de toggle
+        toggleBtn.addEventListener('click', toggleSidebar);
+    </script>
+</body>
+</html>
