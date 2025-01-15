@@ -41,6 +41,23 @@
             z-index: 1000;
         }
 
+        #fullscreen-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+            border-radius: 5px;
+        }
+
+        #fullscreen-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
         #main-content {
             flex: 1;
             background-color: #000;
@@ -84,7 +101,9 @@
     </style>
 </head>
 <body>
+
     <button id="toggle-btn">☰</button>
+    <button id="fullscreen-btn">⛶</button>
     <div id="sidebar">
         <ul class="video-list">
             <!-- Lista de videos generada dinámicamente -->
@@ -127,8 +146,20 @@
 
         const sidebar = document.getElementById('sidebar');
         const toggleBtn = document.getElementById('toggle-btn');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
         const mainContent = document.getElementById('main-content');
         const videoList = document.querySelector('.video-list');
+
+        // Función para alternar entre pantalla completa
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+                fullscreenBtn.textContent = "❌"; // Cambia el ícono al salir de pantalla completa
+            } else {
+                document.exitFullscreen();
+                fullscreenBtn.textContent = "⛶"; // Cambia el ícono al entrar a pantalla completa
+            }
+        }
 
 
         // Función para cargar un video en el iframe
@@ -156,6 +187,10 @@
 
         // Evento para el botón de toggle
         toggleBtn.addEventListener('click', toggleSidebar);
+
+        // Evento para el botón de pantalla completa
+        fullscreenBtn.addEventListener('click', toggleFullscreen);
+        
     </script>
 </body>
 </html>
