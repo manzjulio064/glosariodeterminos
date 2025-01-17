@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación Orientada a objetos POP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #sidebar {
+            width: 300px;
+            background-color: #f4f4f4;
+            overflow-y: auto;
+            transition: width 0.3s ease;
+        }
+
+        #sidebar.hidden {
+            width: 0;
+        }
+
+        #toggle-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        #fullscreen-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+            border-radius: 5px;
+        }
+
+        #fullscreen-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        #main-content {
+            flex: 1;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: margin-left 0.3s ease;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-list {
+            list-style: none;
+            padding: 10px;
+        }
+
+        .video-list li {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .video-list li:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            #sidebar {
+                width: 70%;
+            }
+
+            #toggle-btn {
+                top: 5px;
+                left: 5px;
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button id="toggle-btn">☰</button>
+    <button id="fullscreen-btn">⛶</button>
+    <div id="sidebar">
+        <ul class="video-list">
+            <!-- Lista de videos generada dinámicamente -->
+        </ul>
+    </div>
+    <div id="main-content">
+        <iframe id="video-player" src="https://player.vimeo.com/video/897227028?h=e0e898ca81&amp" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+    </div>
+
+    <script>
+        const videoBaseUrl = "https://player.vimeo.com/video/";
+        const videoIds = [
+            "897227028?h=e0e898ca81&amp",
+            "897250596?h=e4f34a4047&amp",
+            "897267675?h=d7efeeb41d&amp",
+            "897284986?h=5b9bc58850&amp",
+            "897296615?h=33b77cbcef&amp",
+            "898141453?h=448a2d03c1&amp",
+            "899537232?h=2da0991a40&amp",
+            "899857604?h=174895c003&amp",
+            "899878029?h=49867f5e55&amp",
+            "899909594?h=b6c92652d6&amp",
+            "899933212?h=2b9f6ff3e8&amp",
+            "900563967?h=bda717ec0c&amp",
+            "900576618?h=24e92bf3e3&amp",
+            "900849193?h=e078794072&amp",
+            "900881559?h=5fbd485d35&amp",
+            "900902622?h=75c9debd45&amp",
+            "900916328?h=8dae6bc27e&amp",
+            "900957234?h=2e214a20fe&amp",
+            "900971169?h=fb624121fb&amp",
+            "900985987?h=cbb048a4f9&amp",
+            "900995678?h=13e951c60f&amp",
+            "901007575?h=5bdc991e16&amp",
+            "901191422?h=ae48f8c45c&amp",
+            "901215337?h=5587b8fd09&amp",
+            "901556743?h=e3ba72e77d&amp",
+            "901587982?h=562020c43c&amp"
+        ];
+
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('toggle-btn');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const mainContent = document.getElementById('main-content');
+        const videoList = document.querySelector('.video-list');
+        const videoPlayer = document.getElementById('video-player');
+
+        // Función para alternar entre pantalla completa
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+                fullscreenBtn.textContent = "❌"; // Cambia el ícono al salir de pantalla completa
+            } else {
+                document.exitFullscreen();
+                fullscreenBtn.textContent = "⛶"; // Cambia el ícono al entrar a pantalla completa
+            }
+        }
+
+
+        // Función para cargar un video en el iframe
+        function loadVideo(url) {
+            // Agregar el parámetro autoplay=1 para que el video inicie automáticamente
+            const autoplayUrl = url.includes('?') ? `${url}&autoplay=1` : `${url}?autoplay=1`;
+
+            document.getElementById('video-player').src = autoplayUrl;
+            toggleSidebar(); // Al cargar un video, se oculta la barra lateral si está visible
+
+            // Intenta habilitar Picture-in-Picture para mantener el audio
+            videoPlayer.addEventListener('play', () => {
+                if (document.pictureInPictureEnabled) {
+                    videoPlayer.requestPictureInPicture().catch(console.error);
+                }
+            });
+
+            toggleSidebar(); // Ocultar la barra lateral
+        }
+
+
+        // Función para ocultar o mostrar la barra lateral
+        function toggleSidebar() {
+            sidebar.classList.toggle('hidden');
+            mainContent.style.marginLeft = sidebar.classList.contains('hidden') ? '0' : '0px';
+        }
+
+        // Generación de la lista de videos dinámicamente
+        videoIds.forEach((id, index) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Clase ${index + 1}`;
+            listItem.onclick = () => loadVideo(videoBaseUrl + id);
+            videoList.appendChild(listItem);
+        });
+
+        // Evento para el botón de toggle
+        toggleBtn.addEventListener('click', toggleSidebar);
+
+        // Evento para el botón de pantalla completa
+        fullscreenBtn.addEventListener('click', toggleFullscreen);
+
+    </script>
+</body>
+</html>
+
+
