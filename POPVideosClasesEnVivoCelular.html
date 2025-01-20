@@ -81,10 +81,19 @@
         .video-list li {
             margin-bottom: 10px;
             cursor: pointer;
+            padding: 5px;
+            border-radius: 5px;
         }
 
         .video-list li:hover {
-            text-decoration: underline;
+            /* text-decoration: underline; */
+            background-color: #ddd;
+        }
+
+        .video-list li.active {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
         }
 
         @media (max-width: 768px) {
@@ -151,6 +160,10 @@
         const videoList = document.querySelector('.video-list');
         const videoPlayer = document.getElementById('video-player');
 
+        // Obtener el índice del video seleccionado desde localStorage
+        const savedIndex = localStorage.getItem('selectedVideoIndex');
+        let currentIndex = savedIndex !== null ? parseInt(savedIndex, 10) : 0;
+
         // Función para alternar entre pantalla completa
         function toggleFullscreen() {
             if (!document.fullscreenElement) {
@@ -162,45 +175,49 @@
             }
         }
 
-
-        // Función para cargar un video en el iframe
-        function loadVideo(url) {
-            // Agregar el parámetro autoplay=1 para que el video inicie automáticamente
-            const autoplayUrl = url.includes('?') ? `${url}&autoplay=1` : `${url}?autoplay=1`;
-
-            document.getElementById('video-player').src = autoplayUrl;
-            toggleSidebar(); // Al cargar un video, se oculta la barra lateral si está visible
-
-            // Intenta habilitar Picture-in-Picture para mantener el audio
-            videoPlayer.addEventListener('play', () => {
-                if (document.pictureInPictureEnabled) {
-                    videoPlayer.requestPictureInPicture().catch(console.error);
-                }
-            });
-
-            toggleSidebar(); // Ocultar la barra lateral
-        }
-
-
         // Función para ocultar o mostrar la barra lateral
         function toggleSidebar() {
             sidebar.classList.toggle('hidden');
             mainContent.style.marginLeft = sidebar.classList.contains('hidden') ? '0' : '0px';
         }
 
-        // Generación de la lista de videos dinámicamente
+
+         // Función para cargar un video en el iframe
+         function loadVideo(index) {
+            const url = `${videoBaseUrl}${videoIds[index]}&autoplay=1`;
+            videoPlayer.src = url;
+
+            // Guardar el índice seleccionado en localStorage
+            localStorage.setItem('selectedVideoIndex', index);
+
+            // Actualizar el estilo de los elementos de la lista
+            updateActiveClass(index);
+
+            toggleSidebar(); // Ocultar la barra lateral
+        }
+
+        // Función para resaltar el video seleccionado
+        function updateActiveClass(index) {
+            const items = document.querySelectorAll('.video-list li');
+            items.forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+        }
+
+        // Generar la lista de videos dinámicamente
         videoIds.forEach((id, index) => {
             const listItem = document.createElement('li');
             listItem.textContent = `Clase ${index + 1}`;
-            listItem.onclick = () => loadVideo(videoBaseUrl + id);
+            listItem.onclick = () => loadVideo(index);
             videoList.appendChild(listItem);
         });
 
-        // Evento para el botón de toggle
-        toggleBtn.addEventListener('click', toggleSidebar);
-
-        // Evento para el botón de pantalla completa
+        // Eventos para los botones
+        toggleBtn.addEventListener('click', () => sidebar.classList.toggle('hidden'));
         fullscreenBtn.addEventListener('click', toggleFullscreen);
+
+        // Cargar el video guardado o el primer video por defecto
+        loadVideo(currentIndex);
 
     </script>
 </body>
