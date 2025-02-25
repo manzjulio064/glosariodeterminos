@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inversor de Palabras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        textarea {
+            width: 80%;
+            height: 150px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Inversor de Palabras</h2>
+    <textarea id="inputText" placeholder="Escribe aquí..."></textarea>
+    <br>
+    <button onclick="invertirTexto()">Invertir Palabras</button>
+    <br>
+    <textarea id="outputText" readonly placeholder="Resultado..."></textarea>
+
+    <script>
+        function invertirTexto() {
+            let texto = document.getElementById("inputText").value;
+            let palabrasInvertidas = texto.split(" ").map(palabra => palabra.split("").reverse().join(""));
+            document.getElementById("outputText").value = palabrasInvertidas.join(" ");
+        }
+    </script>
+</body>
+</html>
