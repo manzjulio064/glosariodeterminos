@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #sidebar {
+            width: 300px;
+            background-color: #f4f4f4;
+            overflow-y: auto;
+            transition: width 0.3s ease;
+        }
+
+        #sidebar.hidden {
+            width: 0;
+        }
+
+        #toggle-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            /* background-color: #007bff; */
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+            border-radius: 5px;
+        }
+
+        #fullscreen-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+            border-radius: 5px;
+        }
+
+        #fullscreen-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        #main-content {
+            flex: 1;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: margin-left 0.3s ease;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-list {
+            margin-top: 15%;
+            list-style: none;
+            padding: 10px;
+        }
+
+        .video-list li {
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .video-list li:hover {
+            /* text-decoration: underline; */
+            background-color: #ddd;
+        }
+
+        .video-list li.active {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            #sidebar {
+                width: 70%;
+            }
+
+            #toggle-btn {
+                top: 12px;
+                left: 10px;
+                padding: 5px;
+            }
+        }
+
+        @media (max-width: 768px) and (orientation: landscape) {
+
+            .video-list {
+                margin-top: 7%;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <button id="toggle-btn">☰</button>
+    <button id="fullscreen-btn">⛶</button>
+    <div id="sidebar">
+        <ul class="video-list">
+            <!-- Lista de videos generada dinámicamente -->
+        </ul>
+    </div>
+    <div id="main-content">
+        <iframe id="video-player" src="https://player.vimeo.com/video/LINKVIDEO227028?h=e0e898ca81&amp" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+    </div>
+
+    <script>
+        const videoBaseUrl = "https://player.vimeo.com/video/";
+
+        const videoIds = [
+            { id: "10621616507?h=ae2a37aeba&amp", name: "Taller de estrategias de entrevista e inserción laboral Parte 1" },
+            { id: "10622825257?h=f8a688215b&amp", name: "Taller de estrategias de entrevista e inserción laboral Parte 2 Hoja de Vida" },
+            { id: "106254254443?h=f2523ffa11&amp", name: "Taller de estrategias de entrevista e inserción laboral Parte 3 Código de Vestuario" },
+            { id: "1063254254098?h=da0e521da2&amp", name: "Taller Marca Personal Parte1" },
+            { id: "1063252254236?h=6012125a0c&amp", name: "Taller Marca Personal Parte2" }
+
+        ];
+
+
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('toggle-btn');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const mainContent = document.getElementById('main-content');
+        const videoList = document.querySelector('.video-list');
+        const videoPlayer = document.getElementById('video-player');
+
+        // Obtener el índice del video seleccionado desde localStorage
+        const savedIndex = localStorage.getItem('selectedVideoIndex');
+        let currentIndex = savedIndex !== null ? parseInt(savedIndex, 10) : 0;
+
+        // Función para alternar entre pantalla completa
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+                fullscreenBtn.textContent = "❌"; // Cambia el ícono al salir de pantalla completa
+            } else {
+                document.exitFullscreen();
+                fullscreenBtn.textContent = "⛶"; // Cambia el ícono al entrar a pantalla completa
+            }
+        }
+
+        // Función para ocultar o mostrar la barra lateral
+        function toggleSidebar() {
+            sidebar.classList.toggle('hidden');
+            mainContent.style.marginLeft = sidebar.classList.contains('hidden') ? '0' : '0px';
+        }
+
+
+         // Función para cargar un video en el iframe
+         function loadVideo(index) {
+            const url = `${videoBaseUrl}${videoIds[index].id}&autoplay=1`;
+            videoPlayer.src = url;
+
+            // Guardar el índice seleccionado en localStorage
+            localStorage.setItem('selectedVideoIndex', index);
+
+            // Actualizar el estilo de los elementos de la lista
+            updateActiveClass(index);
+
+            toggleSidebar(); // Ocultar la barra lateral
+        }
+
+        // Función para resaltar el video seleccionado
+        function updateActiveClass(index) {
+            const items = document.querySelectorAll('.video-list li');
+            items.forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+        }
+
+        videoIds.forEach((video, index) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = video.name ? video.name : `Clase ${index + 1}`;
+            listItem.onclick = () => loadVideo(index);
+            videoList.appendChild(listItem);
+        });
+
+        // Eventos para los botones
+        toggleBtn.addEventListener('click', () => sidebar.classList.toggle('hidden'));
+        fullscreenBtn.addEventListener('click', toggleFullscreen);
+
+        // Cargar el video guardado o el primer video por defecto
+        loadVideo(currentIndex);
+
+    </script>
+</body>
+</html>
+
+
