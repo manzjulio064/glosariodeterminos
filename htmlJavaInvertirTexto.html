@@ -29,11 +29,41 @@
     <br>
     <textarea id="outputText" readonly placeholder="Resultado..."></textarea>
 
-    <script>
+    <!-- <script>
         function invertirTexto() {
             let texto = document.getElementById("inputText").value;
             let palabrasInvertidas = texto.split(" ").map(palabra => palabra.split("").reverse().join(""));
             document.getElementById("outputText").value = palabrasInvertidas.join(" ");
+        }
+    </script> -->
+
+    <script>
+        function invertirTexto() {
+            let texto = document.getElementById("inputText").value;
+
+            // Separar el texto en un array de palabras
+            let palabras = texto.split(" ");
+
+            // Mapear cada palabra para invertir sus caracteres
+            let palabrasInvertidas = palabras.map(palabra => {
+                // Separar la palabra en caracteres
+                let caracteres = palabra.split("");
+                console.log("Caracteres", caracteres);
+
+                // Invertir el orden de los caracteres
+                let caracteresInvertidos = caracteres.reverse();
+                console.log("Invertir", caracteresInvertidos);
+
+                // Unir los caracteres invertidos en una nueva palabra
+                return caracteresInvertidos.join("");
+
+            });
+
+            // Unir las palabras invertidas en una cadena de texto
+            let resultado = palabrasInvertidas.join(" ");
+
+            // Mostrar el resultado en el textarea de salida
+            document.getElementById("outputText").value = resultado;
         }
     </script>
 </body>
