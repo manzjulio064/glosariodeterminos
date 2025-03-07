@@ -136,6 +136,7 @@
 
     <script>
         const videoBaseUrl = "https://player.vimeo.com/video/";
+        const localStorageName = "porfMarSelectIndex";
 
         const videoIds = [
             { id: "10621616507?h=ae2a37aeba&amp", name: "iD DEL VIDEO EMBEBIDO" },
@@ -155,7 +156,7 @@
         const videoPlayer = document.getElementById('video-player');
 
         // Obtener el índice del video seleccionado desde localStorage
-        const savedIndex = localStorage.getItem('selectedVideoIndex');
+        const savedIndex = localStorage.getItem(localStorageName);
         let currentIndex = savedIndex !== null ? parseInt(savedIndex, 10) : 0;
 
         // Función para alternar entre pantalla completa
@@ -182,7 +183,7 @@
             videoPlayer.src = url;
 
             // Guardar el índice seleccionado en localStorage
-            localStorage.setItem('selectedVideoIndex', index);
+            localStorage.setItem(localStorageName, index);
 
             // Actualizar el estilo de los elementos de la lista
             updateActiveClass(index);

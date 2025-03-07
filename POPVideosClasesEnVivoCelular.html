@@ -33,12 +33,14 @@
             position: absolute;
             top: 10px;
             left: 10px;
-            background-color: #007bff;
+            /* background-color: #007bff; */
+            background-color: rgba(0, 0, 0, 0.5);
             color: white;
             border: none;
             padding: 10px;
             cursor: pointer;
             z-index: 1000;
+            border-radius: 5px;
         }
 
         #fullscreen-btn {
@@ -74,6 +76,7 @@
         }
 
         .video-list {
+            margin-top: 15%;
             list-style: none;
             padding: 10px;
         }
@@ -102,11 +105,20 @@
             }
 
             #toggle-btn {
-                top: 5px;
-                left: 5px;
+                top: 12px;
+                left: 10px;
                 padding: 5px;
             }
         }
+
+        @media (max-width: 768px) and (orientation: landscape) {
+
+            .video-list {
+                margin-top: 7%;
+            }
+
+        }
+
     </style>
 </head>
 <body>
@@ -124,36 +136,7 @@
 
     <script>
         const videoBaseUrl = "https://player.vimeo.com/video/";
-        /*
-        const videoIds = [
-            "897227028?h=e0e898ca81&amp",
-            "897250596?h=e4f34a4047&amp",
-            "897267675?h=d7efeeb41d&amp",
-            "897284986?h=5b9bc58850&amp",
-            "897296615?h=33b77cbcef&amp",
-            "898141453?h=448a2d03c1&amp",
-            "899537232?h=2da0991a40&amp",
-            "899857604?h=174895c003&amp",
-            "899878029?h=49867f5e55&amp",
-            "899909594?h=b6c92652d6&amp",
-            "899933212?h=2b9f6ff3e8&amp",
-            "900563967?h=bda717ec0c&amp",
-            "900576618?h=24e92bf3e3&amp",
-            "900849193?h=e078794072&amp",
-            "900881559?h=5fbd485d35&amp",
-            "900902622?h=75c9debd45&amp",
-            "900916328?h=8dae6bc27e&amp",
-            "900957234?h=2e214a20fe&amp",
-            "900971169?h=fb624121fb&amp",
-            "900985987?h=cbb048a4f9&amp",
-            "900995678?h=13e951c60f&amp",
-            "901007575?h=5bdc991e16&amp",
-            "901191422?h=ae48f8c45c&amp",
-            "901215337?h=5587b8fd09&amp",
-            "901556743?h=e3ba72e77d&amp",
-            "901587982?h=562020c43c&amp"
-        ];
-        */
+        const localStorageName = "POPIdVideosClas";
 
         const videoIds = [
             { id: "897227028?h=e0e898ca81&amp", name: "" },
@@ -193,7 +176,7 @@
         const videoPlayer = document.getElementById('video-player');
 
         // Obtener el índice del video seleccionado desde localStorage
-        const savedIndex = localStorage.getItem('selectedVideoIndex');
+        const savedIndex = localStorage.getItem(localStorageName);
         let currentIndex = savedIndex !== null ? parseInt(savedIndex, 10) : 0;
 
         // Función para alternar entre pantalla completa
@@ -216,12 +199,11 @@
 
          // Función para cargar un video en el iframe
          function loadVideo(index) {
-            // const url = `${videoBaseUrl}${videoIds[index]}&autoplay=1`;
             const url = `${videoBaseUrl}${videoIds[index].id}&autoplay=1`;
             videoPlayer.src = url;
 
             // Guardar el índice seleccionado en localStorage
-            localStorage.setItem('selectedVideoIndex', index);
+            localStorage.setItem(localStorageName, index);
 
             // Actualizar el estilo de los elementos de la lista
             updateActiveClass(index);
@@ -236,14 +218,6 @@
                 item.classList.toggle('active', i === index);
             });
         }
-
-        // Generar la lista de videos dinámicamente
-        // videoIds.forEach((id, index) => {
-        //     const listItem = document.createElement('li');
-        //     listItem.textContent = `Clase ${index + 1}`;
-        //     listItem.onclick = () => loadVideo(index);
-        //     videoList.appendChild(listItem);
-        // });
 
         videoIds.forEach((video, index) => {
             const listItem = document.createElement('li');
