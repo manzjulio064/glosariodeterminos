@@ -1,13 +1,24 @@
-let str = ["hector", "javier"]
+const arrayNombre = ["hector", "Javier"];
 
-function capitalizarPrimeraLetra(str) {
-  let strsA = []
-  for (let i = 0; i < str.length; i++) {
-       let strs = str[i]
-    strsA.push(strs.charAt(0).toUpperCase() + strs.slice(1));
-    // strsA.push(strs.charAt(0).toUpperCase() + strs.slice(1));
+
+function cuadraNombres(params) {
+
+  let dato = [];
+
+  for (let i = 0; i < params.length; i++) {
+
+    let palabra = params[i];
+
+    dato.push(palabra.charAt(0).toUpperCase() + palabra.slice(1))
+
+
   }
-  return strsA;
+
+  return dato;
+
 }
+
+console.log(cuadraNombres(arrayNombre));
+
 
 // *******************************************************
