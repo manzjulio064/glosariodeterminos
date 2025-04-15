@@ -6,6 +6,11 @@
   <title>Manejo de fechas</title>
 </head>
 <body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+
+
+
   <script>
     function diasEntreFechas(fecha1, fecha2) {
       const unDia = 1000 * 60 * 60 * 24 // se guarda en un dia cuantos milisegundos hay
@@ -16,11 +21,19 @@
     }
 
     const hoy = new Date()
-    const fechaNacimiento = new Date(prompt("Ingrese la fecha de nacimiento"))
+    const fechaNacimiento = new Date(prompt("Ingrese la fecha de nacimiento 1976 03 06"))
 
-    console.log("Tiene estos años", Math.floor((diasEntreFechas(fechaNacimiento, hoy)) / 365));
 
-  </script>
+    resultado = Math.floor((diasEntreFechas(fechaNacimiento, hoy)) / 365)
+    console.log("Tiene estos años", resultado);
+
+    swal({
+      text: `Tiene ${resultado} años de edad`,
+    });
+
+
+    </script>
+
 
 </body>
 </html>
