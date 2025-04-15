@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manejo de fechas JavaScript</title>
+</head>
+<body>
+  <script>
+    function diasEntreFechas(fecha1, fecha2) {
+      const unDia = 1000 * 60 * 60 * 24 // se guarda en un dia cuantos milisegundos hay
+      const diferencia = Math.abs(fecha1 - fecha2) // nos genera un numero en milisegundos de forma positiva sin importar si la fecha2 se coloca primero.
+
+      return Math.floor(diferencia / unDia)
+
+    }
+
+    const hoy = new Date()
+    const fechaNacimiento = new Date(prompt("Ingrese la fecha de nacimiento"))
+
+    console.log("Tiene estos años", Math.floor((diasEntreFechas(fechaNacimiento, hoy)) / 365));
+
+  </script>
+
+</body>
+</html>
