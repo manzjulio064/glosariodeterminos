@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funcion de Recursividad</title>
+</head>
+<body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+
+  <script>
+
+    /*
+
+    13 |__4__
+
+    13 - 4 = 9  1
+     9 - 4 = 5  1
+     5 - 4 = 1  1
+     1 - 4 = 0  0
+
+     El uno al final es el conteo o cada vez que se hace una resta que se puede hacer se coloca un palito
+     entonces la division entera de 13 sobre 4 es 3 palitos
+     el uno (un palito) es lo que se coloca en el return 1 + la funcion recursiva
+
+    */
+
+    function divicionEntera(dividendo, divisor){
+      if (dividendo < divisor) {
+        return 0;
+      }
+
+      return 1 + divicionEntera(dividendo - divisor, divisor)
+    }
+
+    const entrada = prompt("Ingrese el dividendo y divisor separado por coma")
+    const [dividendo, divisor] = entrada.split(',').map(Number)
+
+    // entrada.split(',') Esto divide el string en un array, separando por la coma.
+    // .map(Number) recorre ese array y convierte cada string en número usando la función Number.
+    // const [dividendo, divisor] = Estamos diciendo: el primer elemento del array va a dividendo, y el segundo a divisor.
+
+
+    const resultado = divicionEntera(dividendo, divisor)
+
+    swal({
+      text: `El resultado de la división entera es: ${resultado}`,
+    });
+
+
+
+  </script>
+
+</body>
+</html>
