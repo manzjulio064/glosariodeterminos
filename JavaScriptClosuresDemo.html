@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Closures</title>
+</head>
+
+<style>
+
+  body, html {
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;   /* Centra horizontalmente */
+    align-items: flex-start;   /* Alinea arriba */
+    height: 100vh;             /* Ocupa toda la altura de la pantalla */
+    padding-top: 20px;         /* Espacio desde arriba */
+    box-sizing: border-box;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 24px;           /* Ajusta para que se vea bien en móvil */
+    max-width: 90%;            /* Evita que se desborde */
+    word-break: break-word;    /* Asegura que el texto se corte bien */
+  }
+</style>
+<body>
+
+  <div class="container">
+    <h1>ver en la consola del navegador</h1>
+  </div>
+
+
+  <!-- *********************************Ejemplo 1************************************** -->
+   <!-- renorna una function anonima en la cual se le puede mandar por parametro el nombre y en la funcion principal el saludo -->
+  <script>
+    function crearSaludo(finSaludo){
+      return function(nombre){
+        console.log(`Hola ${nombre} ${finSaludo}`)
+      }
+    }
+
+    const saludoArgentino = crearSaludo('Che')
+    const saludoMexicano = crearSaludo('Wuey')
+    const saludoColombiano = crearSaludo('Man')
+
+    saludoArgentino('Maradona')
+    saludoMexicano('Vicente')
+    saludoColombiano('Maluna')
+
+
+  </script>
+
+   <!-- *********************************Ejemplo 2************************************** -->
+    <!-- Retorna las funciones empezar y detener -->
+
+  <script>
+    function crearTemporizador() {
+
+      let segundos = 0
+      let intervalo
+      return {
+        empezar: function(){
+          intervalo = setInterval(function () {
+            segundos++;
+          }, 1000);
+        },
+        detener: function(){
+          clearInterval(intervalo);
+          return segundos;
+        }
+      }
+    }
+
+    const temporizador = crearTemporizador();
+
+    temporizador.empezar();
+
+    setTimeout(() => {
+      const segundos = temporizador.detener();
+      console.log(`Han pasado ${segundos} segundos`);
+    }, 5000);
+
+  </script>
+
+   <!-- ******************************************************************************** -->
+
+</body>
+</html>
