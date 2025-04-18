@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>this.cache</title>
+</head>
+<body>
+
+  <!-- ***************************************Ejemplo 1***************************************** -->
+
+  <!--
+  <script>
+    /*
+
+    Factorial
+
+    !6 = 6*5*4*3*2*1 = 720
+    !12 = 12*11*10*9*8*7*!6  el !6 lo podemos guardar en cache y sumarlo
+
+    */
+
+    function factorial(n) {
+      if (!this.cache) {  // Preguntamos si this.cache existe o si no creamos un objeto al que se le pueden crear atributos
+        this.cache = {}
+      }
+
+      debugger
+      if (this.cache[n]) {    // verificamos si this.cache tiene guardada informacion que podamos utilizar
+        return this.cache[n]
+      }
+
+
+      if (n === 1) {  // verificamos la funcion recursiva si esta en 1 es porque ya termino el factorial
+        return 1
+      }
+
+      this.cache[n] = n * factorial(n - 1) // Hacemos el factorial de forma recursiva y guardamos en this.cache para utilizar esa informacion posteriormente
+      debugger
+      return this.cache[n]
+    }
+  </script>
+  -->
+
+  <!-- ***************************************Ejemplo 2***************************************** -->
+
+  <script>
+
+    class MiServicio {
+      constructor() {
+        this.cache = {};
+      }
+
+      guardarDato(clave, valor) {
+        this.cache[clave] = valor;
+      }
+
+      obtenerCache() {
+        return this.cache;
+      }
+    }
+
+    const servicio = new MiServicio();
+
+    servicio.guardarDato("usuario1", "Juan");
+    servicio.guardarDato("usuario2", "Ana");
+
+    console.log(servicio.cache);
+
+  </script>
+
+</body>
+</html>
+
+
+<!-- ******************************************************************************************* -->
