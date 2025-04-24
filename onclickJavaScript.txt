@@ -15,4 +15,27 @@ window.onload = function() {
   }
 
 }
+//************************************OnClick() en button**************************************//
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>hector</h1>
+
+  <button type="button" onclick="btn()" >cambiar h1</button>
+
+  <script>
+    function btn() {
+      let titulo = document.querySelector('h1').innerHTML = 'hola soy <i>Hector Javier Moreno</i>'
+    }
+  </script>
+
+</body>
+</html>
+
 //******************************************************************************************//
