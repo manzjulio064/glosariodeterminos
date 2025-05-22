@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,21 +132,27 @@
         </ul>
     </div>
     <div id="main-content">
-        <iframe id="video-player" src="https://player.vimeo.com/video/LINKVIDEO227028?h=e0e898ca81&amp" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+        <iframe id="video-player" src="https://drive.google.com/file/d/1G9NDbcnTkRmxqbLY5L16Q2A3fa9fPXBF/preview" allow="autoplay; fullscreen; picture-in-picture"></iframe>
     </div>
 
     <script>
+
         const htmlFile = window.location.pathname.split('/').pop().replace(".html", "");
-        const videoBaseUrl = "https://player.vimeo.com/video/";
+        const videoBaseUrl = "https://drive.google.com/file/d/";
         const localStorageName = `Index${htmlFile}`;
 
         const videoIds = [
-            { id: "10621616507?h=ae2a37aeba&amp", name: "iD DEL VIDEO EMBEBIDO" },
-            { id: "1062282g5257?h=f8a688215b&amp", name: "Taller de estrategias de entrevista e inserción laboral Parte 2 Hoja de Vida" },
-            { id: "10625425b4443?h=f2523ffa11&amp", name: "Taller de estrategias de entrevista e inserción laboral Parte 3 Código de Vestuario" },
-            { id: "106325425f4098?h=da0e521da2&amp", name: "Taller Marca Personal Parte1" },
-            { id: "106325225h4236?h=6012125a0c&amp", name: "Taller Marca Personal Parte2" }
-
+            { id: "1G9NDbcnTkRmxqbLY5L16Q2A3fa9fPXBF", name: "Globant Meli- Marca Personal" },
+            { id: "1ElJa9PihXVQHVq8reKJ_ysJjzm6fahWt", name: "GitHub Video1" },
+            { id: "1P-v9YTOLQffSQdt7ECmN4wiaDaTGt3hO", name: "GitHub Video2" },
+            { id: "1ucgV0pzgXR9WYHx1NzdVX8x42qnqMSCW", name: "Chubb Cómo destacar entre otros profesionales en la búsqueda de empleo y cómo hacer atractivo tu perfil." },
+            { id: "1O_f-MK7ILYCYx79TiEkdwombRxWD_pwu", name: "COgnizant" },
+            { id: "1-4VTnhXrfUx5ekkyJLOKeK3TIRJD_wZn", name: "Trabajando en el mundo IT: Desde Proyectos hasta hubs de Innovación." },
+            { id: "1TXTfEHsVAXyIz_FVoub_e6IGw0g5penH", name: "IA en HR: Tendencias y nuevas tecnologías 2023." },
+            { id: "1_jszeLl1GH1ik0eS4U1SZyRONwPY51cB", name: "Naranja X -Charla: Más allá de las REST APIs" },
+            { id: "1lQksL2YLS1-1keewSMH7Gpct0cvU4udw", name: "Raizen" },
+            { id: "1MpczvXuf1Evsw_EHfGCzjzqEboTlwIM0", name: "Takenos" },
+            { id: "18Gqzfyp60U9CoO8CJyI9YXqYebqX_kDv", name: "Team International" },
         ];
 
 
@@ -180,7 +187,8 @@
 
          // Función para cargar un video en el iframe
          function loadVideo(index) {
-            const url = `${videoBaseUrl}${videoIds[index].id}&autoplay=1`;
+            const url = `${videoBaseUrl}${videoIds[index].id}/preview`;
+            console.log(url)
             videoPlayer.src = url;
 
             // Guardar el índice seleccionado en localStorage
@@ -217,5 +225,6 @@
     </script>
 </body>
 </html>
+
 
 
