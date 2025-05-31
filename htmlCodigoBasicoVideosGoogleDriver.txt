@@ -140,7 +140,6 @@
         const htmlFile = window.location.pathname.split('/').pop().replace(".html", "");
         const videoBaseUrl = "https://drive.google.com/file/d/";
         const localStorageName = `Index${htmlFile}`;
-        console.log("localStorageName", localStorageName)
 
         const videoIds = [
             { id: "1G9NDbcnTkRmxqbLhtyhhY5L16Q2A3fa9fPXBF", name: "video1" },
@@ -182,7 +181,7 @@
          // Función para cargar un video en el iframe
          function loadVideo(index) {
             const url = `${videoBaseUrl}${videoIds[index].id}/preview`;
-            console.log(url)
+
             videoPlayer.src = url;
 
             // Guardar el índice seleccionado en localStorage
