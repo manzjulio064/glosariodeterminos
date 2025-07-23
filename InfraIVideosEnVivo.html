@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos Infraestructura I</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #sidebar {
+            width: 300px;
+            background-color: #f4f4f4;
+            overflow-y: auto;
+            transition: width 0.3s ease;
+        }
+
+        #sidebar.hidden {
+            width: 0;
+        }
+
+        #toggle-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            /* background-color: #007bff; */
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+            border-radius: 5px;
+        }
+
+        #fullscreen-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+            border-radius: 5px;
+        }
+
+        #fullscreen-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        #main-content {
+            flex: 1;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: margin-left 0.3s ease;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-list {
+            margin-top: 15%;
+            list-style: none;
+            padding: 10px;
+        }
+
+        .video-list li {
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .video-list li:hover {
+            /* text-decoration: underline; */
+            background-color: #ddd;
+        }
+
+        .video-list li.active {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            #sidebar {
+                width: 70%;
+            }
+
+            #toggle-btn {
+                top: 12px;
+                left: 10px;
+                padding: 5px;
+            }
+        }
+
+        @media (max-width: 768px) and (orientation: landscape) {
+
+            .video-list {
+                margin-top: 7%;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <button id="toggle-btn">☰</button>
+    <button id="fullscreen-btn">⛶</button>
+    <div id="sidebar">
+        <ul class="video-list">
+            <!-- Lista de videos generada dinámicamente -->
+        </ul>
+    </div>
+    <div id="main-content">
+        <iframe id="video-player" src="https://player.vimeo.com/video/1022133594?h=bd03273987&amp" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+    </div>
+
+    <script>
+        const htmlFile = window.location.pathname.split('/').pop().replace(".html", "");
+        const videoBaseUrl = "https://player.vimeo.com/video/";
+        const localStorageName = `Index${htmlFile}`;
+
+        const videoIds = [
+            { id: "1022133594?h=bd03273987&amp", name: "InfraestructuraIClase1" },
+            { id: "1022153179?h=73001a310e&amp", name: "InfraestructuraIClase2" },
+            { id: "1022190120?h=15a2d4344c&amp", name: "InfraestructuraIClase4" },
+            { id: "1022204486?h=89db088899&amp", name: "InfraestructuraIClase5" },
+            { id: "1022214893?h=2959fa99e2&amp", name: "InfraestructuraIClase6" },
+            { id: "1022224934?h=eed26ddde3&amp", name: "InfraestructuraIClase7" },
+            { id: "1022274983?h=278a5aa959&amp", name: "InfraestructuraIClase8" },
+            { id: "1022282165?h=b20d59bbb6&amp", name: "InfraestructuraIClase9" },
+            { id: "1022289616?h=ee6f55009a&amp", name: "InfraestructuraIClase9-1" },
+            { id: "1022298715?h=972ef8498e&amp", name: "InfraestructuraIClase10" },
+            { id: "1022305880?h=be2750df7a&amp", name: "InfraestructuraIClase11Parcial" },
+            { id: "1022309984?h=72dddaf0d2&amp", name: "Infraestructura I Clase 13 Docker" },
+            { id: "1022318078?h=9535576c4d&amp", name: "InfraestructuraIClase14ecosistemaDocker" },
+            { id: "1022326189?h=b870fda7d7&amp", name: "InfraestructuraIClase15" },
+            { id: "1022338213?h=b1ec12eb18&amp", name: "InfraestructuraIClase16IntroduccionalCloudComputing" },
+            { id: "1022345477?h=9f0ff13810&amp", name: "InfraestructuraIClase17ComputacionEnLaNube" },
+            { id: "1023115541?h=ef8345accd&amp", name: "InfraestructuraIClase18CloudComputingRedesVPC" },
+            { id: "1023120692?h=c9f829430f&amp", name: "InfraestructuraIClase19CloudComputing" },
+            { id: "1023125974?h=4931e265ef&amp", name: "InfraestructuraIClase20AlmacenamientoenlaNube" },
+            { id: "1023248817?h=03ac3bd26d&amp", name: "InfraestructuraIClase21AlmacenamientoenlaNube" },
+            { id: "1023552021?h=f6d047bd63&amp", name: "InfraestructuraIClase22RepasoPreFinal" },
+            { id: "1023560885?h=98244fa733&amp", name: "InfraestructuraIClase23CierreMateria" }
+        ];
+
+
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('toggle-btn');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const mainContent = document.getElementById('main-content');
+        const videoList = document.querySelector('.video-list');
+        const videoPlayer = document.getElementById('video-player');
+
+        // Obtener el índice del video seleccionado desde localStorage
+        const savedIndex = localStorage.getItem(localStorageName);
+        let currentIndex = savedIndex !== null ? parseInt(savedIndex, 10) : 0;
+
+        // Función para alternar entre pantalla completa
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+                fullscreenBtn.textContent = "❌"; // Cambia el ícono al salir de pantalla completa
+            } else {
+                document.exitFullscreen();
+                fullscreenBtn.textContent = "⛶"; // Cambia el ícono al entrar a pantalla completa
+            }
+        }
+
+        // Función para ocultar o mostrar la barra lateral
+        function toggleSidebar() {
+            sidebar.classList.toggle('hidden');
+            mainContent.style.marginLeft = sidebar.classList.contains('hidden') ? '0' : '0px';
+        }
+
+
+         // Función para cargar un video en el iframe
+         function loadVideo(index) {
+            const url = `${videoBaseUrl}${videoIds[index].id}&autoplay=1`;
+            videoPlayer.src = url;
+
+            // Guardar el índice seleccionado en localStorage
+            localStorage.setItem(localStorageName, index);
+
+            // Actualizar el estilo de los elementos de la lista
+            updateActiveClass(index);
+
+            toggleSidebar(); // Ocultar la barra lateral
+        }
+
+        // Función para resaltar el video seleccionado
+        function updateActiveClass(index) {
+            const items = document.querySelectorAll('.video-list li');
+            items.forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+        }
+
+        videoIds.forEach((video, index) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = video.name ? video.name : `Clase ${index + 1}`;
+            listItem.onclick = () => loadVideo(index);
+            videoList.appendChild(listItem);
+        });
+
+        // Eventos para los botones
+        toggleBtn.addEventListener('click', () => sidebar.classList.toggle('hidden'));
+        fullscreenBtn.addEventListener('click', toggleFullscreen);
+
+        // Cargar el video guardado o el primer video por defecto
+        loadVideo(currentIndex);
+
+    </script>
+</body>
+</html>
