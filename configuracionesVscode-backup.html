@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Backup y Restauración VS Code</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 40px;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #007acc;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    button {
+      padding: 12px 24px;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+      white-space: normal;
+      word-wrap: break-word;
+      word-break: break-word;
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔄 Backup y Restauración de Visual Studio Code</h1>
+
+  <p>
+    Este sitio te permite descargar y restaurar tu configuración personalizada de Visual Studio Code, incluyendo:
+    <strong>Settings, Keybindings, Snippets, Tasks, MCP Server, UI State, Extensions, Profiles y Prompts</strong>.
+  </p>
+
+  <h2>📦 Descargar respaldo</h2>
+  <a href="https://manzjulio064.github.io/glosariodeterminos/vscode-backup.rar" download>
+    <button>📥 Descargar archivo vscode-backup.rar</button>
+  </a>
+
+  <h2>📜 Descargar scripts de respaldo y restauración</h2>
+  <a href="https://manzjulio064.github.io/glosariodeterminos/backupConfVisualSCode.sh" download>
+    <button>🧰 Descargar backupConfVisualSCode.sh</button>
+  </a>
+  <br><br>
+  <a href="https://manzjulio064.github.io/glosariodeterminos/RestauracionConfiguracionVisualStudioCode.sh" download>
+    <button>🔧 Descargar RestauracionConfiguracionVisualStudioCode.sh</button>
+  </a>
+
+  <p>Para ejecutar los scripts, primero dales permisos si los requiere con:</p>
+  <pre><code>chmod +x backupConfVisualSCode.sh
+  chmod +x RestauracionConfiguracionVisualStudioCode.sh</code></pre>
+
+  <p>Y luego ejecútalos así desde la terminal:</p>
+  <pre><code>./backupConfVisualSCode.sh</code></pre>
+  <pre><code>./RestauracionConfiguracionVisualStudioCode.sh</code></pre>
+
+
+  <h2>🧪 Procedimiento de respaldo</h2>
+  <p>1. Ejecuta el siguiente script desde la terminal (Linux, macOS, Git Bash en Windows):</p>
+  <pre><code>./backupConfVisualSCode.sh</code></pre>
+  <p>2. Se generará la carpeta <code>vscode-backup/</code> con:</p>
+  <ul>
+    <li>Tu configuración de usuario</li>
+    <li>Snippets, keybindings, tasks</li>
+    <li>Extensiones instaladas</li>
+  </ul>
+  <p>3. Comprime esa carpeta como <code>.rar</code> o <code>.zip</code> para resguardarla.</p>
+
+  <h2>♻️ Procedimiento de restauración</h2>
+  <p><strong>IMPORTANTE:</strong> Antes de ejecutar el script de restauración, debes <strong>descargar</strong> el archivo <code>vscode-backup.rar</code> y <strong>descomprimirlo</strong> en el mismo directorio del script. De lo contrario, la restauración fallará.</p>
+  <p>1. Descomprime el archivo descargado.</p>
+  <p>2. Ejecuta desde la terminal:</p>
+  <pre><code>./RestauracionConfiguracionVisualStudioCode.sh</code></pre>
+  <p>3. Esto restaurará tu entorno exactamente como lo tenías.</p>
+
+  <h2>☁️ Sincronización automática (Settings Sync)</h2>
+  <p>También puedes sincronizar toda tu configuración con GitHub o Microsoft mediante la opción integrada de VS Code.</p>
+  <ol>
+    <li>En VS Code, presiona <strong>F1</strong> o <strong>Ctrl+Shift+P</strong>.</li>
+    <li>Escribe y selecciona: <code>Settings Sync: Turn On</code>.</li>
+    <li>Inicia sesión con tu cuenta de GitHub o Microsoft.</li>
+    <li>Selecciona los elementos a sincronizar:</li>
+  </ol>
+  <ul>
+    <li>Extensiones</li>
+    <li>Configuración (<code>settings.json</code>)</li>
+    <li>Atajos de teclado</li>
+    <li>Snippets</li>
+    <li>Temas</li>
+  </ul>
+  <p>🔁 En una nueva instalación, repite los pasos y se restaurará automáticamente toda tu configuración si previamente realizo backup en github.</p>
+
+  <hr />
+  <p><em>Creado por Hector Javier Moreno · Última actualización: agosto 2025</em></p>
+
+</body>
+</html>
