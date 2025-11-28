@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #sidebar {
+            width: 300px;
+            background-color: #f4f4f4;
+            overflow-y: auto;
+            transition: width 0.3s ease;
+        }
+
+        #sidebar.hidden {
+            width: 0;
+        }
+
+        #toggle-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            /* background-color: #007bff; */
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+            border-radius: 5px;
+        }
+
+        #fullscreen-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+            border-radius: 5px;
+        }
+
+        #fullscreen-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        #main-content {
+            flex: 1;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: margin-left 0.3s ease;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-list {
+            margin-top: 15%;
+            list-style: none;
+            padding: 10px;
+        }
+
+        .video-list li {
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .video-list li:hover {
+            /* text-decoration: underline; */
+            background-color: #ddd;
+        }
+
+        .video-list li.active {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            #sidebar {
+                width: 70%;
+            }
+
+            #toggle-btn {
+                top: 12px;
+                left: 10px;
+                padding: 5px;
+            }
+        }
+
+        @media (max-width: 768px) and (orientation: landscape) {
+
+            .video-list {
+                margin-top: 7%;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <button id="toggle-btn">☰</button>
+    <button id="fullscreen-btn">⛶</button>
+    <div id="sidebar">
+        <ul class="video-list">
+            <!-- Lista de videos generada dinámicamente -->
+        </ul>
+    </div>
+    <div id="main-content">
+        <iframe id="video-player" src="https://player.vimeo.com/video/1134607200?h=4b7bd05cef&amp" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+    </div>
+
+    <script>
+        const htmlFile = window.location.pathname.split('/').pop().replace(".html", "");
+        const videoBaseUrl = "https://player.vimeo.com/video/";
+        const localStorageName = `Index${htmlFile}`;
+
+        const videoIds = [
+
+            { id: "1134607200?h=4b7bd05cef&amp", name: "1 Análisis de Datos para Decisiones Estratégicas con Power BI" },
+            { id: "1134608211?h=21e3decb67&amp", name: "2 Instalación de Power BI en Windows paso a paso" },
+            { id: "1134609738?h=bc3c1c3b63&amp", name: "3 Exploración de Interfaces en Power BI para Principiantes" },
+            { id: "1134611120?h=9ba980c986&amp", name: "4 Configuración de Conexiones de Datos en Power BI" },
+            { id: "1134613732?h=52d07a7c93&amp", name: "5 Análisis de Datos: Exploración y Definición de Preguntas en Power BI" },
+            { id: "1134618571?h=f21d6ebe35&amp", name: "6 Limpieza y Preparación de Datos en Power BI" },
+            { id: "1134622791?h=bcaa3829d2&amp", name: "7 Limpieza y Transformación de Datos en Power BI" },
+            { id: "1134625754?h=7fdea478c5&amp", name: "8 Creación de Columnas Personalizadas con Power Query en Power BI" },
+            { id: "1134628769?h=229f9971cb&amp", name: "9 Modelado de Datos: Conceptos y Buenas Prácticas en Power BI" },
+            { id: "1134631754?h=cb3fb7445d&amp", name: "10 Construcción de Modelos de Datos en Power BI" },
+            { id: "1134874984?h=fbc6178334&amp", name: "11 Creación de Columnas Calculadas y Medidas con DAX en Power BI" },
+            { id: "1134876972?h=2e21f29273&amp", name: "12 Creación de Tablas Calendario en Power BI con DAX" },
+            { id: "1134878915?h=30fb53b82f&amp", name: "13 Análisis de Ventas y DAX en Sucursales Comerciales" },
+            { id: "1134881029?h=d619550c3e&amp", name: "14 Visualización de Ventas con DAX en Power BI" },
+            { id: "1134882987?h=f13f2c01e1&amp", name: "15 Principales Visualizaciones de Datos en Power BI" },
+            { id: "1134884392?h=20b5f13643&amp", name: "16 Interacciones y filtros en Power BI para análisis de ventas" },
+            { id: "1134886286?h=9b6642b51d&amp", name: "17 Principios de Diseño para Reportes Efectivos en Power BI" },
+            { id: "1134887478?h=99d959cfc9&amp", name: "18 Optimización de Reportes en Power BI para Mejorar Experiencia de Usuario" },
+            { id: "1134888772?h=b13264bd6b&amp", name: "19 Configuración de Gráficos de Dispersión en Power BI" },
+            { id: "1134890315?h=7ba33ff2ac&amp", name: "20 Uso de Temas en Power BI para Mejorar el Diseño de Reportes" },
+            { id: "1134891285?h=b3e8d986ee&amp", name: "21 Publicación de Proyectos en Power BI Service" },
+            { id: "1134891676?h=2439c61571&amp", name: "22 Creación de Cuenta de Prueba en Power BI Service" },
+            { id: "1134892773?h=029c1a18cd&amp", name: "23 Publicación y Compartición de Reportes en Power BI Service" },
+            { id: "1134893752?h=d73fcda62c&amp", name: "24 Exportar Datos de Power BI a Excel: Guía Práctica" },
+            { id: "1134894349?h=0cfb79db6b&amp", name: "25 Análisis de Resultados en Power BI: Transformando Datos en Conocimiento" },
+        ];
+
+
+
+
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('toggle-btn');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const mainContent = document.getElementById('main-content');
+        const videoList = document.querySelector('.video-list');
+        const videoPlayer = document.getElementById('video-player');
+
+        // Obtener el índice del video seleccionado desde localStorage
+        const savedIndex = localStorage.getItem(localStorageName);
+        let currentIndex = savedIndex !== null ? parseInt(savedIndex, 10) : 0;
+
+        // Función para alternar entre pantalla completa
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+                fullscreenBtn.textContent = "❌"; // Cambia el ícono al salir de pantalla completa
+            } else {
+                document.exitFullscreen();
+                fullscreenBtn.textContent = "⛶"; // Cambia el ícono al entrar a pantalla completa
+            }
+        }
+
+        // Función para ocultar o mostrar la barra lateral
+        function toggleSidebar() {
+            sidebar.classList.toggle('hidden');
+            mainContent.style.marginLeft = sidebar.classList.contains('hidden') ? '0' : '0px';
+        }
+
+
+         // Función para cargar un video en el iframe
+         function loadVideo(index) {
+            const url = `${videoBaseUrl}${videoIds[index].id}&autoplay=1`;
+            videoPlayer.src = url;
+
+            // Guardar el índice seleccionado en localStorage
+            localStorage.setItem(localStorageName, index);
+
+            // Actualizar el estilo de los elementos de la lista
+            updateActiveClass(index);
+
+            toggleSidebar(); // Ocultar la barra lateral
+        }
+
+        // Función para resaltar el video seleccionado
+        function updateActiveClass(index) {
+            const items = document.querySelectorAll('.video-list li');
+            items.forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+        }
+
+        videoIds.forEach((video, index) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = video.name ? video.name : `Clase ${index + 1}`;
+            listItem.onclick = () => loadVideo(index);
+            videoList.appendChild(listItem);
+        });
+
+        // Eventos para los botones
+        toggleBtn.addEventListener('click', () => sidebar.classList.toggle('hidden'));
+        fullscreenBtn.addEventListener('click', toggleFullscreen);
+
+        // Cargar el video guardado o el primer video por defecto
+        loadVideo(currentIndex);
+
+    </script>
+</body>
+</html>
+
